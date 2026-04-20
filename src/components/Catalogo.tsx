@@ -1144,36 +1144,36 @@ const Catalogo = () => {
               onClick={() => setSelectedProduct(p)}
             >
               {/* Product Image */}
-              <div className="w-full h-48 bg-[#FAFAFA] p-4 flex items-center justify-center relative">
+              <div className="w-full h-32 sm:h-48 bg-white flex items-center justify-center overflow-hidden rounded-t-xl relative">
                 <img 
                   src={p.imagen} 
                   alt={p.nombre} 
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105 duration-500" 
+                  className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500" 
                   loading="lazy" 
                 />
               </div>
 
               {/* Product Info */}
-              <div className="p-4 flex flex-col flex-1">
+              <div className="p-3 md:p-4 flex flex-col flex-1">
                 <div className="mb-2 flex flex-col items-center text-center">
-                  <span className="inline-block w-fit bg-green-100 text-green-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2">
+                  <span className="inline-block w-fit bg-green-100 text-green-700 text-[10px] md:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2">
                     {p.subcategoria || p.categoria}
                   </span>
-                  <h3 className="font-body text-[16px] font-bold text-gray-800 leading-tight min-h-[40px] text-center">
+                  <h3 className="font-body text-xs sm:text-sm md:text-base font-bold text-gray-800 leading-tight min-h-[40px] text-center">
                     {p.nombre}
                   </h3>
                 </div>
 
-                <div className="mt-auto pt-4 flex flex-col gap-3 text-center">
-                  <span className="font-heading text-xl font-bold text-primary">
-                    {formatPrice(p.precio)} {p.unidadPrecio && <span className="text-sm font-body text-gray-400">/ {p.unidadPrecio}</span>}
+                <div className="mt-auto pt-2 md:pt-4 flex flex-col gap-2 md:gap-3 text-center">
+                  <span className="font-heading text-lg md:text-xl font-bold text-primary">
+                    {formatPrice(p.precio)} {p.unidadPrecio && <span className="text-[10px] md:text-sm font-body text-gray-400">/ {p.unidadPrecio}</span>}
                   </span>
                   <button
                     onClick={(e) => handleAddToCart(e, p)}
-                    className="w-full bg-primary text-white px-6 py-3 rounded-xl font-semibold text-base flex items-center justify-center gap-2 hover:bg-primary-dark transition-colors shadow-sm"
+                    className="w-full bg-primary text-white px-2 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold text-sm md:text-base flex items-center justify-center gap-1 md:gap-2 hover:bg-primary-dark transition-colors shadow-sm"
                   >
-                    <Plus size={18} />
-                    Agregar
+                    <Plus size={16} className="md:size-[18px]" />
+                    <span>Agregar</span>
                   </button>
                 </div>
               </div>
