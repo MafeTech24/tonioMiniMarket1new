@@ -1144,7 +1144,7 @@ const Catalogo = () => {
               onClick={() => setSelectedProduct(p)}
             >
               {/* Product Image */}
-              <div className="w-full aspect-square bg-[#FAFAFA] p-4 flex items-center justify-center relative">
+              <div className="w-full h-36 bg-[#FAFAFA] p-4 flex items-center justify-center relative">
                 <img 
                   src={p.imagen} 
                   alt={p.nombre} 
@@ -1156,10 +1156,10 @@ const Catalogo = () => {
               {/* Product Info */}
               <div className="p-4 flex flex-col flex-1">
                 <div className="mb-2 flex flex-col items-center text-center">
-                  <span className="inline-block bg-green-100 text-green-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2">
+                  <span className="inline-block w-fit bg-green-100 text-green-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2">
                     {p.subcategoria || p.categoria}
                   </span>
-                  <h3 className="font-body text-[16px] font-bold text-gray-800 leading-tight line-clamp-2 min-h-[40px] text-center">
+                  <h3 className="font-body text-[16px] font-bold text-gray-800 leading-tight min-h-[40px] text-center">
                     {p.nombre}
                   </h3>
                 </div>
@@ -1170,7 +1170,7 @@ const Catalogo = () => {
                   </span>
                   <button
                     onClick={(e) => handleAddToCart(e, p)}
-                    className="w-full bg-primary text-white h-[44px] rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary-dark transition-colors shadow-sm"
+                    className="w-full bg-primary text-white h-[44px] px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary-dark transition-colors shadow-sm"
                   >
                     <Plus size={18} />
                     Agregar
@@ -1193,7 +1193,7 @@ const Catalogo = () => {
       {selectedProduct && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedProduct(null)} />
-          <div className="relative bg-white w-full max-w-4xl rounded-[24px] overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]">
+          <div className="relative bg-white w-full max-w-4xl rounded-[24px] overflow-y-auto shadow-2xl flex flex-col md:flex-row max-h-[90vh] [-webkit-overflow-scrolling:touch]">
             <button 
               onClick={() => setSelectedProduct(null)} 
               className="absolute top-4 right-4 z-20 p-2 bg-white/90 backdrop-blur rounded-full hover:bg-primary hover:text-white transition-all border shadow-sm text-gray-700"
