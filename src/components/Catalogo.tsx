@@ -1170,7 +1170,7 @@ const Catalogo = () => {
                   </span>
                   <button
                     onClick={(e) => handleAddToCart(e, p)}
-                    className="w-full bg-primary text-white h-[48px] px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-1 md:gap-2 hover:bg-primary-dark transition-colors shadow-sm"
+                    className="w-full bg-primary text-white h-[48px] px-4 rounded-xl font-bold text-[11px] sm:text-sm flex items-center justify-center gap-1 md:gap-2 hover:bg-primary-dark transition-colors shadow-sm"
                   >
                     <Plus size={16} className="md:size-[20px]" />
                     <span>AGREGAR</span>
