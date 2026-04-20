@@ -1140,11 +1140,11 @@ const Catalogo = () => {
           {filtered.map((p) => (
             <div 
               key={p.id} 
-              className="bg-white rounded-[16px] overflow-hidden cursor-pointer group shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col h-full relative"
+              className="bg-white rounded-[16px] overflow-hidden cursor-pointer group shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col h-full relative sm:pt-[10px]"
               onClick={() => setSelectedProduct(p)}
             >
               {/* Product Image */}
-              <div className="w-full h-32 sm:h-48 bg-white flex items-center justify-center overflow-hidden rounded-t-xl relative">
+              <div className="w-full h-32 sm:h-56 bg-white flex items-center justify-center overflow-hidden rounded-t-xl relative">
                 <img 
                   src={p.imagen} 
                   alt={p.nombre} 
@@ -1154,12 +1154,12 @@ const Catalogo = () => {
               </div>
 
               {/* Product Info */}
-              <div className="p-3 md:p-4 flex flex-col flex-1">
+              <div className="p-3 md:p-5 flex flex-col flex-1">
                 <div className="mb-2 flex flex-col items-center text-center">
                   <span className="inline-block w-fit bg-green-100 text-green-700 text-[10px] md:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2">
                     {p.subcategoria || p.categoria}
                   </span>
-                  <h3 className="font-body text-xs sm:text-sm md:text-base font-bold text-gray-800 leading-tight min-h-[40px] text-center">
+                  <h3 className="font-body text-xs sm:text-[16px] font-bold text-gray-800 leading-tight min-h-[40px] text-center uppercase tracking-tight">
                     {p.nombre}
                   </h3>
                 </div>
@@ -1170,10 +1170,10 @@ const Catalogo = () => {
                   </span>
                   <button
                     onClick={(e) => handleAddToCart(e, p)}
-                    className="w-full bg-primary text-white px-2 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold text-sm md:text-base flex items-center justify-center gap-1 md:gap-2 hover:bg-primary-dark transition-colors shadow-sm"
+                    className="w-full bg-primary text-white h-[48px] px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-1 md:gap-2 hover:bg-primary-dark transition-colors shadow-sm"
                   >
-                    <Plus size={16} className="md:size-[18px]" />
-                    <span>Agregar</span>
+                    <Plus size={16} className="md:size-[20px]" />
+                    <span>AGREGAR</span>
                   </button>
                 </div>
               </div>
