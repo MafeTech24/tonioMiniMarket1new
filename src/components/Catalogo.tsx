@@ -1144,7 +1144,7 @@ const Catalogo = () => {
               onClick={() => setSelectedProduct(p)}
             >
               {/* Product Image */}
-              <div className="w-full h-36 bg-[#FAFAFA] p-4 flex items-center justify-center relative">
+              <div className="w-full h-48 bg-[#FAFAFA] p-4 flex items-center justify-center relative">
                 <img 
                   src={p.imagen} 
                   alt={p.nombre} 
@@ -1170,7 +1170,7 @@ const Catalogo = () => {
                   </span>
                   <button
                     onClick={(e) => handleAddToCart(e, p)}
-                    className="w-full bg-primary text-white h-[44px] px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary-dark transition-colors shadow-sm"
+                    className="w-full bg-primary text-white px-6 py-3 rounded-xl font-semibold text-base flex items-center justify-center gap-2 hover:bg-primary-dark transition-colors shadow-sm"
                   >
                     <Plus size={18} />
                     Agregar
