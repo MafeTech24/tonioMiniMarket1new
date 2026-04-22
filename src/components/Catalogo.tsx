@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
-import { ShoppingCart, X, Plus, Minus } from "lucide-react";
+import { ShoppingCart, X, Plus, Minus, Search } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
-// Pollería Assets
-import alitasPolloImg from "@/assets/products/polleria/alitasPollo.png";
-import medioPolloImg from "@/assets/products/polleria/medioPollo.png";
-import milaPolloImg from "@/assets/products/polleria/milaPollo.png";
-import pataMusloImg from "@/assets/products/polleria/pataMuslo.png";
-import pataPolloImg from "@/assets/products/polleria/pataPollo.png";
-import pechugasdePolloImg from "@/assets/products/polleria/pechugasdePollo.png";
-import polloEnteroImg from "@/assets/products/polleria/polloEntero.png";
+
 
 interface Producto {
   id: number;
@@ -979,7 +972,7 @@ const productos: Producto[] = [
     nombre: "Alitas de Pollo (x kg)", 
     precio: 4200, 
     categoria: "Pollería", 
-    imagen: alitasPolloImg,
+    imagen: "/products/polleria/alitasPollo.png",
     descripcion: "Alitas de pollo frescas, ideales para la parrilla o al horno. Precio por kilogramo.",
     stock: 20
   },
@@ -988,7 +981,7 @@ const productos: Producto[] = [
     nombre: "Medio Pollo (x kg)", 
     precio: 5800, 
     categoria: "Pollería", 
-    imagen: medioPolloImg,
+    imagen: "/products/polleria/medioPollo.png",
     descripcion: "Medio pollo fresco y limpio, listo para cocinar. Precio por kilogramo.",
     stock: 20
   },
@@ -997,7 +990,7 @@ const productos: Producto[] = [
     nombre: "Milanesas de Pollo (x kg)", 
     precio: 6500, 
     categoria: "Pollería", 
-    imagen: milaPolloImg,
+    imagen: "/products/polleria/milaPollo.png",
     descripcion: "Milanesas de pollo elaboradas con pechuga de primera calidad. Precio por kilogramo.",
     stock: 20
   },
@@ -1006,7 +999,7 @@ const productos: Producto[] = [
     nombre: "Pata Muslo (x kg)", 
     precio: 4800, 
     categoria: "Pollería", 
-    imagen: pataMusloImg,
+    imagen: "/products/polleria/pataMuslo.png",
     descripcion: "Cuartos traseros de pollo (pata y muslo) frescos. Precio por kilogramo.",
     stock: 20
   },
@@ -1015,7 +1008,7 @@ const productos: Producto[] = [
     nombre: "Pata de Pollo (x kg)", 
     precio: 3900, 
     categoria: "Pollería", 
-    imagen: pataPolloImg,
+    imagen: "/products/polleria/pataPollo.png",
     descripcion: "Patitas de pollo frescas, ideales para guisos o al horno. Precio por kilogramo.",
     stock: 20
   },
@@ -1024,7 +1017,7 @@ const productos: Producto[] = [
     nombre: "Pechugas de Pollo (x kg)", 
     precio: 7200, 
     categoria: "Pollería", 
-    imagen: pechugasdePolloImg,
+    imagen: "/products/polleria/pechugasdePollo.png",
     descripcion: "Pechugas de pollo frescas, deshuesadas y sin piel. Precio por kilogramo.",
     stock: 20
   },
@@ -1033,7 +1026,7 @@ const productos: Producto[] = [
     nombre: "Pollo Entero (x kg)", 
     precio: 5200, 
     categoria: "Pollería", 
-    imagen: polloEnteroImg,
+    imagen: "/products/polleria/polloEntero.png",
     descripcion: "Pollo entero fresco de granja, calidad superior. Precio por kilogramo.",
     stock: 20
   }
@@ -1044,6 +1037,7 @@ const Catalogo = () => {
   const [selectedSubcat, setSelectedSubcat] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Producto | null>(null);
   const [modalQuantity, setModalQuantity] = useState<number>(1);
+  const [busqueda, setBusqueda] = useState('');
   const { addToCart } = useCart();
   
   const subcats = SUBCATEGORIAS[selectedCat] || [];
@@ -1058,13 +1052,19 @@ const Catalogo = () => {
     setSelectedSubcat(firstSub || null);
   };
 
-  const filtered = productos.filter((p) => {
+  const productosPorCategoria = productos.filter((p) => {
     if (selectedCat === "Todos") return true;
     if (selectedSubcat) {
       return p.categoria === selectedCat && p.subcategoria === selectedSubcat;
     }
     return p.categoria === selectedCat;
   });
+
+  const productosFiltrados = busqueda.trim() === ''
+    ? productosPorCategoria
+    : productos.filter(p => 
+        p.nombre.toLowerCase().includes(busqueda.toLowerCase())
+      );
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -1097,7 +1097,25 @@ const Catalogo = () => {
         </h2>
 
         {/* Filter System */}
-        <div className="flex flex-col gap-4 mb-10">
+        <div className="flex flex-col gap-6 mb-10">
+          <div className="relative mb-4">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+            <input
+              type="text"
+              placeholder="Buscar producto..."
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+              className="w-full pl-10 pr-10 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-orange-400"
+            />
+            {busqueda && (
+              <button
+                onClick={() => setBusqueda('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >✕</button>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-4">
           {/* Main Categories */}
           <div className="flex flex-wrap justify-center gap-2">
             {CATEGORIAS.map((c) => (
@@ -1133,58 +1151,60 @@ const Catalogo = () => {
               ))}
             </div>
           )}
+          </div>
         </div>
 
         {/* Product Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
-          {filtered.map((p) => (
-            <div 
-              key={p.id} 
-              className="bg-white rounded-[16px] overflow-hidden cursor-pointer group shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col h-full relative sm:pt-[10px]"
-              onClick={() => setSelectedProduct(p)}
-            >
-              {/* Product Image */}
-              <div className="w-full h-32 sm:h-56 bg-white flex items-center justify-center overflow-hidden rounded-t-xl relative">
-                <img 
-                  src={p.imagen} 
-                  alt={p.nombre} 
-                  className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500" 
-                  loading="lazy" 
-                />
-              </div>
-
-              {/* Product Info */}
-              <div className="p-3 md:p-5 flex flex-col flex-1">
-                <div className="mb-2 flex flex-col items-center text-center">
-                  <span className="inline-block w-fit bg-green-100 text-green-700 text-[10px] md:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2">
-                    {p.subcategoria || p.categoria}
-                  </span>
-                  <h3 className="font-body text-xs sm:text-[16px] font-bold text-gray-800 leading-tight min-h-[40px] text-center uppercase tracking-tight">
-                    {p.nombre}
-                  </h3>
+          {productosFiltrados.length > 0 ? productosFiltrados.map((p) => {
+            const isPromo = p.nombre.toUpperCase().includes("PROMO");
+            return (
+              <div 
+                key={p.id} 
+                className="bg-white rounded-[16px] overflow-hidden cursor-pointer group shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col h-full relative sm:pt-[10px]"
+                onClick={() => setSelectedProduct(p)}
+              >
+                {/* Product Image */}
+                <div className={isPromo 
+                  ? "w-full bg-white flex items-center justify-center h-48 sm:h-56 overflow-hidden rounded-t-xl"
+                  : "w-full h-32 sm:h-56 bg-white flex items-center justify-center overflow-hidden rounded-t-xl relative"
+                }>
+                  <img 
+                    src={p.imagen} 
+                    alt={p.nombre} 
+                    className={`${isPromo ? "w-full h-full object-contain" : "w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"}`} 
+                    loading="lazy" 
+                  />
                 </div>
 
-                <div className="mt-auto pt-2 md:pt-4 flex flex-col gap-2 md:gap-3 text-center">
-                  <span className="font-heading text-lg md:text-xl font-bold text-primary">
-                    {formatPrice(p.precio)} {p.unidadPrecio && <span className="text-[10px] md:text-sm font-body text-gray-400">/ {p.unidadPrecio}</span>}
-                  </span>
-                  <button
-                    onClick={(e) => handleAddToCart(e, p)}
-                    className="w-full bg-primary text-white h-[48px] px-4 rounded-xl font-bold text-[11px] sm:text-sm flex items-center justify-center gap-1 md:gap-2 hover:bg-primary-dark transition-colors shadow-sm"
-                  >
-                    <Plus size={16} className="md:size-[20px]" />
-                    <span>AGREGAR</span>
-                  </button>
+                {/* Product Info */}
+                <div className="p-3 md:p-5 flex flex-col flex-1">
+                  <div className="mb-2 flex flex-col items-center text-center">
+                    <span className="inline-block w-fit bg-green-100 text-green-700 text-[10px] md:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2">
+                      {p.subcategoria || p.categoria}
+                    </span>
+                    <h3 className={`font-body font-bold text-gray-800 leading-tight min-h-[40px] text-center uppercase tracking-tight ${isPromo ? "text-sm sm:text-base" : "text-xs sm:text-[16px]"}`}>
+                      {p.nombre}
+                    </h3>
+                  </div>
+
+                  <div className="mt-auto pt-2 md:pt-4 flex flex-col gap-2 md:gap-3 text-center">
+                    <span className="font-heading text-lg md:text-xl font-bold text-primary">
+                      {formatPrice(p.precio)} {p.unidadPrecio && <span className="text-[10px] md:text-sm font-body text-gray-400">/ {p.unidadPrecio}</span>}
+                    </span>
+                    <button
+                      onClick={(e) => handleAddToCart(e, p)}
+                      className="w-full bg-primary text-white h-[48px] px-4 rounded-xl font-bold text-[11px] sm:text-sm flex items-center justify-center gap-1 md:gap-2 hover:bg-primary-dark transition-colors shadow-sm"
+                    >
+                      <Plus size={16} className="md:size-[20px]" />
+                      <span>AGREGAR</span>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-          {filtered.length === 0 && (
-            <div className="col-span-full py-20 text-center">
-              <p className="text-gray-400 font-body text-lg italic">
-                Próximamente más productos en esta sección...
-              </p>
-            </div>
+            );
+          }) : (
+            <p className="col-span-full text-center text-gray-500">No se encontraron productos</p>
           )}
         </div>
       </div>
