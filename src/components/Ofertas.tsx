@@ -25,7 +25,7 @@ const ofertas = [
     nombre: "Promo Tarta", 
     antes: "$7.500", 
     ahora: "$6.000", 
-    desc: "¡Todo para una tarta en familia! Incluye: 1 Pascualina San Vicente + 200g Jamón Cocido feteado + 200g Queso Cremoso + 2 Huevos frescos. Una promo completa para preparar una tarta casera deliciosa. Ideal para el almuerzo o cena familiar.", 
+    desc: "¡Todo para una tarta en familia! Incluye: 1 Pascualina San Vicente + 200g Jamón Cocido Tirolesa + 200g Queso Cremoso + 2 Huevos frescos. Una promo completa para preparar una tarta casera deliciosa. Ideal para el almuerzo o cena familiar.", 
     img: "/products/ofertaTarta.png",
     /*images: ["/products/promoTarta1.png", "/products/promoTarta2.png", "/products/promoTarta3.png"],*/
     stock: 10,
@@ -35,7 +35,7 @@ const ofertas = [
     nombre: "Oferta Pizza", 
     antes: "$9.000", 
     ahora: "$7.500", 
-    desc: "¡Combo ideal para tu noche de pizza! Incluye: 2 Pre pizzas + 400g Muzzarella de primera calidad + 150g Jamón Tirolesa + 100g Aceitunas seleccionadas. Todo lo que necesitás para armar dos pizzas increíbles en minutos.", 
+    desc: "¡Combo ideal para tu noche de pizza! Incluye: 2 Pre pizzas + 400g Muzzarella de primera calidad + 150g Jamón Cocido Tirolesa + 100g Aceitunas seleccionadas. Todo lo que necesitás para armar dos pizzas increíbles en minutos.", 
     img: "/products/ofertaPizza.png",
     stock: 15,
     categoria: "Fiambrería"
@@ -44,7 +44,7 @@ const ofertas = [
     nombre: "Oferta Picada Premium", 
     antes: "$14.000", 
     ahora: "$11.500", 
-    desc: "La mejor selección para una picada inolvidable. Incluye: 2 Tiras de pan modelo + 100g Jamón Colonial + 100g Salame + 100g Mortadela Paladini + 100g Bondiola Colonial + 100g Queso Paulina + 150g Papas Danal + 100g Maní (común o saborizado). Calidad premium para compartir.", 
+    desc: "La mejor selección para una picada inolvidable. Incluye: 2 Tiras de pan Modelo + 100g Jamón Cocido Colonial + 100g Salame + 100g Mortadela Paladini + 100g Bondiola Colonial + 100g Queso La Paulina + 150g Papas Danal + 100g Maní (común o saborizado). Calidad premium para compartir.", 
     img: "/products/ofertaPicadaPremium.png",
     stock: 8,
     categoria: "Fiambrería"
