@@ -5,7 +5,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescri
 import { useCart } from "@/context/CartContext";
 import { supabase } from '@/lib/supabase'
 
-const OWNER_PHONE = "5493512005107";
+const OWNER_PHONE = "543512005107";
 const STORE_LAT = -31.4028;
 const STORE_LON = -64.2422;
 

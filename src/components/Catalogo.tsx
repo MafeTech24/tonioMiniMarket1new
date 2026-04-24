@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ShoppingCart, X, Plus, Minus, Search } from "lucide-react";
+import { ShoppingCart, X, Plus, Minus } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 
@@ -1551,12 +1551,15 @@ const productos: Producto[] = [
   
 ];
 
-const Catalogo = () => {
+interface CatalogoProps {
+  searchTerm?: string;
+}
+
+const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
   const [selectedCat, setSelectedCat] = useState<string>("Todos");
   const [selectedSubcat, setSelectedSubcat] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Producto | null>(null);
   const [modalQuantity, setModalQuantity] = useState<number>(1);
-  const [busqueda, setBusqueda] = useState('');
   const { addToCart } = useCart();
   
   const subcats = SUBCATEGORIAS[selectedCat] || [];
@@ -1579,10 +1582,10 @@ const Catalogo = () => {
     return p.categoria === selectedCat;
   });
 
-  const productosFiltrados = busqueda.trim() === ''
+  const productosFiltrados = searchTerm.trim() === ''
     ? productosPorCategoria
     : productos.filter(p => 
-        p.nombre.toLowerCase().includes(busqueda.toLowerCase())
+        p.nombre.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
   useEffect(() => {
@@ -1617,23 +1620,6 @@ const Catalogo = () => {
 
         {/* Filter System */}
         <div className="flex flex-col gap-6 mb-10">
-          <div className="relative mb-4">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
-            <input
-              type="text"
-              placeholder="Buscar producto..."
-              value={busqueda}
-              onChange={(e) => setBusqueda(e.target.value)}
-              className="w-full pl-10 pr-10 py-2 rounded-lg border border-border dark:border-foreground/20 focus:outline-none focus:border-orange-400 bg-background text-foreground"
-            />
-            {busqueda && (
-              <button
-                onClick={() => setBusqueda('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-muted-foreground"
-              >✕</button>
-            )}
-          </div>
-
           <div className="flex flex-col gap-4">
           {/* Main Categories */}
           <div className="flex flex-wrap justify-center gap-2">
