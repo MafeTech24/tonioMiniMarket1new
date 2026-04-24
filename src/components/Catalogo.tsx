@@ -23,14 +23,13 @@ const CATEGORIAS = [
   "Congelados",
   "Kiosco",
   "Pollería",
-  "Comidas listas",
-  "Limpieza",
-  "Perfumería",
-  "Mascotas"
+  // "Comidas listas",
+  "Limpieza y Perfumería",
+  // "Mascotas"
 ];
 
 const SUBCATEGORIAS: Record<string, string[]> = {
-  "Almacén": ["Aderezos", "Condimentos", "Conservas", "Desayuno", "Fiambres", "Lácteos", "Panadería", "Pastas frescas y secas", "Snacks"],
+  "Almacén": ["Aderezos", "Condimentos", "Conservas", "Desayuno", "Fiambres", /*"Lácteos", "Panadería",*/ "Pastas frescas y secas"],
   "Bebidas": ["Con alcohol", "Sin alcohol"]
 };
 
@@ -38,13 +37,14 @@ const productos: Producto[] = [
   {
     id: 1,
     nombre: "Azúcar Ledesma Clásica 1kg",
-    precio: 1200,
+    precio: 1700,
     imagen: "/products/desayuno/azucarLedesma1000.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Azúcar común tipo A, libre de gluten. Ideal para endulzar infusiones y preparaciones.",
-    stock: 20
+    stock: 20 
   },
+  /*
   {
     id: 2,
     nombre: "Nesquik Original 360g",
@@ -75,30 +75,41 @@ const productos: Producto[] = [
     descripcion: "Café instantáneo Nescafé Dolca de sabor suave, en formato doy pack económico de 170g.",
     stock: 20
   },
+  */
   {
     id: 5,
     nombre: "Café Instantáneo Dolca 170g",
-    precio: 3800,
+    precio: 10550,
     imagen: "/products/desayuno/cafeInstantaneoDolca170.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Café instantáneo Nescafé Dolca Original en frasco de 170g. 100% café de origen responsable.",
     stock: 20
   },
+   {
+    id: 111,
+    nombre: "Café La Virginia Doy Pack 100g",
+    precio: 5000,
+    imagen: "/products/desayuno/cafeLaVirginiaDoyPack100.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Café instantáneo torrado La Virginia pack ahorro 100g, formato doy pack recargable. Sin TACC, industria argentina.",
+    stock: 20
+  },
   {
     id: 6,
     nombre: "Café La Virginia Doy Pack 170g",
-    precio: 2900,
+    precio: 6000,
     imagen: "/products/desayuno/cafeLaVirginiaDoyPack170.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Café instantáneo torrado La Virginia en formato doy pack recargable de 170g.",
     stock: 20
-  },
+  }, 
   {
     id: 7,
     nombre: "Café La Virginia en Saquitos x20",
-    precio: 2200,
+    precio: 4800,
     imagen: "/products/desayuno/cafeLaVirginiaenSaquitos20unid.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -107,18 +118,38 @@ const productos: Producto[] = [
   },
   {
     id: 8,
-    nombre: "Café La Virginia Torrado 200g",
-    precio: 2600,
-    imagen: "/products/desayuno/cafeLaVirginiaTorrado200.png",
+    nombre: "Café La Virginia Torrado 250g",
+    precio: 5700,
+    imagen: "/products/desayuno/cafeLaVirginiaTorrado250.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
-    descripcion: "Café molido torrado clásico La Virginia, paquete de 200g. Sabor equilibrado y tradicional.",
+    descripcion: "Café molido torrado clásico La Virginia, paquete de 250g. Sabor equilibrado y tradicional.",
+    stock: 20
+  },
+  {
+    id: 106,
+    nombre: "Café La Virginia Torrado 500g",
+    precio: 11400,
+    imagen: "/products/desayuno/cafeLaVirginiaTorrado500.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Café molido torrado clásico La Virginia, paquete de 500g. Sabor equilibrado y tradicional, ideal para preparar en cafetera o filtro.",
+    stock: 20
+  },
+  {
+    id: 113,
+    nombre: "Café La Virginia Torrado 1kg",
+    precio: 22800,
+    imagen: "/products/desayuno/cafeLaVirginiaTorrado1000.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Café molido torrado equilibrado La Virginia, paquete de 1kg. Sabor suave y balanceado, ideal para cafetera o filtro. Formato familiar ahorro.",
     stock: 20
   },
   {
     id: 9,
     nombre: "Chocolino La Virginia 180g",
-    precio: 1900,
+    precio: 2000,
     imagen: "/products/desayuno/chocolino180.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -128,7 +159,7 @@ const productos: Producto[] = [
   {
     id: 10,
     nombre: "Copos de Maíz con Azúcar x 100g",
-    precio: 400,
+    precio: 700,
     imagen: "/products/desayuno/coposMaizConAzucar.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -139,7 +170,7 @@ const productos: Producto[] = [
   {
     id: 11,
     nombre: "Copos de Maíz sin Azúcar x 100g",
-    precio: 380,
+    precio: 700,
     imagen: "/products/desayuno/coposMaizSinAzucar.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -150,7 +181,7 @@ const productos: Producto[] = [
   {
     id: 12,
     nombre: "Dulce de Leche La Serenísima Estilo Colonial 400g",
-    precio: 2800,
+    precio: 3400,
     imagen: "/products/desayuno/dLecheEstiloColonialLaSerenisima400.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -160,7 +191,7 @@ const productos: Producto[] = [
   {
     id: 13,
     nombre: "Edulcorante Hileret Clásico 280g",
-    precio: 2100,
+    precio: 2600,
     imagen: "/products/desayuno/edulcoranteHileretClasico280.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -170,7 +201,7 @@ const productos: Producto[] = [
   {
     id: 14,
     nombre: "Edulcorante Líquido Sweet Hileret 200ml",
-    precio: 1900,
+    precio: 3500,
     imagen: "/products/desayuno/EdulcoranteLíquidoSweetHileret200.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -179,18 +210,18 @@ const productos: Producto[] = [
   },
   {
     id: 15,
-    nombre: "Edulcorante Si Diet 200ml",
-    precio: 1800,
-    imagen: "/products/desayuno/edulcoranteSiDiet200.png",
+    nombre: "Edulcorante Si Diet 250ml",
+    precio: 1900,
+    imagen: "/products/desayuno/edulcoranteSiDiet250.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
-    descripcion: "Edulcorante líquido Si Diet, 200ml. Sin calorías, sabor clásico para uso diario.",
+    descripcion: "Edulcorante líquido Si Diet, 250ml. Sin calorías, sabor clásico para uso diario.",
     stock: 20
   },
   {
     id: 16,
     nombre: "Stevia Tuy x100 sobres",
-    precio: 2400,
+    precio: 2000,
     imagen: "/products/desayuno/edulcoranteSteviaTuy100.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -198,9 +229,19 @@ const productos: Producto[] = [
     stock: 20
   },
   {
+    id: 110,
+    nombre: "Edulcorante Si Diet 500ml",
+    precio: 3100,
+    imagen: "/products/desayuno/edulcoranteSiDiet500.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Edulcorante líquido Si Diet Clásico, 500ml. Sin calorías, sabor clásico para uso diario. Formato familiar ahorro.",
+    stock: 20
+  },
+  {
     id: 17,
     nombre: "Galletas Criollitas Bagley x3 300g",
-    precio: 2200,
+    precio: 2100,
     imagen: "/products/desayuno/galletasCriollitasx3.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -210,7 +251,7 @@ const productos: Producto[] = [
   {
     id: 18,
     nombre: "Galletas Mediatarde Lia x3",
-    precio: 2100,
+    precio: 1700,
     imagen: "/products/desayuno/galletasMediatardex3.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -220,7 +261,7 @@ const productos: Producto[] = [
   {
     id: 19,
     nombre: "Oreo Sin TACC",
-    precio: 1800,
+    precio: 2700,
     imagen: "/products/desayuno/galletasOreoSinTacc.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -230,7 +271,7 @@ const productos: Producto[] = [
   {
     id: 20,
     nombre: "Galletas Traviata Bagley x3 183g",
-    precio: 2000,
+    precio: 2100,
     imagen: "/products/desayuno/galletasTraviatax3.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -240,13 +281,14 @@ const productos: Producto[] = [
   {
     id: 21,
     nombre: "Oreo Original 117g",
-    precio: 1600,
+    precio: 2100,
     imagen: "/products/desayuno/galletitasOreo118.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Galletitas Oreo originales, 117g. Rellenas de crema de vainilla, la galletita favorita de la leche.",
     stock: 20
   },
+  /*
   {
     id: 22,
     nombre: "Mate Cocido Taragüi x25",
@@ -267,26 +309,27 @@ const productos: Producto[] = [
     descripcion: "Mate cocido Taragüi en saquitos herméticos, caja x40 unidades de 3g. 100% pura hoja.",
     stock: 20
   },
+  */
   {
     id: 24,
     nombre: "Mermelada Durazno Arcor 454g",
-    precio: 2300,
+    precio: 3000,
     imagen: "/products/desayuno/mermeladaDuraznoArcor454.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Mermelada de durazno Arcor, frasco de 454g. Elaborada con fruta seleccionada, sin TACC.",
     stock: 20
   },
-  {
+  /*{
     id: 25,
     nombre: "Stevia en Polvo Hileret 50g",
-    precio: 2000,
+    precio: 3650,
     imagen: "/products/desayuno/steviaPolvoHileret50.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Edulcorante stevia en polvo Hileret, 50g. Libre de gluten, sin calorías, mismo dulzor que el azúcar.",
     stock: 20
-  },
+  },*/
   {
     id: 26,
     nombre: "Surtido Bagley 400g",
@@ -300,7 +343,7 @@ const productos: Producto[] = [
   {
     id: 27,
     nombre: "Surtido Diversión Arcor 400g",
-    precio: 3500,
+    precio: 3100,
     imagen: "/products/desayuno/surtidoDiversion.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -310,7 +353,7 @@ const productos: Producto[] = [
   {
     id: 28,
     nombre: "Té La Virginia x25 saquitos",
-    precio: 1500,
+    precio: 950,
     imagen: "/products/desayuno/teLaVirginia25.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -320,13 +363,44 @@ const productos: Producto[] = [
   {
     id: 29,
     nombre: "Té La Virginia x50 saquitos",
-    precio: 2600,
+    precio: 1800,
     imagen: "/products/desayuno/teLaVirginia50.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Té negro La Virginia en saquitos, caja x50 unidades. Formato familiar, sabor clásico.",
     stock: 20
   },
+  {
+    id: 107,
+    nombre: "Té Velez x25 saquitos",
+    precio: 800,
+    imagen: "/products/desayuno/teVelez25.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Té negro Velez en saquitos, caja x25 unidades. Sabor suave y tradicional, industria argentina.",
+    stock: 20
+  },
+  {
+    id: 108,
+    nombre: "Mate Cocido Litoral x25 saquitos",
+    precio: 1300,
+    imagen: "/products/desayuno/matecocidoLitoral25.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Mate cocido Litoral La Virginia en saquitos, caja x25 unidades de 3g. Yerba mate elaborada, único como la amistad.",
+    stock: 20
+  },
+  {
+    id: 109,
+    nombre: "Mate Cocido Litoral x50 saquitos",
+    precio: 2400,
+    imagen: "/products/desayuno/matecocidoLitoral50.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Mate cocido Litoral La Virginia en saquitos sin envoltura, caja x50 unidades. Yerba mate sin palo, formato ahorro.",
+    stock: 20
+  },
+  /*
   {
     id: 30,
     nombre: "Té Taragüi x25 saquitos",
@@ -347,10 +421,11 @@ const productos: Producto[] = [
     descripcion: "Té negro clásico Taragüi en saquitos, caja x50 unidades de 2g. Formato ahorro.",
     stock: 20
   },
+  */
   {
     id: 32,
     nombre: "Yerba Amanda 500g",
-    precio: 2400,
+    precio: 2300,
     imagen: "/products/desayuno/yerbaAmanda500.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -360,7 +435,7 @@ const productos: Producto[] = [
   {
     id: 33,
     nombre: "Yerba CBSé Hierbas Serranas 500g",
-    precio: 2600,
+    precio: 2100,
     imagen: "/products/desayuno/yerbaCBSe500.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -370,7 +445,7 @@ const productos: Producto[] = [
   {
     id: 34,
     nombre: "Yerba Playadito 1kg",
-    precio: 4200,
+    precio: 2900,
     imagen: "/products/desayuno/yerbaPlayadito500.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -380,7 +455,7 @@ const productos: Producto[] = [
   {
     id: 35,
     nombre: "Yerba Rosamonte 500g",
-    precio: 2500,
+    precio: 2400,
     imagen: "/products/desayuno/yerbaRosamonte500.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -390,33 +465,33 @@ const productos: Producto[] = [
   {
     id: 36,
     nombre: "Yerba Verdeflor Hierbas Serranas 500g",
-    precio: 2400,
+    precio: 1950,
     imagen: "/products/desayuno/yerbaVerdeFlor500.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
-    descripcion: "Yerba mate Verdeflor elaborada con palo y hierbas serranas, 500g. Suave, digestiva y sin acidez.",
+    descripcion: "Yerba mate Verdeflor elaborada con palo and hierbas serranas, 500g. Suave, digestiva y sin acidez.",
     stock: 20
   },
   {
     id: 37,
     nombre: "Nesquik Original 180g",
-    precio: 1800,
+    precio: 2300,
     imagen: "/products/desayuno/cacaoNesquik180.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Cacao en polvo instantáneo Nestlé Nesquik, 180g. Enriquecido con vitaminas y minerales, libre de gluten.",
     stock: 20
   },
-  {
+  /*{
     id: 38,
     nombre: "Aceto Balsámico Casalta 250ml",
-    precio: 2800,
+    precio: 1900,
     imagen: "/products/aderezos/acetoBalsámicoCasalta250.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
     descripcion: "Aceto balsámico de Módena Casalta, 250ml. Ideal para aderezar ensaladas y carnes.",
     stock: 20
-  },
+  },*/
   {
     id: 39,
     nombre: "Salsa Barbacoa Dánica 200g",
@@ -430,7 +505,7 @@ const productos: Producto[] = [
   {
     id: 40,
     nombre: "Ketchup Dánica 190g",
-    precio: 1600,
+    precio: 1700,
     imagen: "/products/aderezos/ketchupDanica250.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
@@ -440,7 +515,7 @@ const productos: Producto[] = [
   {
     id: 41,
     nombre: "Mayonesa Dánica 250cm³",
-    precio: 2000,
+    precio: 1300,
     imagen: "/products/aderezos/mayonesaDanica250.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
@@ -460,7 +535,7 @@ const productos: Producto[] = [
   {
     id: 43,
     nombre: "Mayonesa Natura 125cm³",
-    precio: 1200,
+    precio: 800,
     imagen: "/products/aderezos/mayonesaNatura125.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
@@ -470,7 +545,7 @@ const productos: Producto[] = [
   {
     id: 44,
     nombre: "Mayonesa Natura 250cm³",
-    precio: 2000,
+    precio: 1900,
     imagen: "/products/aderezos/mayonesaNatura250.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
@@ -480,7 +555,7 @@ const productos: Producto[] = [
   {
     id: 45,
     nombre: "Mayonesa Natura 500cm³",
-    precio: 3500,
+    precio: 3400,
     imagen: "/products/aderezos/mayonesaNatura500.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
@@ -490,7 +565,7 @@ const productos: Producto[] = [
   {
     id: 46,
     nombre: "Mostaza Dánica 250g",
-    precio: 1700,
+    precio: 1300,
     imagen: "/products/aderezos/mostazaDanica250.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
@@ -510,7 +585,7 @@ const productos: Producto[] = [
   {
     id: 48,
     nombre: "Salsa Golf Dánica 300g",
-    precio: 2100,
+    precio: 1800,
     imagen: "/products/aderezos/salsaGolfDanica250.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
@@ -530,7 +605,7 @@ const productos: Producto[] = [
   {
     id: 50,
     nombre: "Sal Fina Celusal 500g",
-    precio: 700,
+    precio: 1200,
     imagen: "/products/condimentos/salFinaCelusal500.png",
     categoria: "Almacén",
     subcategoria: "Condimentos",
@@ -540,7 +615,7 @@ const productos: Producto[] = [
   {
     id: 51,
     nombre: "Sal Gruesa Celusal 1kg",
-    precio: 900,
+    precio: 2300,
     imagen: "/products/condimentos/salGruesaCelusal1000.png",
     categoria: "Almacén",
     subcategoria: "Condimentos",
@@ -550,24 +625,14 @@ const productos: Producto[] = [
   {
     id: 52,
     nombre: "Sal Parrillera Celusal 1kg",
-    precio: 1000,
+    precio: 2300,
     imagen: "/products/condimentos/salParrilleraCelusal1000.png",
     categoria: "Almacén",
     subcategoria: "Condimentos",
     descripcion: "Sal entrefina Celusal para parrilla, 1kg. Especial para carnes asadas y embutidos caseros.",
     stock: 20
-  },
-  {
-    id: 53,
-    nombre: "Atún al Natural La Campagnola 170g",
-    precio: 2200,
-    imagen: "/products/conservas/atúnNaturalLaCampagnola170.png",
-    categoria: "Almacén",
-    subcategoria: "Conservas",
-    descripcion: "Atún al natural La Campagnola, 170g. Libre de gluten, sin TACC. Listo para consumir.",
-    stock: 20
-  },
-  {
+  },  
+  /*{
     id: 54,
     nombre: "Duraznos en Almíbar Arcor 820g",
     precio: 2800,
@@ -576,7 +641,7 @@ const productos: Producto[] = [
     subcategoria: "Conservas",
     descripcion: "Duraznos en almíbar Arcor, lata 820g. Libre de gluten, sin TACC.",
     stock: 20
-  },
+  },*/
   {
     id: 55,
     nombre: "Leche Fresca La Serenísima Clásica 1L",
@@ -610,7 +675,7 @@ const productos: Producto[] = [
   {
     id: 58,
     nombre: "Fideos Spaghetti Matarazzo Nº3 500g",
-    precio: 1400,
+    precio: 1850,
     imagen: "/products/pastas/fideosSpaghettiMatarazzo500.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -620,7 +685,7 @@ const productos: Producto[] = [
   {
     id: 59,
     nombre: "Lucchetti Codito 500g",
-    precio: 1400,
+    precio: 1600,
     imagen: "/products/pastas/luccettiCodito.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -630,7 +695,7 @@ const productos: Producto[] = [
   {
     id: 60,
     nombre: "Lucchetti Tallarín 500g",
-    precio: 1400,
+    precio: 1600,
     imagen: "/products/pastas/luccettiTallarin.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -640,7 +705,7 @@ const productos: Producto[] = [
   {
     id: 61,
     nombre: "Lucchetti Spaghetti 500g",
-    precio: 1400,
+    precio: 1600,
     imagen: "/products/pastas/lucchettiSpaghetti.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -650,7 +715,7 @@ const productos: Producto[] = [
   {
     id: 62,
     nombre: "Lucchetti Tirabuzón Nº34 500g",
-    precio: 1400,
+    precio: 1600,
     imagen: "/products/pastas/lucchettiTirabuzon.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -660,24 +725,14 @@ const productos: Producto[] = [
   {
     id: 63,
     nombre: "Matarazzo Spaghetti Libre de Gluten 500g",
-    precio: 2200,
+    precio: 4100,
     imagen: "/products/pastas/matarazoSpaghettiSinGluten.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
     descripcion: "Fideos spaghetti Matarazzo sin gluten, 500g. Aptos para celíacos, para toda la familia.",
     stock: 20
   },
-  {
-    id: 64,
-    nombre: "Papitas Lay's Clásicas",
-    precio: 1200,
-    imagen: "/products/snacks/papitasLays.png",
-    categoria: "Almacén",
-    subcategoria: "Snacks",
-    descripcion: "Papas fritas Lay's Clásicas. Solo 3 ingredientes: papa, aceite y sal.",
-    stock: 20
-  },
-  {
+  /*{
     id: 65,
     nombre: "Aceite Girasol Cocinero 900ml",
     precio: 2800,
@@ -686,11 +741,11 @@ const productos: Producto[] = [
     subcategoria: undefined,
     descripcion: "Aceite de girasol Cocinero, 900ml. Para todo uso, ideal para frituras y aderezos.",
     stock: 20
-  },
+  },*/
   {
     id: 66,
     nombre: "Aceite Natura 900ml",
-    precio: 2800,
+    precio: 4600,
     imagen: "/products/almacen/aceiteNatura900.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -700,7 +755,7 @@ const productos: Producto[] = [
   {
     id: 67,
     nombre: "Aceite Natura 1500ml",
-    precio: 4200,
+    precio: 6800,
     imagen: "/products/almacen/aceiteNatura1500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -710,7 +765,7 @@ const productos: Producto[] = [
   {
     id: 68,
     nombre: "Arroz Dos Hermanos Largo Fino 500g",
-    precio: 1400,
+    precio: 900,
     imagen: "/products/almacen/arrozDosHnosLF500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -720,7 +775,7 @@ const productos: Producto[] = [
   {
     id: 69,
     nombre: "Arroz Dos Hermanos Parboil 500g",
-    precio: 1600,
+    precio: 1200,
     imagen: "/products/almacen/arrozDosHnosParboil500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -730,7 +785,7 @@ const productos: Producto[] = [
   {
     id: 70,
     nombre: "Arroz Gallo Oro Parboil 500g",
-    precio: 1800,
+    precio: 1400,
     imagen: "/products/almacen/arrozGalloOroParboil500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -740,7 +795,7 @@ const productos: Producto[] = [
   {
     id: 71,
     nombre: "Arroz Mandisoví Largo Fino 1kg",
-    precio: 2400,
+    precio: 1400,
     imagen: "/products/almacen/arrozMandisoviLF1000.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -750,7 +805,7 @@ const productos: Producto[] = [
   {
     id: 72,
     nombre: "Arroz Mandisoví Largo Fino 500g",
-    precio: 1300,
+    precio: 800,
     imagen: "/products/almacen/arrozMandisoviLg500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -760,7 +815,7 @@ const productos: Producto[] = [
   {
     id: 73,
     nombre: "Harina Pureza 0000 Ultra Refinada 1kg",
-    precio: 1600,
+    precio: 1200,
     imagen: "/products/almacen/harina0000Pureza1000.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -770,7 +825,7 @@ const productos: Producto[] = [
   {
     id: 74,
     nombre: "Harina Leudante Corona de Trigo 1kg",
-    precio: 1600,
+    precio: 1400,
     imagen: "/products/almacen/harinaCoronaTrigoLeudante1000.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -780,7 +835,7 @@ const productos: Producto[] = [
   {
     id: 75,
     nombre: "Harina Pureza Leudante 1kg",
-    precio: 1600,
+    precio: 1500,
     imagen: "/products/almacen/harinaPurezaLeudante1000.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -790,7 +845,7 @@ const productos: Producto[] = [
   {
     id: 76,
     nombre: "Harina Pureza Especial Pizzas Caseras 1kg",
-    precio: 1800,
+    precio: 1900,
     imagen: "/products/almacen/harinaPurezaPizzasCaseras1000.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -828,9 +883,18 @@ const productos: Producto[] = [
     stock: 20
   },
   {
+    id: 164,
+    nombre: "Puré Instantáneo Mamá Cocina",
+    precio: 1700,
+    imagen: "/products/almacen/pureInstantaneoMamaCocina.png",
+    categoria: "Almacén",
+    descripcion: "Puré de papas instantáneo Mamá Cocina. Rinde varias porciones, listo en minutos. Sabor casero y cremoso.",
+    stock: 20
+  },
+  {
     id: 80,
     nombre: "Puré de Tomates De La Huerta 210g",
-    precio: 900,
+    precio: 600,
     imagen: "/products/almacen/pureTomateLaHuerta210.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -840,7 +904,7 @@ const productos: Producto[] = [
   {
     id: 81,
     nombre: "Puré de Tomates De La Huerta 530g",
-    precio: 1800,
+    precio: 1100,
     imagen: "/products/almacen/pureTomateLaHuerta530.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -890,7 +954,7 @@ const productos: Producto[] = [
   {
     id: 86,
     nombre: "Agua Mineral con Gas Bon Aqua 1.5L",
-    precio: 1000,
+    precio: 1300,
     imagen: "/products/bebidas/aguaMineralConGasSoda1500.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -900,7 +964,7 @@ const productos: Producto[] = [
   {
     id: 87,
     nombre: "Agua Mineral sin Gas Villavicencio 1.5L",
-    precio: 1000,
+    precio: 1300,
     imagen: "/products/bebidas/aguaMineralSinGasVillavicencio1500.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -910,7 +974,7 @@ const productos: Producto[] = [
   {
     id: 88,
     nombre: "Amargo Serrano Terma 1.25L",
-    precio: 1800,
+    precio: 2200,
     imagen: "/products/bebidas/amargoSerranoTerma1250.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -920,7 +984,7 @@ const productos: Producto[] = [
   {
     id: 89,
     nombre: "Gatorade Naranja 500ml",
-    precio: 1400,
+    precio: 1800,
     imagen: "/products/bebidas/bebidaIsotonicaGatorade500.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -930,7 +994,7 @@ const productos: Producto[] = [
   {
     id: 90,
     nombre: "Coca-Cola 2.25L",
-    precio: 2200,
+    precio: 2600,
     imagen: "/products/bebidas/cocaCola2250.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -940,7 +1004,7 @@ const productos: Producto[] = [
   {
     id: 91,
     nombre: "Sprite 2.25L",
-    precio: 2000,
+    precio: 2400,
     imagen: "/products/bebidas/sprite2250.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -1029,7 +1093,462 @@ const productos: Producto[] = [
     imagen: "/products/polleria/polloEntero.png",
     descripcion: "Pollo entero fresco de granja, calidad superior. Precio por kilogramo.",
     stock: 20
-  }
+  },
+  {
+    id: 114,
+    nombre: "Papel Higiénico Sanidad x4",
+    precio: 1700,
+    imagen: "/products/limpiezaPerfumeria/higienicoSanidadx4.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Papel higiénico Sanidad Clásico blanco, pack x4 rollos de hoja simple, 30 metros cada uno. Suave y absorbente.",
+    stock: 20
+  },
+  {
+    id: 115,
+    nombre: "Papel Higiénico Elegante Doble Hoja x4",
+    precio: 3500,
+    imagen: "/products/limpiezaPerfumeria/higienicoElegantex4.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Papel higiénico Elegante doble hoja, pack x4 rollos. Ultra suave y ultra absorbente, nueva textura.",
+    stock: 20
+  },
+  {
+    id: 116,
+    nombre: "Rollos de Cocina Elegante x3",
+    precio: 2300,
+    imagen: "/products/limpiezaPerfumeria/rolloCocinaElegantex3.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Rollos de cocina Elegante súper absorbente, pack x3 rollos de 50 metros aprox. Ideal para cocina y limpieza del hogar.",
+    stock: 20
+  },
+  {
+    id: 117,
+    nombre: "Rollos de Cocina Cartabella x3",
+    precio: 1800,
+    imagen: "/products/limpiezaPerfumeria/rolloCocinaCartabellax3.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Rollos de cocina Cartabella Daily doble hoja, pack x3 rollos, 120 paños cada uno. Nueva textura, alta absorción.",
+    stock: 20
+  },
+  {
+    id: 118,
+    nombre: "Jabón de Tocador Rexona 125g",
+    precio: 1500,
+    imagen: "/products/limpiezaPerfumeria/jabonTocadorRexona125.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Jabón de tocador Rexona Frescura Relajante, 125g. Cuida e hidrata la piel.",
+    stock: 20
+  },
+  {
+    id: 119,
+    nombre: "Jabón Seiseme 300g",
+    precio: 2400,
+    imagen: "/products/limpiezaPerfumeria/jabonSeiseme300.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Jabón en pan Seiseme para lavar ropa, 300g. 60 años de trayectoria, elaborado con materias primas naturales y degradables.",
+    stock: 20
+  },
+  {
+    id: 120,
+    nombre: "Lavandina Ayudín 1L",
+    precio: 1500,
+    imagen: "/products/limpiezaPerfumeria/lavandinaAyudinlitro.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Agua lavandina común Ayudín Original 1 litro. Elimina el 99,9% de virus y bacterias.",
+    stock: 20
+  },
+  {
+    id: 121,
+    nombre: "Perfumina Poett 900ml",
+    precio: 2100,
+    imagen: "/products/limpiezaPerfumeria/perfuminapoett900.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Perfumina para pisos Poett 900ml. Variedad de fragancias, deja aroma duradero en todos los ambientes.",
+    stock: 20
+  },
+  {
+    id: 122,
+    nombre: "Perfumina Procenex 900ml",
+    precio: 1900,
+    imagen: "/products/limpiezaPerfumeria/procenex900.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Perfumina para pisos Procenex 900ml. Variedad de fragancias frutales y florales, limpia y perfuma en un solo paso.",
+    stock: 20
+  },
+  {
+    id: 123,
+    nombre: "Insecticida Raid Aerosol",
+    precio: 7200,
+    imagen: "/products/limpiezaPerfumeria/raid.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Insecticida Raid aerosol, mata moscas, mosquitos y cucarachas. Acción rápida y efectividad comprobada.",
+    stock: 20
+  },
+  {
+    id: 124,
+    nombre: "Insecticida Fuyi Aerosol 400ml",
+    precio: 6400,
+    imagen: "/products/limpiezaPerfumeria/fuyi.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Insecticida Fuyi aerosol 400ml. Mata moscas y mosquitos, efectividad comprobada. Industria argentina.",
+    stock: 20
+  },
+  {
+    id: 125,
+    nombre: "Lysoform Desinfectante Aerosol 360ml",
+    precio: 5100,
+    imagen: "/products/limpiezaPerfumeria/lysoformAerosol.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Desinfectante Lysoform aerosol 360ml. Elimina el 99,9% de gérmenes, virus y bacterias. Listo para usar.",
+    stock: 20
+  },
+  {
+    id: 126,
+    nombre: "Poett Aerosol 250ml",
+    precio: 3900,
+    imagen: "/products/limpiezaPerfumeria/poettAerosol.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Desodorante de ambientes Poett aerosol 250ml. Variedad de fragancias florales y frescas.",
+    stock: 20
+  },
+  {
+    id: 127,
+    nombre: "Detergente Héroe Plus",
+    precio: 1400,
+    imagen: "/products/limpiezaPerfumeria/detergenteHeroe.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Detergente lavavajillas Héroe Plus, variedad de fragancias. Desengrasante efectivo, cuida las manos.",
+    stock: 20
+  },
+  {
+    id: 128,
+    nombre: "Detergente Magistral Limón 760ml",
+    precio: 2400,
+    imagen: "/products/limpiezaPerfumeria/detergenteMagistral.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Detergente lavavajillas Magistral Limón 760ml. X5 poder antigrasa, con jugo de limón natural.",
+    stock: 20
+  },
+  {
+    id: 129,
+    nombre: "Detergente Cif Bioactive Lima 750ml",
+    precio: 2200,
+    imagen: "/products/limpiezaPerfumeria/detergenteCif1.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Detergente lavavajillas Cif Bioactive Lima 750ml. X5 poder desengrasante, nueva fórmula con fragancia a lima.",
+    stock: 20
+  },
+  {
+    id: 130,
+    nombre: "Detergente Ala Ultra 500ml",
+    precio: 3500,
+    imagen: "/products/limpiezaPerfumeria/detergenteAla500ml.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Detergente lavavajillas Ala Ultra 500ml. Doble poder desengrasante, cuida las manos y los utensilios.",
+    stock: 20
+  },
+  {
+    id: 131,
+    nombre: "Jabón Líquido Matic Granby 600ml",
+    precio: 2600,
+    imagen: "/products/limpiezaPerfumeria/jabonLiquidoMaticGranby800.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Jabón líquido para lavarropas Granby Bicarbonato 600ml. Limpieza profunda con fragancia duradera.",
+    stock: 20
+  },
+  {
+    id: 132,
+    nombre: "Jabón Líquido Matic Ala Eco Lavado 800ml",
+    precio: 3900,
+    imagen: "/products/limpiezaPerfumeria/jabonLiquidoMaticAla800.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Jabón líquido para lavarropas Ala Mustic Eco Lavado 800ml. Fórmula concentrada, cuida las fibras de la ropa.",
+    stock: 20
+  },
+  {
+    id: 133,
+    nombre: "Jabón Líquido Matic Gigante Bio 800ml",
+    precio: 3100,
+    imagen: "/products/limpiezaPerfumeria/jabonLiquidoMaticGiganteBio800.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Jabón líquido para lavarropas Gigante Bio 800ml. Con bio-enzimas activas para manchas difíciles.",
+    stock: 20
+  },
+  {
+    id: 134,
+    nombre: "Repelente Off Family Crema 60g",
+    precio: 3600,
+    imagen: "/products/limpiezaPerfumeria/repelenteOffCrema60.png",
+    categoria: "Limpieza y Perfumería",
+    descripcion: "Repelente en crema Off Family 60g, concentrado sin alcohol. Apto para niños desde 4 años.",
+    stock: 20
+  },
+  {
+    id: 135,
+    nombre: "Arvejas Inalpa",
+    precio: 800,
+    imagen: "/products/conservas/arvejasInalpa.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Arvejas Inalpa en lata, listas para servir. Tiernas y de primera calidad, industria argentina. Sin TACC.",
+    stock: 20
+  },
+  {
+    id: 136,
+    nombre: "Lentejas Inalpa",
+    precio: 1200,
+    imagen: "/products/conservas/lentejasInalpa.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Lentejas Inalpa en lata, listas para servir. Cocidas y condimentadas, ideales para guisos y ensaladas.",
+    stock: 20
+  },
+  {
+    id: 137,
+    nombre: "Choclo Blanco Cremoso Inalpa",
+    precio: 900,
+    imagen: "/products/conservas/chocloBlancoCremoso.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Choclo blanco cremoso Inalpa en lata, listo para servir. Ideal para tartas, pasteles y guarniciones.",
+    stock: 20
+  },
+  {
+    id: 138,
+    nombre: "Choclo Amarillo Inalpa",
+    precio: 1600,
+    imagen: "/products/conservas/chocloAmarillo.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Choclo amarillo en granos enteros Inalpa, listo para servir. Dulce y tierno, industria argentina.",
+    stock: 20
+  },
+  {
+    id: 139,
+    nombre: "Jardinera Inalpa",
+    precio: 1200,
+    imagen: "/products/conservas/jardineraInalpa.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Jardinera Inalpa en lata, ensalada de hortalizas y legumbres lista para servir. Arvejas, zanahorias, papas y choclo.",
+    stock: 20
+  },
+  {
+    id: 140,
+    nombre: "Garbanzos Inalpa",
+    precio: 1200,
+    imagen: "/products/conservas/garbanzosInalpa.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Garbanzos Inalpa en lata, secos remojados en conserva. Listos para usar en guisos, ensaladas y hummus.",
+    stock: 20
+  },
+  {
+    id: 141,
+    nombre: "Atún al Natural La Campagnola 170g",
+    precio: 5800,
+    imagen: "/products/conservas/atunNaturalLomoLaCampagnola170.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Atún en lomo al natural La Campagnola, 170g. Libre de gluten, sin TACC. Calidad premium, listo para consumir.",
+    stock: 20
+  },
+  {
+    id: 142,
+    nombre: "Atún Desmenuzado Cumaná 170g",
+    precio: 1800,
+    imagen: "/products/conservas/atunDesmenuzadoCumana170.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Atún desmenuzado al natural Cumaná, 170g. Económico y práctico, ideal para ensaladas, sándwiches y tartas.",
+    stock: 20
+  },
+  {
+    id: 143,
+    nombre: "Duraznos en Almíbar Molto",
+    precio: 2200,
+    imagen: "/products/conservas/duraznosAlmibarMolto.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Duraznos en almíbar Molto, lata. En mitades, listos para postre o repostería.",
+    stock: 20
+  },
+  {
+    id: 144,
+    nombre: "Duraznos en Almíbar Agrosabor 950g",
+    precio: 2400,
+    imagen: "/products/conservas/duraznosAlmibarAgrosabor.png",
+    categoria: "Almacén",
+    subcategoria: "Conservas",
+    descripcion: "Duraznos en mitades en almíbar Agrosabor, 950g. Fruta seleccionada, ideal para postres y repostería.",
+    stock: 20
+  },
+  {
+    id: 145,
+    nombre: "Lucchetti Moños 500g",
+    precio: 1600,
+    imagen: "/products/pastas/luccettiMonitos.png",
+    categoria: "Almacén",
+    subcategoria: "Pastas frescas y secas",
+    descripcion: "Fideos moños Lucchetti 500g. Enriquecidos con vitaminas y minerales NutriVit Plus. Ideales con salsas cremosas.",
+    stock: 20
+  },
+  {
+    id: 146,
+    nombre: "Lucchetti Dedalitos 500g",
+    precio: 1600,
+    imagen: "/products/pastas/luccettiDedalitos.png",
+    categoria: "Almacén",
+    subcategoria: "Pastas frescas y secas",
+    descripcion: "Fideos dedalitos Lucchetti 500g. Enriquecidos con vitaminas y minerales NutriVit Plus. Ideales para sopas y guisos.",
+    stock: 20
+  },
+  {
+    id: 147,
+    nombre: "Lucchetti Municiones 500g",
+    precio: 1600,
+    imagen: "/products/pastas/luccettiMuniciones.png",
+    categoria: "Almacén",
+    subcategoria: "Pastas frescas y secas",
+    descripcion: "Fideos municiones Lucchetti 500g. Enriquecidos con vitaminas y minerales NutriVit Plus. Clásicos para sopas y caldos.",
+    stock: 20
+  },
+  {
+    id: 148,
+    nombre: "Spaghetti Verizzia 500g",
+    precio: 1000,
+    imagen: "/products/pastas/spaghettiVerizzia.png",
+    categoria: "Almacén",
+    subcategoria: "Pastas frescas y secas",
+    descripcion: "Spaghetti Verizzia 500g. Pasta seca de calidad, elaborada con sémola de trigo. Amore per la Pasta.",
+    stock: 20
+  },
+  {
+    id: 151,
+    nombre: "Jamón Cocido La Tirolesa",
+    precio: 1000,
+    imagen: "/products/almacen/fiambres/jamonCocidoTirolesa.png",
+    categoria: "Almacén",
+    subcategoria: "Fiambres",
+    descripcion: "Jamón cocido La Tirolesa, precio por 100g. Tierno y sabroso, ideal para sándwiches y picadas.",
+    stock: 20,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 152,
+    nombre: "Jamón Cocido Colonial",
+    precio: 1300,
+    imagen: "/products/almacen/fiambres/jamonCocidoColonial.png",
+    categoria: "Almacén",
+    subcategoria: "Fiambres",
+    descripcion: "Jamón cocido Colonial, precio por 100g. Sabor suave y textura premium, perfecto para picadas y sándwiches.",
+    stock: 20,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 153,
+    nombre: "Jamón Cocido con Cuero Ibarazzi",
+    precio: 1800,
+    imagen: "/products/almacen/fiambres/jamonCocidoconCuero.png",
+    categoria: "Almacén",
+    subcategoria: "Fiambres",
+    descripcion: "Jamón cocido natural con cuero Ibarazzi, precio por 100g. Elaboración artesanal, sabor intenso y característico.",
+    stock: 20,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 154,
+    nombre: "Salame Tipo Milán La Tirolesa",
+    precio: 1400,
+    imagen: "/products/almacen/fiambres/salameTipoMilanTirolesa.png",
+    categoria: "Almacén",
+    subcategoria: "Fiambres",
+    descripcion: "Salame tipo Milán La Tirolesa, precio por 100g. Sabor intenso y curación tradicional, ideal para picadas.",
+    stock: 20,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 155,
+    nombre: "Paty Express x4 110g",
+    precio: 4400,
+    imagen: "/products/congelados/patyExpressx4.png",
+    categoria: "Congelados",
+    descripcion: "Medallones de carne vacuna Paty Express x4 unidades, 110g cada uno. Supercongelados, listos para la plancha o parrilla.",
+    stock: 20
+  },
+  {
+    id: 156,
+    nombre: "Papas Lay's Clásicas 40g",
+    precio: 2300,
+    imagen: "/products/kiosco/lays40.png",
+    categoria: "Kiosco",
+    descripcion: "Papas fritas Lay's Clásicas 40g. Solo 3 ingredientes: papa, aceite y sal. El snack clásico de siempre.",
+    stock: 20
+  },
+  {
+    id: 157,
+    nombre: "Papas Lay's Clásicas 75g",
+    precio: 3300,
+    imagen: "/products/kiosco/lays75.png",
+    categoria: "Kiosco",
+    descripcion: "Papas fritas Lay's Clásicas 75g. Solo 3 ingredientes: papa, aceite y sal. Formato familiar.",
+    stock: 20
+  },
+  {
+    id: 158,
+    nombre: "Cheetos 3D 40g",
+    precio: 2300,
+    imagen: "/products/kiosco/3D40.png",
+    categoria: "Kiosco",
+    descripcion: "Snack de maíz Cheetos 3D 40g. Crujientes y con sabor a queso, ideales para el recreo o la merienda.",
+    stock: 20
+  },
+  {
+    id: 159,
+    nombre: "Cheetos 3D 75g",
+    precio: 3300,
+    imagen: "/products/kiosco/3D75.png",
+    categoria: "Kiosco",
+    descripcion: "Snack de maíz Cheetos 3D 75g. Crujientes y con sabor a queso. Formato familiar.",
+    stock: 20
+  },
+  {
+    id: 160,
+    nombre: "Doritos 40g",
+    precio: 2300,
+    imagen: "/products/kiosco/doritos40.png",
+    categoria: "Kiosco",
+    descripcion: "Nachos Doritos 40g. Chips de maíz con intenso sabor, crujientes e irresistibles.",
+    stock: 20
+  },
+  {
+    id: 161,
+    nombre: "Doritos 75g",
+    precio: 3300,
+    imagen: "/products/kiosco/doritos75gr.png",
+    categoria: "Kiosco",
+    descripcion: "Nachos Doritos 75g. Chips de maíz con intenso sabor. Formato familiar.",
+    stock: 20
+  },
+  {
+    id: 162,
+    nombre: "Chocolate Block 38g",
+    precio: 2100,
+    imagen: "/products/kiosco/coflerBlock38.png",
+    categoria: "Kiosco",
+    descripcion: "Chocolate Block 38g. Chocolate con leche clásico, suave y cremoso. El clásico argentino de siempre.",
+    stock: 20
+  },
+  {
+    id: 163,
+    nombre: "Chocolate Block 110g",
+    precio: 5400,
+    imagen: "/products/kiosco/coflerBlock110.png",
+    categoria: "Kiosco",
+    descripcion: "Chocolate Block 110g. Chocolate con leche clásico en formato grande. Ideal para compartir.",
+    stock: 20
+  },
+  
 ];
 
 const Catalogo = () => {
@@ -1090,7 +1609,7 @@ const Catalogo = () => {
   };
 
   return (
-    <section id="catalogo" className="bg-section-alt py-16">
+    <section id="catalogo" className="bg-background py-16">
       <div className="container mx-auto px-4">
         <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary text-center mb-8">
           NUESTROS PRODUCTOS
@@ -1105,12 +1624,12 @@ const Catalogo = () => {
               placeholder="Buscar producto..."
               value={busqueda}
               onChange={(e) => setBusqueda(e.target.value)}
-              className="w-full pl-10 pr-10 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-orange-400"
+              className="w-full pl-10 pr-10 py-2 rounded-lg border border-border dark:border-foreground/20 focus:outline-none focus:border-orange-400 bg-background text-foreground"
             />
             {busqueda && (
               <button
                 onClick={() => setBusqueda('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-muted-foreground"
               >✕</button>
             )}
           </div>
@@ -1125,7 +1644,7 @@ const Catalogo = () => {
                 className={`min-h-[44px] px-6 py-2 rounded-full font-heading text-[16px] font-bold transition-all ${
                   selectedCat === c 
                     ? "bg-primary text-white shadow-md shadow-primary/20" 
-                    : "bg-[#F0F0F0] text-gray-600 hover:bg-gray-200"
+                    : "bg-muted text-foreground hover:bg-muted/80"
                 }`}
               >
                 {c}
@@ -1143,7 +1662,7 @@ const Catalogo = () => {
                   className={`min-h-[38px] px-4 py-1 rounded-full font-body text-[14px] font-semibold border transition-all ${
                     selectedSubcat === s 
                       ? "bg-green-100 border-green-600 text-green-700" 
-                      : "bg-white border-gray-200 text-gray-500 hover:border-gray-300"
+                      : "bg-card border-border text-muted-foreground hover:border-gray-300"
                   }`}
                 >
                   {s}
@@ -1161,13 +1680,13 @@ const Catalogo = () => {
             return (
               <div 
                 key={p.id} 
-                className="bg-white rounded-[16px] overflow-hidden cursor-pointer group shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col h-full relative sm:pt-[10px]"
+                className="bg-card rounded-[16px] overflow-hidden cursor-pointer group shadow-md hover:shadow-xl transition-all border border-border flex flex-col h-full relative sm:pt-[10px]"
                 onClick={() => setSelectedProduct(p)}
               >
                 {/* Product Image */}
                 <div className={isPromo 
-                  ? "w-full bg-white flex items-center justify-center h-48 sm:h-56 overflow-hidden rounded-t-xl"
-                  : "w-full h-32 sm:h-56 bg-white flex items-center justify-center overflow-hidden rounded-t-xl relative"
+                  ? "w-full bg-card flex items-center justify-center h-48 sm:h-56 overflow-hidden rounded-t-xl"
+                  : "w-full h-32 sm:h-56 bg-card flex items-center justify-center overflow-hidden rounded-t-xl relative"
                 }>
                   <img 
                     src={p.imagen} 
@@ -1180,10 +1699,10 @@ const Catalogo = () => {
                 {/* Product Info */}
                 <div className="p-3 md:p-5 flex flex-col flex-1">
                   <div className="mb-2 flex flex-col items-center text-center">
-                    <span className="inline-block w-fit bg-green-100 text-green-700 text-[10px] md:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2">
+                    <span className="inline-block w-fit text-[10px] md:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-2 bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400 border border-transparent dark:border-green-800/50">
                       {p.subcategoria || p.categoria}
                     </span>
-                    <h3 className={`font-body font-bold text-gray-800 leading-tight min-h-[40px] text-center uppercase tracking-tight ${isPromo ? "text-sm sm:text-base" : "text-xs sm:text-[16px]"}`}>
+                    <h3 className={`font-body font-bold text-card-foreground leading-tight min-h-[40px] text-center uppercase tracking-tight ${isPromo ? "text-sm sm:text-base" : "text-xs sm:text-[16px]"}`}>
                       {p.nombre}
                     </h3>
                   </div>
@@ -1204,7 +1723,7 @@ const Catalogo = () => {
               </div>
             );
           }) : (
-            <p className="col-span-full text-center text-gray-500">No se encontraron productos</p>
+            <p className="col-span-full text-center text-muted-foreground">No se encontraron productos</p>
           )}
         </div>
       </div>
@@ -1213,16 +1732,16 @@ const Catalogo = () => {
       {selectedProduct && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedProduct(null)} />
-          <div className="relative bg-white w-full max-w-4xl rounded-[24px] overflow-y-auto shadow-2xl flex flex-col md:flex-row max-h-[90vh] [-webkit-overflow-scrolling:touch]">
+          <div className="relative bg-card w-full max-w-4xl rounded-[24px] overflow-y-auto shadow-2xl flex flex-col md:flex-row max-h-[90vh] [-webkit-overflow-scrolling:touch]">
             <button 
               onClick={() => setSelectedProduct(null)} 
-              className="absolute top-4 right-4 z-20 p-2 bg-white/90 backdrop-blur rounded-full hover:bg-primary hover:text-white transition-all border shadow-sm text-gray-700"
+              className="absolute top-4 right-4 z-20 p-2 bg-card backdrop-blur rounded-full hover:bg-primary hover:text-white transition-all border shadow-sm text-card-foreground"
             >
               <X size={24} />
             </button>
             
             {/* Image Section */}
-            <div className="w-full md:w-1/2 bg-[#FAFAFA] p-8 flex items-center justify-center border-r border-gray-100">
+            <div className="w-full md:w-1/2 bg-muted p-8 flex items-center justify-center border-r border-border">
               <img 
                 src={selectedProduct.imagen} 
                 alt={selectedProduct.nombre} 
@@ -1234,27 +1753,27 @@ const Catalogo = () => {
             <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="bg-primary/5 text-primary text-[12px] font-bold px-3 py-1 rounded-full border border-primary/10">
+                  <span className="bg-primary/10 text-primary text-[12px] font-bold px-3 py-1 rounded-full border border-primary/30">
                     {selectedProduct.categoria}
                   </span>
                   {selectedProduct.subcategoria && (
-                    <span className="bg-green-100 text-green-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                    <span className="bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400 dark:border dark:border-green-800/50 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                       {selectedProduct.subcategoria}
                     </span>
                   )}
                 </div>
                 
-                <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-[#222222] leading-tight mb-4">
+                <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-card-foreground leading-tight mb-4">
                   {selectedProduct.nombre}
                 </h2>
                 
-                <p className="font-body text-gray-600 text-base leading-relaxed mb-6">
+                <p className="font-body text-foreground/75 text-base leading-relaxed mb-6">
                   {selectedProduct.descripcion}
                 </p>
                 
                 <div className="flex items-center gap-3 mb-8">
                   <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-gray-500 font-semibold text-base uppercase tracking-wide">
+                  <span className="text-foreground/70 font-semibold text-base uppercase tracking-wide">
                     Stock: {selectedProduct.stock} unidades
                   </span>
                 </div>
@@ -1267,21 +1786,21 @@ const Catalogo = () => {
               </div>
 
               {/* Footer Modal */}
-              <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-gray-100">
-                <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-1 w-full sm:w-auto border border-gray-100">
+              <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-border">
+                <div className="flex items-center justify-between bg-muted rounded-2xl p-1 w-full sm:w-auto border border-border">
                   <button
                     onClick={() => setModalQuantity(Math.max(1, modalQuantity - 1))}
-                    className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                    className="h-11 w-11 flex items-center justify-center text-foreground/60 hover:bg-card hover:shadow-sm rounded-xl transition-all"
                   >
                     <Minus size={20} />
                   </button>
-                  <span className="font-body px-6 text-xl font-bold text-gray-800">
+                  <span className="font-body px-6 text-xl font-bold text-card-foreground">
                     {modalQuantity}
                   </span>
                   <button
                     onClick={() => setModalQuantity(Math.min(selectedProduct.stock, modalQuantity + 1))}
                     disabled={modalQuantity >= selectedProduct.stock}
-                    className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all disabled:opacity-30"
+                    className="h-11 w-11 flex items-center justify-center text-foreground/60 hover:bg-card hover:shadow-sm rounded-xl transition-all disabled:opacity-30"
                   >
                     <Plus size={20} />
                   </button>

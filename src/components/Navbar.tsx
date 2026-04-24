@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
 import { Cart } from "./Cart";
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
@@ -14,6 +16,7 @@ const navItems = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [activeHash, setActiveHash] = useState(window.location.hash || "#inicio");
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav className="bg-navbar sticky top-0 z-50 shadow-md">
@@ -41,10 +44,24 @@ const Navbar = () => {
             </a>
           ))}
           <Cart />
+          <button
+            onClick={toggleTheme}
+            className="text-white min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-white/20 transition-all"
+            aria-label="Cambiar tema"
+          >
+            {theme === "dark" ? <Sun size={22} /> : <Moon size={22} />}
+          </button>
         </div>
 
         {/* Mobile toggle */}
         <div className="md:hidden flex items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            className="text-white min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-white/20 transition-all"
+            aria-label="Cambiar tema"
+          >
+            {theme === "dark" ? <Sun size={22} /> : <Moon size={22} />}
+          </button>
           <Cart />
           <button
             onClick={() => setOpen(!open)}

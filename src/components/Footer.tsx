@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer className="bg-footer">
+  <footer className="bg-footer text-footer-foreground">
     {/* Green top bar */}
     <div className="h-2 bg-secondary" />
     <div className="container mx-auto px-4 py-10">
@@ -51,9 +51,9 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-footer-foreground/10 mt-8 pt-6 text-center">
-        <p className="font-body text-xs text-footer-foreground/40">
-          © 2026 Almacén y Pollería Tonio · Sitio web por MafeTech
-        </p>
+        <p className="font-body text-xs text-footer-foreground/60">
+         © 2026 TonioMiniMarket · Todos los derechos reservados
+        </p> 
       </div>
     </div>
   </footer>

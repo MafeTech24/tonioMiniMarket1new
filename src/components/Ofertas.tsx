@@ -16,8 +16,8 @@ const ofertas = [
     antes: "$8.000", 
     ahora: "$6.500", 
     desc: "¡La hamburguesada perfecta en casa! Incluye: 4 Hamburguesas Paty Express + 4 Panes de hamburguesa + 1 Mayonesa Hellmann's 125g + 1 Mostaza o Ketchup Danica 60g. Todo listo para armar las mejores hamburguesas caseras. Ideal para el fin de semana con toda la familia.", 
-    img: "/products/promoHamburguesa1.png",
-    images: ["/products/promoHamburguesa1.png", "/products/promoHamburguesa2.png", "/products/promoHamburguesa3.png", "/products/promoHamburguesa4.png"],
+    img: "/products/ofertaHamburguesas.png",
+    /*images: ["/products/promoHamburguesa1.png", "/products/promoHamburguesa2.png", "/products/promoHamburguesa3.png", "/products/promoHamburguesa4.png"],*/
     stock: 12,
     categoria: "Almacén"
   },
@@ -26,12 +26,39 @@ const ofertas = [
     antes: "$7.500", 
     ahora: "$6.000", 
     desc: "¡Todo para una tarta en familia! Incluye: 1 Pascualina San Vicente + 200g Jamón Cocido feteado + 200g Queso Cremoso + 2 Huevos frescos. Una promo completa para preparar una tarta casera deliciosa. Ideal para el almuerzo o cena familiar.", 
-    img: "/products/promoTarta1.png",
-    images: ["/products/promoTarta1.png", "/products/promoTarta2.png", "/products/promoTarta3.png"],
+    img: "/products/ofertaTarta.png",
+    /*images: ["/products/promoTarta1.png", "/products/promoTarta2.png", "/products/promoTarta3.png"],*/
     stock: 10,
     categoria: "Almacén"
   },
   { 
+    nombre: "Oferta Pizza", 
+    antes: "$9.000", 
+    ahora: "$7.500", 
+    desc: "¡Combo ideal para tu noche de pizza! Incluye: 2 Pre pizzas + 400g Muzzarella de primera calidad + 150g Jamón Tirolesa + 100g Aceitunas seleccionadas. Todo lo que necesitás para armar dos pizzas increíbles en minutos.", 
+    img: "/products/ofertaPizza.png",
+    stock: 15,
+    categoria: "Fiambrería"
+  },
+  { 
+    nombre: "Oferta Picada Premium", 
+    antes: "$14.000", 
+    ahora: "$11.500", 
+    desc: "La mejor selección para una picada inolvidable. Incluye: 2 Tiras de pan modelo + 100g Jamón Colonial + 100g Salame + 100g Mortadela Paladini + 100g Bondiola Colonial + 100g Queso Paulina + 150g Papas Danal + 100g Maní (común o saborizado). Calidad premium para compartir.", 
+    img: "/products/ofertaPicadaPremium.png",
+    stock: 8,
+    categoria: "Fiambrería"
+  },
+  { 
+    nombre: "Oferta Picada Económica", 
+    antes: "$10.000", 
+    ahora: "$8.000", 
+    desc: "Picada completa al mejor precio. Incluye: 2 Tiras de pan + 100g Jamón Tirolesa + 100g Mortadela Tirolesa + 100g Patita de cerdo Tirolesa + 100g Bondiola + 100g Queso Makis + 100g Papas Danal + 100g Maní. ¡No te quedes sin la tuya!", 
+    img: "/products/ofertaPicadaEconomica.png",
+    stock: 10,
+    categoria: "Fiambrería"
+  },
+  /*{ 
     nombre: "Pollo Entero", 
     antes: "$4.500", 
     ahora: "$3.800", 
@@ -48,7 +75,7 @@ const ofertas = [
     img: "/products/pack_almacen_1775092426601.png",
     stock: 15,
     categoria: "Almacén"
-  },
+  },*/
 ];
 
 const Ofertas = () => {
@@ -108,8 +135,8 @@ const Ofertas = () => {
           <div key={o.nombre} className="card-market p-6 relative flex flex-col h-full overflow-hidden cursor-pointer group" onClick={() => setSelectedOffer(o)}>
             <span className="badge-offer absolute top-4 right-4 z-10">OFERTA</span>
             
-            <div className="w-full h-48 sm:h-56 mb-4 rounded-md overflow-hidden relative bg-white flex items-center justify-center">
-              <img src={(o as any).img} alt={o.nombre} className="w-full h-full object-cover" loading="lazy" />
+            <div className="w-full h-48 sm:h-56 mb-4 rounded-md overflow-hidden relative bg-[#000000] flex items-center justify-center p-1">
+              <img src={(o as any).img} alt={o.nombre} className="w-full h-full object-contain" loading="lazy" />
             </div>
             
             <div className="flex-1 flex flex-col pt-2 text-center">

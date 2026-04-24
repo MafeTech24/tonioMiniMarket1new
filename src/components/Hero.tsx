@@ -9,10 +9,10 @@ const Hero = () => (
           <span>DESPENSA Y</span>
           <span>POLLERÍA</span>
         </h1>
-        <h2 className="mt-4 md:mt-6 font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#555555] font-bold tracking-tight">
+        <h2 className="mt-4 md:mt-6 font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl text-foreground font-bold tracking-tight">
           Calidad, frescura y los mejores precios
         </h2>
-        <h3 className="mt-3 md:mt-4 font-body text-sm sm:text-base md:text-lg text-[#555555] font-medium max-w-lg leading-relaxed px-2 md:px-0">
+        <h3 className="mt-3 md:mt-4 font-body text-sm sm:text-base md:text-lg text-foreground font-medium max-w-lg leading-relaxed px-2 md:px-0">
           Agregá productos al carrito, enviá tu pedido por WhatsApp y nosotros te lo llevamos!
         </h3>
       </div>

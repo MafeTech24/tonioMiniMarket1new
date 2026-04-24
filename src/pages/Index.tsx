@@ -18,7 +18,7 @@ const Index = () => (
     <Ofertas />
     <WaveDivider color="primary" />
     <Catalogo />
-    <Galeria />
+    {/* <Galeria /> */}
     <Horarios />
     <Footer />
     <WhatsAppFAB />
