@@ -5,7 +5,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescri
 import { useCart } from "@/context/CartContext";
 import { supabase } from '@/lib/supabase'
 
-const OWNER_PHONE = "543512005107";
+const OWNER_PHONE = "543516527241";
 const STORE_LAT = -31.4028;
 const STORE_LON = -64.2422;
 
@@ -242,6 +242,7 @@ ${commonMessage}
     setTimeout(() => {
       window.open(customerWaLink, "_blank");
       setStep('success');
+      clearCart();
     }, 1500);
   };
 
@@ -743,9 +744,17 @@ ${commonMessage}
               <button
                 onClick={handleStartCheckout}
                 disabled={cart.length === 0}
-                className="w-full btn-primary-market text-[18px] rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-green-600 hover:bg-green-700 text-white min-h-[48px] text-[18px] font-bold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed mb-3 shadow-md"
               >
                 <span>Continuar compra</span>
+              </button>
+              <button
+                onClick={clearCart}
+                disabled={cart.length === 0}
+                className="w-full bg-red-600 hover:bg-red-700 text-white min-h-[44px] text-[15px] font-bold transition-all rounded-lg flex items-center justify-center gap-2 shadow-sm"
+              >
+                <Trash2 size={18} />
+                <span>Vaciar Carrito</span>
               </button>
             </>
           )}

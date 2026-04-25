@@ -1718,16 +1718,16 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
       {selectedProduct && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedProduct(null)} />
-          <div className="relative bg-card w-full max-w-4xl rounded-[24px] overflow-y-auto shadow-2xl flex flex-col md:flex-row max-h-[90vh] [-webkit-overflow-scrolling:touch]">
+          <div className="relative bg-white w-full max-w-4xl rounded-[24px] overflow-y-auto shadow-2xl flex flex-col md:flex-row max-h-[90vh] [-webkit-overflow-scrolling:touch]">
             <button 
               onClick={() => setSelectedProduct(null)} 
-              className="absolute top-4 right-4 z-20 p-2 bg-card backdrop-blur rounded-full hover:bg-primary hover:text-white transition-all border shadow-sm text-card-foreground"
+              className="absolute top-4 right-4 z-20 p-2 bg-white/80 backdrop-blur rounded-full hover:bg-primary hover:text-white transition-all border border-gray-200 shadow-sm text-gray-700"
             >
               <X size={24} />
             </button>
             
             {/* Image Section */}
-            <div className="w-full md:w-1/2 bg-muted p-8 flex items-center justify-center border-r border-border">
+            <div className="w-full md:w-1/2 bg-[#FAFAFA] dark:bg-[#161412] p-8 flex items-center justify-center border-r border-gray-100 dark:border-gray-800">
               <img 
                 src={selectedProduct.imagen} 
                 alt={selectedProduct.nombre} 
@@ -1743,23 +1743,23 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                     {selectedProduct.categoria}
                   </span>
                   {selectedProduct.subcategoria && (
-                    <span className="bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400 dark:border dark:border-green-800/50 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                    <span className="bg-green-100 text-green-700 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                       {selectedProduct.subcategoria}
                     </span>
                   )}
                 </div>
                 
-                <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-card-foreground leading-tight mb-4">
+                <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
                   {selectedProduct.nombre}
                 </h2>
                 
-                <p className="font-body text-foreground/75 text-base leading-relaxed mb-6">
+                <p className="font-body text-gray-600 text-base leading-relaxed mb-6">
                   {selectedProduct.descripcion}
                 </p>
                 
                 <div className="flex items-center gap-3 mb-8">
                   <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-foreground/70 font-semibold text-base uppercase tracking-wide">
+                  <span className="text-gray-500 font-semibold text-base uppercase tracking-wide">
                     Stock: {selectedProduct.stock} unidades
                   </span>
                 </div>
@@ -1772,21 +1772,21 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
               </div>
 
               {/* Footer Modal */}
-              <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-border">
-                <div className="flex items-center justify-between bg-muted rounded-2xl p-1 w-full sm:w-auto border border-border">
+              <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-gray-100">
+                <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-1 w-full sm:w-auto border border-gray-200">
                   <button
                     onClick={() => setModalQuantity(Math.max(1, modalQuantity - 1))}
-                    className="h-11 w-11 flex items-center justify-center text-foreground/60 hover:bg-card hover:shadow-sm rounded-xl transition-all"
+                    className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all"
                   >
                     <Minus size={20} />
                   </button>
-                  <span className="font-body px-6 text-xl font-bold text-card-foreground">
+                  <span className="font-body px-6 text-xl font-bold text-gray-900">
                     {modalQuantity}
                   </span>
                   <button
                     onClick={() => setModalQuantity(Math.min(selectedProduct.stock, modalQuantity + 1))}
                     disabled={modalQuantity >= selectedProduct.stock}
-                    className="h-11 w-11 flex items-center justify-center text-foreground/60 hover:bg-card hover:shadow-sm rounded-xl transition-all disabled:opacity-30"
+                    className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all disabled:opacity-30"
                   >
                     <Plus size={20} />
                   </button>
