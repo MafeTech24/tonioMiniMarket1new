@@ -9,7 +9,7 @@ const navItems = [
   { label: "Inicio", href: "#inicio" },
   { label: "Ofertas", href: "#ofertas" },
   { label: "Catálogo", href: "#catalogo" },
-  { label: "Galería", href: "#galeria" },
+  // { label: "Galería", href: "#galeria" },
   { label: "Horarios", href: "#horarios" },
 ];
 

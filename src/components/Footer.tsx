@@ -20,7 +20,7 @@ const Footer = () => (
             Navegación
           </h4>
           <div className="flex flex-col gap-2">
-            {["Inicio", "Ofertas", "Catálogo", "Galería", "Horarios"].map((l) => (
+            {["Inicio", "Ofertas", "Catálogo", "Horarios"].map((l) => (
               <a
                 key={l}
                 href={`#${l.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
