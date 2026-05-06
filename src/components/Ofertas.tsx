@@ -36,7 +36,7 @@ const ofertas = [
     antes: "$9.000", 
     ahora: "$7.500", 
     desc: "¡Combo ideal para tu noche de pizza! Incluye: 2 Pre pizzas + 400g Muzzarella de primera calidad + 150g Jamón Cocido Tirolesa + 100g Aceitunas seleccionadas. Todo lo que necesitás para armar dos pizzas increíbles en minutos.", 
-    img: "/products/ofertaPizza.png",
+    img: "/products/oferta_pizza2.png",
     stock: 15,
     categoria: "Fiambrería"
   },
