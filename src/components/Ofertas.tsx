@@ -16,7 +16,7 @@ const ofertas = [
     antes: "$8.000", 
     ahora: "$6.500", 
     desc: "¡La hamburguesada perfecta en casa! Incluye: 4 Hamburguesas Paty Express + 4 Panes de hamburguesa + 1 Mayonesa Hellmann's 125g + 1 Mostaza o Ketchup Danica 60g. Todo listo para armar las mejores hamburguesas caseras. Ideal para el fin de semana con toda la familia.", 
-    img: "/products/ofertaHamburguesas.png",
+    img: "/products/promoHamburguesa5.png",
     /*images: ["/products/promoHamburguesa1.png", "/products/promoHamburguesa2.png", "/products/promoHamburguesa3.png", "/products/promoHamburguesa4.png"],*/
     stock: 12,
     categoria: "Almacén"
@@ -26,7 +26,7 @@ const ofertas = [
     antes: "$7.500", 
     ahora: "$6.000", 
     desc: "¡Todo para una tarta en familia! Incluye: 1 Pascualina San Vicente + 200g Jamón Cocido Tirolesa + 200g Queso Cremoso + 2 Huevos frescos. Una promo completa para preparar una tarta casera deliciosa. Ideal para el almuerzo o cena familiar.", 
-    img: "/products/ofertaTarta.png",
+    img: "/products/promoTarta4.png",
     /*images: ["/products/promoTarta1.png", "/products/promoTarta2.png", "/products/promoTarta3.png"],*/
     stock: 10,
     categoria: "Almacén"
@@ -44,8 +44,8 @@ const ofertas = [
     nombre: "Oferta Picada Premium", 
     antes: "$14.000", 
     ahora: "$11.500", 
-    desc: "La mejor selección para una picada inolvidable. Incluye: 2 Tiras de pan Modelo + 100g Jamón Cocido Colonial + 100g Salame + 100g Mortadela Paladini + 100g Bondiola Colonial + 100g Queso La Paulina + 150g Papas Danal + 100g Maní (común o saborizado). Calidad premium para compartir.", 
-    img: "/products/ofertaPicadaPremium.png",
+    desc: "La mejor selección para una picada inolvidable. Incluye: 2 Tiras de pan de Panificación Modelo + 100g Jamón Cocido Colonial + 100g Salame + 100g Mortadela Paladini + 100g Bondiola Colonial + 100g Queso La Paulina + 150g Papas Danal + 100g Maní (común o saborizado). Calidad premium para compartir.", 
+    img: "/products/ofertaPicadaPremium3.png",
     stock: 8,
     categoria: "Fiambrería"
   },
@@ -54,7 +54,7 @@ const ofertas = [
     antes: "$10.000", 
     ahora: "$8.000", 
     desc: "Picada completa al mejor precio. Incluye: 2 Tiras de pan + 100g Jamón Tirolesa + 100g Mortadela Tirolesa + 100g Patita de cerdo Tirolesa + 100g Bondiola + 100g Queso Makis + 100g Papas Danal + 100g Maní. ¡No te quedes sin la tuya!", 
-    img: "/products/ofertaPicadaEconomica.png",
+    img: "/products/ofertaPicadaEconomica2.png",
     stock: 10,
     categoria: "Fiambrería"
   },

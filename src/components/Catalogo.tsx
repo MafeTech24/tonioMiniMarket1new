@@ -29,7 +29,7 @@ const CATEGORIAS = [
 ];
 
 const SUBCATEGORIAS: Record<string, string[]> = {
-  "Almacén": ["Aderezos", "Condimentos", "Conservas", "Desayuno", "Fiambres", /*"Lácteos", "Panadería",*/ "Pastas frescas y secas"],
+  "Almacén": ["Aderezos", "Condimentos", "Conservas", "Desayuno", "Fiambres", "Lácteos", /*"Panadería",*/ "Pastas frescas y secas"],
   "Bebidas": ["Con alcohol", "Sin alcohol"]
 };
 
@@ -645,7 +645,7 @@ const productos: Producto[] = [
   {
     id: 55,
     nombre: "Leche Fresca La Serenísima Clásica 1L",
-    precio: 1400,
+    precio: 2100,
     imagen: "/products/lacteos/lecheSachet1L.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -655,7 +655,7 @@ const productos: Producto[] = [
   {
     id: 56,
     nombre: "Manteca La Serenísima Clásica 200g",
-    precio: 2600,
+    precio: 4500,
     imagen: "/products/lacteos/mantecaSerenisima200.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -665,11 +665,181 @@ const productos: Producto[] = [
   {
     id: 57,
     nombre: "Yogur Tregar Arándano 900g",
-    precio: 2800,
+    precio: 2200,
     imagen: "/products/lacteos/yogurTregarLitro.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
     descripcion: "Yogur entero Tregar sabor arándano, 900g. Bebible, en sachet familiar.",
+    stock: 20
+  },
+  {
+    id: 300,
+    nombre: "Leche Armonía Clásica 1L",
+    precio: 1800,
+    imagen: "/products/lacteos/lecheArmoniaSachet.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Leche Armonía en sachet de 1 litro.",
+    stock: 20
+  },
+  {
+    id: 301,
+    nombre: "Leche La Serenísima Descremada 1L",
+    precio: 2100,
+    imagen: "/products/lacteos/lecheSachetDescremadaLS1L.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Leche La Serenísima descremada en sachet de 1 litro.",
+    stock: 20
+  },
+  {
+    id: 302,
+    nombre: "Leche La Serenísima Zero Lactosa 1L",
+    precio: 2800,
+    imagen: "/products/lacteos/lecheZeroLactosaLS.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Leche La Serenísima Zero Lactosa de 1 litro.",
+    stock: 20
+  },
+  {
+    id: 303,
+    nombre: "Crema de Leche Tonadita",
+    precio: 2400,
+    imagen: "/products/lacteos/cremaTonadita.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Crema de leche Tonadita.",
+    stock: 20
+  },
+  {
+    id: 304,
+    nombre: "Crema de Leche DJ",
+    precio: 1800,
+    imagen: "/products/lacteos/cremaDJ.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Crema de leche DJ.",
+    stock: 20
+  },
+  {
+    id: 305,
+    nombre: "Crema de Leche Milkaut 200g",
+    precio: 2500,
+    imagen: "/products/lacteos/cremaMilkaut200.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Crema de leche Milkaut de 200g.",
+    stock: 20
+  },
+  {
+    id: 306,
+    nombre: "Crema de Leche Milkaut 350g",
+    precio: 3900,
+    imagen: "/products/lacteos/cremaMilkaut350.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Crema de leche Milkaut de 350g.",
+    stock: 20
+  },
+  {
+    id: 307,
+    nombre: "Queso Untable Clásico La Paulina",
+    precio: 3100,
+    imagen: "/products/lacteos/quesoUntableClasicoLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso untable clásico La Paulina, entero.",
+    stock: 20
+  },
+  {
+    id: 308,
+    nombre: "Queso Untable Port Salud La Paulina",
+    precio: 3100,
+    imagen: "/products/lacteos/quesoUntablePortSaludLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso untable Port Salud La Paulina.",
+    stock: 20
+  },
+  {
+    id: 309,
+    nombre: "Queso Untable Port Salud Equilibrio La Paulina",
+    precio: 3100,
+    imagen: "/products/lacteos/quesoUntablePortSaludEquilibrioLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso untable Port Salud Equilibrio La Paulina, descremado.",
+    stock: 20
+  },
+  {
+    id: 310,
+    nombre: "Queso Untable 4 Quesos La Paulina",
+    precio: 2100,
+    imagen: "/products/lacteos/quesoUntable4quesosLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso untable sabor 4 quesos La Paulina.",
+    stock: 20
+  },
+  {
+    id: 311,
+    nombre: "Queso Untable Azul La Paulina",
+    precio: 2100,
+    imagen: "/products/lacteos/quesoUntableAzulLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso untable sabor queso azul La Paulina.",
+    stock: 20
+  },
+  {
+    id: 312,
+    nombre: "Queso Untable Cheddar La Paulina",
+    precio: 2100,
+    imagen: "/products/lacteos/quesoUntableCheddarLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso untable sabor cheddar La Paulina.",
+    stock: 20
+  },
+  {
+    id: 313,
+    nombre: "Queso Untable Fontina La Paulina",
+    precio: 2100,
+    imagen: "/products/lacteos/quesoUntableFontinaLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso untable sabor fontina La Paulina.",
+    stock: 20
+  },
+  {
+    id: 314,
+    nombre: "Queso Untable Jamón La Paulina",
+    precio: 2100,
+    imagen: "/products/lacteos/quesoUntableJamonLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso untable sabor jamón La Paulina.",
+    stock: 20
+  },
+  {
+    id: 315,
+    nombre: "Queso Crema Tradicional La Paulina",
+    precio: 3100,
+    imagen: "/products/lacteos/quesoCremaTradicionalLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso crema tradicional La Paulina.",
+    stock: 20
+  },
+  {
+    id: 316,
+    nombre: "Queso Crema Light La Paulina",
+    precio: 3100,
+    imagen: "/products/lacteos/quesoCremaLightLaPaulina.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Queso crema light La Paulina.",
     stock: 20
   },
   {
