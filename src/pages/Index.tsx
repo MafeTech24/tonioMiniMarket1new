@@ -17,11 +17,17 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <SearchBanner searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <Hero />
-      <TrustStrip />
-      <WaveDivider color="secondary" flip />
-      <Ofertas />
-      <WaveDivider color="primary" />
+      {searchTerm.trim() === "" && (
+        <>
+          <Hero />
+          <TrustStrip />
+          <WaveDivider color="secondary" flip />
+        </>
+      )}
+      <Ofertas searchTerm={searchTerm} />
+      {searchTerm.trim() === "" && (
+        <WaveDivider color="primary" />
+      )}
       <Catalogo searchTerm={searchTerm} />
       {/* <Galeria /> */}
       <Horarios />

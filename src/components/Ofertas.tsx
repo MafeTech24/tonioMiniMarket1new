@@ -78,7 +78,11 @@ const ofertas = [
   },*/
 ];
 
-const Ofertas = () => {
+interface OfertasProps {
+  searchTerm?: string;
+}
+
+const Ofertas = ({ searchTerm = "" }: OfertasProps) => {
   const { addToCart } = useCart();
   const [quantities, setQuantities] = useState<Record<string, number>>(
     Object.fromEntries(ofertas.map(o => [o.nombre, 1]))
@@ -124,6 +128,17 @@ const Ofertas = () => {
     setSelectedOffer(null);
   };
   
+  const ofertasFiltradas = searchTerm.trim() === ''
+    ? ofertas
+    : ofertas.filter(o => 
+        o.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        o.desc.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+  if (ofertasFiltradas.length === 0) {
+    return null;
+  }
+
   return (
   <section id="ofertas" className="bg-background py-16">
     <div className="container mx-auto px-4">
@@ -131,7 +146,7 @@ const Ofertas = () => {
         OFERTAS DE LA SEMANA
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {ofertas.map((o) => (
+        {ofertasFiltradas.map((o) => (
           <div key={o.nombre} className="card-market p-6 relative flex flex-col h-full overflow-hidden cursor-pointer group" onClick={() => setSelectedOffer(o)}>
             <span className="badge-offer absolute top-4 right-4 z-10">OFERTA</span>
             
