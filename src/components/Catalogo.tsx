@@ -843,6 +843,146 @@ const productos: Producto[] = [
     stock: 20
   },
   {
+    id: 350,
+    nombre: "Manteca La Serenísima 100g",
+    precio: 2400,
+    imagen: "/products/lacteos/mantecaSerenisima100.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Manteca clásica La Serenísima, 100g.",
+    stock: 20
+  },
+  {
+    id: 351,
+    nombre: "Yogur Cremoso Tregar Dulce de Leche",
+    precio: 700,
+    imagen: "/products/lacteos/yogurtCremosoDLTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur cremoso Tregar sabor dulce de leche.",
+    stock: 20
+  },
+  {
+    id: 352,
+    nombre: "Yogur Cremoso Tregar Frutilla",
+    precio: 700,
+    imagen: "/products/lacteos/yogurtCremosoFrutillaTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur cremoso Tregar sabor frutilla.",
+    stock: 20
+  },
+  {
+    id: 353,
+    nombre: "Yogur Cremoso Tregar Vainilla",
+    precio: 700,
+    imagen: "/products/lacteos/yogurtCremosoVainillaTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur cremoso Tregar sabor vainilla.",
+    stock: 20
+  },
+  {
+    id: 354,
+    nombre: "Yogur con Frutas Tregar Ananá",
+    precio: 1200,
+    imagen: "/products/lacteos/yogurtFrutaAnanaTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur con trozos de frutas Tregar sabor ananá.",
+    stock: 20
+  },
+  {
+    id: 355,
+    nombre: "Yogur con Frutas Tregar Arándano",
+    precio: 1200,
+    imagen: "/products/lacteos/yogurtFrutaArandanoTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur con trozos de frutas Tregar sabor arándano.",
+    stock: 20
+  },
+  {
+    id: 356,
+    nombre: "Yogur con Frutas Tregar Cereza",
+    precio: 1200,
+    imagen: "/products/lacteos/yogurtFrutaCerezaTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur con trozos de frutas Tregar sabor cereza.",
+    stock: 20
+  },
+  {
+    id: 357,
+    nombre: "Yogur con Frutas Tregar Durazno",
+    precio: 1200,
+    imagen: "/products/lacteos/yogurtFrutaDuraznoTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur con trozos de frutas Tregar sabor durazno.",
+    stock: 20
+  },
+  {
+    id: 358,
+    nombre: "Yogur con Frutas Tregar Frutilla",
+    precio: 1200,
+    imagen: "/products/lacteos/yogurtFrutaFrutillaTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur con trozos de frutas Tregar sabor frutilla.",
+    stock: 20
+  },
+  {
+    id: 359,
+    nombre: "Yogur con Frutas Tregar Mango",
+    precio: 1200,
+    imagen: "/products/lacteos/yogurtFrutaMangoTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur con trozos de frutas Tregar sabor mango.",
+    stock: 20
+  },
+  {
+    id: 360,
+    nombre: "Yogur Natural Endulzado Tregar",
+    precio: 1000,
+    imagen: "/products/lacteos/yogurtNaturalEndulzadoTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur natural endulzado Tregar, presentación chica.",
+    stock: 20
+  },
+  {
+    id: 361,
+    nombre: "Yogur Natural Sin Azúcar Tregar",
+    precio: 1000,
+    imagen: "/products/lacteos/yogurtNaturalSinAzucarTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur natural sin azúcar Tregar, presentación chica.",
+    stock: 20
+  },
+  {
+    id: 362,
+    nombre: "Yogur Natural Endulzado Tregar Grande",
+    precio: 1900,
+    imagen: "/products/lacteos/yogurtNaturalEndulzadoGrandeTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur natural endulzado Tregar, presentación grande.",
+    stock: 20
+  },
+  {
+    id: 363,
+    nombre: "Yogur Natural Sin Azúcar Tregar Grande",
+    precio: 1900,
+    imagen: "/products/lacteos/yogurtNaturalSinAzucarGrandeTregar.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Yogur natural sin azúcar Tregar, presentación grande.",
+    stock: 20
+  },
+  {
     id: 58,
     nombre: "Fideos Spaghetti Matarazzo Nº3 500g",
     precio: 1850,
