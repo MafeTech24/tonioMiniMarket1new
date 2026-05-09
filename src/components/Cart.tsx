@@ -40,7 +40,6 @@ export const Cart = () => {
     deliveryMethod: 'Delivery' as 'Delivery' | 'Retiro en local',
     street: '',
     floor: '',
-    neighborhood: '',
     paymentMethod: 'Efectivo' as 'Efectivo' | 'Transferencia',
     notes: ''
   });
@@ -72,9 +71,7 @@ export const Cart = () => {
     setDeliveryDistance(null);
     
     try {
-      const query = formData.neighborhood
-        ? `${formData.street}, ${formData.neighborhood}, Córdoba, Argentina`
-        : `${formData.street}, Córdoba, Argentina`;
+      const query = `${formData.street}, Córdoba, Argentina`;
       const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
       const res = await fetch(url);
       const data = await res.json();
@@ -96,7 +93,7 @@ export const Cart = () => {
           setGeoError("Lo sentimos, por ahora no llegamos a tu zona. Podés retirar en Falucho 275, Bº Las Palmas.");
         }
       } else {
-        setGeoError("⚠️ No encontramos esa dirección. Intentá con calle y número más el barrio.");
+        setGeoError("⚠️ No encontramos esa dirección. Intentá con calle y número.");
       }
     } catch(e) {
       setGeoError("Hubo un error calculando el envío. Intentá de nuevo.");
@@ -147,7 +144,7 @@ export const Cart = () => {
         setTicketImage(capturedDataUrl);
       } catch (err) {
         console.error("Error al generar imagen del ticket:", err);
-        return; // Detener si falla crítico? Asumimos okay.
+        return;
       }
     }
 
@@ -160,7 +157,7 @@ export const Cart = () => {
       ? `Envío: ${deliveryCost === 0 ? 'Gratis' : formatTotal(deliveryCost!)}`
       : `Retiro en local`;
 
-    const fullAddress = [formData.street, formData.floor, formData.neighborhood]
+    const fullAddress = [formData.street, formData.floor]
       .filter(Boolean)
       .join(', ');
 
@@ -221,8 +218,8 @@ ${commonMessage}
           total: grandTotal,
           calle: formData.street,
           piso_dpto: formData.floor,
-          barrio: formData.neighborhood,
-          direccion_completa: [formData.street, formData.floor, formData.neighborhood]
+          barrio: '',
+          direccion_completa: [formData.street, formData.floor]
             .filter(Boolean).join(', '),
           metodo_entrega: formData.deliveryMethod,
           metodo_pago: formData.paymentMethod,
@@ -267,7 +264,7 @@ ${commonMessage}
       setGeoError(null);
       setFormErrors({});
       setFormData({
-        name: '', phone: '', deliveryMethod: 'Delivery', street: '', floor: '', neighborhood: '', paymentMethod: 'Efectivo', notes: ''
+        name: '', phone: '', deliveryMethod: 'Delivery', street: '', floor: '', paymentMethod: 'Efectivo', notes: ''
       });
     }, 300);
   };
@@ -286,7 +283,6 @@ ${commonMessage}
   };
 
   const renderHiddenTicket = () => {
-    // This div renders off-screen with full explicit height, so html2canvas doesn't truncate scrolling parts
     if (step !== 'confirmation' && step !== 'success') return null;
     return (
       <div style={{ position: 'fixed', left: '-9999px', top: 0 }}>
@@ -330,7 +326,7 @@ ${commonMessage}
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: '#64748b' }}>Dirección:</span>
                 <span style={{ fontWeight: 'bold', textAlign: 'right', maxWidth: '60%' }}>
-                  {[formData.street, formData.floor, formData.neighborhood].filter(Boolean).join(', ')}
+                  {[formData.street, formData.floor].filter(Boolean).join(', ')}
                 </span>
               </div>
             )}
@@ -364,7 +360,7 @@ ${commonMessage}
       if (!open) {
         setTimeout(() => {
           setStep('cart');
-          setOrderNumber(''); // clear on discard
+          setOrderNumber('');
           setTicketImage(null);
         }, 300);
       }
@@ -533,30 +529,13 @@ ${commonMessage}
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label className="text-[16px] font-bold">Piso / Depto (opcional)</label>
+                      <label className="text-[16px] font-bold">Piso / Depto / Barrio (opcional)</label>
                       <input 
                         type="text" 
                         className="px-[14px] py-[14px] text-[16px] border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50" 
-                        placeholder="Ej: Piso 7 Dpto B" 
+                        placeholder="Ej: Piso 7 Dpto B, Nueva Córdoba" 
                         value={formData.floor} 
                         onChange={(e) => setFormData({...formData, floor: e.target.value})} 
-                      />
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <label className="text-[16px] font-bold">Barrio (opcional, mejora la precisión)</label>
-                      <input 
-                        type="text" 
-                        className="px-[14px] py-[14px] text-[16px] border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50" 
-                        placeholder="Ej: Nueva Córdoba" 
-                        value={formData.neighborhood} 
-                        onChange={(e) => {
-                          setFormData({...formData, neighborhood: e.target.value});
-                          // Reset distance calculation since neighborhood affects geocoding
-                          setDeliveryCost(null);
-                          setDeliveryDistance(null);
-                          setGeoError(null);
-                        }} 
                       />
                     </div>
 
@@ -592,7 +571,6 @@ ${commonMessage}
                        </div>
                      )}
 
-                     {/* Summary of Totals inside Checkout Form */}
                      {!isCalculatingDistance && (deliveryCost !== null || (geoError && deliveryDistance && deliveryDistance > 10)) && (
                         <div className="mt-4 pt-4 border-t border-dashed border-border/50 flex flex-col gap-2">
                            <div className="flex justify-between text-muted-foreground">
@@ -693,7 +671,7 @@ ${commonMessage}
                     <span className="font-bold text-lg">{formData.deliveryMethod}</span>
                     {formData.deliveryMethod === 'Delivery' && (
                         <span className="font-semibold text-muted-foreground">
-                          {[formData.street, formData.floor, formData.neighborhood].filter(Boolean).join(', ')}
+                          {[formData.street, formData.floor].filter(Boolean).join(', ')}
                         </span>
                     )}
                   </div>
