@@ -14,6 +14,8 @@ interface Producto {
   descripcion: string;
   stock: number;
   unidadPrecio?: string;
+  esAGranel?: boolean;
+  esFactura?: boolean;
 }
 
 const CATEGORIAS = [
@@ -22,6 +24,7 @@ const CATEGORIAS = [
   "Bebidas",
   "Congelados",
   "Kiosco",
+  "Panificación",
   "Pollería",
   // "Comidas listas",
   "Limpieza y Perfumería",
@@ -89,7 +92,7 @@ const productos: Producto[] = [
    {
     id: 111,
     nombre: "Café La Virginia Doy Pack 100g",
-    precio: 5000,
+    precio: 4300,
     imagen: "/products/desayuno/cafeLaVirginiaDoyPack100.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -99,7 +102,7 @@ const productos: Producto[] = [
   {
     id: 6,
     nombre: "Café La Virginia Doy Pack 170g",
-    precio: 6000,
+    precio: 6900,
     imagen: "/products/desayuno/cafeLaVirginiaDoyPack170.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -109,7 +112,7 @@ const productos: Producto[] = [
   {
     id: 7,
     nombre: "Café La Virginia en Saquitos x20",
-    precio: 4800,
+    precio: 5700,
     imagen: "/products/desayuno/cafeLaVirginiaenSaquitos20unid.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -165,7 +168,8 @@ const productos: Producto[] = [
     subcategoria: "Desayuno",
     descripcion: "Copos de maíz azucarados a granel. Precio por 100g.",
     stock: 20,
-    unidadPrecio: "100g"
+    unidadPrecio: "100g",
+    esAGranel: true
   },
   {
     id: 11,
@@ -176,7 +180,8 @@ const productos: Producto[] = [
     subcategoria: "Desayuno",
     descripcion: "Copos de maíz sin azúcar a granel. Precio por 100g.",
     stock: 20,
-    unidadPrecio: "100g"
+    unidadPrecio: "100g",
+    esAGranel: true
   },
   {
     id: 12,
@@ -313,11 +318,21 @@ const productos: Producto[] = [
   {
     id: 24,
     nombre: "Mermelada Durazno Arcor 454g",
-    precio: 3000,
+    precio: 3800,
     imagen: "/products/desayuno/mermeladaDuraznoArcor454.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Mermelada de durazno Arcor, frasco de 454g. Elaborada con fruta seleccionada, sin TACC.",
+    stock: 20
+  },
+  {
+    id: 501,
+    nombre: "Mermelada Arcor light Durazno 390gr",
+    precio: 4100,
+    imagen: "/products/desayuno/mermeladaDuraznoArcorLight390gr.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Mermelada Arcor light sabor durazno, 390gr.",
     stock: 20
   },
   /*{
@@ -545,7 +560,7 @@ const productos: Producto[] = [
   {
     id: 44,
     nombre: "Mayonesa Natura 250cm³",
-    precio: 1900,
+    precio: 2200,
     imagen: "/products/aderezos/mayonesaNatura250.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
@@ -592,7 +607,7 @@ const productos: Producto[] = [
     descripcion: "Salsa golf Dánica, 300g. Combinación de mayonesa y ketchup, ideal para ensaladas y mariscos.",
     stock: 20
   },
-  {
+  /*{
     id: 49,
     nombre: "Pimienta Negra Molida Dos Anclas 25g",
     precio: 900,
@@ -600,6 +615,16 @@ const productos: Producto[] = [
     categoria: "Almacén",
     subcategoria: "Condimentos",
     descripcion: "Pimienta negra molida Dos Anclas, 25g. Especia de uso diario para todo tipo de preparaciones.",
+    stock: 20
+  },*/
+  {
+    id: 502,
+    nombre: "Pimienta Negra Molida Alikante 25gr",
+    precio: 1200,
+    imagen: "/products/condimentos/pimientaNegraMolidaAlikante25.png",
+    categoria: "Almacén",
+    subcategoria: "Condimentos",
+    descripcion: "Pimienta negra molida Alikante, 25gr.",
     stock: 20
   },
   {
@@ -982,7 +1007,7 @@ const productos: Producto[] = [
     descripcion: "Yogur natural sin azúcar Tregar, presentación grande.",
     stock: 20
   },
-  {
+  /*{
     id: 58,
     nombre: "Fideos Spaghetti Matarazzo Nº3 500g",
     precio: 1850,
@@ -991,7 +1016,7 @@ const productos: Producto[] = [
     subcategoria: "Pastas frescas y secas",
     descripcion: "Fideos spaghetti Matarazzo Nº3, 500g. 100% sémola de trigo candeal, 0% colesterol.",
     stock: 20
-  },
+  },*/
   {
     id: 59,
     nombre: "Lucchetti Codito 500g",
@@ -1348,7 +1373,8 @@ const productos: Producto[] = [
     categoria: "Pollería", 
     imagen: "/products/polleria/alitasPollo.png",
     descripcion: "Alitas de pollo frescas, ideales para la parrilla o al horno. Precio por kilogramo.",
-    stock: 20
+    stock: 20,
+    esAGranel: true
   },
   { 
     id: 95, 
@@ -1357,7 +1383,8 @@ const productos: Producto[] = [
     categoria: "Pollería", 
     imagen: "/products/polleria/medioPollo.png",
     descripcion: "Medio pollo fresco y limpio, listo para cocinar. Precio por kilogramo.",
-    stock: 20
+    stock: 20,
+    esAGranel: true
   },
   { 
     id: 96, 
@@ -1366,7 +1393,8 @@ const productos: Producto[] = [
     categoria: "Pollería", 
     imagen: "/products/polleria/milaPollo.png",
     descripcion: "Milanesas de pollo elaboradas con pechuga de primera calidad. Precio por kilogramo.",
-    stock: 20
+    stock: 20,
+    esAGranel: true
   },
   { 
     id: 97, 
@@ -1375,7 +1403,8 @@ const productos: Producto[] = [
     categoria: "Pollería", 
     imagen: "/products/polleria/pataMuslo.png",
     descripcion: "Cuartos traseros de pollo (pata y muslo) frescos. Precio por kilogramo.",
-    stock: 20
+    stock: 20,
+    esAGranel: true
   },
   { 
     id: 98, 
@@ -1384,7 +1413,8 @@ const productos: Producto[] = [
     categoria: "Pollería", 
     imagen: "/products/polleria/pataPollo.png",
     descripcion: "Patitas de pollo frescas, ideales para guisos o al horno. Precio por kilogramo.",
-    stock: 20
+    stock: 20,
+    esAGranel: true
   },
   { 
     id: 99, 
@@ -1393,7 +1423,8 @@ const productos: Producto[] = [
     categoria: "Pollería", 
     imagen: "/products/polleria/pechugasdePollo.png",
     descripcion: "Pechugas de pollo frescas, deshuesadas y sin piel. Precio por kilogramo.",
-    stock: 20
+    stock: 20,
+    esAGranel: true
   },
   { 
     id: 100, 
@@ -1402,7 +1433,8 @@ const productos: Producto[] = [
     categoria: "Pollería", 
     imagen: "/products/polleria/polloEntero.png",
     descripcion: "Pollo entero fresco de granja, calidad superior. Precio por kilogramo.",
-    stock: 20
+    stock: 20,
+    esAGranel: true
   },
   {
     id: 114,
@@ -1742,7 +1774,8 @@ const productos: Producto[] = [
     subcategoria: "Fiambres",
     descripcion: "Jamón cocido La Tirolesa, precio por 100g. Tierno y sabroso, ideal para sándwiches y picadas.",
     stock: 20,
-    unidadPrecio: "100g"
+    unidadPrecio: "100g",
+    esAGranel: true
   },
   {
     id: 152,
@@ -1753,7 +1786,8 @@ const productos: Producto[] = [
     subcategoria: "Fiambres",
     descripcion: "Jamón cocido Colonial, precio por 100g. Sabor suave y textura premium, perfecto para picadas y sándwiches.",
     stock: 20,
-    unidadPrecio: "100g"
+    unidadPrecio: "100g",
+    esAGranel: true
   },
   {
     id: 153,
@@ -1764,7 +1798,8 @@ const productos: Producto[] = [
     subcategoria: "Fiambres",
     descripcion: "Jamón cocido natural con cuero Ibarazzi, precio por 100g. Elaboración artesanal, sabor intenso y característico.",
     stock: 20,
-    unidadPrecio: "100g"
+    unidadPrecio: "100g",
+    esAGranel: true
   },
   {
     id: 154,
@@ -1775,7 +1810,8 @@ const productos: Producto[] = [
     subcategoria: "Fiambres",
     descripcion: "Salame tipo Milán La Tirolesa, precio por 100g. Sabor intenso y curación tradicional, ideal para picadas.",
     stock: 20,
-    unidadPrecio: "100g"
+    unidadPrecio: "100g",
+    esAGranel: true
   },
   {
     id: 155,
@@ -1858,7 +1894,112 @@ const productos: Producto[] = [
     descripcion: "Chocolate Block 110g. Chocolate con leche clásico en formato grande. Ideal para compartir.",
     stock: 20
   },
-  
+  {
+    id: 503,
+    nombre: "Pan Bollito",
+    precio: 3400,
+    imagen: "/products/panificacion/panBollito.png",
+    categoria: "Panificación",
+    descripcion: "Pan bollito fresco. Precio por kilogramo.",
+    stock: 20,
+    unidadPrecio: "Kg",
+    esAGranel: true
+  },
+  {
+    id: 504,
+    nombre: "Pan Mignon",
+    precio: 3400,
+    imagen: "/products/panificacion/panMignon.png",
+    categoria: "Panificación",
+    descripcion: "Pan mignon fresco. Precio por kilogramo.",
+    stock: 20,
+    unidadPrecio: "Kg",
+    esAGranel: true
+  },
+  {
+    id: 505,
+    nombre: "Pan Criollo Económico",
+    precio: 3400,
+    imagen: "/products/panificacion/criolloComunEconomico.png",
+    categoria: "Panificación",
+    descripcion: "Pan criollo económico fresco. Precio por kilogramo.",
+    stock: 20,
+    unidadPrecio: "Kg",
+    esAGranel: true
+  },
+  {
+    id: 506,
+    nombre: "Pan Criollo Común",
+    precio: 5500,
+    imagen: "/products/panificacion/criolloComun.png",
+    categoria: "Panificación",
+    descripcion: "Pan criollo común fresco. Precio por kilogramo.",
+    stock: 20,
+    unidadPrecio: "Kg",
+    esAGranel: true
+  },
+  {
+    id: 507,
+    nombre: "Pan Criollo de Hojaldre",
+    precio: 5500,
+    imagen: "/products/panificacion/criolloHojaldre.png",
+    categoria: "Panificación",
+    descripcion: "Pan criollo de hojaldre fresco. Precio por kilogramo.",
+    stock: 20,
+    unidadPrecio: "Kg",
+    esAGranel: true
+  },
+  {
+    id: 165,
+    nombre: "Facturas Surtidas",
+    precio: 800,
+    imagen: "/products/panificacion/facturas.png",
+    categoria: "Panificación",
+    descripcion: "Facturas surtidas de panadería artesanales. Precio por unidad o por docena.",
+    stock: 100,
+    unidadPrecio: "c/u",
+    esFactura: true,
+  },
+  {
+    id: 508,
+    nombre: "Cremonas",
+    precio: 2800,
+    imagen: "/products/panificacion/cremonas.png",
+    categoria: "Panificación",
+    descripcion: "Cremonas artesanales frescas.",
+    stock: 20,
+    unidadPrecio: "c/u"
+  },
+  {
+    id: 509,
+    nombre: "Pan Casero",
+    precio: 2400,
+    imagen: "/products/panificacion/panCasero.png",
+    categoria: "Panificación",
+    descripcion: "Pan casero tradicional fresco.",
+    stock: 20,
+    unidadPrecio: "c/u"
+  },
+  {
+    id: 510,
+    nombre: "Manteca Clucelat 100g",
+    precio: 1300,
+    imagen: "/products/lacteos/mantecaClucelat100.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Manteca Clucelat, presentación por 100g.",
+    stock: 20
+  },
+  {
+    id: 511,
+    nombre: "Manteca Clucelat 200g",
+    precio: 2300,
+    imagen: "/products/lacteos/mantecaClucelat200.png",
+    categoria: "Almacén",
+    subcategoria: "Lácteos",
+    descripcion: "Manteca Clucelat, presentación por 200g.",
+    stock: 20
+  }
 ];
 
 interface CatalogoProps {
@@ -1870,6 +2011,10 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
   const [selectedSubcat, setSelectedSubcat] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Producto | null>(null);
   const [modalQuantity, setModalQuantity] = useState<number>(1);
+  const [gramosSeleccionados, setGramosSeleccionados] = useState<number>(100);
+  const [inputGramos, setInputGramos] = useState<string>("");
+  const [facturaOpcion, setFacturaOpcion] = useState<"unidad" | "docena">("unidad");
+  const [facturaCount, setFacturaCount] = useState<number>(1);
   const { addToCart } = useCart();
   
   const subcats = SUBCATEGORIAS[selectedCat] || [];
@@ -1909,6 +2054,10 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
   useEffect(() => {
     if (selectedProduct) {
       setModalQuantity(1);
+      setGramosSeleccionados(100);
+      setInputGramos("");
+      setFacturaOpcion("unidad");
+      setFacturaCount(1);
     }
   }, [selectedProduct]);
 
@@ -2082,36 +2231,184 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
               </div>
 
               {/* Footer Modal */}
-              <div className="mt-auto flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-gray-100">
-                <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-1 w-full sm:w-auto border border-gray-200">
-                  <button
-                    onClick={() => setModalQuantity(Math.max(1, modalQuantity - 1))}
-                    className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all"
-                  >
-                    <Minus size={20} />
-                  </button>
-                  <span className="font-body px-6 text-xl font-bold text-gray-900">
-                    {modalQuantity}
-                  </span>
-                  <button
-                    onClick={() => setModalQuantity(Math.min(selectedProduct.stock, modalQuantity + 1))}
-                    disabled={modalQuantity >= selectedProduct.stock}
-                    className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all disabled:opacity-30"
-                  >
-                    <Plus size={20} />
-                  </button>
-                </div>
+              <div className="mt-auto pt-6 border-t border-gray-100">
 
-                <button
-                  onClick={(e) => {
-                    handleAddToCart(e, selectedProduct, modalQuantity);
-                    setSelectedProduct(null);
-                  }}
-                  className="bg-primary text-white flex-1 w-full h-14 rounded-2xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  <ShoppingCart size={22} />
-                  Agregar al Carrito
-                </button>
+                {selectedProduct.esFactura ? (
+                  /* ── SELECTOR FACTURAS ── */
+                  <div className="flex flex-col gap-4">
+
+                    {/* Selector unidad / docena */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        onClick={() => { setFacturaOpcion("unidad"); setFacturaCount(1); }}
+                        className={`h-12 rounded-xl font-bold text-sm transition-all border ${
+                          facturaOpcion === "unidad"
+                            ? "bg-primary text-white border-primary shadow-md"
+                            : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
+                        }`}
+                      >
+                        Unidad — $800
+                      </button>
+                      <button
+                        onClick={() => { setFacturaOpcion("docena"); setFacturaCount(1); }}
+                        className={`h-12 rounded-xl font-bold text-sm transition-all border ${
+                          facturaOpcion === "docena"
+                            ? "bg-primary text-white border-primary shadow-md"
+                            : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
+                        }`}
+                      >
+                        Docena — $9.000
+                      </button>
+                    </div>
+
+                    {/* Contador de cantidad */}
+                    <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-1 border border-gray-200">
+                      <button
+                        onClick={() => setFacturaCount(Math.max(1, facturaCount - 1))}
+                        className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                      >
+                        <Minus size={20} />
+                      </button>
+                      <span className="font-body px-6 text-xl font-bold text-gray-900">
+                        {facturaCount} {facturaOpcion === "unidad" ? "unidad(es)" : "docena(s)"}
+                      </span>
+                      <button
+                        onClick={() => setFacturaCount(facturaCount + 1)}
+                        className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                      >
+                        <Plus size={20} />
+                      </button>
+                    </div>
+
+                    {/* Total */}
+                    <div className="bg-primary/5 rounded-xl px-4 py-3 flex items-center justify-between border border-primary/20">
+                      <span className="text-gray-500 text-sm font-semibold">Total:</span>
+                      <span className="text-primary font-black text-2xl">
+                        {formatPrice((facturaOpcion === "unidad" ? 800 : 9000) * facturaCount)}
+                      </span>
+                    </div>
+
+                    {/* Botón agregar */}
+                    <button
+                      onClick={() => {
+                        const precioUnit = facturaOpcion === "unidad" ? 800 : 9000;
+                        const label = facturaOpcion === "unidad" ? "unidad" : "docena";
+                        addToCart(
+                          {
+                            nombre: `Facturas x${facturaCount} ${label}${facturaCount > 1 ? "s" : ""}`,
+                            precio: precioUnit * facturaCount,
+                          },
+                          1
+                        );
+                        setSelectedProduct(null);
+                      }}
+                      className="bg-primary text-white w-full h-14 rounded-2xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      <ShoppingCart size={22} />
+                      Agregar al Carrito
+                    </button>
+                  </div>
+
+                ) : selectedProduct.esAGranel ? (
+                  /* ── SELECTOR GRANEL ── */
+                  <div className="flex flex-col gap-4">
+                    <div className="grid grid-cols-4 gap-2">
+                      {[100, 200, 500, 1000].map((g) => (
+                        <button
+                          key={g}
+                          onClick={() => { setGramosSeleccionados(g); setInputGramos(""); }}
+                          className={`h-11 rounded-xl font-bold text-sm transition-all border ${
+                            gramosSeleccionados === g && inputGramos === ""
+                              ? "bg-primary text-white border-primary shadow-md"
+                              : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
+                          }`}
+                        >
+                          {g === 1000 ? "1kg" : `${g}g`}
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-2 border border-gray-200">
+                      <span className="text-gray-500 text-sm font-semibold whitespace-nowrap">O ingresá los gramos que necesitas:</span>
+                      <input
+                        type="number"
+                        min={50}
+                        step={50}
+                        placeholder="ej: 350"
+                        value={inputGramos}
+                        onChange={(e) => {
+                          setInputGramos(e.target.value);
+                          const val = parseInt(e.target.value);
+                          if (!isNaN(val) && val > 0) setGramosSeleccionados(val);
+                        }}
+                        className="flex-1 bg-transparent outline-none text-gray-900 font-bold text-lg"
+                      />
+                      <span className="text-gray-400 font-semibold text-sm">g</span>
+                    </div>
+
+                    <div className="bg-primary/5 rounded-xl px-4 py-3 flex items-center justify-between border border-primary/20">
+                      <span className="text-gray-500 text-sm font-semibold">Total estimado:</span>
+                      <span className="text-primary font-black text-2xl">
+                        {formatPrice(Math.round(selectedProduct.precio * gramosSeleccionados / 100))}
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        const gramos = gramosSeleccionados;
+                        const precioTotal = Math.round(selectedProduct.precio * gramos / 100);
+                        addToCart(
+                          {
+                            nombre: `${selectedProduct.nombre} (${gramos >= 1000 ? `${gramos / 1000}kg` : `${gramos}g`})`,
+                            precio: precioTotal,
+                          },
+                          1
+                        );
+                        setSelectedProduct(null);
+                      }}
+                      disabled={gramosSeleccionados <= 0}
+                      className="bg-primary text-white w-full h-14 rounded-2xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40"
+                    >
+                      <ShoppingCart size={22} />
+                      Agregar {gramosSeleccionados >= 1000 ? `${gramosSeleccionados / 1000}kg` : `${gramosSeleccionados}g`} al Carrito
+                    </button>
+                  </div>
+
+                ) : (
+                  /* ── SELECTOR NORMAL ── */
+                  <div className="flex flex-col sm:flex-row items-center gap-4">
+                    <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-1 w-full sm:w-auto border border-gray-200">
+                      <button
+                        onClick={() => setModalQuantity(Math.max(1, modalQuantity - 1))}
+                        className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                      >
+                        <Minus size={20} />
+                      </button>
+                      <span className="font-body px-6 text-xl font-bold text-gray-900">
+                        {modalQuantity}
+                      </span>
+                      <button
+                        onClick={() => setModalQuantity(Math.min(selectedProduct.stock, modalQuantity + 1))}
+                        disabled={modalQuantity >= selectedProduct.stock}
+                        className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all disabled:opacity-30"
+                      >
+                        <Plus size={20} />
+                      </button>
+                    </div>
+
+                    <button
+                      onClick={(e) => {
+                        handleAddToCart(e, selectedProduct, modalQuantity);
+                        setSelectedProduct(null);
+                      }}
+                      className="bg-primary text-white flex-1 w-full h-14 rounded-2xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      <ShoppingCart size={22} />
+                      Agregar al Carrito
+                    </button>
+                  </div>
+                )}
+
               </div>
             </div>
           </div>
