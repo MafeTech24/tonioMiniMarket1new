@@ -76,6 +76,96 @@ const ofertas = [
     stock: 15,
     categoria: "Almacén"
   },*/
+  { 
+    nombre: "Pata Muslo 2kg", 
+    antes: "$11.000", 
+    ahora: "$10.000", 
+    desc: "2kg de pata muslo de pollo fresco. Ideal para el horno, la parrilla o guisos. Precio especial por llevar 2kg.", 
+    img: "/products/polleria/pataMuslo.png",
+    stock: 20,
+    categoria: "Pollería"
+  },
+  { 
+    nombre: "Pata Muslo 3kg", 
+    antes: "$16.500", 
+    ahora: "$14.400", 
+    desc: "3kg de pata muslo de pollo fresco. El formato más rendidor para toda la semana. Precio especial por llevar 3kg.", 
+    img: "/products/polleria/pataMuslo.png",
+    stock: 20,
+    categoria: "Pollería"
+  },
+  { 
+    nombre: "Pata Muslo 4kg", 
+    antes: "$22.000", 
+    ahora: "$18.600", 
+    desc: "4kg de pata muslo de pollo fresco. El mejor precio por mayor cantidad. Ideal para familias grandes o congelar.", 
+    img: "/products/polleria/pataMuslo.png",
+    stock: 20,
+    categoria: "Pollería"
+  },
+  { 
+    nombre: "Alitas de Pollo 2kg", 
+    antes: "$6.400", 
+    ahora: "$5.800", 
+    desc: "2kg de alitas de pollo frescas. Perfectas para la parrilla o el horno. Precio especial por llevar 2kg.", 
+    img: "/products/polleria/alitasPollo.png",
+    stock: 20,
+    categoria: "Pollería"
+  },
+  { 
+    nombre: "Alitas de Pollo 3kg", 
+    antes: "$9.600", 
+    ahora: "$7.500", 
+    desc: "3kg de alitas de pollo frescas. El formato más conveniente para compartir en familia. Precio especial por llevar 3kg.", 
+    img: "/products/polleria/alitasPollo.png",
+    stock: 20,
+    categoria: "Pollería"
+  },
+  { 
+    nombre: "Alitas Sin Rancho 2kg", 
+    antes: "$13.000", 
+    ahora: "$12.000", 
+    desc: "2kg de alitas de pollo sin rancho, limpias y listas para cocinar. Precio especial por llevar 2kg.", 
+    img: "/products/polleria/alitasSinRancho.png",
+    stock: 20,
+    categoria: "Pollería"
+  },
+  { 
+    nombre: "Pata Muslo Deshuesada 2kg", 
+    antes: "$25.600", 
+    ahora: "$24.800", 
+    desc: "2kg de pata muslo deshuesada, sin hueso y lista para cocinar. Práctica y rendidora. Precio especial por llevar 2kg.", 
+    img: "/products/polleria/pataMusloDeshuesada.png",
+    stock: 20,
+    categoria: "Pollería"
+  },
+  { 
+    nombre: "Pechugas 3kg", 
+    antes: "$39.600", 
+    ahora: "$37.500", 
+    desc: "3kg de pechugas de pollo frescas, deshuesadas y sin piel. Precio especial por llevar 3kg. Ideal para congelar.", 
+    img: "/products/polleria/pechugasdePollo.png",
+    stock: 20,
+    categoria: "Pollería"
+  },
+  { 
+    nombre: "Milanesas de Pollo con Provenzal 2kg", 
+    antes: "$22.800", 
+    ahora: "$21.000", 
+    desc: "2kg de milanesas de pollo con provenzal, elaboradas con pechuga de primera calidad. Precio especial por llevar 2kg.", 
+    img: "/products/polleria/milaPolloConProvenzal.png",
+    stock: 20,
+    categoria: "Pollería"
+  },
+  { 
+    nombre: "Milanesas de Pollo Sin Provenzal 2kg", 
+    antes: "$22.800", 
+    ahora: "$21.000", 
+    desc: "2kg de milanesas de pollo sin provenzal, elaboradas con pechuga de primera calidad. Precio especial por llevar 2kg.", 
+    img: "/products/polleria/milaPolloSinProvenzal.png",
+    stock: 20,
+    categoria: "Pollería"
+  }
 ];
 
 interface OfertasProps {

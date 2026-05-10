@@ -1368,72 +1368,79 @@ const productos: Producto[] = [
   },
   { 
     id: 94, 
-    nombre: "Alitas de Pollo (x kg)", 
-    precio: 4200, 
+    nombre: "Alitas de Pollo", 
+    precio: 3200, 
     categoria: "Pollería", 
     imagen: "/products/polleria/alitasPollo.png",
     descripcion: "Alitas de pollo frescas, ideales para la parrilla o al horno. Precio por kilogramo.",
     stock: 20,
+    unidadPrecio: "Kg",
     esAGranel: true
   },
   { 
     id: 95, 
-    nombre: "Medio Pollo (x kg)", 
+    nombre: "Medio Pollo", 
     precio: 5800, 
     categoria: "Pollería", 
     imagen: "/products/polleria/medioPollo.png",
     descripcion: "Medio pollo fresco y limpio, listo para cocinar. Precio por kilogramo.",
     stock: 20,
+    unidadPrecio: "Kg",
     esAGranel: true
   },
-  { 
+  /*{ 
     id: 96, 
-    nombre: "Milanesas de Pollo (x kg)", 
+    nombre: "Milanesas de Pollo", 
     precio: 6500, 
     categoria: "Pollería", 
     imagen: "/products/polleria/milaPollo.png",
     descripcion: "Milanesas de pollo elaboradas con pechuga de primera calidad. Precio por kilogramo.",
     stock: 20,
+    unidadPrecio: "Kg",
     esAGranel: true
-  },
+  },*/
   { 
     id: 97, 
-    nombre: "Pata Muslo (x kg)", 
-    precio: 4800, 
+    nombre: "Pata Muslo", 
+    precio: 5500, 
     categoria: "Pollería", 
     imagen: "/products/polleria/pataMuslo.png",
     descripcion: "Cuartos traseros de pollo (pata y muslo) frescos. Precio por kilogramo.",
     stock: 20,
+    unidadPrecio: "Kg",
     esAGranel: true
   },
   { 
     id: 98, 
-    nombre: "Pata de Pollo (x kg)", 
+    nombre: "Pata de Pollo", 
     precio: 3900, 
     categoria: "Pollería", 
     imagen: "/products/polleria/pataPollo.png",
     descripcion: "Patitas de pollo frescas, ideales para guisos o al horno. Precio por kilogramo.",
     stock: 20,
+    unidadPrecio: "Kg",
     esAGranel: true
   },
   { 
     id: 99, 
-    nombre: "Pechugas de Pollo (x kg)", 
-    precio: 7200, 
+    nombre: "Pechugas de Pollo", 
+    precio: 13200, 
     categoria: "Pollería", 
     imagen: "/products/polleria/pechugasdePollo.png",
     descripcion: "Pechugas de pollo frescas, deshuesadas y sin piel. Precio por kilogramo.",
     stock: 20,
+    unidadPrecio: "Kg",
     esAGranel: true
   },
   { 
     id: 100, 
-    nombre: "Pollo Entero (x kg)", 
-    precio: 5200, 
+    nombre: "Pollo Entero", 
+    precio: 5500, 
     categoria: "Pollería", 
     imagen: "/products/polleria/polloEntero.png",
     descripcion: "Pollo entero fresco de granja, calidad superior. Precio por kilogramo.",
     stock: 20,
+    unidadPrecio: "Kg",
     esAGranel: true
   },
   {
@@ -1999,6 +2006,391 @@ const productos: Producto[] = [
     subcategoria: "Lácteos",
     descripcion: "Manteca Clucelat, presentación por 200g.",
     stock: 20
+  },
+  {
+    id: 166,
+    nombre: "Filet de Merluza Finas Hierbas",
+    precio: 1600,
+    imagen: "/products/congelados/filettMerluzaFinasHierbas.png",
+    categoria: "Congelados",
+    descripcion: "Filet de merluza rebozado con finas hierbas. Tierno por dentro, crocante por fuera. Ideal al horno o frito. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 167,
+    nombre: "Filet de Merluza Rebozado",
+    precio: 1600,
+    imagen: "/products/congelados/filetMerluzaRebozado.png",
+    categoria: "Congelados",
+    descripcion: "Filet de merluza con rebozado clásico, jugoso y crocante. Listo para freír u hornear. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 168,
+    nombre: "Crocante de Merluza",
+    precio: 1450,
+    imagen: "/products/congelados/crocanteMerluza.png",
+    categoria: "Congelados",
+    descripcion: "Merluza con cobertura extra crocante, perfecta para horno o fritura. Rendidora y sabrosa. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 169,
+    nombre: "Medallón de Merluza con Espinaca",
+    precio: 950,
+    imagen: "/products/congelados/medallonMerluzaEspinacaQueso.png",
+    categoria: "Congelados",
+    descripcion: "Medallón de merluza relleno de espinaca y queso, rebozado y supercongelado. Nutritivo y fácil de preparar. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 170,
+    nombre: "Medallón de Pollo Jamón y Queso",
+    precio: 990,
+    imagen: "/products/congelados/medallonPolloconJamonQueso.png",
+    categoria: "Congelados",
+    descripcion: "Medallón de pollo relleno de jamón y queso, rebozado y supercongelado. Ideal para el horno o la sartén. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 171,
+    nombre: "Medallón de Pollo Espinaca y Queso",
+    precio: 990,
+    imagen: "/products/congelados/medallonPolloEspinacaQueso.png",
+    categoria: "Congelados",
+    descripcion: "Medallón de pollo relleno de espinaca y queso, rebozado y supercongelado. Una opción nutritiva y sabrosa. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 172,
+    nombre: "Medallón Mix de Vegetales",
+    precio: 900,
+    imagen: "/products/congelados/medallonMixVegetales.png",
+    categoria: "Congelados",
+    descripcion: "Medallón vegetal con mix de verduras, rebozado y supercongelado. Ideal para vegetarianos y toda la familia. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 173,
+    nombre: "Bocaditos de Calabaza",
+    precio: 850,
+    imagen: "/products/congelados/bocaditosCalabazaQueso.png",
+    categoria: "Congelados",
+    descripcion: "Bocaditos de calabaza y queso, rebozados y supercongelados. Cremosos por dentro, doraditos por fuera. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 174,
+    nombre: "Mini Pechugas al Verdeo",
+    precio: 1350,
+    imagen: "/products/congelados/miniPechugasVerdeo.png",
+    categoria: "Congelados",
+    descripcion: "Mini pechugas de pollo con salsa de verdeo, rebozadas y supercongeladas. Tiernas y llenas de sabor. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 175,
+    nombre: "Rabas Rebozadas",
+    precio: 2800,
+    imagen: "/products/congelados/rabasRebozadas.png",
+    categoria: "Congelados",
+    descripcion: "Rabas de calamar rebozadas y supercongeladas. Tiernas y crocantes, ideales para freír u hornear. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 176,
+    nombre: "Aros de Cebolla Rebozados",
+    precio: 2000,
+    imagen: "/products/congelados/arosCebollaRebozadas.png",
+    categoria: "Congelados",
+    descripcion: "Aros de cebolla con rebozado crocante, supercongelados. Perfectos como entrada o guarnición. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 177,
+    nombre: "Bastones de Muzzarella",
+    precio: 1480,
+    imagen: "/products/congelados/bastonesMuzza.png",
+    categoria: "Congelados",
+    descripcion: "Bastones de muzzarella rebozados y supercongelados. Se derriten por dentro con una cobertura dorada y crocante. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 178,
+    nombre: "Mini Croquetas Jamón y Queso",
+    precio: 1030,
+    imagen: "/products/congelados/miniCroquetasJamonQueso.png",
+    categoria: "Congelados",
+    descripcion: "Mini croquetas rellenas de jamón y queso, rebozadas y supercongeladas. Irresistibles como picada o entrada. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 179,
+    nombre: "Mini Croquetas Espinaca y Queso",
+    precio: 1030,
+    imagen: "/products/congelados/miniCroquetasEspinacaQueso.png",
+    categoria: "Congelados",
+    descripcion: "Mini croquetas rellenas de espinaca y queso, rebozadas y supercongeladas. Una opción nutritiva y deliciosa. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 180,
+    nombre: "Croqueta de Papa Jamón y Queso",
+    precio: 980,
+    imagen: "/products/congelados/croquetaPapaJamonQueso.png",
+    categoria: "Congelados",
+    descripcion: "Croqueta de papa rellena de jamón y queso, rebozada y supercongelada. Cremosa por dentro, dorada por fuera. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 181,
+    nombre: "Alitas de Pollo Rebozadas",
+    precio: 690,
+    imagen: "/products/congelados/alitaPolloRebozada.png",
+    categoria: "Congelados",
+    descripcion: "Alitas de pollo con rebozado crocante, supercongeladas. Ideales para el horno o la freidora. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 182,
+    nombre: "Patitas de Pollo Rebozadas",
+    precio: 1050,
+    imagen: "/products/congelados/patitasRebozadas.png",
+    categoria: "Congelados",
+    descripcion: "Patitas de pollo con rebozado crocante, supercongeladas. Jugosas por dentro y doradas por fuera. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 183,
+    nombre: "Nuggets de Pollo",
+    precio: 1250,
+    imagen: "/products/congelados/nuggetsPollo.png",
+    categoria: "Congelados",
+    descripcion: "Nuggets de pechuga de pollo rebozados y supercongelados. Clásicos e irresistibles para toda la familia. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 184,
+    nombre: "Tiritas de Pollo",
+    precio: 1295,
+    imagen: "/products/congelados/tiritasDePollo.png",
+    categoria: "Congelados",
+    descripcion: "Tiritas de pechuga de pollo rebozadas y supercongeladas. Crocantes y tiernas, ideales para picar o acompañar. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 185,
+    nombre: "Papas Bastón",
+    precio: 690,
+    imagen: "/products/congelados/papasBaston.png",
+    categoria: "Congelados",
+    descripcion: "Papas bastón supercongeladas, clásicas y rendidoras. Doradas y crocantes al horno o freidora. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 186,
+    nombre: "Papas Smile",
+    precio: 1040,
+    imagen: "/products/congelados/papasSmile.png",
+    categoria: "Congelados",
+    descripcion: "Papas smile supercongeladas con forma de carita sonriente. Las favoritas de los chicos, crocantes y esponjosas. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 187,
+    nombre: "Papas Noisette",
+    precio: 1040,
+    imagen: "/products/congelados/papaNoisette.png",
+    categoria: "Congelados",
+    descripcion: "Papas noisette supercongeladas, bolitas de papa crocantes por fuera y suaves por dentro. Ideales como guarnición. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 188,
+    nombre: "Formitas de Pollo",
+    precio: 1050,
+    imagen: "/products/congelados/formitasPollo.png",
+    categoria: "Congelados",
+    descripcion: "Formitas de pollo rebozadas y supercongeladas. Divertidas y crocantes, ideales para los más chicos. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 189,
+    nombre: "Hamburguesas de Pollo",
+    precio: 1140,
+    imagen: "/products/congelados/hamburguesasPollo.png",
+    categoria: "Congelados",
+    descripcion: "Hamburguesas de pollo supercongeladas. Jugosas y sabrosas, listas para la plancha o parrilla. Precio por 100g.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "100g"
+  },
+  {
+    id: 190,
+    nombre: "Pata Muslo",
+    precio: 5500,
+    imagen: "/products/polleria/pataMuslo.png",
+    categoria: "Pollería",
+    descripcion: "Pata muslo de pollo fresco. Ideal para el horno, la parrilla o guisos. Precio por kilogramo.",
+    stock: 50,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 191,
+    nombre: "Alitas de Pollo",
+    precio: 3200,
+    imagen: "/products/polleria/alitasPollo.png",
+    categoria: "Pollería",
+    descripcion: "Alitas de pollo frescas, ideales para la parrilla o al horno. Precio por kilogramo.",
+    stock: 50,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 192,
+    nombre: "Alitas Sin Rancho",
+    precio: 6500,
+    imagen: "/products/polleria/alitasSinRancho.png",
+    categoria: "Pollería",
+    descripcion: "Alitas de pollo sin rancho, limpias y listas para cocinar. Precio por kilogramo.",
+    stock: 50,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 193,
+    nombre: "Pata Muslo Deshuesada",
+    precio: 12800,
+    imagen: "/products/polleria/pataMusloDeshuesada.png",
+    categoria: "Pollería",
+    descripcion: "Pata muslo de pollo deshuesada, sin hueso y lista para cocinar. Práctica y rendidora. Precio por kilogramo.",
+    stock: 50,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 194,
+    nombre: "Pechugas de Pollo",
+    precio: 13200,
+    imagen: "/products/polleria/pechugasdePollo.png",
+    categoria: "Pollería",
+    descripcion: "Pechugas de pollo frescas, deshuesadas y sin piel. La opción más magra y versátil. Precio por kilogramo.",
+    stock: 50,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 195,
+    nombre: "Pollo Entero",
+    precio: 5500,
+    imagen: "/products/polleria/polloEntero.png",
+    categoria: "Pollería",
+    descripcion: "Pollo entero fresco de granja, calidad superior. Ideal para el horno o la parrilla. Precio por kilogramo.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 196,
+    nombre: "Milanesas de Pollo con Provenzal",
+    precio: 11400,
+    imagen: "/products/polleria/milaPolloConProvenzal.png",
+    categoria: "Pollería",
+    descripcion: "Milanesas de pollo con provenzal, elaboradas con pechuga de primera calidad. Listas para freír u hornear. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 197,
+    nombre: "Milanesas de Pollo Sin Provenzal",
+    precio: 11400,
+    imagen: "/products/polleria/milaPolloSinProvenzal.png",
+    categoria: "Pollería",
+    descripcion: "Milanesas de pollo sin provenzal, elaboradas con pechuga de primera calidad. Listas para freír u hornear. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 198,
+    nombre: "Pata de Pollo",
+    precio: 3900,
+    imagen: "/products/polleria/pataPollo.png",
+    categoria: "Pollería",
+    descripcion: "Patitas de pollo frescas, ideales para guisos o al horno. Precio por kilogramo.",
+    stock: 50,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 199,
+    nombre: "Medio Pollo",
+    precio: 5800,
+    imagen: "/products/polleria/medioPollo.png",
+    categoria: "Pollería",
+    descripcion: "Medio pollo fresco y limpio, listo para cocinar al horno o a la parrilla. Precio por kilogramo.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 200,
+    nombre: "Arrollado de Pollo",
+    precio: 1570,
+    imagen: "/products/polleria/arrolladoPollo.png",
+    categoria: "Pollería",
+    descripcion: "Arrollado de pollo artesanal. Disponible en dos variedades: jamón, queso, morrón, aceituna y huevo — o roquefort, jamón, morrón, aceituna y huevo. Consultá disponibilidad. Precio por 100g.",
+    stock: 10,
+    esAGranel: true,
+    unidadPrecio: "100g"
   }
 ];
 
@@ -2349,14 +2741,15 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                     <div className="bg-primary/5 rounded-xl px-4 py-3 flex items-center justify-between border border-primary/20">
                       <span className="text-gray-500 text-sm font-semibold">Total estimado:</span>
                       <span className="text-primary font-black text-2xl">
-                        {formatPrice(Math.round(selectedProduct.precio * gramosSeleccionados / 100))}
+                        {formatPrice(Math.round((selectedProduct.unidadPrecio?.toLowerCase() === 'kg' ? selectedProduct.precio / 10 : selectedProduct.precio) * gramosSeleccionados / 100))}
                       </span>
                     </div>
 
                     <button
                       onClick={() => {
                         const gramos = gramosSeleccionados;
-                        const precioTotal = Math.round(selectedProduct.precio * gramos / 100);
+                        const precioBase100g = selectedProduct.unidadPrecio?.toLowerCase() === 'kg' ? selectedProduct.precio / 10 : selectedProduct.precio;
+                        const precioTotal = Math.round(precioBase100g * gramos / 100);
                         addToCart(
                           {
                             nombre: `${selectedProduct.nombre} (${gramos >= 1000 ? `${gramos / 1000}kg` : `${gramos}g`})`,
