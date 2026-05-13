@@ -16,6 +16,7 @@ interface Producto {
   unidadPrecio?: string;
   esAGranel?: boolean;
   esFactura?: boolean;
+  esEmpanada?: boolean;
   sabores?: string[];
 }
 
@@ -2637,6 +2638,47 @@ const productos: Producto[] = [
     descripcion: "Sorrentinos congelados de pollo y espinaca. Precio por docena.",
     stock: 50,
     unidadPrecio: "Docena"
+  },
+  {
+    id: 424,
+    nombre: "Empanadas de Pollo",
+    precio: 1400,
+    imagen: "/products/comidas listas/empanadasPollo.png",
+    categoria: "Comidas listas",
+    descripcion: "Empanadas de pollo listas para disfrutar. Se venden por unidad, media docena o docena.",
+    stock: 100,
+    esEmpanada: true
+  },
+  {
+    id: 425,
+    nombre: "Empanadas de Carne",
+    precio: 1400,
+    imagen: "/products/comidas listas/empanadasCarne.png",
+    categoria: "Comidas listas",
+    descripcion: "Empanadas de carne listas para disfrutar. Se venden por unidad, media docena o docena.",
+    stock: 100,
+    esEmpanada: true
+  },
+  {
+    id: 426,
+    nombre: "Roulette de Pollo",
+    precio: 14200,
+    imagen: "/products/congelados/roulettePollo.png",
+    categoria: "Pollería",
+    descripcion: "Roulette de pollo congelado. Disponible en diferentes sabores.",
+    stock: 50,
+    sabores: ["Jamón y Queso", "Morrón y Roquefort"]
+  },
+  {
+    id: 427,
+    nombre: "Albóndigas de Pollo",
+    precio: 11600,
+    imagen: "/products/congelados/albondigasPollo.png",
+    categoria: "Congelados",
+    descripcion: "Albóndigas de pollo congeladas, listas para cocinar. Precio por kilogramo.",
+    stock: 50,
+    unidadPrecio: "Kg",
+    esAGranel: true
   }
 ];
 
@@ -2653,6 +2695,8 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
   const [inputGramos, setInputGramos] = useState<string>("");
   const [facturaOpcion, setFacturaOpcion] = useState<"unidad" | "docena">("unidad");
   const [facturaCount, setFacturaCount] = useState<number>(1);
+  const [empanadaOpcion, setEmpanadaOpcion] = useState<"unidad" | "media_docena" | "docena">("unidad");
+  const [empanadaCount, setEmpanadaCount] = useState<number>(1);
   const [selectedSabor, setSelectedSabor] = useState<string>("");
   const { addToCart } = useCart();
   const subcats = SUBCATEGORIAS[selectedCat] || [];
@@ -2675,11 +2719,11 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
     return p.categoria === selectedCat;
   });
 
-  const productosFiltrados = searchTerm.trim() === ''
+  const productosFiltrados = (searchTerm.trim() === ''
     ? productosPorCategoria
     : productos.filter(p => 
         p.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      )).sort((a, b) => a.nombre.localeCompare(b.nombre));
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -2799,7 +2843,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        if (p.esAGranel || p.esFactura || (p.sabores && p.sabores.length > 0)) {
+                        if (p.esAGranel || p.esFactura || p.esEmpanada || (p.sabores && p.sabores.length > 0)) {
                           setSelectedProduct(p);
                         } else {
                           handleAddToCart(e, p);
@@ -2956,6 +3000,87 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                     </button>
                   </div>
 
+                ) : selectedProduct.esEmpanada ? (
+                  /* ── SELECTOR EMPANADAS ── */
+                  <div className="flex flex-col gap-4">
+                    <div className="grid grid-cols-3 gap-2">
+                      <button
+                        onClick={() => { setEmpanadaOpcion("unidad"); setEmpanadaCount(1); }}
+                        className={`h-12 rounded-xl font-bold text-[11px] sm:text-xs transition-all border ${
+                          empanadaOpcion === "unidad"
+                            ? "bg-primary text-white border-primary shadow-md"
+                            : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
+                        }`}
+                      >
+                        Unidad — $1.400
+                      </button>
+                      <button
+                        onClick={() => { setEmpanadaOpcion("media_docena"); setEmpanadaCount(1); }}
+                        className={`h-12 rounded-xl font-bold text-[11px] sm:text-xs transition-all border ${
+                          empanadaOpcion === "media_docena"
+                            ? "bg-primary text-white border-primary shadow-md"
+                            : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
+                        }`}
+                      >
+                        x6 — $8.000
+                      </button>
+                      <button
+                        onClick={() => { setEmpanadaOpcion("docena"); setEmpanadaCount(1); }}
+                        className={`h-12 rounded-xl font-bold text-[11px] sm:text-xs transition-all border ${
+                          empanadaOpcion === "docena"
+                            ? "bg-primary text-white border-primary shadow-md"
+                            : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
+                        }`}
+                      >
+                        x12 — $15.000
+                      </button>
+                    </div>
+
+                    <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-1 border border-gray-200">
+                      <button
+                        onClick={() => setEmpanadaCount(Math.max(1, empanadaCount - 1))}
+                        className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                      >
+                        <Minus size={20} />
+                      </button>
+                      <span className="font-body px-6 text-xl font-bold text-gray-900">
+                        {empanadaCount} {empanadaOpcion === "unidad" ? "unidad(es)" : empanadaOpcion === "media_docena" ? "media docena(s)" : "docena(s)"}
+                      </span>
+                      <button
+                        onClick={() => setEmpanadaCount(empanadaCount + 1)}
+                        className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                      >
+                        <Plus size={20} />
+                      </button>
+                    </div>
+
+                    <div className="bg-primary/5 rounded-xl px-4 py-3 flex items-center justify-between border border-primary/20">
+                      <span className="text-gray-500 text-sm font-semibold">Total:</span>
+                      <span className="text-primary font-black text-2xl">
+                        {formatPrice((empanadaOpcion === "unidad" ? 1400 : empanadaOpcion === "media_docena" ? 8000 : 15000) * empanadaCount)}
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        const precioUnit = empanadaOpcion === "unidad" ? 1400 : empanadaOpcion === "media_docena" ? 8000 : 15000;
+                        const label = empanadaOpcion === "unidad" ? "unidad" : empanadaOpcion === "media_docena" ? "media docena" : "docena";
+                        addToCart(
+                          {
+                            nombre: `${selectedProduct.nombre} x${empanadaCount} ${label}${empanadaCount > 1 ? "s" : ""}`,
+                            precio: precioUnit * empanadaCount,
+                          },
+                          1
+                        );
+                        setSelectedProduct(null);
+                      }}
+                      className="bg-primary text-white w-full h-14 rounded-2xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      <ShoppingCart size={22} />
+                      Agregar al Carrito
+                    </button>
+                  </div>
+
                 ) : selectedProduct.esAGranel ? (
                   /* ── SELECTOR GRANEL ── */
                   <div className="flex flex-col gap-4">
@@ -2975,22 +3100,24 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                       ))}
                     </div>
 
-                    <div className="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-2 border border-gray-200">
-                      <span className="text-gray-500 text-sm font-semibold whitespace-nowrap">O ingresá los gramos que necesitas:</span>
+                    <div className="relative">
                       <input
                         type="number"
+                        inputMode="numeric"
                         min={50}
                         step={50}
-                        placeholder="ej: 350"
+                        placeholder="Ingresá los gramos que necesitas"
                         value={inputGramos}
                         onChange={(e) => {
                           setInputGramos(e.target.value);
                           const val = parseInt(e.target.value);
                           if (!isNaN(val) && val > 0) setGramosSeleccionados(val);
                         }}
-                        className="flex-1 bg-transparent outline-none text-gray-900 font-bold text-lg"
+                        className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white font-bold text-base outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all placeholder:text-gray-400 placeholder:font-normal"
                       />
-                      <span className="text-gray-400 font-semibold text-sm">g</span>
+                      {inputGramos && (
+                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-sm">g</span>
+                      )}
                     </div>
 
                     <div className="bg-primary/5 rounded-xl px-4 py-3 flex items-center justify-between border border-primary/20">
