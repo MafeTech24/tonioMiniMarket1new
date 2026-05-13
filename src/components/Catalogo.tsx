@@ -16,6 +16,7 @@ interface Producto {
   unidadPrecio?: string;
   esAGranel?: boolean;
   esFactura?: boolean;
+  sabores?: string[];
 }
 
 const CATEGORIAS = [
@@ -26,7 +27,7 @@ const CATEGORIAS = [
   "Kiosco",
   "Panificación",
   "Pollería",
-  // "Comidas listas",
+  "Comidas listas",
   "Limpieza y Perfumería",
   // "Mascotas"
 ];
@@ -2391,6 +2392,251 @@ const productos: Producto[] = [
     stock: 10,
     esAGranel: true,
     unidadPrecio: "100g"
+  },
+  {
+    id: 400,
+    nombre: "Escabeche Artesanal de berenjena",
+    precio: 6000,
+    imagen: "/products/comidas listas/escabecheBerenjena.png",
+    categoria: "Comidas listas",
+    descripcion: "Escabeche artesanal de berenjena.",
+    stock: 20
+  },
+  {
+    id: 401,
+    nombre: "Escabeche Artesanal de pollo",
+    precio: 7000,
+    imagen: "/products/comidas listas/escabechePollo.png",
+    categoria: "Comidas listas",
+    descripcion: "Escabeche artesanal de pollo.",
+    stock: 20
+  },
+  {
+    id: 402,
+    nombre: "Bandeja Ensalada de Zanahoria, Remolacha y Repollo",
+    precio: 1600,
+    imagen: "/products/polleria/bandejaEnsalada1.png",
+    categoria: "Pollería",
+    descripcion: "Bandeja de ensalada fresca con zanahoria, remolacha y repollo.",
+    stock: 20
+  },
+  {
+    id: 403,
+    nombre: "Bandeja Ensalada de Zanahoria, Achicoria y Repollo",
+    precio: 1600,
+    imagen: "/products/polleria/bandejaEnsalada2.png",
+    categoria: "Pollería",
+    descripcion: "Bandeja de ensalada fresca con zanahoria, achicoria y repollo.",
+    stock: 20
+  },
+  {
+    id: 404,
+    nombre: "Bandeja Sopera",
+    precio: 1600,
+    imagen: "/products/polleria/bandejaSopera.png",
+    categoria: "Pollería",
+    descripcion: "Bandeja sopera con verduras frescas listas para sopa.",
+    stock: 20
+  },
+  {
+    id: 405,
+    nombre: "Sal Ahumada para Carne Asada",
+    precio: 2200,
+    imagen: "/products/polleria/salParrilleraAhumadaCarne.png",
+    categoria: "Pollería",
+    descripcion: "Sal ahumada ideal para sazonar carne asada.",
+    stock: 20
+  },
+  {
+    id: 406,
+    nombre: "Sal Ahumada para Pollo Asado",
+    precio: 2200,
+    imagen: "/products/polleria/salParrilleraAhumadaPollo.png",
+    categoria: "Pollería",
+    descripcion: "Sal ahumada especial para pollo asado.",
+    stock: 20
+  },
+  {
+    id: 407,
+    nombre: "Hamburguesa de Carne",
+    precio: 13400,
+    imagen: "/products/congelados/hamburguesasCarne.png",
+    categoria: "Congelados",
+    descripcion: "Hamburguesa de carne congelada de primera calidad. Ideal para preparar a la plancha o a la parrilla. Precio por kilogramo.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 408,
+    nombre: "Fideos La Buona Pasta Cinta Ancha",
+    precio: 3300,
+    imagen: "/products/pastas/buonaPastaCintaAncha.png",
+    categoria: "Almacén",
+    subcategoria: "Pastas frescas y secas",
+    descripcion: "Fideos secos cinta ancha de sémola. Disponibles en varios sabores.",
+    stock: 20,
+    sabores: ["Huevo", "Morrón", "Espinaca"]
+  },
+  {
+    id: 409,
+    nombre: "Fideos La Buona Pasta Cinta Fina",
+    precio: 3100,
+    imagen: "/products/pastas/buonaPastaCintaFina.png",
+    categoria: "Almacén",
+    subcategoria: "Pastas frescas y secas",
+    descripcion: "Fideos secos cinta fina de sémola. Disponibles en varios sabores.",
+    stock: 20,
+    sabores: ["Huevo", "Morrón", "Espinaca"]
+  },
+  {
+    id: 410,
+    nombre: "Fideos La Buona Pasta Cinta Intermedia",
+    precio: 3300,
+    imagen: "/products/pastas/buonaPastaCintaIntermedia.png",
+    categoria: "Almacén",
+    subcategoria: "Pastas frescas y secas",
+    descripcion: "Fideos secos cinta intermedia de sémola. Disponibles en varios sabores.",
+    stock: 20,
+    sabores: ["Huevo", "Morrón", "Espinaca"]
+  },
+  {
+    id: 411,
+    nombre: "Milanesas de Carne",
+    precio: 17500,
+    imagen: "/products/congelados/milanesasCarne.png",
+    categoria: "Congelados",
+    descripcion: "Milanesas de carne congeladas, listas para cocinar. Precio por kilogramo.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 412,
+    nombre: "Milanesas de Merluza",
+    precio: 15000,
+    imagen: "/products/congelados/milanesasMerluza.png",
+    categoria: "Congelados",
+    descripcion: "Milanesas de merluza congeladas, empanizadas y listas para freír u hornear. Precio por kilogramo.",
+    stock: 20,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 413,
+    nombre: "Milanesas de Soja Rellenas de Jamón y Queso",
+    precio: 950,
+    imagen: "/products/congelados/milaSojaJamonQueso.png",
+    categoria: "Congelados",
+    descripcion: "Milanesa de soja congelada, rellena de jamón y queso. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 414,
+    nombre: "Milanesas de Soja Rellenas de Roquefort",
+    precio: 950,
+    imagen: "/products/congelados/milanesasSojaRoquefort.png",
+    categoria: "Congelados",
+    descripcion: "Milanesa de soja congelada, rellena de queso roquefort. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 415,
+    nombre: "Milanesas de Soja Rellenas de Calabaza y Muzzarella",
+    precio: 950,
+    imagen: "/products/congelados/milanesasSojaCalabazaMuzza.png",
+    categoria: "Congelados",
+    descripcion: "Milanesa de soja congelada, rellena de calabaza y muzzarella. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 416,
+    nombre: "Milanesas de Soja Rellenas de Aceituna, Tomate y Muzzarella",
+    precio: 950,
+    imagen: "/products/congelados/milanesasSojaTomateQuesoAceitunas.png",
+    categoria: "Congelados",
+    descripcion: "Milanesa de soja congelada, rellena de aceituna, tomate y muzzarella. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 417,
+    nombre: "Milanesas de Soja Rellenas de Espinaca y Muzzarella",
+    precio: 950,
+    imagen: "/products/congelados/milanesasSojaEspinacaMuzza.png",
+    categoria: "Congelados",
+    descripcion: "Milanesa de soja congelada, rellena de espinaca y muzzarella. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 418,
+    nombre: "Milanesas de Soja Rellenas de Cebolla y Muzzarella",
+    precio: 950,
+    imagen: "/products/congelados/milanesasSojaCebollaMuzza.png",
+    categoria: "Congelados",
+    descripcion: "Milanesa de soja congelada, rellena de cebolla y muzzarella. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 419,
+    nombre: "Sorrentinos de Jamón y Queso",
+    precio: 8500,
+    imagen: "/products/congelados/sorrentinosJamonQueso.png",
+    categoria: "Congelados",
+    descripcion: "Sorrentinos congelados de jamón y queso. Precio por docena.",
+    stock: 50,
+    unidadPrecio: "Docena"
+  },
+  {
+    id: 420,
+    nombre: "Sorrentinos de Jamón, Queso y Nuez",
+    precio: 8500,
+    imagen: "/products/congelados/sorrentinosJamonQuesoNuez.png",
+    categoria: "Congelados",
+    descripcion: "Sorrentinos congelados de jamón, queso y nuez. Precio por docena.",
+    stock: 50,
+    unidadPrecio: "Docena"
+  },
+  {
+    id: 421,
+    nombre: "Sorrentinos de Berenjena Ahumada",
+    precio: 8500,
+    imagen: "/products/congelados/sorrentinosBerenjenaAhumada.png",
+    categoria: "Congelados",
+    descripcion: "Sorrentinos congelados de berenjena ahumada. Precio por docena.",
+    stock: 50,
+    unidadPrecio: "Docena"
+  },
+  {
+    id: 422,
+    nombre: "Sorrentinos de Calabaza y Muzzarella",
+    precio: 8500,
+    imagen: "/products/congelados/sorrentinosCalabazaMuzzarella.png",
+    categoria: "Congelados",
+    descripcion: "Sorrentinos congelados de calabaza y muzzarella. Precio por docena.",
+    stock: 50,
+    unidadPrecio: "Docena"
+  },
+  {
+    id: 423,
+    nombre: "Sorrentinos de Pollo y Espinaca",
+    precio: 8500,
+    imagen: "/products/congelados/sorrentinosPolloEspinaca.png",
+    categoria: "Congelados",
+    descripcion: "Sorrentinos congelados de pollo y espinaca. Precio por docena.",
+    stock: 50,
+    unidadPrecio: "Docena"
   }
 ];
 
@@ -2407,8 +2653,8 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
   const [inputGramos, setInputGramos] = useState<string>("");
   const [facturaOpcion, setFacturaOpcion] = useState<"unidad" | "docena">("unidad");
   const [facturaCount, setFacturaCount] = useState<number>(1);
+  const [selectedSabor, setSelectedSabor] = useState<string>("");
   const { addToCart } = useCart();
-  
   const subcats = SUBCATEGORIAS[selectedCat] || [];
 
   const handleCatChange = (cat: string) => {
@@ -2450,12 +2696,14 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
       setInputGramos("");
       setFacturaOpcion("unidad");
       setFacturaCount(1);
+      setSelectedSabor(selectedProduct.sabores && selectedProduct.sabores.length > 0 ? selectedProduct.sabores[0] : "");
     }
   }, [selectedProduct]);
 
-  const handleAddToCart = (e: React.MouseEvent, p: Producto, cant: number = 1) => {
+  const handleAddToCart = (e: React.MouseEvent, p: Producto, cant: number = 1, sabor: string = "") => {
     e.stopPropagation();
-    addToCart({ nombre: p.nombre, precio: p.precio }, cant);
+    const nombreFinal = sabor ? `${p.nombre} - ${sabor}` : p.nombre;
+    addToCart({ nombre: nombreFinal, precio: p.precio }, cant);
   };
 
   const formatPrice = (price: number) => {
@@ -2549,7 +2797,14 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                       {formatPrice(p.precio)} {p.unidadPrecio && <span className="text-[10px] md:text-sm font-body text-gray-400">/ {p.unidadPrecio}</span>}
                     </span>
                     <button
-                      onClick={(e) => handleAddToCart(e, p)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (p.esAGranel || p.esFactura || (p.sabores && p.sabores.length > 0)) {
+                          setSelectedProduct(p);
+                        } else {
+                          handleAddToCart(e, p);
+                        }
+                      }}
                       className="w-full bg-primary text-white h-[48px] px-4 rounded-xl font-bold text-[11px] sm:text-sm flex items-center justify-center gap-1 md:gap-2 hover:bg-primary-dark transition-colors shadow-sm"
                     >
                       <Plus size={16} className="md:size-[20px]" />
@@ -2769,8 +3024,30 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
 
                 ) : (
                   /* ── SELECTOR NORMAL ── */
-                  <div className="flex flex-col sm:flex-row items-center gap-4">
-                    <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-1 w-full sm:w-auto border border-gray-200">
+                  <div className="flex flex-col gap-6 w-full">
+                    {selectedProduct.sabores && selectedProduct.sabores.length > 0 && (
+                      <div>
+                        <span className="text-gray-500 font-semibold text-sm block mb-2">Seleccioná un sabor:</span>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedProduct.sabores.map((s) => (
+                            <button
+                              key={s}
+                              onClick={() => setSelectedSabor(s)}
+                              className={`px-4 py-2 rounded-xl font-bold text-sm transition-all border ${
+                                selectedSabor === s
+                                  ? "bg-primary text-white border-primary shadow-md"
+                                  : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
+                              }`}
+                            >
+                              {s}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                      <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-1 w-full sm:w-auto border border-gray-200">
                       <button
                         onClick={() => setModalQuantity(Math.max(1, modalQuantity - 1))}
                         className="h-11 w-11 flex items-center justify-center text-gray-500 hover:bg-white hover:shadow-sm rounded-xl transition-all"
@@ -2791,7 +3068,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
 
                     <button
                       onClick={(e) => {
-                        handleAddToCart(e, selectedProduct, modalQuantity);
+                        handleAddToCart(e, selectedProduct, modalQuantity, selectedSabor);
                         setSelectedProduct(null);
                       }}
                       className="bg-primary text-white flex-1 w-full h-14 rounded-2xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98]"
@@ -2799,6 +3076,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                       <ShoppingCart size={22} />
                       Agregar al Carrito
                     </button>
+                  </div>
                   </div>
                 )}
 

@@ -165,6 +165,24 @@ const ofertas = [
     img: "/products/polleria/milaPolloSinProvenzal.png",
     stock: 20,
     categoria: "Pollería"
+  },
+  {
+    nombre: "Hamburguesas de Carne 2kg",
+    antes: "$26.800",
+    ahora: "$26.000",
+    desc: "2kg de hamburguesas de carne congeladas de primera calidad. Ideal para tener stock en casa o para tus parrilladas. Precio especial por llevar 2kg.",
+    img: "/products/congelados/hamburguesasCarne.png",
+    stock: 20,
+    categoria: "Congelados"
+  },
+  {
+    nombre: "Milanesas de Carne 2kg",
+    antes: "$35.000",
+    ahora: "$33.800",
+    desc: "2kg de milanesas de carne congeladas, listas para cocinar. La opción más rendidora para toda la familia. Precio especial por llevar 2kg.",
+    img: "/products/congelados/milanesasCarne.png",
+    stock: 20,
+    categoria: "Congelados"
   }
 ];
 
