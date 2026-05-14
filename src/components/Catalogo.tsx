@@ -1737,15 +1737,6 @@ const productos: Producto[] = [
     esAGranel: true
   },
   {
-    id: 155,
-    nombre: "Paty Express x4 110g",
-    precio: 4400,
-    imagen: "/products/congelados/patyExpressx4.png",
-    categoria: "Congelados",
-    descripcion: "Medallones de carne vacuna Paty Express x4 unidades, 110g cada uno. Supercongelados, listos para la plancha o parrilla.",
-    stock: 20
-  },
-  {
     id: 513,
     nombre: "Hamburguesas Paty Express x4",
     precio: 4400,
