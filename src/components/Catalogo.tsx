@@ -188,7 +188,7 @@ const productos: Producto[] = [
   {
     id: 12,
     nombre: "Dulce de Leche La Serenísima Estilo Colonial 400g",
-    precio: 3400,
+    precio: 3900,
     imagen: "/products/desayuno/dLecheEstiloColonialLaSerenisima400.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -551,8 +551,8 @@ const productos: Producto[] = [
   },
   {
     id: 43,
-    nombre: "Mayonesa Natura 125cm³",
-    precio: 800,
+    nombre: "Mayonesa Natura 125gr",
+    precio: 1900,
     imagen: "/products/aderezos/mayonesaNatura125.png",
     categoria: "Almacén",
     subcategoria: "Aderezos",
@@ -561,7 +561,7 @@ const productos: Producto[] = [
   },
   {
     id: 44,
-    nombre: "Mayonesa Natura 250cm³",
+    nombre: "Mayonesa Natura 250gr",
     precio: 2200,
     imagen: "/products/aderezos/mayonesaNatura250.png",
     categoria: "Almacén",
@@ -571,7 +571,7 @@ const productos: Producto[] = [
   },
   {
     id: 45,
-    nombre: "Mayonesa Natura 500cm³",
+    nombre: "Mayonesa Natura 500gr",
     precio: 3400,
     imagen: "/products/aderezos/mayonesaNatura500.png",
     categoria: "Almacén",
@@ -772,7 +772,7 @@ const productos: Producto[] = [
   {
     id: 307,
     nombre: "Queso Untable Clásico La Paulina",
-    precio: 3100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoUntableClasicoLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -782,7 +782,7 @@ const productos: Producto[] = [
   {
     id: 308,
     nombre: "Queso Untable Port Salud La Paulina",
-    precio: 3100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoUntablePortSaludLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -792,7 +792,7 @@ const productos: Producto[] = [
   {
     id: 309,
     nombre: "Queso Untable Port Salud Equilibrio La Paulina",
-    precio: 3100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoUntablePortSaludEquilibrioLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -802,7 +802,7 @@ const productos: Producto[] = [
   {
     id: 310,
     nombre: "Queso Untable 4 Quesos La Paulina",
-    precio: 2100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoUntable4quesosLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -812,7 +812,7 @@ const productos: Producto[] = [
   {
     id: 311,
     nombre: "Queso Untable Azul La Paulina",
-    precio: 2100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoUntableAzulLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -822,7 +822,7 @@ const productos: Producto[] = [
   {
     id: 312,
     nombre: "Queso Untable Cheddar La Paulina",
-    precio: 2100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoUntableCheddarLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -832,7 +832,7 @@ const productos: Producto[] = [
   {
     id: 313,
     nombre: "Queso Untable Fontina La Paulina",
-    precio: 2100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoUntableFontinaLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -842,7 +842,7 @@ const productos: Producto[] = [
   {
     id: 314,
     nombre: "Queso Untable Jamón La Paulina",
-    precio: 2100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoUntableJamonLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -852,7 +852,7 @@ const productos: Producto[] = [
   {
     id: 315,
     nombre: "Queso Crema Tradicional La Paulina",
-    precio: 3100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoCremaTradicionalLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -862,7 +862,7 @@ const productos: Producto[] = [
   {
     id: 316,
     nombre: "Queso Crema Light La Paulina",
-    precio: 3100,
+    precio: 2500,
     imagen: "/products/lacteos/quesoCremaLightLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -1192,7 +1192,7 @@ const productos: Producto[] = [
   {
     id: 77,
     nombre: "Lentejas Egran 400g",
-    precio: 1400,
+    precio: 2600,
     imagen: "/products/almacen/lentejasEgran500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -1261,7 +1261,7 @@ const productos: Producto[] = [
   {
     id: 83,
     nombre: "Cerveza Stella Artois 1L",
-    precio: 2200,
+    precio: 5900,
     imagen: "/products/bebidas/cervezaPilsenStellaArtois1000.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
@@ -1271,7 +1271,7 @@ const productos: Producto[] = [
   {
     id: 84,
     nombre: "Cerveza Rubia Quilmes Clásica 1L",
-    precio: 1800,
+    precio: 3700,
     imagen: "/products/bebidas/cervezaRubiaQuilmes1000.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
@@ -1281,7 +1281,7 @@ const productos: Producto[] = [
   {
     id: 85,
     nombre: "Fernet Branca 750ml",
-    precio: 8500,
+    precio: 17500,
     imagen: "/products/bebidas/fernetBranca750.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
@@ -1291,7 +1291,7 @@ const productos: Producto[] = [
   {
     id: 86,
     nombre: "Agua Mineral con Gas Bon Aqua 1.5L",
-    precio: 1300,
+    precio: 2500,
     imagen: "/products/bebidas/aguaMineralConGasSoda1500.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -1300,12 +1300,12 @@ const productos: Producto[] = [
   },
   {
     id: 87,
-    nombre: "Agua Mineral sin Gas Villavicencio 1.5L",
-    precio: 1300,
-    imagen: "/products/bebidas/aguaMineralSinGasVillavicencio1500.png",
+    nombre: "Agua Mineral sin Gas Villavicencio 2L",
+    precio: 2400,
+    imagen: "/products/bebidas/aguaMineralSinGasVillavicencio2000.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
-    descripcion: "Agua mineral sin gas Villavicencio, 1.5 litros. Origen Mendoza, pureza natural.",
+    descripcion: "Agua mineral sin gas Villavicencio, 2 litros. Origen Mendoza, pureza natural.",
     stock: 20
   },
   {
@@ -1321,7 +1321,7 @@ const productos: Producto[] = [
   {
     id: 89,
     nombre: "Gatorade Naranja 500ml",
-    precio: 1800,
+    precio: 2300,
     imagen: "/products/bebidas/bebidaIsotonicaGatorade500.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -1329,9 +1329,19 @@ const productos: Producto[] = [
     stock: 20
   },
   {
+    id: 512,
+    nombre: "Gatorade 1.25L",
+    precio: 4500,
+    imagen: "/products/bebidas/bebidaIsotonicaGatorade1250.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida isotónica Gatorade, 1.25 litros. Repone electrolitos y energía. Formato familiar.",
+    stock: 20
+  },
+  {
     id: 90,
     nombre: "Coca-Cola 2.25L",
-    precio: 2600,
+    precio: 4900,
     imagen: "/products/bebidas/cocaCola2250.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -1341,14 +1351,14 @@ const productos: Producto[] = [
   {
     id: 91,
     nombre: "Sprite 2.25L",
-    precio: 2400,
+    precio: 4900,
     imagen: "/products/bebidas/sprite2250.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Sprite lima-limón, botella 2.25 litros. Gaseosa sin cafeína, sabor cítrico refrescante.",
     stock: 20
   },
-  {
+  /*{
     id: 92,
     nombre: "Medallones Paty Finitas x2",
     precio: 2400,
@@ -1357,94 +1367,7 @@ const productos: Producto[] = [
     subcategoria: undefined,
     descripcion: "Medallones de carne vacuna Paty Finitas, pack x2. Precocidos, listos para la plancha o parrilla.",
     stock: 20
-  },
-  {
-    id: 93,
-    nombre: "Medallón Vegetariano Swift x4 300g",
-    precio: 2800,
-    imagen: "/products/congelados/medallonVegetariano.png",
-    categoria: "Congelados",
-    subcategoria: undefined,
-    descripcion: "Medallones vegetarianos Swift de calabaza y choclo, x4 unidades 300g. Prefrito supercongelado.",
-    stock: 20
-  },
-  { 
-    id: 94, 
-    nombre: "Alitas de Pollo", 
-    precio: 3200, 
-    categoria: "Pollería", 
-    imagen: "/products/polleria/alitasPollo.png",
-    descripcion: "Alitas de pollo frescas, ideales para la parrilla o al horno. Precio por kilogramo.",
-    stock: 20,
-    unidadPrecio: "Kg",
-    esAGranel: true
-  },
-  { 
-    id: 95, 
-    nombre: "Medio Pollo", 
-    precio: 5800, 
-    categoria: "Pollería", 
-    imagen: "/products/polleria/medioPollo.png",
-    descripcion: "Medio pollo fresco y limpio, listo para cocinar. Precio por kilogramo.",
-    stock: 20,
-    unidadPrecio: "Kg",
-    esAGranel: true
-  },
-  /*{ 
-    id: 96, 
-    nombre: "Milanesas de Pollo", 
-    precio: 6500, 
-    categoria: "Pollería", 
-    imagen: "/products/polleria/milaPollo.png",
-    descripcion: "Milanesas de pollo elaboradas con pechuga de primera calidad. Precio por kilogramo.",
-    stock: 20,
-    unidadPrecio: "Kg",
-    esAGranel: true
   },*/
-  { 
-    id: 97, 
-    nombre: "Pata Muslo", 
-    precio: 5500, 
-    categoria: "Pollería", 
-    imagen: "/products/polleria/pataMuslo.png",
-    descripcion: "Cuartos traseros de pollo (pata y muslo) frescos. Precio por kilogramo.",
-    stock: 20,
-    unidadPrecio: "Kg",
-    esAGranel: true
-  },
-  { 
-    id: 98, 
-    nombre: "Pata de Pollo", 
-    precio: 3900, 
-    categoria: "Pollería", 
-    imagen: "/products/polleria/pataPollo.png",
-    descripcion: "Patitas de pollo frescas, ideales para guisos o al horno. Precio por kilogramo.",
-    stock: 20,
-    unidadPrecio: "Kg",
-    esAGranel: true
-  },
-  { 
-    id: 99, 
-    nombre: "Pechugas de Pollo", 
-    precio: 13200, 
-    categoria: "Pollería", 
-    imagen: "/products/polleria/pechugasdePollo.png",
-    descripcion: "Pechugas de pollo frescas, deshuesadas y sin piel. Precio por kilogramo.",
-    stock: 20,
-    unidadPrecio: "Kg",
-    esAGranel: true
-  },
-  { 
-    id: 100, 
-    nombre: "Pollo Entero", 
-    precio: 5500, 
-    categoria: "Pollería", 
-    imagen: "/products/polleria/polloEntero.png",
-    descripcion: "Pollo entero fresco de granja, calidad superior. Precio por kilogramo.",
-    stock: 20,
-    unidadPrecio: "Kg",
-    esAGranel: true
-  },
   {
     id: 114,
     nombre: "Papel Higiénico Sanidad x4",
@@ -1572,18 +1495,9 @@ const productos: Producto[] = [
     stock: 20
   },
   {
-    id: 128,
-    nombre: "Detergente Magistral Limón 760ml",
-    precio: 2400,
-    imagen: "/products/limpiezaPerfumeria/detergenteMagistral.png",
-    categoria: "Limpieza y Perfumería",
-    descripcion: "Detergente lavavajillas Magistral Limón 760ml. X5 poder antigrasa, con jugo de limón natural.",
-    stock: 20
-  },
-  {
     id: 129,
-    nombre: "Detergente Cif Bioactive Lima 750ml",
-    precio: 2200,
+    nombre: "Detergente Cif Bioactive Lima 300ml",
+    precio: 2700,
     imagen: "/products/limpiezaPerfumeria/detergenteCif1.png",
     categoria: "Limpieza y Perfumería",
     descripcion: "Detergente lavavajillas Cif Bioactive Lima 750ml. X5 poder desengrasante, nueva fórmula con fragancia a lima.",
@@ -1591,16 +1505,16 @@ const productos: Producto[] = [
   },
   {
     id: 130,
-    nombre: "Detergente Ala Ultra 500ml",
-    precio: 3500,
-    imagen: "/products/limpiezaPerfumeria/detergenteAla500ml.png",
+    nombre: "Detergente Ala Ultra 300ml",
+    precio: 2000,
+    imagen: "/products/limpiezaPerfumeria/detergenteAla300ml.png",
     categoria: "Limpieza y Perfumería",
     descripcion: "Detergente lavavajillas Ala Ultra 500ml. Doble poder desengrasante, cuida las manos y los utensilios.",
     stock: 20
   },
   {
     id: 131,
-    nombre: "Jabón Líquido Matic Granby 600ml",
+    nombre: "Jabón Líquido Matic Granby 800ml",
     precio: 2600,
     imagen: "/products/limpiezaPerfumeria/jabonLiquidoMaticGranby800.png",
     categoria: "Limpieza y Perfumería",
@@ -1737,7 +1651,7 @@ const productos: Producto[] = [
   {
     id: 145,
     nombre: "Lucchetti Moños 500g",
-    precio: 1600,
+    precio: 2500,
     imagen: "/products/pastas/luccettiMonitos.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -1829,6 +1743,15 @@ const productos: Producto[] = [
     imagen: "/products/congelados/patyExpressx4.png",
     categoria: "Congelados",
     descripcion: "Medallones de carne vacuna Paty Express x4 unidades, 110g cada uno. Supercongelados, listos para la plancha o parrilla.",
+    stock: 20
+  },
+  {
+    id: 513,
+    nombre: "Hamburguesas Paty Express x4",
+    precio: 4400,
+    imagen: "/products/congelados/hamburguesasPatyExpress.png",
+    categoria: "Congelados",
+    descripcion: "Hamburguesas Paty Express x4 unidades. Supercongeladas, listas para la plancha o parrilla.",
     stock: 20
   },
   {
@@ -2362,17 +2285,6 @@ const productos: Producto[] = [
     unidadPrecio: "Kg"
   },
   {
-    id: 198,
-    nombre: "Pata de Pollo",
-    precio: 3900,
-    imagen: "/products/polleria/pataPollo.png",
-    categoria: "Pollería",
-    descripcion: "Patitas de pollo frescas, ideales para guisos o al horno. Precio por kilogramo.",
-    stock: 50,
-    esAGranel: true,
-    unidadPrecio: "Kg"
-  },
-  {
     id: 199,
     nombre: "Medio Pollo",
     precio: 5800,
@@ -2386,13 +2298,13 @@ const productos: Producto[] = [
   {
     id: 200,
     nombre: "Arrollado de Pollo",
-    precio: 1570,
+    precio: 7500,
     imagen: "/products/polleria/arrolladoPollo.png",
     categoria: "Pollería",
-    descripcion: "Arrollado de pollo artesanal. Disponible en dos variedades: jamón, queso, morrón, aceituna y huevo — o roquefort, jamón, morrón, aceituna y huevo. Consultá disponibilidad. Precio por 100g.",
+    descripcion: "Arrollado de pollo artesanal. Disponible en dos variedades: jamón, queso, morrón, aceituna y huevo — o roquefort, jamón, morrón, aceituna y huevo. Consultá disponibilidad.",
     stock: 10,
-    esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "c/u",
+    sabores: ["Jamón, Queso, Morrón, Aceituna y Huevo", "Roquefort, Jamón, Morrón, Aceituna y Huevo"]
   },
   {
     id: 400,
@@ -2482,7 +2394,7 @@ const productos: Producto[] = [
   {
     id: 409,
     nombre: "Fideos La Buona Pasta Cinta Fina",
-    precio: 3100,
+    precio: 3300,
     imagen: "/products/pastas/buonaPastaCintaFina.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -2662,12 +2574,12 @@ const productos: Producto[] = [
   {
     id: 426,
     nombre: "Roulette de Pollo",
-    precio: 14200,
+    precio: 4800,
     imagen: "/products/congelados/roulettePollo.png",
     categoria: "Pollería",
     descripcion: "Roulette de pollo congelado. Disponible en diferentes sabores.",
     stock: 50,
-    sabores: ["Jamón y Queso", "Morrón y Roquefort"]
+    sabores: ["Jamón, Queso y Morrón", "Roquefort"]
   },
   {
     id: 427,
