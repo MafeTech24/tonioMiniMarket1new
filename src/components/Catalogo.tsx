@@ -1755,6 +1755,51 @@ const productos: Producto[] = [
     stock: 20
   },
   {
+    id: 514,
+    nombre: "Tarta de Pollo",
+    precio: 6500,
+    imagen: "/products/congelados/tartaPollo.png",
+    categoria: "Congelados",
+    descripcion: "Tarta de pollo artesanal supercongelada. Relleno jugoso y masa crocante, lista para hornear.",
+    stock: 20
+  },
+  {
+    id: 515,
+    nombre: "Tarta de Verdura",
+    precio: 6000,
+    imagen: "/products/congelados/tartaVerduras.png",
+    categoria: "Congelados",
+    descripcion: "Tarta de verduras artesanal supercongelada. Nutritiva y sabrosa, lista para hornear.",
+    stock: 20
+  },
+  {
+    id: 516,
+    nombre: "Tarta de Choclo Cremoso",
+    precio: 6000,
+    imagen: "/products/congelados/tartaChocloCremoso.png",
+    categoria: "Congelados",
+    descripcion: "Tarta de choclo cremoso artesanal supercongelada. Dulce y suave, lista para hornear.",
+    stock: 20
+  },
+  {
+    id: 517,
+    nombre: "Tarta de Jamón y Queso",
+    precio: 6000,
+    imagen: "/products/congelados/tartaJamonQueso.png",
+    categoria: "Congelados",
+    descripcion: "Tarta de jamón y queso artesanal supercongelada. Relleno generoso y masa crocante, lista para hornear.",
+    stock: 20
+  },
+  {
+    id: 518,
+    nombre: "Tarta de Calabaza y Muzzarella",
+    precio: 6000,
+    imagen: "/products/congelados/tartaCalabazaMuzza.png",
+    categoria: "Congelados",
+    descripcion: "Tarta de calabaza y muzzarella artesanal supercongelada. Cremosa y dulce, lista para hornear.",
+    stock: 20
+  },
+  {
     id: 156,
     nombre: "Papas Lay's Clásicas 40g",
     precio: 2300,
