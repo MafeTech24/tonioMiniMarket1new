@@ -2059,7 +2059,7 @@ const productos: Producto[] = [
   {
     id: 174,
     nombre: "Mini Pechugas al Verdeo",
-    precio: 1350,
+    precio: 1450,
     imagen: "/products/congelados/miniPechugasVerdeo.png",
     categoria: "Congelados",
     descripcion: "Mini pechugas de pollo con salsa de verdeo, rebozadas y supercongeladas. Tiernas y llenas de sabor. Precio por 100g.",
