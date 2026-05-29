@@ -4,6 +4,11 @@ import { useCart } from "@/context/CartContext";
 
 
 
+interface Presentacion {
+  nombre: string;
+  precio: number;
+}
+
 interface Producto {
   id: number;
   nombre: string;
@@ -18,6 +23,7 @@ interface Producto {
   esFactura?: boolean;
   esEmpanada?: boolean;
   sabores?: string[];
+  presentaciones?: Presentacion[];
 }
 
 const CATEGORIAS = [
@@ -247,7 +253,7 @@ const productos: Producto[] = [
   },
   {
     id: 17,
-    nombre: "Galletas Criollitas Bagley x3 300g",
+    nombre: "Galletas Criollitas x3",
     precio: 2100,
     imagen: "/products/desayuno/galletasCriollitasx3.png",
     categoria: "Almacén",
@@ -257,12 +263,12 @@ const productos: Producto[] = [
   },
   {
     id: 18,
-    nombre: "Galletas Mediatarde Lia x3",
+    nombre: "Galletas Mediatarde x3",
     precio: 1700,
     imagen: "/products/desayuno/galletasMediatardex3.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
-    descripcion: "Galletitas crackers Mediatarde Lia, pack x3 paquetes de 100g. Clásicas para acompañar infusiones.",
+    descripcion: "Galletitas crackers Mediatarde Lia, pack x3 paquetes. Clásicas para acompañar infusiones.",
     stock: 20
   },
   {
@@ -277,22 +283,22 @@ const productos: Producto[] = [
   },
   {
     id: 20,
-    nombre: "Galletas Traviata Bagley x3 183g",
-    precio: 2100,
+    nombre: "Galletas Traviatas x3",
+    precio: 2200,
     imagen: "/products/desayuno/galletasTraviatax3.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
-    descripcion: "Galletitas de agua Traviata Bagley sabor original, pack familiar x3, 183g total.",
+    descripcion: "Galletitas de agua Traviata Bagley sabor original, pack familiar x3.",
     stock: 20
   },
   {
     id: 21,
-    nombre: "Oreo Original 117g",
-    precio: 2100,
-    imagen: "/products/desayuno/galletitasOreo118.png",
+    nombre: "Galletas Oreos Clásicas",
+    precio: 2200,
+    imagen: "/products/desayuno/galletasOreo.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
-    descripcion: "Galletitas Oreo originales, 117g. Rellenas de crema de vainilla, la galletita favorita de la leche.",
+    descripcion: "Galletitas Oreo clásicas rellenas de crema de vainilla.",
     stock: 20
   },
   /*
@@ -1260,23 +1266,31 @@ const productos: Producto[] = [
   },
   {
     id: 83,
-    nombre: "Cerveza Stella Artois 1L",
-    precio: 5900,
-    imagen: "/products/bebidas/cervezaPilsenStellaArtois1000.png",
+    nombre: "Cerveza Stella Artois",
+    precio: 3500,
+    imagen: "/products/bebidas/cervezaStellaArtois.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
-    descripcion: "Cerveza pilsen Stella Artois, botella 1 litro. De origen belga, sabor suave y refrescante.",
-    stock: 20
+    descripcion: "Cerveza Stella Artois de origen belga. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "1L", precio: 5900 },
+      { nombre: "LATA", precio: 3500 }
+    ]
   },
   {
     id: 84,
-    nombre: "Cerveza Rubia Quilmes Clásica 1L",
-    precio: 3700,
-    imagen: "/products/bebidas/cervezaRubiaQuilmes1000.png",
+    nombre: "Cerveza Quilmes",
+    precio: 2200,
+    imagen: "/products/bebidas/cervezaQuilmes.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
-    descripcion: "Cerveza rubia Quilmes Clásica, botella 1 litro. La cerveza argentina por excelencia.",
-    stock: 20
+    descripcion: "Cerveza clásica Quilmes, la cerveza argentina por excelencia. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "1L", precio: 3700 },
+      { nombre: "LATA", precio: 2200 }
+    ]
   },
   {
     id: 85,
@@ -1328,35 +1342,567 @@ const productos: Producto[] = [
     descripcion: "Bebida isotónica Gatorade sabor naranja, 500ml. Repone electrolitos y energía.",
     stock: 20
   },
-  {
-    id: 512,
-    nombre: "Gatorade 1.25L",
-    precio: 4500,
-    imagen: "/products/bebidas/bebidaIsotonicaGatorade1250.png",
-    categoria: "Bebidas",
-    subcategoria: "Sin alcohol",
-    descripcion: "Bebida isotónica Gatorade, 1.25 litros. Repone electrolitos y energía. Formato familiar.",
-    stock: 20
-  },
+
   {
     id: 90,
-    nombre: "Coca-Cola 2.25L",
-    precio: 4900,
-    imagen: "/products/bebidas/cocaCola2250.png",
+    nombre: "Coca-Cola",
+    precio: 1800,
+    imagen: "/products/bebidas/cocaCola.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
-    descripcion: "Coca-Cola sabor original, botella 2.25 litros. La gaseosa más popular del mundo.",
+    descripcion: "Coca-Cola sabor original. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "LITRO", precio: 3200 },
+      { nombre: "1,5L", precio: 4200 },
+      { nombre: "2,25L", precio: 5300 }
+    ]
+  },
+
+  {
+    id: 601,
+    nombre: "Coca-Cola Zero",
+    precio: 1800,
+    imagen: "/products/bebidas/cocaColaZeroBotella.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Coca-Cola Zero sabor original sin azúcar. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "LITRO", precio: 3200 },
+      { nombre: "1,5L", precio: 4200 },
+      { nombre: "2,25L", precio: 5300 }
+    ]
+  },
+  {
+    id: 622,
+    nombre: "Sprite",
+    precio: 1800,
+    imagen: "/products/bebidas/spriteBotella.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa Sprite sabor lima-limón refrescante. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "1L", precio: 3200 },
+      { nombre: "1,5L", precio: 4200 },
+      { nombre: "2,25L", precio: 5300 }
+    ]
+  },
+  {
+    id: 623,
+    nombre: "Sprite Lata",
+    precio: 1600,
+    imagen: "/products/bebidas/spriteLata.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa Sprite en lata de 354ml sabor lima-limón.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "LATA 354ML", precio: 1600 }
+    ]
+  },
+  {
+    id: 624,
+    nombre: "Sprite Zero",
+    precio: 1800,
+    imagen: "/products/bebidas/spriteZeroBotella.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa Sprite Zero sabor lima-limón sin azúcar. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "1L", precio: 3200 },
+      { nombre: "1,5L", precio: 4200 },
+      { nombre: "2,25L", precio: 5300 }
+    ]
+  },
+  {
+    id: 625,
+    nombre: "Sprite Zero Lata",
+    precio: 1600,
+    imagen: "/products/bebidas/spriteLataZero.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa Sprite Zero en lata de 354ml sabor lima-limón sin azúcar.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "LATA 354ML", precio: 1600 }
+    ]
+  },
+  {
+    id: 626,
+    nombre: "Fanta",
+    precio: 1800,
+    imagen: "/products/bebidas/fantaBotella.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa Fanta sabor naranja. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "1L", precio: 3200 },
+      { nombre: "1,5L", precio: 4200 },
+      { nombre: "2,25L", precio: 5300 }
+    ]
+  },
+  {
+    id: 627,
+    nombre: "Fanta Lata",
+    precio: 1600,
+    imagen: "/products/bebidas/fantaLata.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa Fanta en lata de 354ml sabor naranja.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "LATA 354ML", precio: 1600 }
+    ]
+  },
+  {
+    id: 628,
+    nombre: "Fanta Zero",
+    precio: 1800,
+    imagen: "/products/bebidas/fantaZeroBotella.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa Fanta Zero sabor naranja sin azúcar. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "1,5L", precio: 4200 }
+    ]
+  },
+  {
+    id: 629,
+    nombre: "Fanta Zero Lata",
+    precio: 1600,
+    imagen: "/products/bebidas/fantaZeroLata.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa Fanta Zero en lata de 354ml sabor naranja sin azúcar.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "LATA 354ML", precio: 1600 }
+    ]
+  },
+  {
+    id: 630,
+    nombre: "Powerade Manzana",
+    precio: 2400,
+    imagen: "/products/bebidas/poweradeManzana.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida isotónica Powerade sabor manzana. Repone electrolitos y energía.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 2400 },
+      { nombre: "1L", precio: 3700 }
+    ]
+  },
+  {
+    id: 631,
+    nombre: "Powerade Mountain Blast",
+    precio: 2400,
+    imagen: "/products/bebidas/poweradeMountainBlast.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida isotónica Powerade sabor Mountain Blast. Repone electrolitos y energía.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 2400 },
+      { nombre: "1L", precio: 3700 }
+    ]
+  },
+  {
+    id: 632,
+    nombre: "Powerade Naranja",
+    precio: 2400,
+    imagen: "/products/bebidas/poweradeNaranja.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida isotónica Powerade sabor naranja. Repone electrolitos y energía.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 2400 }
+    ]
+  },
+  {
+    id: 633,
+    nombre: "Powerade Frutas Tropicales",
+    precio: 2400,
+    imagen: "/products/bebidas/poweradeFrutasTropicales.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida isotónica Powerade sabor frutas tropicales. Repone electrolitos y energía.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 2400 }
+    ]
+  },
+  {
+    id: 634,
+    nombre: "Monster Energy Green Lata 473cc",
+    precio: 3100,
+    imagen: "/products/bebidas/monsterClasico.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida energizante Monster Energy original, lata de 473cc.",
     stock: 20
   },
   {
-    id: 91,
-    nombre: "Sprite 2.25L",
-    precio: 4900,
-    imagen: "/products/bebidas/sprite2250.png",
+    id: 635,
+    nombre: "Monster Energy Green Zero Lata 473cc",
+    precio: 3100,
+    imagen: "/products/bebidas/monsterZero.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
-    descripcion: "Sprite lima-limón, botella 2.25 litros. Gaseosa sin cafeína, sabor cítrico refrescante.",
+    descripcion: "Bebida energizante Monster Energy original sin azúcar, lata de 473cc.",
     stock: 20
+  },
+  {
+    id: 636,
+    nombre: "Monster Energy Ultra Sin Azúcar Lata 473cc",
+    precio: 3100,
+    imagen: "/products/bebidas/monsterBlanco.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida energizante Monster Energy Ultra sin azúcar, lata de 473cc.",
+    stock: 20
+  },
+  {
+    id: 637,
+    nombre: "Monster Energy Ultra Mango Loco Lata 473cc",
+    precio: 3100,
+    imagen: "/products/bebidas/monsterMango.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida energizante Monster Energy Ultra Mango Loco, lata de 473cc.",
+    stock: 20
+  },
+  {
+    id: 638,
+    nombre: "Energizante Speed Lata",
+    precio: 1600,
+    imagen: "/products/bebidas/speed.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida energizante Speed Unlimited en lata. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "269 CC", precio: 1600 },
+      { nombre: "473 CC", precio: 2500 }
+    ]
+  },
+  {
+    id: 639,
+    nombre: "Cerveza Brahma",
+    precio: 2300,
+    imagen: "/products/bebidas/cervezaBrahma.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Cerveza Brahma pilsen, suave y refrescante. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "1L", precio: 3900 },
+      { nombre: "LATA", precio: 2300 }
+    ]
+  },
+  {
+    id: 640,
+    nombre: "Cerveza Budweiser",
+    precio: 2300,
+    imagen: "/products/bebidas/cervezaBudweiser.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Cerveza Budweiser, refrescante y con carácter. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "1L", precio: 3900 },
+      { nombre: "LATA", precio: 2300 }
+    ]
+  },
+  {
+    id: 641,
+    nombre: "Cerveza Imperial Golden",
+    precio: 2600,
+    imagen: "/products/bebidas/cervezaGoldenImperial.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Cerveza Imperial Golden, aroma frutado y cuerpo liviano. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "1L", precio: 4600 },
+      { nombre: "LATA", precio: 2600 }
+    ]
+  },
+  {
+    id: 642,
+    nombre: "Cerveza Heineken",
+    precio: 3800,
+    imagen: "/products/bebidas/cervezaHeineken.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Cerveza premium Heineken de origen holandés. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "1L", precio: 6000 },
+      { nombre: "LATA", precio: 3800 }
+    ]
+  },
+  {
+    id: 602,
+    nombre: "Ades Durazno",
+    precio: 1300,
+    imagen: "/products/bebidas/adesDurazno.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Alimento líquido a base de soja sabor durazno. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "200ML", precio: 1300 },
+      { nombre: "LITRO", precio: 3300 }
+    ]
+  },
+  {
+    id: 603,
+    nombre: "Ades Manzana",
+    precio: 1300,
+    imagen: "/products/bebidas/adesManzan.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Alimento líquido a base de soja sabor manzana. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "200ML", precio: 1300 },
+      { nombre: "LITRO", precio: 3300 }
+    ]
+  },
+  {
+    id: 604,
+    nombre: "Ades Tropical",
+    precio: 1300,
+    imagen: "/products/bebidas/adesMultifruta.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Alimento líquido a base de soja sabor tropical/multifruta. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "200ML", precio: 1300 },
+      { nombre: "LITRO", precio: 3300 }
+    ]
+  },
+  {
+    id: 605,
+    nombre: "Pepsi",
+    precio: 1600,
+    imagen: "/products/bebidas/pepsiBotella.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Pepsi sabor original refrescante. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1600 },
+      { nombre: "2 LITROS", precio: 3300 }
+    ]
+  },
+  {
+    id: 606,
+    nombre: "Pepsi Lata",
+    precio: 1400,
+    imagen: "/products/bebidas/pepsiLata.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Pepsi en lata de 354ml sabor original.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "LATA 354", precio: 1400 }
+    ]
+  },
+  {
+    id: 607,
+    nombre: "7Up",
+    precio: 1600,
+    imagen: "/products/bebidas/7upBotella.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "7Up refrescante sabor lima-limón. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1600 },
+      { nombre: "2 LITROS", precio: 3300 }
+    ]
+  },
+  {
+    id: 608,
+    nombre: "7Up Lata",
+    precio: 1400,
+    imagen: "/products/bebidas/7upLata.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "7Up en lata de 354ml sabor lima-limón.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "LATA 354", precio: 1400 }
+    ]
+  },
+  {
+    id: 609,
+    nombre: "7Up Free",
+    precio: 1600,
+    imagen: "/products/bebidas/7upBotellaFree.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "7Up Free libre de azúcares. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1600 },
+      { nombre: "2 LITROS", precio: 3300 }
+    ]
+  },
+  {
+    id: 610,
+    nombre: "7Up Lata Free",
+    precio: 1400,
+    imagen: "/products/bebidas/7upLataFree.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "7Up Free en lata de 354ml libre de azúcares.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "LATA 354", precio: 1400 }
+    ]
+  },
+  {
+    id: 611,
+    nombre: "Pepsi Black",
+    precio: 1600,
+    imagen: "/products/bebidas/pepsiBotellaBlack.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Pepsi Black sabor intenso sin azúcar. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500ML", precio: 1600 },
+      { nombre: "2 LITROS", precio: 3300 }
+    ]
+  },
+  {
+    id: 612,
+    nombre: "Pepsi Lata Black",
+    precio: 1400,
+    imagen: "/products/bebidas/pepsiLataBlack.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Pepsi Black en lata de 354ml sabor intenso sin azúcar.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "LATA 354", precio: 1400 }
+    ]
+  },
+  {
+    id: 613,
+    nombre: "Vino Toro Tinto",
+    precio: 2300,
+    imagen: "/products/bebidas/vinoToroTinto.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Clásico vino Toro tinto en caja (Tetrabrik) de 1 Litro.",
+    stock: 20
+  },
+  {
+    id: 614,
+    nombre: "Vino Toro Blanco",
+    precio: 2300,
+    imagen: "/products/bebidas/vinoToroBlanco.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Clásico vino Toro blanco en caja (Tetrabrik) de 1 Litro.",
+    stock: 20
+  },
+  {
+    id: 615,
+    nombre: "Vino Viñas Riojanas Tinto",
+    precio: 2200,
+    imagen: "/products/bebidas/vinasRiojanasTinto.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Vino Viñas Riojanas tinto en caja de 1 Litro.",
+    stock: 20
+  },
+  {
+    id: 616,
+    nombre: "Vino Viñas Riojanas Blanco",
+    precio: 2200,
+    imagen: "/products/bebidas/vinasRiojanasBlanco.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Vino Viñas Riojanas blanco en caja de 1 Litro.",
+    stock: 20
+  },
+  {
+    id: 617,
+    nombre: "Vino Nativo Tinto",
+    precio: 2000,
+    imagen: "/products/bebidas/vinoNativoTinto.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Vino Nativo tinto en caja de 1 Litro.",
+    stock: 20
+  },
+  {
+    id: 618,
+    nombre: "Vino Nativo Blanco",
+    precio: 2000,
+    imagen: "/products/bebidas/vinoNativoBlanco.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Vino Nativo blanco en caja de 1 Litro.",
+    stock: 20
+  },
+  {
+    id: 619,
+    nombre: "Red Bull",
+    precio: 3400,
+    imagen: "/products/bebidas/redBull.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida energizante Red Bull, lata de 250ml.",
+    stock: 20
+  },
+  {
+    id: 620,
+    nombre: "Pritty",
+    precio: 2500,
+    imagen: "/products/bebidas/prittyLimon.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa cordobesa sabor limón original. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "1,5 L", precio: 2500 },
+      { nombre: "2,25 L", precio: 2800 },
+      { nombre: "3 L", precio: 3600 }
+    ]
+  },
+  {
+    id: 621,
+    nombre: "Pritty Cero",
+    precio: 2500,
+    imagen: "/products/bebidas/prittyLimonCero.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa cordobesa sabor limón sin azúcar. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "1,5 L", precio: 2500 },
+      { nombre: "2,25 L", precio: 2800 },
+      { nombre: "3 L", precio: 3600 }
+    ]
   },
   /*{
     id: 92,
@@ -1863,6 +2409,397 @@ const productos: Producto[] = [
     stock: 20
   },
   {
+    id: 701,
+    nombre: "Galletitas Mini Oreo",
+    precio: 1100,
+    imagen: "/products/kiosco/galletasMiniOreo.png",
+    categoria: "Kiosco",
+    descripcion: "Mini galletitas Oreo de chocolate rellenas con crema.",
+    stock: 20
+  },
+  {
+    id: 702,
+    nombre: "Galletitas Mini Pepitos",
+    precio: 1100,
+    imagen: "/products/kiosco/galletasMiniPepitos.png",
+    categoria: "Kiosco",
+    descripcion: "Mini galletitas dulces Pepitos con chips de chocolate.",
+    stock: 20
+  },
+  {
+    id: 703,
+    nombre: "Alfajor Triple Turimar Blanco",
+    precio: 600,
+    imagen: "/products/kiosco/alfajorTripleTurimarBlanco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Turimar relleno de dulce de leche con baño de repostería blanco.",
+    stock: 20
+  },
+  {
+    id: 704,
+    nombre: "Alfajor Triple Turimar Negro",
+    precio: 600,
+    imagen: "/products/kiosco/alfajorTripleTurimarNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Turimar relleno de dulce de leche con baño de repostería de fantasía negro.",
+    stock: 20
+  },
+  {
+    id: 705,
+    nombre: "Alfajor Triple Fantoche Blanco",
+    precio: 1100,
+    imagen: "/products/kiosco/alfajorTripleFantocheBlanco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Fantoche relleno de dulce de leche con baño de repostería blanco.",
+    stock: 20
+  },
+  {
+    id: 706,
+    nombre: "Alfajor Triple Fantoche Negro",
+    precio: 1100,
+    imagen: "/products/kiosco/alfajorTripleFantocheNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Fantoche relleno de dulce de leche con baño de repostería de chocolate negro.",
+    stock: 20
+  },
+  {
+    id: 707,
+    nombre: "Alfajor Triple Terrabusi",
+    precio: 1800,
+    imagen: "/products/kiosco/alfajorTripleTerrabusi.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Terrabusi clásico con relleno de dulce de leche y baño de repostería.",
+    stock: 20
+  },
+  {
+    id: 708,
+    nombre: "Alfajor Triple Milka Dulce de Leche",
+    precio: 1800,
+    imagen: "/products/kiosco/alfajorTripleMilkaDLeche.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Milka relleno de dulce de leche cubierto con chocolate con leche Milka.",
+    stock: 20
+  },
+  {
+    id: 709,
+    nombre: "Alfajor Triple Milka Mousse",
+    precio: 1800,
+    imagen: "/products/kiosco/alfajorTripleMilkaMousse.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Milka relleno de mousse de chocolate cubierto con chocolate con leche Milka.",
+    stock: 20
+  },
+  {
+    id: 710,
+    nombre: "Alfajor Triple Milka Oreo",
+    precio: 1800,
+    imagen: "/products/kiosco/alfajorTripleMilkaOreo.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Milka con galletitas Oreo, relleno de crema y cubierto con chocolate Milka.",
+    stock: 20
+  },
+  {
+    id: 711,
+    nombre: "Alfajor Triple Oreo",
+    precio: 1800,
+    imagen: "/products/kiosco/alfajorTripleOreo.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Oreo, relleno de crema y cubierto con baño de repostería de chocolate.",
+    stock: 20
+  },
+  {
+    id: 712,
+    nombre: "Alfajor Triple Pepito",
+    precio: 1800,
+    imagen: "/products/kiosco/alfajorTriplePepitos.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple con galletitas Pepito, relleno de dulce de leche y cubierto con chocolate.",
+    stock: 20
+  },
+  {
+    id: 713,
+    nombre: "Alfajor Triple Bon o Bon Blanco",
+    precio: 2100,
+    imagen: "/products/kiosco/alfajorTripleBobBlanco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Bon o Bon con relleno a base de pasta de maní y baño de repostería blanco.",
+    stock: 20
+  },
+  {
+    id: 714,
+    nombre: "Alfajor Triple Bon o Bon Negro",
+    precio: 2100,
+    imagen: "/products/kiosco/alfajorTripleBobNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Bon o Bon con relleno a base de pasta de maní y baño de repostería de chocolate con leche.",
+    stock: 20
+  },
+  {
+    id: 715,
+    nombre: "Alfajor Triple Águila Clásico",
+    precio: 2100,
+    imagen: "/products/kiosco/alfajorTripleAguila.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Águila clásico, relleno de dulce de leche y cubierto con chocolate semi-amargo Águila.",
+    stock: 20
+  },
+  {
+    id: 716,
+    nombre: "Alfajor Triple Águila Blanco",
+    precio: 2100,
+    imagen: "/products/kiosco/alfajorTripleAguilaBlanco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Águila blanco (mousse), con relleno de dulce de leche y cubierto con chocolate blanco Águila.",
+    stock: 20
+  },
+  {
+    id: 717,
+    nombre: "Alfajor Triple Águila Coco",
+    precio: 2100,
+    imagen: "/products/kiosco/alfajorTripleAguilaCoco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Águila sabor coco, relleno de dulce de leche y cubierto con chocolate blanco.",
+    stock: 20
+  },
+  {
+    id: 718,
+    nombre: "Alfajor Triple Tofi Blanco",
+    precio: 2100,
+    imagen: "/products/kiosco/alfajorTripleTofiBlanco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Tofi con relleno de dulce de leche y cubierto con baño de repostería blanco.",
+    stock: 20
+  },
+  {
+    id: 719,
+    nombre: "Alfajor Triple Tofi Negro",
+    precio: 2100,
+    imagen: "/products/kiosco/alfajorTripleTofiNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Tofi con relleno de dulce de leche y cubierto con chocolate negro.",
+    stock: 20
+  },
+  {
+    id: 720,
+    nombre: "Alfajor Block Triple",
+    precio: 2100,
+    imagen: "/products/kiosco/alfajorTripleBlock.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Block con dulce de leche, trozos de maní y cubierto con chocolate con leche Block.",
+    stock: 20
+  },
+  {
+    id: 721,
+    nombre: "Alfajor Tatin Triple Blanco",
+    precio: 1100,
+    imagen: "/products/kiosco/alfajorTripleTatinBco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Tatin relleno de dulce de leche con baño de repostería blanco.",
+    stock: 20
+  },
+  {
+    id: 722,
+    nombre: "Alfajor Tatin Triple Negro",
+    precio: 1100,
+    imagen: "/products/kiosco/alfajorTripleTatinNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor triple Tatin relleno de dulce de leche con baño de repostería negro.",
+    stock: 20
+  },
+  {
+    id: 723,
+    nombre: "Alfajor Tatin Simple Blanco",
+    precio: 600,
+    imagen: "/products/kiosco/alfajorTatinBco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor simple Tatin relleno de dulce de leche con baño de repostería blanco.",
+    stock: 20
+  },
+  {
+    id: 724,
+    nombre: "Alfajor Tatin Simple Negro",
+    precio: 600,
+    imagen: "/products/kiosco/alfajorTatinNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor simple Tatin relleno de dulce de leche con baño de repostería negro.",
+    stock: 20
+  },
+  {
+    id: 725,
+    nombre: "Alfajor Simple Bon o Bon Blanco",
+    precio: 1100,
+    imagen: "/products/kiosco/alfajorBonobonBco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor simple Bon o Bon relleno a base de pasta de maní and baño de repostería blanco.",
+    stock: 20
+  },
+  {
+    id: 726,
+    nombre: "Alfajor Simple Bon o Bon Negro",
+    precio: 1100,
+    imagen: "/products/kiosco/alfajorBonobonNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor simple Bon o Bon relleno a base de pasta de maní and baño de repostería de chocolate con leche.",
+    stock: 20
+  },
+  {
+    id: 727,
+    nombre: "Alfajor Simple Tofi Blanco",
+    precio: 1100,
+    imagen: "/products/kiosco/alfajorTofiBco.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor simple Tofi con relleno de dulce de leche and baño de repostería blanco.",
+    stock: 20
+  },
+  {
+    id: 728,
+    nombre: "Alfajor Simple Tofi Negro",
+    precio: 1100,
+    imagen: "/products/kiosco/alfajorTofiNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Alfajor simple Tofi con relleno de dulce de leche and baño de repostería negro.",
+    stock: 20
+  },
+  {
+    id: 729,
+    nombre: "Galletitas Opera Chica",
+    precio: 900,
+    imagen: "/products/kiosco/galletaOpera.png",
+    categoria: "Kiosco",
+    descripcion: "Galletitas Opera rellenas con crema sabor vainilla y frutilla, presentación chica.",
+    stock: 20
+  },
+  {
+    id: 730,
+    nombre: "Galletitas Surtidas Bagley",
+    precio: 4100,
+    imagen: "/products/desayuno/surtidoBagley.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas surtidas Bagley de sabores variados, ideales para compartir en la merienda.",
+    stock: 20
+  },
+  {
+    id: 731,
+    nombre: "Galletitas Surtidas Diversión",
+    precio: 3200,
+    imagen: "/products/desayuno/surtidoDiversion.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas surtidas Diversión de sabores dulces y variados, ideales para los más chicos.",
+    stock: 20
+  },
+  {
+    id: 732,
+    nombre: "Galletitas Surtidas La Nonna",
+    precio: 1900,
+    imagen: "/products/desayuno/surtidoLaNonna.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas dulces surtidas La Nonna con sabor casero.",
+    stock: 20
+  },
+  {
+    id: 733,
+    nombre: "Galletitas Mana Vainilla",
+    precio: 1300,
+    imagen: "/products/desayuno/galletasManaVainilla.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas dulces clásicas Mana sabor vainilla.",
+    stock: 20
+  },
+  {
+    id: 734,
+    nombre: "Galletitas Mana Leche",
+    precio: 1300,
+    imagen: "/products/desayuno/galletasManaLeche.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas dulces clásicas Mana sabor leche.",
+    stock: 20
+  },
+  {
+    id: 735,
+    nombre: "Galletitas Mana Acarameladas",
+    precio: 1300,
+    imagen: "/products/desayuno/galletasManaAcarameladas.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas dulces clásicas Mana con baño acaramelado.",
+    stock: 20
+  },
+  {
+    id: 736,
+    nombre: "Galletitas Mana Rellenas Limón",
+    precio: 1900,
+    imagen: "/products/desayuno/galletasManaRellenasLimon.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas dulces Mana rellenas con crema sabor limón.",
+    stock: 20
+  },
+  {
+    id: 737,
+    nombre: "Galletitas Mana Rellenas Chocolate",
+    precio: 1900,
+    imagen: "/products/desayuno/galletasManaRellenasChocolate.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas dulces Mana rellenas con crema sabor chocolate.",
+    stock: 20
+  },
+  {
+    id: 738,
+    nombre: "Galletitas Mana Rellenas Vainilla",
+    precio: 1900,
+    imagen: "/products/desayuno/galletasManaRellenasVainilla.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas dulces Mana rellenas con crema sabor vainilla.",
+    stock: 20
+  },
+  {
+    id: 739,
+    nombre: "Galletitas Mana Rellenas Frutilla",
+    precio: 1900,
+    imagen: "/products/desayuno/galletasManaRellenasFrutilla.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas dulces Mana rellenas con crema sabor frutilla.",
+    stock: 20
+  },
+  {
+    id: 740,
+    nombre: "Galletitas Oreos Menta",
+    precio: 2200,
+    imagen: "/products/desayuno/galletasOreoMenta.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas de chocolate Oreo rellenas con crema sabor menta.",
+    stock: 20
+  },
+  {
+    id: 741,
+    nombre: "Galletitas Oreos Frutilla",
+    precio: 2200,
+    imagen: "/products/desayuno/galletasOreoFrutilla.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas de chocolate Oreo rellenas con crema sabor frutilla.",
+    stock: 20
+  },
+  {
+    id: 742,
+    nombre: "Galletitas Pepitos",
+    precio: 2200,
+    imagen: "/products/desayuno/galletasPepitos.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Galletitas dulces clásicas Pepitos con chips de chocolate.",
+    stock: 20
+  },
+  {
     id: 503,
     nombre: "Pan Bollito",
     precio: 3400,
@@ -1971,266 +2908,266 @@ const productos: Producto[] = [
   {
     id: 166,
     nombre: "Filet de Merluza Finas Hierbas",
-    precio: 1600,
+    precio: 16000,
     imagen: "/products/congelados/filettMerluzaFinasHierbas.png",
     categoria: "Congelados",
-    descripcion: "Filet de merluza rebozado con finas hierbas. Tierno por dentro, crocante por fuera. Ideal al horno o frito. Precio por 100g.",
+    descripcion: "Filet de merluza rebozado con finas hierbas. Tierno por dentro, crocante por fuera. Ideal al horno o frito. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 167,
     nombre: "Filet de Merluza Rebozado",
-    precio: 1600,
+    precio: 16000,
     imagen: "/products/congelados/filetMerluzaRebozado.png",
     categoria: "Congelados",
-    descripcion: "Filet de merluza con rebozado clásico, jugoso y crocante. Listo para freír u hornear. Precio por 100g.",
+    descripcion: "Filet de merluza con rebozado clásico, jugoso y crocante. Listo para freír u hornear. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 168,
     nombre: "Crocante de Merluza",
-    precio: 1450,
+    precio: 14500,
     imagen: "/products/congelados/crocanteMerluza.png",
     categoria: "Congelados",
-    descripcion: "Merluza con cobertura extra crocante, perfecta para horno o fritura. Rendidora y sabrosa. Precio por 100g.",
+    descripcion: "Merluza con cobertura extra crocante, perfecta para horno o fritura. Rendidora y sabrosa. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 169,
     nombre: "Medallón de Merluza con Espinaca",
-    precio: 950,
+    precio: 9500,
     imagen: "/products/congelados/medallonMerluzaEspinacaQueso.png",
     categoria: "Congelados",
-    descripcion: "Medallón de merluza relleno de espinaca y queso, rebozado y supercongelado. Nutritivo y fácil de preparar. Precio por 100g.",
+    descripcion: "Medallón de merluza relleno de espinaca y queso, rebozado y supercongelado. Nutritivo y fácil de preparar. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 170,
     nombre: "Medallón de Pollo Jamón y Queso",
-    precio: 990,
+    precio: 9900,
     imagen: "/products/congelados/medallonPolloconJamonQueso.png",
     categoria: "Congelados",
-    descripcion: "Medallón de pollo relleno de jamón y queso, rebozado y supercongelado. Ideal para el horno o la sartén. Precio por 100g.",
+    descripcion: "Medallón de pollo relleno de jamón y queso, rebozado y supercongelado. Ideal para el horno o la sartén. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 171,
     nombre: "Medallón de Pollo Espinaca y Queso",
-    precio: 990,
+    precio: 9900,
     imagen: "/products/congelados/medallonPolloEspinacaQueso.png",
     categoria: "Congelados",
-    descripcion: "Medallón de pollo relleno de espinaca y queso, rebozado y supercongelado. Una opción nutritiva y sabrosa. Precio por 100g.",
+    descripcion: "Medallón de pollo relleno de espinaca y queso, rebozado y supercongelado. Una opción nutritiva y sabrosa. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 172,
     nombre: "Medallón Mix de Vegetales",
-    precio: 900,
+    precio: 9000,
     imagen: "/products/congelados/medallonMixVegetales.png",
     categoria: "Congelados",
-    descripcion: "Medallón vegetal con mix de verduras, rebozado y supercongelado. Ideal para vegetarianos y toda la familia. Precio por 100g.",
+    descripcion: "Medallón vegetal con mix de verduras, rebozado y supercongelado. Ideal para vegetarianos y toda la familia. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 173,
     nombre: "Bocaditos de Calabaza",
-    precio: 850,
+    precio: 8500,
     imagen: "/products/congelados/bocaditosCalabazaQueso.png",
     categoria: "Congelados",
-    descripcion: "Bocaditos de calabaza y queso, rebozados y supercongelados. Cremosos por dentro, doraditos por fuera. Precio por 100g.",
+    descripcion: "Bocaditos de calabaza y queso, rebozados y supercongelados. Cremosos por dentro, doraditos por fuera. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 174,
     nombre: "Mini Pechugas al Verdeo",
-    precio: 1450,
+    precio: 14500,
     imagen: "/products/congelados/miniPechugasVerdeo.png",
     categoria: "Congelados",
-    descripcion: "Mini pechugas de pollo con salsa de verdeo, rebozadas y supercongeladas. Tiernas y llenas de sabor. Precio por 100g.",
+    descripcion: "Mini pechugas de pollo con salsa de verdeo, rebozadas y supercongeladas. Tiernas y llenas de sabor. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 175,
     nombre: "Rabas Rebozadas",
-    precio: 2800,
+    precio: 28000,
     imagen: "/products/congelados/rabasRebozadas.png",
     categoria: "Congelados",
-    descripcion: "Rabas de calamar rebozadas y supercongeladas. Tiernas y crocantes, ideales para freír u hornear. Precio por 100g.",
+    descripcion: "Rabas de calamar rebozadas y supercongeladas. Tiernas y crocantes, ideales para freír u hornear. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 176,
     nombre: "Aros de Cebolla Rebozados",
-    precio: 2000,
+    precio: 16500,
     imagen: "/products/congelados/arosCebollaRebozadas.png",
     categoria: "Congelados",
-    descripcion: "Aros de cebolla con rebozado crocante, supercongelados. Perfectos como entrada o guarnición. Precio por 100g.",
+    descripcion: "Aros de cebolla con rebozado crocante, supercongelados. Perfectos como entrada o guarnición. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 177,
     nombre: "Bastones de Muzzarella",
-    precio: 1480,
+    precio: 15900,
     imagen: "/products/congelados/bastonesMuzza.png",
     categoria: "Congelados",
-    descripcion: "Bastones de muzzarella rebozados y supercongelados. Se derriten por dentro con una cobertura dorada y crocante. Precio por 100g.",
+    descripcion: "Bastones de muzzarella rebozados y supercongelados. Se derriten por dentro con una cobertura dorada y crocante. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 178,
     nombre: "Mini Croquetas Jamón y Queso",
-    precio: 1030,
+    precio: 10300,
     imagen: "/products/congelados/miniCroquetasJamonQueso.png",
     categoria: "Congelados",
-    descripcion: "Mini croquetas rellenas de jamón y queso, rebozadas y supercongeladas. Irresistibles como picada o entrada. Precio por 100g.",
+    descripcion: "Mini croquetas rellenas de jamón y queso, rebozadas y supercongeladas. Irresistibles como picada o entrada. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 179,
     nombre: "Mini Croquetas Espinaca y Queso",
-    precio: 1030,
+    precio: 10300,
     imagen: "/products/congelados/miniCroquetasEspinacaQueso.png",
     categoria: "Congelados",
-    descripcion: "Mini croquetas rellenas de espinaca y queso, rebozadas y supercongeladas. Una opción nutritiva y deliciosa. Precio por 100g.",
+    descripcion: "Mini croquetas rellenas de espinaca y queso, rebozadas y supercongeladas. Una opción nutritiva y deliciosa. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 180,
     nombre: "Croqueta de Papa Jamón y Queso",
-    precio: 980,
+    precio: 9800,
     imagen: "/products/congelados/croquetaPapaJamonQueso.png",
     categoria: "Congelados",
-    descripcion: "Croqueta de papa rellena de jamón y queso, rebozada y supercongelada. Cremosa por dentro, dorada por fuera. Precio por 100g.",
+    descripcion: "Croqueta de papa rellena de jamón y queso, rebozada y supercongelada. Cremosa por dentro, dorada por fuera. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 181,
     nombre: "Alitas de Pollo Rebozadas",
-    precio: 690,
+    precio: 6900,
     imagen: "/products/congelados/alitaPolloRebozada.png",
     categoria: "Congelados",
-    descripcion: "Alitas de pollo con rebozado crocante, supercongeladas. Ideales para el horno o la freidora. Precio por 100g.",
+    descripcion: "Alitas de pollo con rebozado crocante, supercongeladas. Ideales para el horno o la freidora. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 182,
     nombre: "Patitas de Pollo Rebozadas",
-    precio: 1050,
+    precio: 10500,
     imagen: "/products/congelados/patitasRebozadas.png",
     categoria: "Congelados",
-    descripcion: "Patitas de pollo con rebozado crocante, supercongeladas. Jugosas por dentro y doradas por fuera. Precio por 100g.",
+    descripcion: "Patitas de pollo con rebozado crocante, supercongeladas. Jugosas por dentro y doradas por fuera. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 183,
     nombre: "Nuggets de Pollo",
-    precio: 1250,
+    precio: 12500,
     imagen: "/products/congelados/nuggetsPollo.png",
     categoria: "Congelados",
-    descripcion: "Nuggets de pechuga de pollo rebozados y supercongelados. Clásicos e irresistibles para toda la familia. Precio por 100g.",
+    descripcion: "Nuggets de pechuga de pollo rebozados y supercongelados. Clásicos e irresistibles para toda la familia. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 184,
     nombre: "Tiritas de Pollo",
-    precio: 1295,
+    precio: 12950,
     imagen: "/products/congelados/tiritasDePollo.png",
     categoria: "Congelados",
-    descripcion: "Tiritas de pechuga de pollo rebozadas y supercongeladas. Crocantes y tiernas, ideales para picar o acompañar. Precio por 100g.",
+    descripcion: "Tiritas de pechuga de pollo rebozadas y supercongeladas. Crocantes y tiernas, ideales para picar o acompañar. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 185,
     nombre: "Papas Bastón",
-    precio: 690,
+    precio: 6900,
     imagen: "/products/congelados/papasBaston.png",
     categoria: "Congelados",
-    descripcion: "Papas bastón supercongeladas, clásicas y rendidoras. Doradas y crocantes al horno o freidora. Precio por 100g.",
+    descripcion: "Papas bastón supercongeladas, clásicas y rendidoras. Doradas y crocantes al horno o freidora. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 186,
     nombre: "Papas Smile",
-    precio: 1040,
+    precio: 10900,
     imagen: "/products/congelados/papasSmile.png",
     categoria: "Congelados",
-    descripcion: "Papas smile supercongeladas con forma de carita sonriente. Las favoritas de los chicos, crocantes y esponjosas. Precio por 100g.",
+    descripcion: "Papas smile supercongeladas con forma de carita sonriente. Las favoritas de los chicos, crocantes y esponjosas. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 187,
     nombre: "Papas Noisette",
-    precio: 1040,
+    precio: 10900,
     imagen: "/products/congelados/papaNoisette.png",
     categoria: "Congelados",
-    descripcion: "Papas noisette supercongeladas, bolitas de papa crocantes por fuera y suaves por dentro. Ideales como guarnición. Precio por 100g.",
+    descripcion: "Papas noisette supercongeladas, bolitas de papa crocantes por fuera y suaves por dentro. Ideales como guarnición. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 188,
     nombre: "Formitas de Pollo",
-    precio: 1050,
+    precio: 10500,
     imagen: "/products/congelados/formitasPollo.png",
     categoria: "Congelados",
-    descripcion: "Formitas de pollo rebozadas y supercongeladas. Divertidas y crocantes, ideales para los más chicos. Precio por 100g.",
+    descripcion: "Formitas de pollo rebozadas y supercongeladas. Divertidas y crocantes, ideales para los más chicos. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 189,
     nombre: "Hamburguesas de Pollo",
-    precio: 1140,
+    precio: 11400,
     imagen: "/products/congelados/hamburguesasPollo.png",
     categoria: "Congelados",
-    descripcion: "Hamburguesas de pollo supercongeladas. Jugosas y sabrosas, listas para la plancha o parrilla. Precio por 100g.",
+    descripcion: "Hamburguesas de pollo supercongeladas. Jugosas y sabrosas, listas para la plancha o parrilla. Precio por 1kg.",
     stock: 20,
     esAGranel: true,
-    unidadPrecio: "100g"
+    unidadPrecio: "1kg"
   },
   {
     id: 190,
@@ -2646,6 +3583,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
   const [empanadaOpcion, setEmpanadaOpcion] = useState<"unidad" | "media_docena" | "docena">("unidad");
   const [empanadaCount, setEmpanadaCount] = useState<number>(1);
   const [selectedSabor, setSelectedSabor] = useState<string>("");
+  const [selectedPresentacion, setSelectedPresentacion] = useState<Presentacion | null>(null);
   const { addToCart } = useCart();
   const subcats = SUBCATEGORIAS[selectedCat] || [];
 
@@ -2689,13 +3627,31 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
       setFacturaOpcion("unidad");
       setFacturaCount(1);
       setSelectedSabor(selectedProduct.sabores && selectedProduct.sabores.length > 0 ? selectedProduct.sabores[0] : "");
+      setSelectedPresentacion(selectedProduct.presentaciones && selectedProduct.presentaciones.length > 0 ? selectedProduct.presentaciones[0] : null);
     }
   }, [selectedProduct]);
 
-  const handleAddToCart = (e: React.MouseEvent, p: Producto, cant: number = 1, sabor: string = "") => {
+  const handleAddToCart = (
+    e: React.MouseEvent,
+    p: Producto,
+    cant: number = 1,
+    sabor: string = "",
+    pres?: Presentacion | null
+  ) => {
     e.stopPropagation();
-    const nombreFinal = sabor ? `${p.nombre} - ${sabor}` : p.nombre;
-    addToCart({ nombre: nombreFinal, precio: p.precio }, cant);
+    let nombreFinal = p.nombre;
+    let precioFinal = p.precio;
+
+    if (pres) {
+      nombreFinal = `${p.nombre} - ${pres.nombre}`;
+      precioFinal = pres.precio;
+    }
+
+    if (sabor) {
+      nombreFinal = `${nombreFinal} - ${sabor}`;
+    }
+
+    addToCart({ nombre: nombreFinal, precio: precioFinal }, cant);
   };
 
   const formatPrice = (price: number) => {
@@ -2786,12 +3742,21 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
 
                   <div className="mt-auto pt-2 md:pt-4 flex flex-col gap-2 md:gap-3 text-center">
                     <span className="font-heading text-lg md:text-xl font-bold text-primary">
-                      {formatPrice(p.precio)} {p.unidadPrecio && <span className="text-[10px] md:text-sm font-body text-gray-400">/ {p.unidadPrecio}</span>}
+                      {p.presentaciones && p.presentaciones.length > 0 ? (
+                        <>
+                          <span className="text-xs font-normal text-muted-foreground mr-1 font-body">Desde</span>
+                          {formatPrice(Math.min(...p.presentaciones.map(pr => pr.precio)))}
+                        </>
+                      ) : (
+                        <>
+                          {formatPrice(p.precio)} {p.unidadPrecio && <span className="text-[10px] md:text-sm font-body text-gray-400">/ {p.unidadPrecio}</span>}
+                        </>
+                      )}
                     </span>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        if (p.esAGranel || p.esFactura || p.esEmpanada || (p.sabores && p.sabores.length > 0)) {
+                        if (p.esAGranel || p.esFactura || p.esEmpanada || (p.sabores && p.sabores.length > 0) || (p.presentaciones && p.presentaciones.length > 0)) {
                           setSelectedProduct(p);
                         } else {
                           handleAddToCart(e, p);
@@ -2864,7 +3829,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                 
                 <div className="mb-8 text-center">
                   <span className="font-heading text-4xl md:text-5xl font-black text-primary">
-                    {formatPrice(selectedProduct.precio)} {selectedProduct.unidadPrecio && <span className="text-xl md:text-2xl font-body text-gray-400 font-bold">/ {selectedProduct.unidadPrecio}</span>}
+                    {formatPrice(selectedPresentacion ? selectedPresentacion.precio : selectedProduct.precio)} {selectedProduct.unidadPrecio && <span className="text-xl md:text-2xl font-body text-gray-400 font-bold">/ {selectedProduct.unidadPrecio}</span>}
                   </span>
                 </div>
               </div>
@@ -3100,6 +4065,30 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                 ) : (
                   /* ── SELECTOR NORMAL ── */
                   <div className="flex flex-col gap-6 w-full">
+                    {selectedProduct.presentaciones && selectedProduct.presentaciones.length > 0 && (
+                      <div>
+                        <span className="text-gray-500 font-semibold text-sm block mb-2">Seleccioná una presentación:</span>
+                        <div className="grid grid-cols-2 gap-3">
+                          {selectedProduct.presentaciones.map((pr) => (
+                            <button
+                              key={pr.nombre}
+                              onClick={() => setSelectedPresentacion(pr)}
+                              className={`p-3 rounded-xl font-bold text-sm transition-all border flex flex-col items-center justify-center gap-1 ${
+                                selectedPresentacion?.nombre === pr.nombre
+                                  ? "bg-primary text-white border-primary shadow-md"
+                                  : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
+                              }`}
+                            >
+                              <span className="text-base font-extrabold">{pr.nombre}</span>
+                              <span className={`text-xs ${selectedPresentacion?.nombre === pr.nombre ? "text-white/80" : "text-primary font-body"}`}>
+                                {formatPrice(pr.precio)}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {selectedProduct.sabores && selectedProduct.sabores.length > 0 && (
                       <div>
                         <span className="text-gray-500 font-semibold text-sm block mb-2">Seleccioná un sabor:</span>
@@ -3143,7 +4132,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
 
                     <button
                       onClick={(e) => {
-                        handleAddToCart(e, selectedProduct, modalQuantity, selectedSabor);
+                        handleAddToCart(e, selectedProduct, modalQuantity, selectedSabor, selectedPresentacion);
                         setSelectedProduct(null);
                       }}
                       className="bg-primary text-white flex-1 w-full h-14 rounded-2xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98]"
