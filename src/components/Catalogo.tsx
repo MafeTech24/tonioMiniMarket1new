@@ -2976,6 +2976,33 @@ const productos: Producto[] = [
     stock: 20
   },
   {
+    id: 784,
+    nombre: "Galletas Oblitas Chocolate",
+    precio: 600,
+    imagen: "/products/kiosco/oblitaChocolate50gr.png",
+    categoria: "Kiosco",
+    descripcion: "Galletitas Oblitas sabor chocolate, crocantes y deliciosas, presentación de 50g.",
+    stock: 20
+  },
+  {
+    id: 785,
+    nombre: "Galletas Oblitas Vainilla",
+    precio: 600,
+    imagen: "/products/kiosco/oblitaVainilla50gr.png",
+    categoria: "Kiosco",
+    descripcion: "Galletitas Oblitas sabor vainilla, crocantes y deliciosas, presentación de 50g.",
+    stock: 20
+  },
+  {
+    id: 786,
+    nombre: "Galletas Oblitas Frutilla",
+    precio: 600,
+    imagen: "/products/kiosco/oblitaFrutilla50gr.png",
+    categoria: "Kiosco",
+    descripcion: "Galletitas Oblitas sabor frutilla, crocantes y deliciosas, presentación de 50g.",
+    stock: 20
+  },
+  {
     id: 730,
     nombre: "Galletitas Surtidas Bagley",
     precio: 4100,
