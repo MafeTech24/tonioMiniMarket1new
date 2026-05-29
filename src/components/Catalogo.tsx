@@ -2392,18 +2392,18 @@ const productos: Producto[] = [
   },
   {
     id: 162,
-    nombre: "Chocolate Block 38g",
-    precio: 2100,
-    imagen: "/products/kiosco/coflerBlock38.png",
+    nombre: "Choco Block 38 Gr",
+    precio: 2300,
+    imagen: "/products/kiosco/coflerBlock38gr.png",
     categoria: "Kiosco",
     descripcion: "Chocolate Block 38g. Chocolate con leche clásico, suave y cremoso. El clásico argentino de siempre.",
     stock: 20
   },
   {
     id: 163,
-    nombre: "Chocolate Block 110g",
-    precio: 5400,
-    imagen: "/products/kiosco/coflerBlock110.png",
+    nombre: "Choco Block 110 Gr",
+    precio: 5900,
+    imagen: "/products/kiosco/coflerBlock110gr.png",
     categoria: "Kiosco",
     descripcion: "Chocolate Block 110g. Chocolate con leche clásico en formato grande. Ideal para compartir.",
     stock: 20
@@ -2667,6 +2667,312 @@ const productos: Producto[] = [
     imagen: "/products/kiosco/galletaOpera.png",
     categoria: "Kiosco",
     descripcion: "Galletitas Opera rellenas con crema sabor vainilla y frutilla, presentación chica.",
+    stock: 20
+  },
+  {
+    id: 750,
+    nombre: "Chocolate Arcor Blanco",
+    precio: 1100,
+    imagen: "/products/kiosco/chocolateBlancoArcor.png",
+    categoria: "Kiosco",
+    descripcion: "Chocolate blanco Arcor, clásico sabor suave y cremoso.",
+    stock: 20
+  },
+  {
+    id: 751,
+    nombre: "Chocolate Arcor Negro",
+    precio: 1100,
+    imagen: "/products/kiosco/chocolateNegroArcor.png",
+    categoria: "Kiosco",
+    descripcion: "Chocolate con leche Arcor, el clásico sabor tradicional.",
+    stock: 20
+  },
+  {
+    id: 752,
+    nombre: "Oblea Bon o Bon Blanca",
+    precio: 1300,
+    imagen: "/products/kiosco/obleaBonobonBca.png",
+    categoria: "Kiosco",
+    descripcion: "Oblea crujiente rellena con pasta de maní Bon o Bon y cobertura blanca.",
+    stock: 20
+  },
+  {
+    id: 753,
+    nombre: "Oblea Bon o Bon Negra",
+    precio: 1300,
+    imagen: "/products/kiosco/obleaBonobonNegra.png",
+    categoria: "Kiosco",
+    descripcion: "Oblea crujiente rellena con pasta de maní Bon o Bon y cobertura de chocolate con leche.",
+    stock: 20
+  },
+  {
+    id: 754,
+    nombre: "Bon o Bon Negro",
+    precio: 700,
+    imagen: "/products/kiosco/bonobonNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Bombón de chocolate con leche relleno con pasta de maní.",
+    stock: 20
+  },
+  {
+    id: 755,
+    nombre: "Bon o Bon Blanco",
+    precio: 700,
+    imagen: "/products/kiosco/bonobonBco.png",
+    categoria: "Kiosco",
+    descripcion: "Bombón de chocolate blanco relleno con pasta de maní.",
+    stock: 20
+  },
+  {
+    id: 756,
+    nombre: "Bon o Bon Coco",
+    precio: 700,
+    imagen: "/products/kiosco/bonobonCoco.png",
+    categoria: "Kiosco",
+    descripcion: "Bombón de chocolate blanco con relleno sabor coco y pasta de maní.",
+    stock: 20
+  },
+  {
+    id: 757,
+    nombre: "Bon o Bon Cookies-Cream",
+    precio: 700,
+    imagen: "/products/kiosco/bonobnCookiesCream.png",
+    categoria: "Kiosco",
+    descripcion: "Bombón relleno sabor cookies & cream con galletitas de chocolate.",
+    stock: 20
+  },
+  {
+    id: 758,
+    nombre: "Tofi con Dulce de Leche Blanco",
+    precio: 2300,
+    imagen: "/products/kiosco/chocolateTofiBco.png",
+    categoria: "Kiosco",
+    descripcion: "Chocolate Tofi blanco relleno con dulce de leche.",
+    stock: 20
+  },
+  {
+    id: 759,
+    nombre: "Tofi con Dulce de Leche Negro",
+    precio: 2300,
+    imagen: "/products/kiosco/chocolateTofiNegro.png",
+    categoria: "Kiosco",
+    descripcion: "Chocolate Tofi negro con leche relleno con dulce de leche.",
+    stock: 20
+  },
+  {
+    id: 760,
+    nombre: "Mogul Dientes",
+    precio: 1300,
+    imagen: "/products/kiosco/mogulDientes80gr.png",
+    categoria: "Kiosco",
+    descripcion: "Gomitas Mogul con forma de dientes y sabor a frutas, paquete de 80g.",
+    stock: 20
+  },
+  {
+    id: 761,
+    nombre: "Mogul Moras",
+    precio: 1300,
+    imagen: "/products/kiosco/mogulMoras80gr.png",
+    categoria: "Kiosco",
+    descripcion: "Gomitas Mogul con forma de moras rojas y negras, paquete de 80g.",
+    stock: 20
+  },
+  {
+    id: 762,
+    nombre: "Mogul Jelly Beans",
+    precio: 1300,
+    imagen: "/products/kiosco/mogulJellyBeans80gr.png",
+    categoria: "Kiosco",
+    descripcion: "Gomitas Mogul Jelly Beans con formas variadas y sabor frutal, paquete de 80g.",
+    stock: 20
+  },
+  {
+    id: 763,
+    nombre: "Mogul Extrem",
+    precio: 1300,
+    imagen: "/products/kiosco/mogulExtreme80gr.png",
+    categoria: "Kiosco",
+    descripcion: "Gomitas Mogul Extreme ácidas con sabores frutales, paquete de 80g.",
+    stock: 20
+  },
+  {
+    id: 764,
+    nombre: "Mogul Ositos",
+    precio: 800,
+    imagen: "/products/kiosco/mogulOsitos.png",
+    categoria: "Kiosco",
+    descripcion: "Clásicas gomitas Mogul con forma de ositos y sabores frutales.",
+    stock: 20
+  },
+  {
+    id: 765,
+    nombre: "Mogul Tiburoncitos",
+    precio: 800,
+    imagen: "/products/kiosco/mogulTiburoncitos.png",
+    categoria: "Kiosco",
+    descripcion: "Divertidas gomitas Mogul con forma de tiburoncitos.",
+    stock: 20
+  },
+  {
+    id: 766,
+    nombre: "Mogul Cerebritos",
+    precio: 800,
+    imagen: "/products/kiosco/mogulCerebritos.png",
+    categoria: "Kiosco",
+    descripcion: "Gomitas Mogul con forma de cerebritos y divertidos sabores frutales.",
+    stock: 20
+  },
+  {
+    id: 767,
+    nombre: "Mogul Rollitos",
+    precio: 800,
+    imagen: "/products/kiosco/mogulRollitos.png",
+    categoria: "Kiosco",
+    descripcion: "Gomitas Mogul en rollitos azucarados sabor frutal.",
+    stock: 20
+  },
+  {
+    id: 768,
+    nombre: "Menthoplus Cereza",
+    precio: 900,
+    imagen: "/products/kiosco/menthoplusCereza.png",
+    categoria: "Kiosco",
+    descripcion: "Pastillas Menthoplus sabor cereza fresca.",
+    stock: 20
+  },
+  {
+    id: 769,
+    nombre: "Menthoplus Miel",
+    precio: 900,
+    imagen: "/products/kiosco/menthoplusMiel.png",
+    categoria: "Kiosco",
+    descripcion: "Pastillas Menthoplus sabor miel y mentol.",
+    stock: 20
+  },
+  {
+    id: 770,
+    nombre: "Menthoplus Negro",
+    precio: 900,
+    imagen: "/products/kiosco/menthoplusStrong.png",
+    categoria: "Kiosco",
+    descripcion: "Pastillas Menthoplus Strong sabor mentol extra fuerte.",
+    stock: 20
+  },
+  {
+    id: 771,
+    nombre: "Menthoplus Sin Azúcar Cereza",
+    precio: 1100,
+    imagen: "/products/kiosco/menthoplusSinAzucarCereza.png",
+    categoria: "Kiosco",
+    descripcion: "Pastillas Menthoplus Zero sin azúcar sabor cereza.",
+    stock: 20
+  },
+  {
+    id: 772,
+    nombre: "Menthoplus Sin Azúcar Durazno",
+    precio: 1100,
+    imagen: "/products/kiosco/menthoplusZeroDurazno.png",
+    categoria: "Kiosco",
+    descripcion: "Pastillas Menthoplus Zero sin azúcar sabor durazno.",
+    stock: 20
+  },
+  {
+    id: 773,
+    nombre: "Menthoplus Sin Azúcar Mentol",
+    precio: 1100,
+    imagen: "/products/kiosco/menthoplusZeroMentol.png",
+    categoria: "Kiosco",
+    descripcion: "Pastillas Menthoplus Zero sin azúcar sabor mentol.",
+    stock: 20
+  },
+  {
+    id: 774,
+    nombre: "Menthoplus Sin Azúcar Negro",
+    precio: 1100,
+    imagen: "/products/kiosco/menthoplusZeroMints.png",
+    categoria: "Kiosco",
+    descripcion: "Pastillas Menthoplus Zero sin azúcar sabor mentol extra fuerte.",
+    stock: 20
+  },
+  {
+    id: 775,
+    nombre: "Topline Fruta",
+    precio: 800,
+    imagen: "/products/kiosco/toplineFruta.png",
+    categoria: "Kiosco",
+    descripcion: "Chicles Topline sabor fruta de larga duración.",
+    stock: 20
+  },
+  {
+    id: 776,
+    nombre: "Topline Menta",
+    precio: 800,
+    imagen: "/products/kiosco/toplineMenta.png",
+    categoria: "Kiosco",
+    descripcion: "Chicles Topline sabor menta clásica y refrescante.",
+    stock: 20
+  },
+  {
+    id: 777,
+    nombre: "Topline Mentol Strong",
+    precio: 800,
+    imagen: "/products/kiosco/toplineStrong.png",
+    categoria: "Kiosco",
+    descripcion: "Chicles Topline sabor mentol fuerte de larga duración.",
+    stock: 20
+  },
+  {
+    id: 778,
+    nombre: "Topline Extreme Ácidos Ananá",
+    precio: 800,
+    imagen: "/products/kiosco/toplineAcidosAnana.png",
+    categoria: "Kiosco",
+    descripcion: "Chicles Topline Extreme sabor ácido de ananá.",
+    stock: 20
+  },
+  {
+    id: 779,
+    nombre: "Topline 7 Cherry Violet",
+    precio: 1100,
+    imagen: "/products/kiosco/topline7Cherry.png",
+    categoria: "Kiosco",
+    descripcion: "Chicles Topline Seven sabor cherry violeta intensa y refrescante.",
+    stock: 20
+  },
+  {
+    id: 780,
+    nombre: "Topline 7 Frutilla Vibrante",
+    precio: 1100,
+    imagen: "/products/kiosco/topline7Frutilla.png",
+    categoria: "Kiosco",
+    descripcion: "Chicles Topline Seven sabor Frutilla Vibrante de larga duración.",
+    stock: 20
+  },
+  {
+    id: 781,
+    nombre: "Topline 7 Menta Explosiva",
+    precio: 1100,
+    imagen: "/products/kiosco/topline7MentaExplosiva.png",
+    categoria: "Kiosco",
+    descripcion: "Chicles Topline Seven sabor menta explosiva.",
+    stock: 20
+  },
+  {
+    id: 782,
+    nombre: "Topline 7 Mentol Glacial",
+    precio: 1100,
+    imagen: "/products/kiosco/topline7Mentol.png",
+    categoria: "Kiosco",
+    descripcion: "Chicles Topline Seven sabor mentol glacial intenso.",
+    stock: 20
+  },
+  {
+    id: 783,
+    nombre: "Turrón Arcor",
+    precio: 350,
+    imagen: "/products/kiosco/turronMani.png",
+    categoria: "Kiosco",
+    descripcion: "Turrón de maní Arcor con oblea, ideal para un snack rápido.",
     stock: 20
   },
   {
