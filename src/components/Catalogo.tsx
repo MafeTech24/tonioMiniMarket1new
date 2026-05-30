@@ -2112,6 +2112,16 @@ const productos: Producto[] = [
     descripcion: "Gaseosa tónica Paso de los Toros, botella de 1.5 Litros.",
     stock: 20
   },
+  {
+    id: 663,
+    nombre: "Aperitivo Gancia Sin Alcohol Lata 473cc",
+    precio: 2100,
+    imagen: "/products/bebidas/ganciaSinAlcohol.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Aperitivo Gancia sin alcohol en lata de 473cc. Refrescante, herbal y listo para disfrutar.",
+    stock: 20
+  },
   /*{
     id: 92,
     nombre: "Medallones Paty Finitas x2",
