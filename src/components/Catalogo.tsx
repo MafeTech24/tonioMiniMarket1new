@@ -1303,6 +1303,56 @@ const productos: Producto[] = [
     stock: 20
   },
   {
+    id: 428,
+    nombre: "VINO TORO BOTELLÓN ETIQUETA AMARILLA",
+    precio: 3300,
+    imagen: "/products/bebidas/vinoToroBotellonEtiqAmarilla.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Vino Toro botellón de etiqueta amarilla, un clásico de la mesa argentina.",
+    stock: 20
+  },
+  {
+    id: 429,
+    nombre: "VINO VIÑAS DE BALBO TINTO",
+    precio: 3300,
+    imagen: "/products/bebidas/vinoVinasBalboTinto.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Vino tinto clásico Viñas de Balbo.",
+    stock: 20
+  },
+  {
+    id: 430,
+    nombre: "VINO ESTANCIA MENDOZA CABERNET SAUVIGNON",
+    precio: 3900,
+    imagen: "/products/bebidas/vinoEstanciaMendozaCabernet.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Vino Estancia Mendoza varietal Cabernet Sauvignon.",
+    stock: 20
+  },
+  {
+    id: 431,
+    nombre: "VINO ESTANCIA MENDOZA CHARDONNAY CHENIN",
+    precio: 3900,
+    imagen: "/products/bebidas/vinoEstanciaMendozaChenin.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Vino Estancia Mendoza varietal blanco Chardonnay Chenin.",
+    stock: 20
+  },
+  {
+    id: 432,
+    nombre: "VINO ESTANCIA MENDOZA MALBEC",
+    precio: 3900,
+    imagen: "/products/bebidas/vinoEstanciaMendozaMalbec.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Vino Estancia Mendoza varietal Malbec.",
+    stock: 20
+  },
+  {
     id: 86,
     nombre: "Agua Mineral con Gas Bon Aqua 1.5L",
     precio: 2500,
@@ -1334,13 +1384,17 @@ const productos: Producto[] = [
   },
   {
     id: 89,
-    nombre: "Gatorade Naranja 500ml",
-    precio: 2300,
-    imagen: "/products/bebidas/bebidaIsotonicaGatorade500.png",
+    nombre: "Bebida Energética Gatorade Naranja",
+    precio: 2400,
+    imagen: "/products/bebidas/gatoradeNaranja.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
-    descripcion: "Bebida isotónica Gatorade sabor naranja, 500ml. Repone electrolitos y energía.",
-    stock: 20
+    descripcion: "Bebida energética / isotónica Gatorade sabor naranja. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500 ml", precio: 2400 },
+      { nombre: "1 Litro", precio: 4500 }
+    ]
   },
 
   {
@@ -1904,6 +1958,160 @@ const productos: Producto[] = [
       { nombre: "3 L", precio: 3600 }
     ]
   },
+  {
+    id: 650,
+    nombre: "Jugo Baggio Durazno",
+    precio: 700,
+    imagen: "/products/bebidas/baggioDurazno.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Delicioso jugo Baggio sabor durazno. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "200 ml", precio: 700 },
+      { nombre: "1 Litro", precio: 2200 }
+    ]
+  },
+  {
+    id: 651,
+    nombre: "Jugo Baggio Manzana",
+    precio: 700,
+    imagen: "/products/bebidas/baggioManzana.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Delicioso jugo Baggio sabor manzana. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "200 ml", precio: 700 },
+      { nombre: "1 Litro", precio: 2200 }
+    ]
+  },
+  {
+    id: 652,
+    nombre: "Jugo Baggio Naranja",
+    precio: 700,
+    imagen: "/products/bebidas/baggioNaranja.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Delicioso jugo Baggio sabor naranja. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "200 ml", precio: 700 },
+      { nombre: "1 Litro", precio: 2200 }
+    ]
+  },
+  {
+    id: 653,
+    nombre: "Jugo Baggio Multifruta",
+    precio: 700,
+    imagen: "/products/bebidas/baggioMultifruta.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Delicioso jugo Baggio sabor multifruta. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "200 ml", precio: 700 },
+      { nombre: "1 Litro", precio: 2200 }
+    ]
+  },
+  {
+    id: 654,
+    nombre: "Jugo Citric Naranja 1 Litro",
+    precio: 4200,
+    imagen: "/products/bebidas/citricNaranja.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Jugo exprimido de naranja Citric, 100% natural, sin conservantes.",
+    stock: 20
+  },
+  {
+    id: 655,
+    nombre: "Jugo Citric Naranja-Durazno 1 Litro",
+    precio: 4200,
+    imagen: "/products/bebidas/citricNaranjaDurazno.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Jugo exprimido de naranja y durazno Citric, 100% natural, sin conservantes.",
+    stock: 20
+  },
+  {
+    id: 656,
+    nombre: "Jugo Citric Naranja-Frutilla 1 Litro",
+    precio: 4200,
+    imagen: "/products/bebidas/citricNaranjaFrutilla.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Jugo exprimido de naranja y frutilla Citric, 100% natural, sin conservantes.",
+    stock: 20
+  },
+  {
+    id: 657,
+    nombre: "Jugo Citric Naranja-Mango 1 Litro",
+    precio: 4200,
+    imagen: "/products/bebidas/citricNaranjaMango.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Jugo exprimido de naranja y mango Citric, 100% natural, sin conservantes.",
+    stock: 20
+  },
+  {
+    id: 658,
+    nombre: "Bebida Energética Gatorade Cool Blue",
+    precio: 2400,
+    imagen: "/products/bebidas/gatoradeCoolBlue.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida energética / isotónica Gatorade sabor Cool Blue. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500 ml", precio: 2400 },
+      { nombre: "1 Litro", precio: 4500 }
+    ]
+  },
+  {
+    id: 659,
+    nombre: "Bebida Energética Gatorade Manzana",
+    precio: 2400,
+    imagen: "/products/bebidas/gatoradeManzana.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Bebida energética / isotónica Gatorade sabor manzana. Seleccioná tu presentación favorita.",
+    stock: 20,
+    presentaciones: [
+      { nombre: "500 ml", precio: 2400 },
+      { nombre: "1 Litro", precio: 4500 }
+    ]
+  },
+  {
+    id: 660,
+    nombre: "Cerveza Andes Roja Lata",
+    precio: 2700,
+    imagen: "/products/bebidas/cervezaAndesRoja.png",
+    categoria: "Bebidas",
+    subcategoria: "Con alcohol",
+    descripcion: "Cerveza Andes Roja en lata. Sabor equilibrado con maltas tostadas.",
+    stock: 20
+  },
+  {
+    id: 661,
+    nombre: "Gaseosa Paso de los Toros Pomelo 1.5L",
+    precio: 3500,
+    imagen: "/products/bebidas/pasoToroPomelo.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa Paso de los Toros sabor pomelo, botella de 1.5 Litros.",
+    stock: 20
+  },
+  {
+    id: 662,
+    nombre: "Gaseosa Paso de los Toros Tónica 1.5L",
+    precio: 3500,
+    imagen: "/products/bebidas/pasoToroTonica.png",
+    categoria: "Bebidas",
+    subcategoria: "Sin alcohol",
+    descripcion: "Gaseosa tónica Paso de los Toros, botella de 1.5 Litros.",
+    stock: 20
+  },
   /*{
     id: 92,
     nombre: "Medallones Paty Finitas x2",
@@ -2392,20 +2600,20 @@ const productos: Producto[] = [
   },
   {
     id: 162,
-    nombre: "Choco Block 38 Gr",
+    nombre: "Chocolate Cofler Block 38 Gr",
     precio: 2300,
     imagen: "/products/kiosco/coflerBlock38gr.png",
     categoria: "Kiosco",
-    descripcion: "Chocolate Block 38g. Chocolate con leche clásico, suave y cremoso. El clásico argentino de siempre.",
+    descripcion: "Chocolate Cofler Block 38g. Chocolate con leche clásico, suave y cremoso. El clásico argentino de siempre.",
     stock: 20
   },
   {
     id: 163,
-    nombre: "Choco Block 110 Gr",
+    nombre: "Chocolate Cofler Block 110 Gr",  
     precio: 5900,
     imagen: "/products/kiosco/coflerBlock110gr.png",
     categoria: "Kiosco",
-    descripcion: "Chocolate Block 110g. Chocolate con leche clásico en formato grande. Ideal para compartir.",
+    descripcion: "Chocolate Cofler Block 110g. Chocolate con leche clásico en formato grande. Ideal para compartir.",
     stock: 20
   },
   {
@@ -2977,29 +3185,29 @@ const productos: Producto[] = [
   },
   {
     id: 784,
-    nombre: "Galletas Oblitas Chocolate",
+    nombre: "Galletas Oblita Chocolate",
     precio: 600,
     imagen: "/products/kiosco/oblitaChocolate50gr.png",
     categoria: "Kiosco",
-    descripcion: "Galletitas Oblitas sabor chocolate, crocantes y deliciosas, presentación de 50g.",
+    descripcion: "Galletitas Oblita sabor chocolate, crocantes y deliciosas, presentación de 50g.",
     stock: 20
   },
   {
     id: 785,
-    nombre: "Galletas Oblitas Vainilla",
+    nombre: "Galletas Oblita Vainilla",
     precio: 600,
     imagen: "/products/kiosco/oblitaVainilla50gr.png",
     categoria: "Kiosco",
-    descripcion: "Galletitas Oblitas sabor vainilla, crocantes y deliciosas, presentación de 50g.",
+    descripcion: "Galletitas Oblita sabor vainilla, crocantes y deliciosas, presentación de 50g.",
     stock: 20
   },
   {
     id: 786,
-    nombre: "Galletas Oblitas Frutilla",
+    nombre: "Galletas Oblita Frutilla",
     precio: 600,
     imagen: "/products/kiosco/oblitaFrutilla50gr.png",
     categoria: "Kiosco",
-    descripcion: "Galletitas Oblitas sabor frutilla, crocantes y deliciosas, presentación de 50g.",
+    descripcion: "Galletitas Oblita sabor frutilla, crocantes y deliciosas, presentación de 50g.",
     stock: 20
   },
   {
