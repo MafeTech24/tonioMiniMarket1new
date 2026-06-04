@@ -677,12 +677,12 @@ const productos: Producto[] = [
   },*/
   {
     id: 55,
-    nombre: "Leche Fresca La Serenísima Clásica 1L",
-    precio: 2100,
+    nombre: "Leche La Serenísima Entera 1L",
+    precio: 2400,
     imagen: "/products/lacteos/lecheSachet1L.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
-    descripcion: "Leche fresca clásica La Serenísima en sachet de 1 litro. Con 9 nutrientes esenciales.",
+    descripcion: "Leche entera La Serenísima en sachet de 1 litro. Con 9 nutrientes esenciales.",
     stock: 20
   },
   {
@@ -708,7 +708,7 @@ const productos: Producto[] = [
   {
     id: 300,
     nombre: "Leche Armonía Clásica 1L",
-    precio: 1800,
+    precio: 2100,
     imagen: "/products/lacteos/lecheArmoniaSachet.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -718,7 +718,7 @@ const productos: Producto[] = [
   {
     id: 301,
     nombre: "Leche La Serenísima Descremada 1L",
-    precio: 2100,
+    precio: 2400,
     imagen: "/products/lacteos/lecheSachetDescremadaLS1L.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -3875,7 +3875,7 @@ const productos: Producto[] = [
     descripcion: "Bandeja sopera con verduras frescas listas para sopa.",
     stock: 20
   },
-  {
+  /*{
     id: 405,
     nombre: "Sal Ahumada para Carne Asada",
     precio: 2200,
@@ -3892,7 +3892,7 @@ const productos: Producto[] = [
     categoria: "Pollería",
     descripcion: "Sal ahumada especial para pollo asado.",
     stock: 20
-  },
+  },*/
   {
     id: 407,
     nombre: "Hamburguesa de Carne",
