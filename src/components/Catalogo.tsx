@@ -22,6 +22,11 @@ interface Producto {
   esAGranel?: boolean;
   esFactura?: boolean;
   esEmpanada?: boolean;
+  preciosMultiples?: {
+    unidad: number;
+    mediaDocena: number;
+    docena: number;
+  };
   sabores?: string[];
   presentaciones?: Presentacion[];
 }
@@ -4083,7 +4088,12 @@ const productos: Producto[] = [
     categoria: "Comidas listas",
     descripcion: "Empanadas de pollo listas para disfrutar. Se venden por unidad, media docena o docena.",
     stock: 100,
-    esEmpanada: true
+    esEmpanada: true,
+    preciosMultiples: {
+      unidad: 1400,
+      mediaDocena: 8000,
+      docena: 15000
+    }
   },
   {
     id: 425,
@@ -4093,7 +4103,12 @@ const productos: Producto[] = [
     categoria: "Comidas listas",
     descripcion: "Empanadas de carne listas para disfrutar. Se venden por unidad, media docena o docena.",
     stock: 100,
-    esEmpanada: true
+    esEmpanada: true,
+    preciosMultiples: {
+      unidad: 1400,
+      mediaDocena: 8000,
+      docena: 15000
+    }
   },
   {
     id: 426,
@@ -4115,6 +4130,109 @@ const productos: Producto[] = [
     stock: 50,
     unidadPrecio: "Kg",
     esAGranel: true
+  },
+  {
+    id: 436,
+    nombre: "Sandwich de miga de Jamón y Queso",
+    precio: 1800,
+    unidadPrecio: "c/u",
+    imagen: "/products/comidas listas/sandwichJamonQueso.png",
+    categoria: "Comidas listas",
+    descripcion: "Sándwich de miga de jamón y queso, súper frescos. Se venden por unidad, media docena o docena.",
+    stock: 100,
+    preciosMultiples: {
+      unidad: 1800,
+      mediaDocena: 10000,
+      docena: 20000
+    }
+  },
+  {
+    id: 437,
+    nombre: "Sandwich de miga de Verdura",
+    precio: 1800,
+    unidadPrecio: "c/u",
+    imagen: "/products/comidas listas/sandwichVerdura.png",
+    categoria: "Comidas listas",
+    descripcion: "Sándwich de miga sabor verdura, frescos y del día. Se venden por unidad, media docena o docena.",
+    stock: 100,
+    preciosMultiples: {
+      unidad: 1800,
+      mediaDocena: 10000,
+      docena: 20000
+    }
+  },
+  {
+    id: 438,
+    nombre: "Pebetón de Jamón y Queso",
+    precio: 1800,
+    unidadPrecio: "c/u",
+    imagen: "/products/comidas listas/pebetonJamonQueso.png",
+    categoria: "Comidas listas",
+    descripcion: "Pebetón de jamón y queso tiernos y abundantes. Se venden por unidad, media docena o docena.",
+    stock: 100,
+    preciosMultiples: {
+      unidad: 1800,
+      mediaDocena: 10000,
+      docena: 20000
+    }
+  },
+  {
+    id: 439,
+    nombre: "Pebetón de Salame y Queso",
+    precio: 1800,
+    unidadPrecio: "c/u",
+    imagen: "/products/comidas listas/pebetonSalameQueso.png",
+    categoria: "Comidas listas",
+    descripcion: "Pebetón de salame y queso, frescos y listos para saborear. Se venden por unidad, media docena o docena.",
+    stock: 100,
+    preciosMultiples: {
+      unidad: 1800,
+      mediaDocena: 10000,
+      docena: 20000
+    }
+  },
+  {
+    id: 440,
+    nombre: "Empanadas árabes",
+    precio: 1400,
+    unidadPrecio: "c/u",
+    imagen: "/products/comidas listas/empanadasArabes.png",
+    categoria: "Comidas listas",
+    descripcion: "Empanadas árabes con un toque de limón, deliciosas y cocidas en su punto. Se venden por unidad, media docena o docena.",
+    stock: 100,
+    esEmpanada: true,
+    preciosMultiples: {
+      unidad: 1400,
+      mediaDocena: 8000,
+      docena: 13000
+    }
+  },
+  {
+    id: 441,
+    nombre: "Pizza freezada Muzzarela",
+    precio: 6500,
+    imagen: "/products/congelados/pizzaMuzzarella.png",
+    categoria: "Congelados",
+    descripcion: "Pizza individual con abundante muzzarela, lista para el horno.",
+    stock: 50
+  },
+  {
+    id: 442,
+    nombre: "Pizza freezada Napolitana",
+    precio: 6500,
+    imagen: "/products/congelados/pizzaNapolitana.png",
+    categoria: "Congelados",
+    descripcion: "Pizza individual napolitana con muzzarela, rodajas de tomate fresco, albahaca y ajo.",
+    stock: 50
+  },
+  {
+    id: 443,
+    nombre: "Pizza freezada Especial",
+    precio: 6500,
+    imagen: "/products/congelados/pizzaEspecial.png",
+    categoria: "Congelados",
+    descripcion: "Pizza individual especial con muzzarela, jamón cocido y tiras de morrón.",
+    stock: 50
   }
 ];
 
@@ -4137,6 +4255,11 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
   const [selectedPresentacion, setSelectedPresentacion] = useState<Presentacion | null>(null);
   const { addToCart } = useCart();
   const subcats = SUBCATEGORIAS[selectedCat] || [];
+  const precios = selectedProduct?.preciosMultiples || {
+    unidad: 1400,
+    mediaDocena: 8000,
+    docena: 15000
+  };
 
   const handleCatChange = (cat: string) => {
     setSelectedCat(cat);
@@ -4314,7 +4437,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        if (p.esAGranel || p.esFactura || p.esEmpanada || (p.sabores && p.sabores.length > 0) || (p.presentaciones && p.presentaciones.length > 0)) {
+                        if (p.esAGranel || p.esFactura || p.esEmpanada || p.preciosMultiples || (p.sabores && p.sabores.length > 0) || (p.presentaciones && p.presentaciones.length > 0)) {
                           setSelectedProduct(p);
                         } else {
                           handleAddToCart(e, p);
@@ -4471,8 +4594,8 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                     </button>
                   </div>
 
-                ) : selectedProduct.esEmpanada ? (
-                  /* ── SELECTOR EMPANADAS ── */
+                ) : (selectedProduct.esEmpanada || selectedProduct.preciosMultiples) ? (
+                  /* ── SELECTOR EMPANADAS Y COMBOS MÚLTIPLES ── */
                   <div className="flex flex-col gap-4">
                     <div className="grid grid-cols-3 gap-2">
                       <button
@@ -4483,7 +4606,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                             : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
                         }`}
                       >
-                        Unidad — $1.400
+                        Unidad — {formatPrice(precios.unidad)}
                       </button>
                       <button
                         onClick={() => { setEmpanadaOpcion("media_docena"); setEmpanadaCount(1); }}
@@ -4493,7 +4616,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                             : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
                         }`}
                       >
-                        x6 — $8.000
+                        x6 — {formatPrice(precios.mediaDocena)}
                       </button>
                       <button
                         onClick={() => { setEmpanadaOpcion("docena"); setEmpanadaCount(1); }}
@@ -4503,7 +4626,7 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                             : "bg-gray-50 text-gray-700 border-gray-200 hover:border-primary hover:text-primary"
                         }`}
                       >
-                        x12 — $15.000
+                        x12 — {formatPrice(precios.docena)}
                       </button>
                     </div>
 
@@ -4528,13 +4651,13 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                     <div className="bg-primary/5 rounded-xl px-4 py-3 flex items-center justify-between border border-primary/20">
                       <span className="text-gray-500 text-sm font-semibold">Total:</span>
                       <span className="text-primary font-black text-2xl">
-                        {formatPrice((empanadaOpcion === "unidad" ? 1400 : empanadaOpcion === "media_docena" ? 8000 : 15000) * empanadaCount)}
+                        {formatPrice((empanadaOpcion === "unidad" ? precios.unidad : empanadaOpcion === "media_docena" ? precios.mediaDocena : precios.docena) * empanadaCount)}
                       </span>
                     </div>
 
                     <button
                       onClick={() => {
-                        const precioUnit = empanadaOpcion === "unidad" ? 1400 : empanadaOpcion === "media_docena" ? 8000 : 15000;
+                        const precioUnit = empanadaOpcion === "unidad" ? precios.unidad : empanadaOpcion === "media_docena" ? precios.mediaDocena : precios.docena;
                         const label = empanadaOpcion === "unidad" ? "unidad" : empanadaOpcion === "media_docena" ? "media docena" : "docena";
                         addToCart(
                           {
