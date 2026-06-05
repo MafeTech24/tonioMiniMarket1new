@@ -2503,7 +2503,7 @@ const productos: Producto[] = [
   {
     id: 513,
     nombre: "Hamburguesas Paty Express x4",
-    precio: 4400,
+    precio: 5000,
     imagen: "/products/congelados/hamburguesasPatyExpress.png",
     categoria: "Congelados",
     descripcion: "Hamburguesas Paty Express x4 unidades. Supercongeladas, listas para la plancha o parrilla.",
@@ -3733,20 +3733,20 @@ const productos: Producto[] = [
   },
   {
     id: 191,
-    nombre: "Alitas de Pollo",
+    nombre: "Alitas de Pollo con rancho",
     precio: 3200,
-    imagen: "/products/polleria/alitasPollo.png",
+    imagen: "/products/polleria/alitasPolloConRancho.png",
     categoria: "Pollería",
-    descripcion: "Alitas de pollo frescas, ideales para la parrilla o al horno. Precio por kilogramo.",
+    descripcion: "Alitas de pollo con rancho  frescas, ideales para la parrilla o al horno. Precio por kilogramo.",
     stock: 50,
     esAGranel: true,
     unidadPrecio: "Kg"
   },
   {
     id: 192,
-    nombre: "Alitas Sin Rancho",
+    nombre: "Alitas de Pollo Sin Rancho",
     precio: 6500,
-    imagen: "/products/polleria/alitasSinRancho.png",
+    imagen: "/products/polleria/alitasPolloSinRancho.png",
     categoria: "Pollería",
     descripcion: "Alitas de pollo sin rancho, limpias y listas para cocinar. Precio por kilogramo.",
     stock: 50,
@@ -4160,7 +4160,14 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
     ? productosPorCategoria
     : productos.filter(p => 
         p.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-      )).sort((a, b) => a.nombre.localeCompare(b.nombre));
+      )).sort((a, b) => {
+        const nameA = a.nombre === "Tiritas de Pollo" ? "Nuggets de Pollo" : a.nombre;
+        const nameB = b.nombre === "Tiritas de Pollo" ? "Nuggets de Pollo" : b.nombre;
+        if (nameA === nameB) {
+          return a.nombre === "Tiritas de Pollo" ? 1 : -1;
+        }
+        return nameA.localeCompare(nameB);
+      });
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -4587,14 +4594,14 @@ const Catalogo = ({ searchTerm = "" }: CatalogoProps) => {
                     <div className="bg-primary/5 rounded-xl px-4 py-3 flex items-center justify-between border border-primary/20">
                       <span className="text-gray-500 text-sm font-semibold">Total estimado:</span>
                       <span className="text-primary font-black text-2xl">
-                        {formatPrice(Math.round((selectedProduct.unidadPrecio?.toLowerCase() === 'kg' ? selectedProduct.precio / 10 : selectedProduct.precio) * gramosSeleccionados / 100))}
+                        {formatPrice(Math.round((selectedProduct.unidadPrecio?.toLowerCase().includes('kg') ? selectedProduct.precio / 10 : selectedProduct.precio) * gramosSeleccionados / 100))}
                       </span>
                     </div>
 
                     <button
                       onClick={() => {
                         const gramos = gramosSeleccionados;
-                        const precioBase100g = selectedProduct.unidadPrecio?.toLowerCase() === 'kg' ? selectedProduct.precio / 10 : selectedProduct.precio;
+                        const precioBase100g = selectedProduct.unidadPrecio?.toLowerCase().includes('kg') ? selectedProduct.precio / 10 : selectedProduct.precio;
                         const precioTotal = Math.round(precioBase100g * gramos / 100);
                         addToCart(
                           {

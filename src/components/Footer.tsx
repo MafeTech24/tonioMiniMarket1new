@@ -20,13 +20,19 @@ const Footer = () => (
             Navegación
           </h4>
           <div className="flex flex-col gap-2">
-            {["Inicio", "Ofertas", "Catálogo", "Horarios"].map((l) => (
+            {[
+              { label: "Inicio", href: "#inicio" },
+              { label: "Ofertas", href: "#ofertas" },
+              { label: "Catálogo", href: "#catalogo" },
+              { label: "Horarios", href: "#horarios" },
+              { label: "Preguntas Frecuentes", href: "#faq" }
+            ].map((link) => (
               <a
-                key={l}
-                href={`#${l.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
+                key={link.label}
+                href={link.href}
                 className="font-body text-sm text-footer-foreground/70 hover:text-secondary transition-colors"
               >
-                {l}
+                {link.label}
               </a>
             ))}
           </div>

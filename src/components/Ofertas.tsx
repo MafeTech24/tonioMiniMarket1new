@@ -104,29 +104,29 @@ const ofertas = [
     categoria: "Pollería"
   },
   { 
-    nombre: "Alitas de Pollo 2kg", 
+    nombre: "Alitas de Pollo con Rancho 2kg", 
     antes: "$6.400", 
     ahora: "$5.800", 
-    desc: "2kg de alitas de pollo frescas. Perfectas para la parrilla o el horno. Precio especial por llevar 2kg.", 
-    img: "/products/polleria/alitasPollo.png",
+    desc: "2kg de alitas de pollo con Rancho frescas. Perfectas para la parrilla o el horno. Precio especial por llevar 2kg.", 
+    img: "/products/polleria/alitasPolloConRancho.png",
     stock: 20,
     categoria: "Pollería"
   },
   { 
-    nombre: "Alitas de Pollo 3kg", 
+    nombre: "Alitas de Pollo con Rancho 3kg", 
     antes: "$9.600", 
     ahora: "$7.500", 
-    desc: "3kg de alitas de pollo frescas. El formato más conveniente para compartir en familia. Precio especial por llevar 3kg.", 
-    img: "/products/polleria/alitasPollo.png",
+    desc: "3kg de alitas de pollo con Rancho frescas. El formato más conveniente para compartir en familia. Precio especial por llevar 3kg.", 
+    img: "/products/polleria/alitasPolloConRancho.png",
     stock: 20,
     categoria: "Pollería"
   },
   { 
-    nombre: "Alitas Sin Rancho 2kg", 
+    nombre: "Alitas de Pollo Sin Rancho 2kg", 
     antes: "$13.000", 
     ahora: "$12.000", 
     desc: "2kg de alitas de pollo sin rancho, limpias y listas para cocinar. Precio especial por llevar 2kg.", 
-    img: "/products/polleria/alitasSinRancho.png",
+    img: "/products/polleria/alitasPolloSinRancho.png",
     stock: 20,
     categoria: "Pollería"
   },

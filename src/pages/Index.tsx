@@ -10,6 +10,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import SearchBanner from "@/components/SearchBanner";
+import { Cart } from "@/components/Cart";
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -35,6 +36,7 @@ const Index = () => {
       <FAQ />
       <Footer />
       <WhatsAppFAB />
+      <Cart isFloating />
     </div>
   );
 };

@@ -11,6 +11,7 @@ const navItems = [
   { label: "Catálogo", href: "#catalogo" },
   // { label: "Galería", href: "#galeria" },
   { label: "Horarios", href: "#horarios" },
+  { label: "Preguntas Frecuentes", href: "#faq" },
 ];
 
 const Navbar = () => {

@@ -26,7 +26,7 @@ const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: numbe
 
 type CheckoutStep = 'cart' | 'form' | 'confirmation' | 'success';
 
-export const Cart = () => {
+export const Cart = ({ isFloating = false }: { isFloating?: boolean }) => {
   const { cart, removeFromCart, updateQuantity, total, itemCount, clearCart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState<CheckoutStep>('cart');
@@ -64,25 +64,30 @@ export const Cart = () => {
       setFormErrors(prev => ({ ...prev, street: "Por favor ingresá tu calle y número" }));
       return;
     }
-    
+
     setIsCalculatingDistance(true);
     setGeoError(null);
     setDeliveryCost(null);
     setDeliveryDistance(null);
-    
+
     try {
-      const query = `${formData.street}, Córdoba, Argentina`;
-      const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
+      // Bounding box de Córdoba Capital: lon_min, lat_min, lon_max, lat_max
+      const VIEWBOX = "-64.35,-31.55,-64.05,-31.30";
+      const query = `${formData.street}, Córdoba Capital`;
+      const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1` +
+        `&countrycodes=ar&addressdetails=1&bounded=1&viewbox=${VIEWBOX}` +
+        `&q=${encodeURIComponent(query)}`;
+
       const res = await fetch(url);
       const data = await res.json();
-      
+
       if (data && data.length > 0) {
         const lat = parseFloat(data[0].lat);
         const lon = parseFloat(data[0].lon);
         const dist = calculateDistance(STORE_LAT, STORE_LON, lat, lon);
         const distRounded = Math.round(dist * 10) / 10;
         setDeliveryDistance(distRounded);
-        
+
         if (distRounded <= 2) {
           setDeliveryCost(0);
         } else if (distRounded <= 10) {
@@ -93,9 +98,9 @@ export const Cart = () => {
           setGeoError("Lo sentimos, por ahora no llegamos a tu zona. Podés retirar en Falucho 275, Bº Las Palmas.");
         }
       } else {
-        setGeoError("⚠️ No encontramos esa dirección. Intentá con calle y número.");
+        setGeoError("⚠️ No encontramos esa dirección. Probá con calle, número y barrio.");
       }
-    } catch(e) {
+    } catch (e) {
       setGeoError("Hubo un error calculando el envío. Intentá de nuevo.");
     } finally {
       setIsCalculatingDistance(false);
@@ -354,6 +359,10 @@ ${commonMessage}
     );
   };
 
+  if (isFloating && itemCount === 0) {
+    return null;
+  }
+
   return (
     <Sheet open={isOpen} onOpenChange={(open) => {
       setIsOpen(open);
@@ -366,14 +375,26 @@ ${commonMessage}
       }
     }}>
       <SheetTrigger asChild>
-        <button className="relative min-w-[44px] min-h-[44px] text-navbar-foreground hover:bg-navbar-foreground/10 rounded-full transition-colors flex items-center justify-center">
-          <ShoppingCart size={24} />
-          {itemCount > 0 && (
-            <span className="absolute top-1 right-1 bg-white text-primary text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full border border-primary">
+        {isFloating ? (
+          <button 
+            className="fixed bottom-[100px] right-6 z-50 bg-primary text-primary-foreground w-14 h-14 rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all flex items-center justify-center animate-float"
+            aria-label="Ver carrito"
+          >
+            <ShoppingCart size={24} />
+            <span className="absolute top-0 right-0 bg-white text-primary text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-primary shadow-sm">
               {itemCount}
             </span>
-          )}
-        </button>
+          </button>
+        ) : (
+          <button className="relative min-w-[44px] min-h-[44px] text-navbar-foreground hover:bg-navbar-foreground/10 rounded-full transition-colors flex items-center justify-center">
+            <ShoppingCart size={24} />
+            {itemCount > 0 && (
+              <span className="absolute top-1 right-1 bg-white text-primary text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full border border-primary">
+                {itemCount}
+              </span>
+            )}
+          </button>
+        )}
       </SheetTrigger>
       
       <SheetContent className="flex flex-col w-full sm:max-w-md h-full bg-background/95 backdrop-blur-xl border-l-primary/20 overflow-hidden px-0">
