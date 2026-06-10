@@ -3662,7 +3662,7 @@ const productos: Producto[] = [
   {
     id: 184,
     nombre: "Tiritas de Pollo",
-    precio: 12950,
+    precio: 13500,
     imagen: "/products/congelados/tiritasDePollo.png",
     categoria: "Congelados",
     descripcion: "Tiritas de pechuga de pollo rebozadas y supercongeladas. Crocantes y tiernas, ideales para picar o acompañar. Precio por 1kg.",
