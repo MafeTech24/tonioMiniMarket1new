@@ -1,3 +1,5 @@
+import { Instagram, MessageCircle } from "lucide-react";
+
 const Footer = () => (
   <footer className="bg-footer text-footer-foreground">
     {/* Green top bar */}
@@ -8,10 +10,30 @@ const Footer = () => (
         <div>
           <a href="#inicio" className="block w-fit group">
             <span className="font-heading text-2xl font-extrabold text-footer-foreground group-hover:text-secondary mb-1 block transition-colors">TONIO MINIMARKET</span>
-            <p className="font-body text-sm text-footer-foreground/60 group-hover:text-secondary transition-colors">
+            <p className="font-body text-sm text-footer-foreground/60 group-hover:text-secondary transition-colors mb-4">
               Almacén & Pollería
             </p>
           </a>
+          <div className="flex items-center gap-3 mt-4">
+            <a
+              href="https://www.instagram.com/tonio.minimarket/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-footer-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all duration-300"
+              aria-label="Instagram"
+            >
+              <Instagram size={20} />
+            </a>
+            <a
+              href="https://wa.me/543516527241"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-footer-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all duration-300"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle size={20} />
+            </a>
+          </div>
         </div>
 
         {/* Links */}
@@ -45,14 +67,24 @@ const Footer = () => (
           </h4>
           <p className="font-body text-sm text-footer-foreground/70">Falucho 275, Bº Las Palmas, Córdoba Capital</p>
           <p className="font-body text-sm text-footer-foreground/70 mt-1">WhatsApp: 351 652-7241</p>
-          <a
-            href="https://wa.me/543516527241"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-3 font-heading text-sm font-bold text-secondary hover:underline"
-          >
-            Escribinos por WhatsApp →
-          </a>
+          <div className="flex flex-col gap-2 mt-4">
+            <a
+              href="https://wa.me/543516527241"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-heading text-sm font-bold text-secondary hover:underline"
+            >
+              Escribinos por WhatsApp →
+            </a>
+            <a
+              href="https://www.instagram.com/tonio.minimarket/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-heading text-sm font-bold text-secondary hover:underline"
+            >
+              Seguinos en Instagram →
+            </a>
+          </div>
         </div>
       </div>
 

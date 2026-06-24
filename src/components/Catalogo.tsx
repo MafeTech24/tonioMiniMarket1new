@@ -3836,6 +3836,59 @@ const productos: Producto[] = [
     sabores: ["Jamón, Queso, Morrón, Aceituna y Huevo", "Roquefort, Jamón, Morrón, Aceituna y Huevo"]
   },
   {
+    id: 201,
+    nombre: "Milanesa de Carne",
+    precio: 16800,
+    imagen: "/products/polleria/milasCarne.png",
+    categoria: "Pollería",
+    descripcion: "Milanesa de carne vacuna tierna y sabrosa, empanada lista para cocinar. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 202,
+    nombre: "Milanesa de Pata Muslo",
+    precio: 9500,
+    imagen: "/products/polleria/milaPataMuslo.png",
+    categoria: "Pollería",
+    descripcion: "Milanesa elaborada con pata muslo de pollo fresca y deshuesada. Súper jugosa y tierna. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 203,
+    nombre: "Milanesa de Merluza",
+    precio: 13000,
+    imagen: "/products/polleria/milaMerluza.png",
+    categoria: "Pollería",
+    descripcion: "Milanesa de filete de merluza rebozada, fresca y deliciosa. Precio por kilogramo.",
+    stock: 30,
+    esAGranel: true,
+    unidadPrecio: "Kg"
+  },
+  {
+    id: 204,
+    nombre: "Molida de Pechuga de Pollo (500g)",
+    precio: 6600,
+    imagen: "/products/polleria/molidaPechugaPollo.png",
+    categoria: "Pollería",
+    descripcion: "Carne picada/molida de pechuga de pollo, 100% magra y fresca. Presentación en bolsita de 500g.",
+    stock: 30,
+    unidadPrecio: "Bolsa"
+  },
+  {
+    id: 205,
+    nombre: "Molida de Pata Muslo (500g)",
+    precio: 6400,
+    imagen: "/products/polleria/molidaPataMuslo.png",
+    categoria: "Pollería",
+    descripcion: "Carne picada/molida elaborada con pata muslo de pollo deshuesada, más jugosa y sabrosa. Presentación en bolsita de 500g.",
+    stock: 30,
+    unidadPrecio: "Bolsa"
+  },
+  {
     id: 400,
     nombre: "Escabeche Artesanal de berenjena",
     precio: 6000,
