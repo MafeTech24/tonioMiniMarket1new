@@ -2895,7 +2895,7 @@ const productos: Producto[] = [
   {
     id: 750,
     nombre: "Chocolate Arcor Blanco",
-    precio: 1100,
+    precio: 1600,
     imagen: "/products/kiosco/chocolateBlancoArcor.png",
     categoria: "Kiosco",
     descripcion: "Chocolate blanco Arcor, clásico sabor suave y cremoso.",
@@ -2904,7 +2904,7 @@ const productos: Producto[] = [
   {
     id: 751,
     nombre: "Chocolate Arcor Negro",
-    precio: 1100,
+    precio: 1600,
     imagen: "/products/kiosco/chocolateNegroArcor.png",
     categoria: "Kiosco",
     descripcion: "Chocolate con leche Arcor, el clásico sabor tradicional.",
@@ -3651,7 +3651,7 @@ const productos: Producto[] = [
   {
     id: 183,
     nombre: "Nuggets de Pollo",
-    precio: 12500,
+    precio: 13200,
     imagen: "/products/congelados/nuggetsPollo.png",
     categoria: "Congelados",
     descripcion: "Nuggets de pechuga de pollo rebozados y supercongelados. Clásicos e irresistibles para toda la familia. Precio por 1kg.",
@@ -4033,52 +4033,52 @@ const productos: Producto[] = [
   {
     id: 419,
     nombre: "Sorrentinos de Jamón y Queso",
-    precio: 8500,
+    precio: 9500,
     imagen: "/products/congelados/sorrentinosJamonQueso.png",
     categoria: "Congelados",
-    descripcion: "Sorrentinos congelados de jamón y queso. Precio por docena.",
+    descripcion: "Sorrentinos congelados de jamón y queso. Precio por 15 unidades.",
     stock: 50,
-    unidadPrecio: "Docena"
+    unidadPrecio: "15un"
   },
   {
     id: 420,
     nombre: "Sorrentinos de Jamón, Queso y Nuez",
-    precio: 8500,
+    precio: 9500,
     imagen: "/products/congelados/sorrentinosJamonQuesoNuez.png",
     categoria: "Congelados",
-    descripcion: "Sorrentinos congelados de jamón, queso y nuez. Precio por docena.",
+    descripcion: "Sorrentinos congelados de jamón, queso y nuez. Precio por 15 unidades.",
     stock: 50,
-    unidadPrecio: "Docena"
+    unidadPrecio: "15un"
   },
   {
     id: 421,
     nombre: "Sorrentinos de Berenjena Ahumada",
-    precio: 8500,
+    precio: 9500,
     imagen: "/products/congelados/sorrentinosBerenjenaAhumada.png",
     categoria: "Congelados",
-    descripcion: "Sorrentinos congelados de berenjena ahumada. Precio por docena.",
+    descripcion: "Sorrentinos congelados de berenjena ahumada. Precio por 15 unidades.",
     stock: 50,
-    unidadPrecio: "Docena"
+    unidadPrecio: "15un"
   },
   {
     id: 422,
     nombre: "Sorrentinos de Calabaza y Muzzarella",
-    precio: 8500,
+    precio: 9500,
     imagen: "/products/congelados/sorrentinosCalabazaMuzzarella.png",
     categoria: "Congelados",
-    descripcion: "Sorrentinos congelados de calabaza y muzzarella. Precio por docena.",
+    descripcion: "Sorrentinos congelados de calabaza y muzzarella. Precio por 15 unidades.",
     stock: 50,
-    unidadPrecio: "Docena"
+    unidadPrecio: "15un"
   },
   {
     id: 423,
     nombre: "Sorrentinos de Pollo y Espinaca",
-    precio: 8500,
+    precio: 9500,
     imagen: "/products/congelados/sorrentinosPolloEspinaca.png",
     categoria: "Congelados",
-    descripcion: "Sorrentinos congelados de pollo y espinaca. Precio por docena.",
+    descripcion: "Sorrentinos congelados de pollo y espinaca. Precio por 15 unidades.",
     stock: 50,
-    unidadPrecio: "Docena"
+    unidadPrecio: "15un"
   },
   {
     id: 424,
