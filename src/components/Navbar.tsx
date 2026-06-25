@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Sun, Moon, Instagram } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import logo from "../assets/logo.png";
 import { Cart } from "./Cart";
 import { useTheme } from "@/context/ThemeContext";
@@ -44,15 +44,6 @@ const Navbar = () => {
             </a>
           ))}
           <Cart />
-          <a
-            href="https://www.instagram.com/tonio.minimarket/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-white/20 transition-all"
-            aria-label="Instagram"
-          >
-            <Instagram size={22} />
-          </a>
           <button
             onClick={toggleTheme}
             className="text-white min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-white/20 transition-all"
@@ -63,16 +54,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <div className="md:hidden flex items-center gap-2">
-          <a
-            href="https://www.instagram.com/tonio.minimarket/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-white/20 transition-all"
-            aria-label="Instagram"
-          >
-            <Instagram size={22} />
-          </a>
+        <div className="md:hidden flex items-center gap-4">
           <button
             onClick={toggleTheme}
             className="text-white min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-white/20 transition-all"
