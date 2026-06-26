@@ -3466,7 +3466,7 @@ const productos: Producto[] = [
   {
     id: 168,
     nombre: "Crocante de Merluza",
-    precio: 14500,
+    precio: 14800,
     imagen: "/products/congelados/crocanteMerluza.png",
     categoria: "Congelados",
     descripcion: "Merluza con cobertura extra crocante, perfecta para horno o fritura. Rendidora y sabrosa. Precio por 1kg.",
