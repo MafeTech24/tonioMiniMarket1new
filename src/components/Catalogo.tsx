@@ -359,26 +359,6 @@ const productos: Producto[] = [
     stock: 20
   },*/
   {
-    id: 26,
-    nombre: "Surtido Bagley 400g",
-    precio: 3500,
-    imagen: "/products/desayuno/surtidoBagley.png",
-    categoria: "Almacén",
-    subcategoria: "Desayuno",
-    descripcion: "Bolsa surtido Bagley con variedad de galletitas: Chocolinas, Rumba, Merengadas y Sonrisas. 400g.",
-    stock: 20
-  },
-  {
-    id: 27,
-    nombre: "Surtido Diversión Arcor 400g",
-    precio: 3100,
-    imagen: "/products/desayuno/surtidoDiversion.png",
-    categoria: "Almacén",
-    subcategoria: "Desayuno",
-    descripcion: "Bolsa surtido Diversión Arcor con variedad de galletitas dulces y rellenas, 400g.",
-    stock: 20
-  },
-  {
     id: 28,
     nombre: "Té La Virginia x25 saquitos",
     precio: 950,
@@ -3728,7 +3708,7 @@ const productos: Producto[] = [
   {
     id: 190,
     nombre: "Pata Muslo",
-    precio: 5500,
+    precio: 5600,
     imagen: "/products/polleria/pataMuslo.png",
     categoria: "Pollería",
     descripcion: "Pata muslo de pollo fresco. Ideal para el horno, la parrilla o guisos. Precio por kilogramo.",
@@ -3996,28 +3976,6 @@ const productos: Producto[] = [
     sabores: ["Huevo", "Morrón", "Espinaca"]
   },
   {
-    id: 411,
-    nombre: "Milanesas de Carne",
-    precio: 17500,
-    imagen: "/products/congelados/milanesasCarne.png",
-    categoria: "Congelados",
-    descripcion: "Milanesas de carne congeladas, listas para cocinar. Precio por kilogramo.",
-    stock: 20,
-    esAGranel: true,
-    unidadPrecio: "Kg"
-  },
-  {
-    id: 412,
-    nombre: "Milanesas de Merluza",
-    precio: 15000,
-    imagen: "/products/congelados/milanesasMerluza.png",
-    categoria: "Congelados",
-    descripcion: "Milanesas de merluza congeladas, empanizadas y listas para freír u hornear. Precio por kilogramo.",
-    stock: 20,
-    esAGranel: true,
-    unidadPrecio: "Kg"
-  },
-  {
     id: 413,
     nombre: "Milanesas de Soja Rellenas de Jamón y Queso",
     precio: 950,
@@ -4130,6 +4088,16 @@ const productos: Producto[] = [
     imagen: "/products/congelados/sorrentinosPolloEspinaca.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de pollo y espinaca. Precio por 15 unidades.",
+    stock: 50,
+    unidadPrecio: "15un"
+  },
+  {
+    id: 500,
+    nombre: "Sorrentinos Cuatro Quesos",
+    precio: 9500,
+    imagen: "/products/congelados/sorrentinosCuatroQuesos.png",
+    categoria: "Congelados",
+    descripcion: "Sorrentinos congelados rellenos de una exquisita combinación de cuatro quesos. Precio por 15 unidades.",
     stock: 50,
     unidadPrecio: "15un"
   },

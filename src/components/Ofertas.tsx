@@ -96,8 +96,8 @@ const ofertas = [
   },*/
   { 
     nombre: "Pata Muslo 2kg", 
-    antes: "$11.000", 
-    ahora: "$10.000", 
+    antes: "$11.200", 
+    ahora: "$10.400", 
     desc: "2kg de pata muslo de pollo fresco. Ideal para el horno, la parrilla o guisos. Precio especial por llevar 2kg.", 
     img: "/products/polleria/pataMuslo.png",
     stock: 20,
@@ -105,8 +105,8 @@ const ofertas = [
   },
   { 
     nombre: "Pata Muslo 3kg", 
-    antes: "$16.500", 
-    ahora: "$14.400", 
+    antes: "$16.800", 
+    ahora: "$14.700", 
     desc: "3kg de pata muslo de pollo fresco. El formato más rendidor para toda la semana. Precio especial por llevar 3kg.", 
     img: "/products/polleria/pataMuslo.png",
     stock: 20,
@@ -114,8 +114,8 @@ const ofertas = [
   },
   { 
     nombre: "Pata Muslo 4kg", 
-    antes: "$22.000", 
-    ahora: "$18.600", 
+    antes: "$22.400", 
+    ahora: "$19.000", 
     desc: "4kg de pata muslo de pollo fresco. El mejor precio por mayor cantidad. Ideal para familias grandes o congelar.", 
     img: "/products/polleria/pataMuslo.png",
     stock: 20,
@@ -196,11 +196,11 @@ const ofertas = [
   {
     nombre: "Milanesas de Carne 2kg",
     antes: "$35.000",
-    ahora: "$33.800",
-    desc: "2kg de milanesas de carne congeladas, listas para cocinar. La opción más rendidora para toda la familia. Precio especial por llevar 2kg.",
-    img: "/products/congelados/milanesasCarne.png",
+    ahora: "$32.600",
+    desc: "2kg de milanesas de carne, listas para cocinar. La opción más rendidora para toda la familia. Precio especial por llevar 2kg.",
+    img: "/products/polleria/milasCarne.png",
     stock: 20,
-    categoria: "Congelados"
+    categoria: "Pollería"
   }
 ];
 
