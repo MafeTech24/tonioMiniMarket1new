@@ -3598,7 +3598,7 @@ const productos: Producto[] = [
   {
     id: 180,
     nombre: "Croqueta de Papa Jamón y Queso",
-    precio: 9800,
+    precio: 10500,
     imagen: "/products/congelados/croquetaPapaJamonQueso.png",
     categoria: "Congelados",
     descripcion: "Croqueta de papa rellena de jamón y queso, rebozada y supercongelada. Cremosa por dentro, dorada por fuera. Precio por 1kg.",
