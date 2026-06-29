@@ -53,7 +53,7 @@ const productos: Producto[] = [
   {
     id: 1,
     nombre: "Azúcar Ledesma Clásica 1kg",
-    precio: 1700,
+    precio: 1900,
     imagen: "/products/desayuno/azucarLedesma1000.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -673,7 +673,7 @@ const productos: Producto[] = [
   {
     id: 56,
     nombre: "Manteca La Serenísima Clásica 200g",
-    precio: 4500,
+    precio: 5500,
     imagen: "/products/lacteos/mantecaSerenisima200.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -843,7 +843,7 @@ const productos: Producto[] = [
   {
     id: 315,
     nombre: "Queso Crema Tradicional La Paulina",
-    precio: 2500,
+    precio: 3300,
     imagen: "/products/lacteos/quesoCremaTradicionalLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -853,7 +853,7 @@ const productos: Producto[] = [
   {
     id: 316,
     nombre: "Queso Crema Light La Paulina",
-    precio: 2500,
+    precio: 3300,
     imagen: "/products/lacteos/quesoCremaLightLaPaulina.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -1280,7 +1280,7 @@ const productos: Producto[] = [
   {
     id: 85,
     nombre: "Fernet Branca 750ml",
-    precio: 17500,
+    precio: 17800,
     imagen: "/products/bebidas/fernetBranca750.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
@@ -1360,7 +1360,7 @@ const productos: Producto[] = [
   {
     id: 88,
     nombre: "Amargo Serrano Terma 1.25L",
-    precio: 2200,
+    precio: 2500,
     imagen: "/products/bebidas/amargoSerranoTerma1250.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
@@ -1626,14 +1626,14 @@ const productos: Producto[] = [
   {
     id: 638,
     nombre: "Energizante Speed Lata",
-    precio: 1600,
+    precio: 1900,
     imagen: "/products/bebidas/speed.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Bebida energizante Speed Unlimited en lata. Seleccioná tu presentación favorita.",
     stock: 20,
     presentaciones: [
-      { nombre: "269 CC", precio: 1600 },
+      { nombre: "269 CC", precio: 1900 },
       { nombre: "473 CC", precio: 2500 }
     ]
   },
@@ -2147,7 +2147,7 @@ const productos: Producto[] = [
   {
     id: 117,
     nombre: "Rollos de Cocina Cartabella x3",
-    precio: 1800,
+    precio: 2000,
     imagen: "/products/limpiezaPerfumeria/rolloCocinaCartabellax3.png",
     categoria: "Limpieza y Perfumería",
     descripcion: "Rollos de cocina Cartabella Daily doble hoja, pack x3 rollos, 120 paños cada uno. Nueva textura, alta absorción.",
@@ -2488,7 +2488,7 @@ const productos: Producto[] = [
   {
     id: 513,
     nombre: "Hamburguesas Paty Express x4",
-    precio: 5000,
+    precio: 5500,
     imagen: "/products/congelados/hamburguesasPatyExpress.png",
     categoria: "Congelados",
     descripcion: "Hamburguesas Paty Express x4 unidades. Supercongeladas, listas para la plancha o parrilla.",
@@ -2650,7 +2650,7 @@ const productos: Producto[] = [
   {
     id: 705,
     nombre: "Alfajor Triple Fantoche Blanco",
-    precio: 1100,
+    precio: 1300,
     imagen: "/products/kiosco/alfajorTripleFantocheBlanco.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Fantoche relleno de dulce de leche con baño de repostería blanco.",
@@ -2659,7 +2659,7 @@ const productos: Producto[] = [
   {
     id: 706,
     nombre: "Alfajor Triple Fantoche Negro",
-    precio: 1100,
+    precio: 1300,
     imagen: "/products/kiosco/alfajorTripleFantocheNegro.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Fantoche relleno de dulce de leche con baño de repostería de chocolate negro.",
@@ -3238,7 +3238,7 @@ const productos: Producto[] = [
   {
     id: 733,
     nombre: "Galletitas Mana Vainilla",
-    precio: 1300,
+    precio: 1500,
     imagen: "/products/desayuno/galletasManaVainilla.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -3248,7 +3248,7 @@ const productos: Producto[] = [
   {
     id: 734,
     nombre: "Galletitas Mana Leche",
-    precio: 1300,
+    precio: 1500,
     imagen: "/products/desayuno/galletasManaLeche.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -3258,7 +3258,7 @@ const productos: Producto[] = [
   {
     id: 735,
     nombre: "Galletitas Mana Acarameladas",
-    precio: 1300,
+    precio: 1500,
     imagen: "/products/desayuno/galletasManaAcarameladas.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -3444,7 +3444,7 @@ const productos: Producto[] = [
   {
     id: 166,
     nombre: "Filet de Merluza Finas Hierbas",
-    precio: 16000,
+    precio: 16900,
     imagen: "/products/congelados/filettMerluzaFinasHierbas.png",
     categoria: "Congelados",
     descripcion: "Filet de merluza rebozado con finas hierbas. Tierno por dentro, crocante por fuera. Ideal al horno o frito. Precio por 1kg.",
@@ -3455,7 +3455,7 @@ const productos: Producto[] = [
   {
     id: 167,
     nombre: "Filet de Merluza Rebozado",
-    precio: 16000,
+    precio: 16900,
     imagen: "/products/congelados/filetMerluzaRebozado.png",
     categoria: "Congelados",
     descripcion: "Filet de merluza con rebozado clásico, jugoso y crocante. Listo para freír u hornear. Precio por 1kg.",
@@ -3488,7 +3488,7 @@ const productos: Producto[] = [
   {
     id: 170,
     nombre: "Medallón de Pollo Jamón y Queso",
-    precio: 9900,
+    precio: 10500,
     imagen: "/products/congelados/medallonPolloconJamonQueso.png",
     categoria: "Congelados",
     descripcion: "Medallón de pollo relleno de jamón y queso, rebozado y supercongelado. Ideal para el horno o la sartén. Precio por 1kg.",
@@ -3499,7 +3499,7 @@ const productos: Producto[] = [
   {
     id: 171,
     nombre: "Medallón de Pollo Espinaca y Queso",
-    precio: 9900,
+    precio: 10500,
     imagen: "/products/congelados/medallonPolloEspinacaQueso.png",
     categoria: "Congelados",
     descripcion: "Medallón de pollo relleno de espinaca y queso, rebozado y supercongelado. Una opción nutritiva y sabrosa. Precio por 1kg.",
@@ -3521,7 +3521,7 @@ const productos: Producto[] = [
   {
     id: 173,
     nombre: "Bocaditos de Calabaza",
-    precio: 8500,
+    precio: 9500,
     imagen: "/products/congelados/bocaditosCalabazaQueso.png",
     categoria: "Congelados",
     descripcion: "Bocaditos de calabaza y queso, rebozados y supercongelados. Cremosos por dentro, doraditos por fuera. Precio por 1kg.",
@@ -3576,7 +3576,7 @@ const productos: Producto[] = [
   {
     id: 178,
     nombre: "Mini Croquetas Jamón y Queso",
-    precio: 10300,
+    precio: 10900,
     imagen: "/products/congelados/miniCroquetasJamonQueso.png",
     categoria: "Congelados",
     descripcion: "Mini croquetas rellenas de jamón y queso, rebozadas y supercongeladas. Irresistibles como picada o entrada. Precio por 1kg.",
@@ -3587,7 +3587,7 @@ const productos: Producto[] = [
   {
     id: 179,
     nombre: "Mini Croquetas Espinaca y Queso",
-    precio: 10300,
+    precio: 10900,
     imagen: "/products/congelados/miniCroquetasEspinacaQueso.png",
     categoria: "Congelados",
     descripcion: "Mini croquetas rellenas de espinaca y queso, rebozadas y supercongeladas. Una opción nutritiva y deliciosa. Precio por 1kg.",
@@ -3620,7 +3620,7 @@ const productos: Producto[] = [
   {
     id: 182,
     nombre: "Patitas de Pollo Rebozadas",
-    precio: 10500,
+    precio: 10700,
     imagen: "/products/congelados/patitasRebozadas.png",
     categoria: "Congelados",
     descripcion: "Patitas de pollo con rebozado crocante, supercongeladas. Jugosas por dentro y doradas por fuera. Precio por 1kg.",
@@ -3653,7 +3653,7 @@ const productos: Producto[] = [
   {
     id: 185,
     nombre: "Papas Bastón",
-    precio: 6900,
+    precio: 7400,
     imagen: "/products/congelados/papasBaston.png",
     categoria: "Congelados",
     descripcion: "Papas bastón supercongeladas, clásicas y rendidoras. Doradas y crocantes al horno o freidora. Precio por 1kg.",
@@ -3763,7 +3763,7 @@ const productos: Producto[] = [
   {
     id: 195,
     nombre: "Pollo Entero",
-    precio: 5500,
+    precio: 5600,
     imagen: "/products/polleria/polloEntero.png",
     categoria: "Pollería",
     descripcion: "Pollo entero fresco de granja, calidad superior. Ideal para el horno o la parrilla. Precio por kilogramo.",
@@ -3807,7 +3807,7 @@ const productos: Producto[] = [
   {
     id: 200,
     nombre: "Arrollado de Pollo",
-    precio: 7500,
+    precio: 9000,
     imagen: "/products/polleria/arrolladoPollo.png",
     categoria: "Pollería",
     descripcion: "Arrollado de pollo artesanal. Disponible en dos variedades: jamón, queso, morrón, aceituna y huevo — o roquefort, jamón, morrón, aceituna y huevo. Consultá disponibilidad.",
@@ -3981,10 +3981,9 @@ const productos: Producto[] = [
     precio: 950,
     imagen: "/products/congelados/milaSojaJamonQueso.png",
     categoria: "Congelados",
-    descripcion: "Milanesa de soja congelada, rellena de jamón y queso. Precio por kilogramo.",
+    descripcion: "Milanesa de soja congelada, rellena de jamón y queso. Precio por unidad.",
     stock: 30,
-    esAGranel: true,
-    unidadPrecio: "Kg"
+    unidadPrecio: "c/u"
   },
   {
     id: 414,
@@ -3992,10 +3991,9 @@ const productos: Producto[] = [
     precio: 950,
     imagen: "/products/congelados/milanesasSojaRoquefort.png",
     categoria: "Congelados",
-    descripcion: "Milanesa de soja congelada, rellena de queso roquefort. Precio por kilogramo.",
+    descripcion: "Milanesa de soja congelada, rellena de queso roquefort. Precio por unidad.",
     stock: 30,
-    esAGranel: true,
-    unidadPrecio: "Kg"
+    unidadPrecio: "c/u"
   },
   {
     id: 415,
@@ -4003,10 +4001,9 @@ const productos: Producto[] = [
     precio: 950,
     imagen: "/products/congelados/milanesasSojaCalabazaMuzza.png",
     categoria: "Congelados",
-    descripcion: "Milanesa de soja congelada, rellena de calabaza y muzzarella. Precio por kilogramo.",
+    descripcion: "Milanesa de soja congelada, rellena de calabaza y muzzarella. Precio por unidad.",
     stock: 30,
-    esAGranel: true,
-    unidadPrecio: "Kg"
+    unidadPrecio: "c/u"
   },
   {
     id: 416,
@@ -4014,10 +4011,9 @@ const productos: Producto[] = [
     precio: 950,
     imagen: "/products/congelados/milanesasSojaTomateQuesoAceitunas.png",
     categoria: "Congelados",
-    descripcion: "Milanesa de soja congelada, rellena de aceituna, tomate y muzzarella. Precio por kilogramo.",
+    descripcion: "Milanesa de soja congelada, rellena de aceituna, tomate y muzzarella. Precio por unidad.",
     stock: 30,
-    esAGranel: true,
-    unidadPrecio: "Kg"
+    unidadPrecio: "c/u"
   },
   {
     id: 417,
@@ -4025,10 +4021,9 @@ const productos: Producto[] = [
     precio: 950,
     imagen: "/products/congelados/milanesasSojaEspinacaMuzza.png",
     categoria: "Congelados",
-    descripcion: "Milanesa de soja congelada, rellena de espinaca y muzzarella. Precio por kilogramo.",
+    descripcion: "Milanesa de soja congelada, rellena de espinaca y muzzarella. Precio por unidad.",
     stock: 30,
-    esAGranel: true,
-    unidadPrecio: "Kg"
+    unidadPrecio: "c/u"
   },
   {
     id: 418,
@@ -4036,10 +4031,9 @@ const productos: Producto[] = [
     precio: 950,
     imagen: "/products/congelados/milanesasSojaCebollaMuzza.png",
     categoria: "Congelados",
-    descripcion: "Milanesa de soja congelada, rellena de cebolla y muzzarella. Precio por kilogramo.",
+    descripcion: "Milanesa de soja congelada, rellena de cebolla y muzzarella. Precio por unidad.",
     stock: 30,
-    esAGranel: true,
-    unidadPrecio: "Kg"
+    unidadPrecio: "c/u"
   },
   {
     id: 419,
@@ -4134,7 +4128,7 @@ const productos: Producto[] = [
   {
     id: 426,
     nombre: "Roulette de Pollo",
-    precio: 4800,
+    precio: 4900,
     imagen: "/products/congelados/roulettePollo.png",
     categoria: "Pollería",
     descripcion: "Roulette de pollo congelado. Disponible en diferentes sabores.",
