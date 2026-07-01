@@ -3818,7 +3818,7 @@ const productos: Producto[] = [
   {
     id: 201,
     nombre: "Milanesa de Carne",
-    precio: 16800,
+    precio: 17100,
     imagen: "/products/polleria/milasCarne.png",
     categoria: "Pollería",
     descripcion: "Milanesa de carne vacuna tierna y sabrosa, empanada lista para cocinar. Precio por kilogramo.",
