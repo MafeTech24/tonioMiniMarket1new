@@ -1,4 +1,5 @@
 import { useState, FormEvent, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
 import { ShoppingCart, Plus, Minus, Trash2, MessageCircle, ArrowLeft, CheckCircle2, MapPin, Download } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet";
@@ -28,6 +29,7 @@ type CheckoutStep = 'cart' | 'form' | 'confirmation' | 'success';
 
 export const Cart = ({ isFloating = false }: { isFloating?: boolean }) => {
   const { cart, removeFromCart, updateQuantity, total, itemCount, clearCart } = useCart();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState<CheckoutStep>('cart');
   const [orderNumber, setOrderNumber] = useState("");
@@ -239,13 +241,35 @@ ${commonMessage}
       console.error('Error de conexión con Supabase:', err)
     }
 
-    window.open(ownerWaLink, "_blank");
-    
-    setTimeout(() => {
-      window.open(customerWaLink, "_blank");
-      setStep('success');
-      clearCart();
-    }, 1500);
+  // Guardar datos del pedido en sessionStorage antes de salir a WhatsApp
+  sessionStorage.setItem('ultimoPedido', JSON.stringify({
+    orderNumber,
+    cliente: formData.name,
+    telefono: formData.phone,
+    productos: cart.map(item => ({
+      nombre: item.nombre,
+      cantidad: item.cantidad,
+      precio: item.precio,
+      subtotal: item.precio * item.cantidad
+    })),
+    subtotal: total,
+    costoEnvio: deliveryCost ?? 0,
+    total: grandTotal,
+    direccion: [formData.street, formData.floor].filter(Boolean).join(', '),
+    metodoEntrega: formData.deliveryMethod,
+    metodoPago: formData.paymentMethod,
+    notas: formData.notes || null
+  }));
+  
+  clearCart();
+  
+  // Navegar al comprobante primero
+  navigate('/comprobante/' + orderNumber);
+  
+  // Después de un breve delay, abrir WhatsApp en la misma pestaña
+  setTimeout(() => {
+    window.location.href = ownerWaLink;
+  }, 800);
   };
 
   const handleDownloadTicket = () => {
@@ -771,6 +795,14 @@ ${commonMessage}
 
           {step === 'confirmation' && (
             <div className="flex flex-col gap-4">
+              <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
+                <span className="text-amber-500 text-lg mt-0.5">⚠️</span>
+                <p className="text-sm text-amber-800 font-medium leading-snug">
+                  Los productos están sujetos a disponibilidad. En caso de que algún 
+                  artículo no esté en stock al momento de preparar tu pedido, 
+                  te avisamos por WhatsApp.
+                </p>
+              </div>
               <button
                 onClick={handleConfirmAndSend}
                 className="w-full btn-primary-market text-[18px] rounded-xl shadow-md"

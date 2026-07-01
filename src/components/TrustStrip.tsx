@@ -1,10 +1,10 @@
-import { Truck, Clock, ShieldCheck, ThumbsUp } from "lucide-react";
+import { Truck, CalendarClock, ShieldCheck, MessageCircle } from "lucide-react";
 
 const items = [
-  { icon: Truck, text: "Envío a Domicilio" },
-  { icon: Clock, text: "Atención rápida" },
+  { icon: Truck, text: "Envío a domicilio" },
+  { icon: CalendarClock, text: "Coordinamos fecha y hora de entrega" },
   { icon: ShieldCheck, text: "Calidad garantizada" },
-  { icon: ThumbsUp, text: "Clientes satisfechos" },
+  { icon: MessageCircle, text: "Pedidos por WhatsApp" },
 ];
 
 const TrustStrip = () => (

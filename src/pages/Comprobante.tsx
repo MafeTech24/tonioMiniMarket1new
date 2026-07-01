@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { supabase } from '@/lib/supabase'
+import { useParams, Link, useLocation } from 'react-router-dom'
+// import { supabase } from '@/lib/supabase'
 import { Printer, MapPin, Phone, CreditCard, ShoppingBag, Clock, ArrowLeft } from 'lucide-react'
 
 interface Pedido {
@@ -30,31 +30,62 @@ interface Pedido {
 
 const Comprobante = () => {
   const { numeroPedido } = useParams<{ numeroPedido: string }>()
+  const location = useLocation()
   const [pedido, setPedido] = useState<Pedido | null>(null)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const fetchPedido = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('pedidos')
-          .select('*')
-          .eq('numero_pedido', numeroPedido)
-          .single()
+  const stateData = location.state as any
 
-        if (error) throw error
-        setPedido(data)
-      } catch (err) {
-        console.error('Error fetching pedido:', err)
-      } finally {
-        setLoading(false)
+  useEffect(() => {
+    if (stateData && stateData.orderNumber) {
+      // Datos vinieron del navigate con state
+      setPedido({
+        id: '',
+        numero_pedido: stateData.orderNumber || '',
+        fecha: new Date().toISOString(),
+        cliente_nombre: stateData.cliente || '',
+        cliente_telefono: stateData.telefono || '',
+        productos: stateData.productos || [],
+        subtotal: stateData.subtotal || 0,
+        costo_envio: stateData.costoEnvio || 0,
+        total: stateData.total || 0,
+        calle: '',
+        piso_dpto: '',
+        barrio: '',
+        direccion_completa: stateData.direccion || '',
+        metodo_entrega: stateData.metodoEntrega || '',
+        metodo_pago: stateData.metodoPago || '',
+        notas: stateData.notas || '',
+        estado: 'pendiente'
+      });
+    } else {
+      // Intentar leer de sessionStorage
+      const guardado = sessionStorage.getItem('ultimoPedido');
+      if (guardado) {
+        const data = JSON.parse(guardado);
+        setPedido({
+          id: '',
+          numero_pedido: data.orderNumber || numeroPedido || '',
+          fecha: new Date().toISOString(),
+          cliente_nombre: data.cliente || '',
+          cliente_telefono: data.telefono || '',
+          productos: data.productos || [],
+          subtotal: data.subtotal || 0,
+          costo_envio: data.costoEnvio || 0,
+          total: data.total || 0,
+          calle: '',
+          piso_dpto: '',
+          barrio: '',
+          direccion_completa: data.direccion || '',
+          metodo_entrega: data.metodoEntrega || '',
+          metodo_pago: data.metodoPago || '',
+          notas: data.notas || '',
+          estado: 'pendiente'
+        });
       }
     }
-
-    if (numeroPedido) {
-      fetchPedido()
-    }
-  }, [numeroPedido])
+    setLoading(false);
+  }, [stateData, numeroPedido]);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('es-AR', {

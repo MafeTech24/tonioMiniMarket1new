@@ -3978,7 +3978,7 @@ const productos: Producto[] = [
   {
     id: 413,
     nombre: "Milanesas de Soja Rellenas de Jamón y Queso",
-    precio: 950,
+    precio: 1000,
     imagen: "/products/congelados/milaSojaJamonQueso.png",
     categoria: "Congelados",
     descripcion: "Milanesa de soja congelada, rellena de jamón y queso. Precio por unidad.",
@@ -3988,7 +3988,7 @@ const productos: Producto[] = [
   {
     id: 414,
     nombre: "Milanesas de Soja Rellenas de Roquefort",
-    precio: 950,
+    precio: 1000,
     imagen: "/products/congelados/milanesasSojaRoquefort.png",
     categoria: "Congelados",
     descripcion: "Milanesa de soja congelada, rellena de queso roquefort. Precio por unidad.",
@@ -3998,7 +3998,7 @@ const productos: Producto[] = [
   {
     id: 415,
     nombre: "Milanesas de Soja Rellenas de Calabaza y Muzzarella",
-    precio: 950,
+    precio: 1000,
     imagen: "/products/congelados/milanesasSojaCalabazaMuzza.png",
     categoria: "Congelados",
     descripcion: "Milanesa de soja congelada, rellena de calabaza y muzzarella. Precio por unidad.",
@@ -4008,7 +4008,7 @@ const productos: Producto[] = [
   {
     id: 416,
     nombre: "Milanesas de Soja Rellenas de Aceituna, Tomate y Muzzarella",
-    precio: 950,
+    precio: 1000,
     imagen: "/products/congelados/milanesasSojaTomateQuesoAceitunas.png",
     categoria: "Congelados",
     descripcion: "Milanesa de soja congelada, rellena de aceituna, tomate y muzzarella. Precio por unidad.",
@@ -4018,7 +4018,7 @@ const productos: Producto[] = [
   {
     id: 417,
     nombre: "Milanesas de Soja Rellenas de Espinaca y Muzzarella",
-    precio: 950,
+    precio:1000,
     imagen: "/products/congelados/milanesasSojaEspinacaMuzza.png",
     categoria: "Congelados",
     descripcion: "Milanesa de soja congelada, rellena de espinaca y muzzarella. Precio por unidad.",
@@ -4028,7 +4028,7 @@ const productos: Producto[] = [
   {
     id: 418,
     nombre: "Milanesas de Soja Rellenas de Cebolla y Muzzarella",
-    precio: 950,
+    precio: 1000,
     imagen: "/products/congelados/milanesasSojaCebollaMuzza.png",
     categoria: "Congelados",
     descripcion: "Milanesa de soja congelada, rellena de cebolla y muzzarella. Precio por unidad.",

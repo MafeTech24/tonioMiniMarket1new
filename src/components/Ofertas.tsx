@@ -42,9 +42,9 @@ const ofertas = [
   { 
     nombre: "Promo Tarta", 
     antes: "$8.500", 
-    ahora: "$7.000", 
+    ahora: "$6500", 
     desc: "¡Todo para una tarta en familia! Incluye: 1 Pascualina San Vicente + 200g Jamón Cocido Tirolesa + 200g Queso Cremoso + 2 Huevos frescos. Una promo completa para preparar una tarta casera deliciosa. Ideal para el almuerzo o cena familiar.", 
-    img: "/products/promoTarta4.png",
+    img: "/products/ofertaTarta.png",
     /*images: ["/products/promoTarta1.png", "/products/promoTarta2.png", "/products/promoTarta3.png"],*/
     stock: 10,
     categoria: "Almacén"
