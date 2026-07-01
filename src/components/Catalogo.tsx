@@ -3565,7 +3565,7 @@ const productos: Producto[] = [
   {
     id: 177,
     nombre: "Bastones de Muzzarella",
-    precio: 15900,
+    precio: 16600,
     imagen: "/products/congelados/bastonesMuzza.png",
     categoria: "Congelados",
     descripcion: "Bastones de muzzarella rebozados y supercongelados. Se derriten por dentro con una cobertura dorada y crocante. Precio por 1kg.",
@@ -4038,7 +4038,7 @@ const productos: Producto[] = [
   {
     id: 419,
     nombre: "Sorrentinos de Jamón y Queso",
-    precio: 9500,
+    precio: 10500,
     imagen: "/products/congelados/sorrentinosJamonQueso.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de jamón y queso. Precio por 15 unidades.",
@@ -4048,7 +4048,7 @@ const productos: Producto[] = [
   {
     id: 420,
     nombre: "Sorrentinos de Jamón, Queso y Nuez",
-    precio: 9500,
+    precio: 10500,
     imagen: "/products/congelados/sorrentinosJamonQuesoNuez.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de jamón, queso y nuez. Precio por 15 unidades.",
@@ -4058,7 +4058,7 @@ const productos: Producto[] = [
   {
     id: 421,
     nombre: "Sorrentinos de Berenjena Ahumada",
-    precio: 9500,
+    precio: 10500,
     imagen: "/products/congelados/sorrentinosBerenjenaAhumada.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de berenjena ahumada. Precio por 15 unidades.",
@@ -4068,7 +4068,7 @@ const productos: Producto[] = [
   {
     id: 422,
     nombre: "Sorrentinos de Calabaza y Muzzarella",
-    precio: 9500,
+    precio: 10500,
     imagen: "/products/congelados/sorrentinosCalabazaMuzzarella.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de calabaza y muzzarella. Precio por 15 unidades.",
@@ -4078,7 +4078,7 @@ const productos: Producto[] = [
   {
     id: 423,
     nombre: "Sorrentinos de Pollo y Espinaca",
-    precio: 9500,
+    precio: 10500,
     imagen: "/products/congelados/sorrentinosPolloEspinaca.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de pollo y espinaca. Precio por 15 unidades.",
@@ -4088,7 +4088,7 @@ const productos: Producto[] = [
   {
     id: 500,
     nombre: "Sorrentinos Cuatro Quesos",
-    precio: 9500,
+    precio: 10500,
     imagen: "/products/congelados/sorrentinosCuatroQuesos.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados rellenos de una exquisita combinación de cuatro quesos. Precio por 15 unidades.",
