@@ -7,8 +7,8 @@ import { useCart } from "@/context/CartContext";
 import { supabase } from '@/lib/supabase'
 
 const OWNER_PHONE = "543516527241";
-const STORE_LAT = -31.4028;
-const STORE_LON = -64.2422;
+const STORE_LAT = -31.4267;
+const STORE_LON = -64.2089;
 
 const formatTotal = (num: number) => {
   return "$" + num.toLocaleString("es-AR");
