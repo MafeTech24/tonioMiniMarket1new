@@ -7,6 +7,7 @@ import WaveDivider from "@/components/WaveDivider";
 import Catalogo from "@/components/Catalogo";
 import Horarios from "@/components/Horarios";
 import FAQ from "@/components/FAQ";
+import VideoTutorial from "@/components/VideoTutorial";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import SearchBanner from "@/components/SearchBanner";
@@ -33,6 +34,7 @@ const Index = () => {
       <Catalogo searchTerm={searchTerm} />
       {/* <Galeria /> */}
       <Horarios />
+      <VideoTutorial />
       <FAQ />
       <Footer />
       <WhatsAppFAB />
