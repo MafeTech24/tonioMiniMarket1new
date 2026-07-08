@@ -3840,7 +3840,7 @@ const productos: Producto[] = [
   {
     id: 203,
     nombre: "Milanesa de Merluza",
-    precio: 13000,
+    precio: 13500,
     imagen: "/products/polleria/milaMerluza.png",
     categoria: "Pollería",
     descripcion: "Milanesa de filete de merluza rebozada, fresca y deliciosa. Precio por kilogramo.",
