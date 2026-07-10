@@ -3620,7 +3620,7 @@ const productos: Producto[] = [
   {
     id: 182,
     nombre: "Patitas de Pollo Rebozadas",
-    precio: 1100,
+    precio: 11000,
     imagen: "/products/congelados/patitasRebozadas.png",
     categoria: "Congelados",
     descripcion: "Patitas de pollo con rebozado crocante, supercongeladas. Jugosas por dentro y doradas por fuera. Precio por 1kg.",
