@@ -3510,7 +3510,7 @@ const productos: Producto[] = [
   {
     id: 172,
     nombre: "Medallón Mix de Vegetales",
-    precio: 9000,
+    precio: 10500,
     imagen: "/products/congelados/medallonMixVegetales.png",
     categoria: "Congelados",
     descripcion: "Medallón vegetal con mix de verduras, rebozado y supercongelado. Ideal para vegetarianos y toda la familia. Precio por 1kg.",
@@ -3620,7 +3620,7 @@ const productos: Producto[] = [
   {
     id: 182,
     nombre: "Patitas de Pollo Rebozadas",
-    precio: 10700,
+    precio: 1100,
     imagen: "/products/congelados/patitasRebozadas.png",
     categoria: "Congelados",
     descripcion: "Patitas de pollo con rebozado crocante, supercongeladas. Jugosas por dentro y doradas por fuera. Precio por 1kg.",
@@ -3642,7 +3642,7 @@ const productos: Producto[] = [
   {
     id: 184,
     nombre: "Tiritas de Pollo",
-    precio: 13500,
+    precio: 13900,
     imagen: "/products/congelados/tiritasDePollo.png",
     categoria: "Congelados",
     descripcion: "Tiritas de pechuga de pollo rebozadas y supercongeladas. Crocantes y tiernas, ideales para picar o acompañar. Precio por 1kg.",
