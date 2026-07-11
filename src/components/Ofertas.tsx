@@ -20,7 +20,7 @@ const ofertas = [
     stock: 15,
     categoria: "Bebidas"
   },
-  { 
+  /*{ 
     nombre: "Promo Mermelada Orieta Durazno", 
     antes: "$2.200", 
     ahora: "$1.600", 
@@ -28,7 +28,7 @@ const ofertas = [
     img: "/products/promoMermelada.png",
     stock: 20,
     categoria: "Almacén"
-  },
+  },*/
   { 
     nombre: "Promo Hamburguesas Paty", 
     antes: "$10.500", 

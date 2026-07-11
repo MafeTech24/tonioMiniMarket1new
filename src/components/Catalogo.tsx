@@ -3871,7 +3871,7 @@ const productos: Producto[] = [
   {
     id: 400,
     nombre: "Escabeche Artesanal de berenjena",
-    precio: 6000,
+    precio: 6500,
     imagen: "/products/comidas listas/escabecheBerenjena.png",
     categoria: "Comidas listas",
     descripcion: "Escabeche artesanal de berenjena.",
@@ -3880,7 +3880,7 @@ const productos: Producto[] = [
   {
     id: 401,
     nombre: "Escabeche Artesanal de pollo",
-    precio: 7000,
+    precio: 7500,
     imagen: "/products/comidas listas/escabechePollo.png",
     categoria: "Comidas listas",
     descripcion: "Escabeche artesanal de pollo.",
