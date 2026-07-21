@@ -3565,7 +3565,7 @@ const productos: Producto[] = [
   {
     id: 177,
     nombre: "Bastones de Muzzarella",
-    precio: 16600,
+    precio: 17300,
     imagen: "/products/congelados/bastonesMuzza.png",
     categoria: "Congelados",
     descripcion: "Bastones de muzzarella rebozados y supercongelados. Se derriten por dentro con una cobertura dorada y crocante. Precio por 1kg.",
@@ -3576,7 +3576,7 @@ const productos: Producto[] = [
   {
     id: 178,
     nombre: "Mini Croquetas Jamón y Queso",
-    precio: 10900,
+    precio: 11200,
     imagen: "/products/congelados/miniCroquetasJamonQueso.png",
     categoria: "Congelados",
     descripcion: "Mini croquetas rellenas de jamón y queso, rebozadas y supercongeladas. Irresistibles como picada o entrada. Precio por 1kg.",
@@ -3587,7 +3587,7 @@ const productos: Producto[] = [
   {
     id: 179,
     nombre: "Mini Croquetas Espinaca y Queso",
-    precio: 10900,
+    precio: 11200,
     imagen: "/products/congelados/miniCroquetasEspinacaQueso.png",
     categoria: "Congelados",
     descripcion: "Mini croquetas rellenas de espinaca y queso, rebozadas y supercongeladas. Una opción nutritiva y deliciosa. Precio por 1kg.",
