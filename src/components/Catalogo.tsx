@@ -473,7 +473,7 @@ const productos: Producto[] = [
   {
     id: 36,
     nombre: "Yerba Verdeflor Hierbas Serranas 500g",
-    precio: 1950,
+    precio: 2300,
     imagen: "/products/desayuno/yerbaVerdeFlor500.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -1183,7 +1183,7 @@ const productos: Producto[] = [
   {
     id: 77,
     nombre: "Lentejas Egran 400g",
-    precio: 2600,
+    precio: 2900,
     imagen: "/products/almacen/lentejasEgran500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -1232,7 +1232,7 @@ const productos: Producto[] = [
   {
     id: 81,
     nombre: "Puré de Tomates De La Huerta 530g",
-    precio: 1100,
+    precio: 1300,
     imagen: "/products/almacen/pureTomateLaHuerta530.png",
     categoria: "Almacén",
     subcategoria: undefined,
