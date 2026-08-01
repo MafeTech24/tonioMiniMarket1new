@@ -3631,7 +3631,7 @@ const productos: Producto[] = [
   {
     id: 183,
     nombre: "Nuggets de Pollo",
-    precio: 13200,
+    precio: 13600,
     imagen: "/products/congelados/nuggetsPollo.png",
     categoria: "Congelados",
     descripcion: "Nuggets de pechuga de pollo rebozados y supercongelados. Clásicos e irresistibles para toda la familia. Precio por 1kg.",
