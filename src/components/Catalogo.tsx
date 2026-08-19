@@ -464,7 +464,7 @@ const productos: Producto[] = [
   {
     id: 36,
     nombre: "Yerba Verdeflor Hierbas Serranas 500g",
-    precio: 1950,
+    precio: 2300,
     imagen: "/products/desayuno/yerbaVerdeFlor500.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -1174,7 +1174,7 @@ const productos: Producto[] = [
   {
     id: 77,
     nombre: "Lentejas Egran 400g",
-    precio: 2600,
+    precio: 2900,
     imagen: "/products/almacen/lentejasEgran500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -1223,7 +1223,7 @@ const productos: Producto[] = [
   {
     id: 81,
     nombre: "Puré de Tomates De La Huerta 530g",
-    precio: 1100,
+    precio: 1300,
     imagen: "/products/almacen/pureTomateLaHuerta530.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -3622,7 +3622,7 @@ const productos: Producto[] = [
   {
     id: 183,
     nombre: "Nuggets de Pollo",
-    precio: 13200,
+    precio: 13600,
     imagen: "/products/congelados/nuggetsPollo.png",
     categoria: "Congelados",
     descripcion: "Nuggets de pechuga de pollo rebozados y supercongelados. Clásicos e irresistibles para toda la familia. Precio por 1kg.",
@@ -4029,7 +4029,7 @@ const productos: Producto[] = [
   {
     id: 419,
     nombre: "Sorrentinos de Jamón y Queso",
-    precio: 10500,
+    precio: 11500,
     imagen: "/products/congelados/sorrentinosJamonQueso.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de jamón y queso. Precio por 15 unidades.",
@@ -4039,7 +4039,7 @@ const productos: Producto[] = [
   {
     id: 420,
     nombre: "Sorrentinos de Jamón, Queso y Nuez",
-    precio: 10500,
+    precio: 11500,
     imagen: "/products/congelados/sorrentinosJamonQuesoNuez.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de jamón, queso y nuez. Precio por 15 unidades.",
@@ -4049,7 +4049,7 @@ const productos: Producto[] = [
   {
     id: 421,
     nombre: "Sorrentinos de Berenjena Ahumada",
-    precio: 10500,
+    precio: 11500,
     imagen: "/products/congelados/sorrentinosBerenjenaAhumada.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de berenjena ahumada. Precio por 15 unidades.",
@@ -4059,7 +4059,7 @@ const productos: Producto[] = [
   {
     id: 422,
     nombre: "Sorrentinos de Calabaza y Muzzarella",
-    precio: 10500,
+    precio: 11500,
     imagen: "/products/congelados/sorrentinosCalabazaMuzzarella.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de calabaza y muzzarella. Precio por 15 unidades.",
@@ -4069,7 +4069,7 @@ const productos: Producto[] = [
   {
     id: 423,
     nombre: "Sorrentinos de Pollo y Espinaca",
-    precio: 10500,
+    precio: 11500,
     imagen: "/products/congelados/sorrentinosPolloEspinaca.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados de pollo y espinaca. Precio por 15 unidades.",
@@ -4079,7 +4079,7 @@ const productos: Producto[] = [
   {
     id: 500,
     nombre: "Sorrentinos Cuatro Quesos",
-    precio: 10500,
+    precio: 11500,
     imagen: "/products/congelados/sorrentinosCuatroQuesos.png",
     categoria: "Congelados",
     descripcion: "Sorrentinos congelados rellenos de una exquisita combinación de cuatro quesos. Precio por 15 unidades.",
