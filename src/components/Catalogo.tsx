@@ -53,7 +53,7 @@ const productos: Producto[] = [
   {
     id: 1,
     nombre: "Azúcar Ledesma Clásica 1kg",
-    precio: 1900,
+    precio: 2000,
     imagen: "/products/desayuno/azucarLedesma1000.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -92,20 +92,11 @@ const productos: Producto[] = [
     stock: 20
   },
   */
-  {
-    id: 5,
-    nombre: "Café Instantáneo Dolca 170g",
-    precio: 10550,
-    imagen: "/products/desayuno/cafeInstantaneoDolca170.png",
-    categoria: "Almacén",
-    subcategoria: "Desayuno",
-    descripcion: "Café instantáneo Nescafé Dolca Original en frasco de 170g. 100% café de origen responsable.",
-    stock: 20
-  },
+
    {
     id: 111,
     nombre: "Café La Virginia Doy Pack 100g",
-    precio: 4300,
+    precio: 5100,
     imagen: "/products/desayuno/cafeLaVirginiaDoyPack100.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -115,7 +106,7 @@ const productos: Producto[] = [
   {
     id: 6,
     nombre: "Café La Virginia Doy Pack 170g",
-    precio: 6900,
+    precio: 7600,
     imagen: "/products/desayuno/cafeLaVirginiaDoyPack170.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -135,7 +126,7 @@ const productos: Producto[] = [
   {
     id: 8,
     nombre: "Café La Virginia Torrado 250g",
-    precio: 5700,
+    precio: 6100,
     imagen: "/products/desayuno/cafeLaVirginiaTorrado250.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -145,7 +136,7 @@ const productos: Producto[] = [
   {
     id: 106,
     nombre: "Café La Virginia Torrado 500g",
-    precio: 11400,
+    precio: 11900,
     imagen: "/products/desayuno/cafeLaVirginiaTorrado500.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -153,13 +144,13 @@ const productos: Producto[] = [
     stock: 20
   },
   {
-    id: 113,
-    nombre: "Café La Virginia Torrado 1kg",
-    precio: 22800,
-    imagen: "/products/desayuno/cafeLaVirginiaTorrado1000.png",
+    id: 787,
+    nombre: "Café La Virginia Torrado 125g",
+    precio: 3800,
+    imagen: "/products/desayuno/cafeLaVirginiaTorrado125.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
-    descripcion: "Café molido torrado equilibrado La Virginia, paquete de 1kg. Sabor suave y balanceado, ideal para cafetera o filtro. Formato familiar ahorro.",
+    descripcion: "Café molido torrado clásico La Virginia, paquete de 125g. Sabor equilibrado y tradicional.",
     stock: 20
   },
   {
@@ -723,7 +714,7 @@ const productos: Producto[] = [
   {
     id: 303,
     nombre: "Crema de Leche Tonadita",
-    precio: 2400,
+    precio: 2700,
     imagen: "/products/lacteos/cremaTonadita.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -753,7 +744,7 @@ const productos: Producto[] = [
   {
     id: 306,
     nombre: "Crema de Leche Milkaut 350g",
-    precio: 3900,
+    precio: 4000,
     imagen: "/products/lacteos/cremaMilkaut350.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -1073,7 +1064,7 @@ const productos: Producto[] = [
   {
     id: 66,
     nombre: "Aceite Natura 900ml",
-    precio: 4600,
+    precio: 5100,
     imagen: "/products/almacen/aceiteNatura900.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -1083,7 +1074,7 @@ const productos: Producto[] = [
   {
     id: 67,
     nombre: "Aceite Natura 1500ml",
-    precio: 6800,
+    precio: 8200,
     imagen: "/products/almacen/aceiteNatura1500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -1093,7 +1084,7 @@ const productos: Producto[] = [
   {
     id: 68,
     nombre: "Arroz Dos Hermanos Largo Fino 500g",
-    precio: 900,
+    precio: 1200,
     imagen: "/products/almacen/arrozDosHnosLF500.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -1252,7 +1243,7 @@ const productos: Producto[] = [
   {
     id: 83,
     nombre: "Cerveza Stella Artois",
-    precio: 3500,
+    precio: 3700,
     imagen: "/products/bebidas/cervezaStellaArtois.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
@@ -1260,7 +1251,7 @@ const productos: Producto[] = [
     stock: 20,
     presentaciones: [
       { nombre: "1L", precio: 5900 },
-      { nombre: "LATA", precio: 3500 }
+      { nombre: "LATA", precio: 3700 }
     ]
   },
   {
@@ -1370,32 +1361,32 @@ const productos: Producto[] = [
   {
     id: 89,
     nombre: "Bebida Energética Gatorade Naranja",
-    precio: 2400,
+    precio: 2800,
     imagen: "/products/bebidas/gatoradeNaranja.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Bebida energética / isotónica Gatorade sabor naranja. Seleccioná tu presentación favorita.",
     stock: 20,
     presentaciones: [
-      { nombre: "500 ml", precio: 2400 },
-      { nombre: "1 Litro", precio: 4500 }
+      { nombre: "500 ml", precio: 2800 },
+      { nombre: "1 Litro", precio: 5800 }
     ]
   },
 
   {
     id: 90,
     nombre: "Coca-Cola",
-    precio: 1800,
+    precio: 2100,
     imagen: "/products/bebidas/cocaCola.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Coca-Cola sabor original. Seleccioná tu presentación favorita.",
     stock: 20,
     presentaciones: [
-      { nombre: "500ML", precio: 1800 },
-      { nombre: "LITRO", precio: 3200 },
-      { nombre: "1,5L", precio: 4200 },
-      { nombre: "2,25L", precio: 5300 }
+      { nombre: "500ML", precio: 2100 },
+      { nombre: "LITRO", precio: 3300 },
+      { nombre: "1,5L", precio: 4300 },
+      { nombre: "2,25L", precio: 5600 }
     ]
   },
 
@@ -1640,7 +1631,7 @@ const productos: Producto[] = [
   {
     id: 639,
     nombre: "Cerveza Brahma",
-    precio: 2300,
+    precio: 2400,
     imagen: "/products/bebidas/cervezaBrahma.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
@@ -1648,13 +1639,13 @@ const productos: Producto[] = [
     stock: 20,
     presentaciones: [
       { nombre: "1L", precio: 3900 },
-      { nombre: "LATA", precio: 2300 }
+      { nombre: "LATA", precio: 2400 }
     ]
   },
   {
     id: 640,
     nombre: "Cerveza Budweiser",
-    precio: 2300,
+    precio: 2400,
     imagen: "/products/bebidas/cervezaBudweiser.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
@@ -1662,7 +1653,7 @@ const productos: Producto[] = [
     stock: 20,
     presentaciones: [
       { nombre: "1L", precio: 3900 },
-      { nombre: "LATA", precio: 2300 }
+      { nombre: "LATA", precio: 2400 }
     ]
   },
   {
@@ -1704,7 +1695,7 @@ const productos: Producto[] = [
     stock: 20,
     presentaciones: [
       { nombre: "200ML", precio: 1300 },
-      { nombre: "LITRO", precio: 3300 }
+      { nombre: "LITRO", precio: 3500 }
     ]
   },
   {
@@ -1718,7 +1709,7 @@ const productos: Producto[] = [
     stock: 20,
     presentaciones: [
       { nombre: "200ML", precio: 1300 },
-      { nombre: "LITRO", precio: 3300 }
+      { nombre: "LITRO", precio: 3500 }
     ]
   },
   {
@@ -1732,115 +1723,115 @@ const productos: Producto[] = [
     stock: 20,
     presentaciones: [
       { nombre: "200ML", precio: 1300 },
-      { nombre: "LITRO", precio: 3300 }
+      { nombre: "LITRO", precio: 3500 }
     ]
   },
   {
     id: 605,
     nombre: "Pepsi",
-    precio: 1600,
+    precio: 1800,
     imagen: "/products/bebidas/pepsiBotella.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Pepsi sabor original refrescante. Seleccioná tu presentación favorita.",
     stock: 20,
     presentaciones: [
-      { nombre: "500ML", precio: 1600 },
-      { nombre: "2 LITROS", precio: 3300 }
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "2 LITROS", precio: 3800 }
     ]
   },
   {
     id: 606,
     nombre: "Pepsi Lata",
-    precio: 1400,
+    precio: 1500,
     imagen: "/products/bebidas/pepsiLata.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Pepsi en lata de 354ml sabor original.",
     stock: 20,
     presentaciones: [
-      { nombre: "LATA 354", precio: 1400 }
+      { nombre: "LATA 354", precio: 1500 }
     ]
   },
   {
     id: 607,
     nombre: "7Up",
-    precio: 1600,
+    precio: 1800,
     imagen: "/products/bebidas/7upBotella.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "7Up refrescante sabor lima-limón. Seleccioná tu presentación favorita.",
     stock: 20,
     presentaciones: [
-      { nombre: "500ML", precio: 1600 },
-      { nombre: "2 LITROS", precio: 3300 }
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "2 LITROS", precio: 3800 }
     ]
   },
   {
     id: 608,
     nombre: "7Up Lata",
-    precio: 1400,
+    precio: 1500,
     imagen: "/products/bebidas/7upLata.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "7Up en lata de 354ml sabor lima-limón.",
     stock: 20,
     presentaciones: [
-      { nombre: "LATA 354", precio: 1400 }
+      { nombre: "LATA 354", precio: 1500 }
     ]
   },
   {
     id: 609,
     nombre: "7Up Free",
-    precio: 1600,
+    precio: 1800,
     imagen: "/products/bebidas/7upBotellaFree.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "7Up Free libre de azúcares. Seleccioná tu presentación favorita.",
     stock: 20,
     presentaciones: [
-      { nombre: "500ML", precio: 1600 },
-      { nombre: "2 LITROS", precio: 3300 }
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "2 LITROS", precio: 3800 }
     ]
   },
   {
     id: 610,
     nombre: "7Up Lata Free",
-    precio: 1400,
+    precio: 1500,
     imagen: "/products/bebidas/7upLataFree.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "7Up Free en lata de 354ml libre de azúcares.",
     stock: 20,
     presentaciones: [
-      { nombre: "LATA 354", precio: 1400 }
+      { nombre: "LATA 354", precio: 1500 }
     ]
   },
   {
     id: 611,
     nombre: "Pepsi Black",
-    precio: 1600,
+    precio: 1800,
     imagen: "/products/bebidas/pepsiBotellaBlack.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Pepsi Black sabor intenso sin azúcar. Seleccioná tu presentación favorita.",
     stock: 20,
     presentaciones: [
-      { nombre: "500ML", precio: 1600 },
-      { nombre: "2 LITROS", precio: 3300 }
+      { nombre: "500ML", precio: 1800 },
+      { nombre: "2 LITROS", precio: 3800 }
     ]
   },
   {
     id: 612,
     nombre: "Pepsi Lata Black",
-    precio: 1400,
+    precio: 1500,
     imagen: "/products/bebidas/pepsiLataBlack.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Pepsi Black en lata de 354ml sabor intenso sin azúcar.",
     stock: 20,
     presentaciones: [
-      { nombre: "LATA 354", precio: 1400 }
+      { nombre: "LATA 354", precio: 1500 }
     ]
   },
   {
@@ -2042,29 +2033,29 @@ const productos: Producto[] = [
   {
     id: 658,
     nombre: "Bebida Energética Gatorade Cool Blue",
-    precio: 2400,
+    precio: 2800,
     imagen: "/products/bebidas/gatoradeCoolBlue.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Bebida energética / isotónica Gatorade sabor Cool Blue. Seleccioná tu presentación favorita.",
     stock: 20,
     presentaciones: [
-      { nombre: "500 ml", precio: 2400 },
-      { nombre: "1 Litro", precio: 4500 }
+      { nombre: "500 ml", precio: 2800 },
+      { nombre: "1 Litro", precio: 5800 }
     ]
   },
   {
     id: 659,
     nombre: "Bebida Energética Gatorade Manzana",
-    precio: 2400,
+    precio: 2800,
     imagen: "/products/bebidas/gatoradeManzana.png",
     categoria: "Bebidas",
     subcategoria: "Sin alcohol",
     descripcion: "Bebida energética / isotónica Gatorade sabor manzana. Seleccioná tu presentación favorita.",
     stock: 20,
     presentaciones: [
-      { nombre: "500 ml", precio: 2400 },
-      { nombre: "1 Litro", precio: 4500 }
+      { nombre: "500 ml", precio: 2800 },
+      { nombre: "1 Litro", precio: 5800 }
     ]
   },
   {
@@ -2320,7 +2311,7 @@ const productos: Producto[] = [
   {
     id: 137,
     nombre: "Choclo Blanco Cremoso Inalpa",
-    precio: 900,
+    precio: 1000,
     imagen: "/products/conservas/chocloBlancoCremoso.png",
     categoria: "Almacén",
     subcategoria: "Conservas",
@@ -2330,7 +2321,7 @@ const productos: Producto[] = [
   {
     id: 138,
     nombre: "Choclo Amarillo Inalpa",
-    precio: 1600,
+    precio: 1800,
     imagen: "/products/conservas/chocloAmarillo.png",
     categoria: "Almacén",
     subcategoria: "Conservas",
@@ -2360,7 +2351,7 @@ const productos: Producto[] = [
   {
     id: 141,
     nombre: "Atún al Natural La Campagnola 170g",
-    precio: 5800,
+    precio: 7200,
     imagen: "/products/conservas/atunNaturalLomoLaCampagnola170.png",
     categoria: "Almacén",
     subcategoria: "Conservas",
@@ -2569,7 +2560,7 @@ const productos: Producto[] = [
   {
     id: 159,
     nombre: "Cheetos 3D 75g",
-    precio: 3300,
+    precio: 3700,
     imagen: "/products/kiosco/3D75.png",
     categoria: "Kiosco",
     descripcion: "Snack de maíz Cheetos 3D 75g. Crujientes y con sabor a queso. Formato familiar.",
@@ -2587,7 +2578,7 @@ const productos: Producto[] = [
   {
     id: 161,
     nombre: "Doritos 75g",
-    precio: 3300,
+    precio: 3700,
     imagen: "/products/kiosco/doritos75gr.png",
     categoria: "Kiosco",
     descripcion: "Nachos Doritos 75g. Chips de maíz con intenso sabor. Formato familiar.",
@@ -2596,7 +2587,7 @@ const productos: Producto[] = [
   {
     id: 162,
     nombre: "Chocolate Cofler Block 38 Gr",
-    precio: 2300,
+    precio: 2400,
     imagen: "/products/kiosco/coflerBlock38gr.png",
     categoria: "Kiosco",
     descripcion: "Chocolate Cofler Block 38g. Chocolate con leche clásico, suave y cremoso. El clásico argentino de siempre.",
@@ -2605,7 +2596,7 @@ const productos: Producto[] = [
   {
     id: 163,
     nombre: "Chocolate Cofler Block 110 Gr",  
-    precio: 5900,
+    precio: 6000,
     imagen: "/products/kiosco/coflerBlock110gr.png",
     categoria: "Kiosco",
     descripcion: "Chocolate Cofler Block 110g. Chocolate con leche clásico en formato grande. Ideal para compartir.",
@@ -2668,7 +2659,7 @@ const productos: Producto[] = [
   {
     id: 707,
     nombre: "Alfajor Triple Terrabusi",
-    precio: 1800,
+    precio: 2000,
     imagen: "/products/kiosco/alfajorTripleTerrabusi.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Terrabusi clásico con relleno de dulce de leche y baño de repostería.",
@@ -2677,7 +2668,7 @@ const productos: Producto[] = [
   {
     id: 708,
     nombre: "Alfajor Triple Milka Dulce de Leche",
-    precio: 1800,
+    precio: 2000,
     imagen: "/products/kiosco/alfajorTripleMilkaDLeche.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Milka relleno de dulce de leche cubierto con chocolate con leche Milka.",
@@ -2686,7 +2677,7 @@ const productos: Producto[] = [
   {
     id: 709,
     nombre: "Alfajor Triple Milka Mousse",
-    precio: 1800,
+    precio: 2000,
     imagen: "/products/kiosco/alfajorTripleMilkaMousse.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Milka relleno de mousse de chocolate cubierto con chocolate con leche Milka.",
@@ -2695,7 +2686,7 @@ const productos: Producto[] = [
   {
     id: 710,
     nombre: "Alfajor Triple Milka Oreo",
-    precio: 1800,
+    precio: 2000,
     imagen: "/products/kiosco/alfajorTripleMilkaOreo.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Milka con galletitas Oreo, relleno de crema y cubierto con chocolate Milka.",
@@ -2704,7 +2695,7 @@ const productos: Producto[] = [
   {
     id: 711,
     nombre: "Alfajor Triple Oreo",
-    precio: 1800,
+    precio: 2000,
     imagen: "/products/kiosco/alfajorTripleOreo.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Oreo, relleno de crema y cubierto con baño de repostería de chocolate.",
@@ -2713,7 +2704,7 @@ const productos: Producto[] = [
   {
     id: 712,
     nombre: "Alfajor Triple Pepito",
-    precio: 1800,
+    precio: 2000,
     imagen: "/products/kiosco/alfajorTriplePepitos.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple con galletitas Pepito, relleno de dulce de leche y cubierto con chocolate.",
@@ -2722,7 +2713,7 @@ const productos: Producto[] = [
   {
     id: 713,
     nombre: "Alfajor Triple Bon o Bon Blanco",
-    precio: 2100,
+    precio: 2300,
     imagen: "/products/kiosco/alfajorTripleBobBlanco.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Bon o Bon con relleno a base de pasta de maní y baño de repostería blanco.",
@@ -2731,7 +2722,7 @@ const productos: Producto[] = [
   {
     id: 714,
     nombre: "Alfajor Triple Bon o Bon Negro",
-    precio: 2100,
+    precio: 2300,
     imagen: "/products/kiosco/alfajorTripleBobNegro.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Bon o Bon con relleno a base de pasta de maní y baño de repostería de chocolate con leche.",
@@ -2740,7 +2731,7 @@ const productos: Producto[] = [
   {
     id: 715,
     nombre: "Alfajor Triple Águila Clásico",
-    precio: 2100,
+    precio: 2300,
     imagen: "/products/kiosco/alfajorTripleAguila.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Águila clásico, relleno de dulce de leche y cubierto con chocolate semi-amargo Águila.",
@@ -2749,7 +2740,7 @@ const productos: Producto[] = [
   {
     id: 716,
     nombre: "Alfajor Triple Águila Blanco",
-    precio: 2100,
+    precio: 2300,
     imagen: "/products/kiosco/alfajorTripleAguilaBlanco.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Águila blanco (mousse), con relleno de dulce de leche y cubierto con chocolate blanco Águila.",
@@ -2758,7 +2749,7 @@ const productos: Producto[] = [
   {
     id: 717,
     nombre: "Alfajor Triple Águila Coco",
-    precio: 2100,
+    precio: 2300,
     imagen: "/products/kiosco/alfajorTripleAguilaCoco.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Águila sabor coco, relleno de dulce de leche y cubierto con chocolate blanco.",
@@ -2767,7 +2758,7 @@ const productos: Producto[] = [
   {
     id: 718,
     nombre: "Alfajor Triple Tofi Blanco",
-    precio: 2100,
+    precio: 2300,
     imagen: "/products/kiosco/alfajorTripleTofiBlanco.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Tofi con relleno de dulce de leche y cubierto con baño de repostería blanco.",
@@ -2776,7 +2767,7 @@ const productos: Producto[] = [
   {
     id: 719,
     nombre: "Alfajor Triple Tofi Negro",
-    precio: 2100,
+    precio: 2300,
     imagen: "/products/kiosco/alfajorTripleTofiNegro.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Tofi con relleno de dulce de leche y cubierto con chocolate negro.",
@@ -2785,7 +2776,7 @@ const productos: Producto[] = [
   {
     id: 720,
     nombre: "Alfajor Block Triple",
-    precio: 2100,
+    precio: 2300,
     imagen: "/products/kiosco/alfajorTripleBlock.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Block con dulce de leche, trozos de maní y cubierto con chocolate con leche Block.",
@@ -2794,7 +2785,7 @@ const productos: Producto[] = [
   {
     id: 721,
     nombre: "Alfajor Tatin Triple Blanco",
-    precio: 1100,
+    precio: 1450,
     imagen: "/products/kiosco/alfajorTripleTatinBco.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Tatin relleno de dulce de leche con baño de repostería blanco.",
@@ -2803,7 +2794,7 @@ const productos: Producto[] = [
   {
     id: 722,
     nombre: "Alfajor Tatin Triple Negro",
-    precio: 1100,
+    precio: 1450,
     imagen: "/products/kiosco/alfajorTripleTatinNegro.png",
     categoria: "Kiosco",
     descripcion: "Alfajor triple Tatin relleno de dulce de leche con baño de repostería negro.",
@@ -2812,7 +2803,7 @@ const productos: Producto[] = [
   {
     id: 723,
     nombre: "Alfajor Tatin Simple Blanco",
-    precio: 600,
+    precio: 700,
     imagen: "/products/kiosco/alfajorTatinBco.png",
     categoria: "Kiosco",
     descripcion: "Alfajor simple Tatin relleno de dulce de leche con baño de repostería blanco.",
@@ -2821,7 +2812,7 @@ const productos: Producto[] = [
   {
     id: 724,
     nombre: "Alfajor Tatin Simple Negro",
-    precio: 600,
+    precio: 700,
     imagen: "/products/kiosco/alfajorTatinNegro.png",
     categoria: "Kiosco",
     descripcion: "Alfajor simple Tatin relleno de dulce de leche con baño de repostería negro.",
@@ -2911,7 +2902,7 @@ const productos: Producto[] = [
   {
     id: 754,
     nombre: "Bon o Bon Negro",
-    precio: 700,
+    precio: 800,
     imagen: "/products/kiosco/bonobonNegro.png",
     categoria: "Kiosco",
     descripcion: "Bombón de chocolate con leche relleno con pasta de maní.",
@@ -2920,7 +2911,7 @@ const productos: Producto[] = [
   {
     id: 755,
     nombre: "Bon o Bon Blanco",
-    precio: 700,
+    precio: 800,
     imagen: "/products/kiosco/bonobonBco.png",
     categoria: "Kiosco",
     descripcion: "Bombón de chocolate blanco relleno con pasta de maní.",
@@ -2929,7 +2920,7 @@ const productos: Producto[] = [
   {
     id: 756,
     nombre: "Bon o Bon Coco",
-    precio: 700,
+    precio: 800,
     imagen: "/products/kiosco/bonobonCoco.png",
     categoria: "Kiosco",
     descripcion: "Bombón de chocolate blanco con relleno sabor coco y pasta de maní.",
@@ -2938,7 +2929,7 @@ const productos: Producto[] = [
   {
     id: 757,
     nombre: "Bon o Bon Cookies-Cream",
-    precio: 700,
+    precio: 800,
     imagen: "/products/kiosco/bonobnCookiesCream.png",
     categoria: "Kiosco",
     descripcion: "Bombón relleno sabor cookies & cream con galletitas de chocolate.",
