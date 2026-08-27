@@ -190,11 +190,41 @@ const productos: Producto[] = [
   {
     id: 12,
     nombre: "Dulce de Leche La Serenísima Estilo Colonial 400g",
-    precio: 3900,
+    precio: 4250,
     imagen: "/products/desayuno/dLecheEstiloColonialLaSerenisima400.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
     descripcion: "Dulce de leche estilo colonial La Serenísima, 400g. Sin TACC, libre de lactosa y sin gluten.",
+    stock: 20
+  },
+  {
+    id: 788,
+    nombre: "Dulce de Leche La Serenísima Estilo Colonial 250g",
+    precio: 3100,
+    imagen: "/products/desayuno/dLecheEstiloColonialLaSerenisima250.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Dulce de leche estilo colonial La Serenísima, 250g. Sin TACC, libre de gluten.",
+    stock: 20
+  },
+  {
+    id: 789,
+    nombre: "Dulce de Leche La Serenísima Clásico 400g",
+    precio: 3950,
+    imagen: "/products/desayuno/dLecheClasicoLaSerenisima400.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Dulce de leche clásico La Serenísima, 400g. El sabor tradicional argentino, sin TACC.",
+    stock: 20
+  },
+  {
+    id: 790,
+    nombre: "Dulce de Leche La Serenísima Clásico 250g",
+    precio: 2900,
+    imagen: "/products/desayuno/dLecheClasicoLaSerenisima250.png",
+    categoria: "Almacén",
+    subcategoria: "Desayuno",
+    descripcion: "Dulce de leche clásico La Serenísima, 250g. El sabor tradicional argentino, sin TACC.",
     stock: 20
   },
   {
@@ -260,7 +290,7 @@ const productos: Producto[] = [
   {
     id: 18,
     nombre: "Galletas Mediatarde x3",
-    precio: 1700,
+    precio: 2100,
     imagen: "/products/desayuno/galletasMediatardex3.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -734,7 +764,7 @@ const productos: Producto[] = [
   {
     id: 305,
     nombre: "Crema de Leche Milkaut 200g",
-    precio: 2500,
+    precio: 2900,
     imagen: "/products/lacteos/cremaMilkaut200.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -1144,7 +1174,7 @@ const productos: Producto[] = [
   {
     id: 74,
     nombre: "Harina Leudante Corona de Trigo 1kg",
-    precio: 1400,
+    precio: 1800,
     imagen: "/products/almacen/harinaCoronaTrigoLeudante1000.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -1154,7 +1184,7 @@ const productos: Producto[] = [
   {
     id: 75,
     nombre: "Harina Pureza Leudante 1kg",
-    precio: 1500,
+    precio: 1800,
     imagen: "/products/almacen/harinaPurezaLeudante1000.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -1164,7 +1194,7 @@ const productos: Producto[] = [
   {
     id: 76,
     nombre: "Harina Pureza Especial Pizzas Caseras 1kg",
-    precio: 1900,
+    precio: 2300,
     imagen: "/products/almacen/harinaPurezaPizzasCaseras1000.png",
     categoria: "Almacén",
     subcategoria: undefined,
@@ -2226,15 +2256,6 @@ const productos: Producto[] = [
     stock: 20
   },
   {
-    id: 127,
-    nombre: "Detergente Héroe Plus",
-    precio: 1400,
-    imagen: "/products/limpiezaPerfumeria/detergenteHeroe.png",
-    categoria: "Limpieza y Perfumería",
-    descripcion: "Detergente lavavajillas Héroe Plus, variedad de fragancias. Desengrasante efectivo, cuida las manos.",
-    stock: 20
-  },
-  {
     id: 129,
     nombre: "Detergente Cif Bioactive Lima 300ml",
     precio: 2700,
@@ -2246,7 +2267,7 @@ const productos: Producto[] = [
   {
     id: 130,
     nombre: "Detergente Ala Ultra 300ml",
-    precio: 2000,
+    precio: 2600,
     imagen: "/products/limpiezaPerfumeria/detergenteAla300ml.png",
     categoria: "Limpieza y Perfumería",
     descripcion: "Detergente lavavajillas Ala Ultra 500ml. Doble poder desengrasante, cuida las manos y los utensilios.",
@@ -2371,7 +2392,7 @@ const productos: Producto[] = [
   {
     id: 143,
     nombre: "Duraznos en Almíbar Molto",
-    precio: 2200,
+    precio: 3400,
     imagen: "/products/conservas/duraznosAlmibarMolto.png",
     categoria: "Almacén",
     subcategoria: "Conservas",
@@ -2381,7 +2402,7 @@ const productos: Producto[] = [
   {
     id: 144,
     nombre: "Duraznos en Almíbar Agrosabor 950g",
-    precio: 2400,
+    precio: 3500,
     imagen: "/products/conservas/duraznosAlmibarAgrosabor.png",
     categoria: "Almacén",
     subcategoria: "Conservas",

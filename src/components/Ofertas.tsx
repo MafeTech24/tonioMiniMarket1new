@@ -11,15 +11,6 @@ import {
 } from "@/components/ui/carousel";
 
 const ofertas = [
-  { 
-    nombre: "Promo Doble Cola + Pebete/Miga", 
-    antes: "$3.500", 
-    ahora: "$2.800", 
-    desc: "¡El combo ideal para salvar tu almuerzo o merienda! Incluye: 1 Gaseosa Doble Cola de 1 Litro más tu elección de 1 Pebete completo o 1 Sándwich de miga triple. Una opción rápida, rica y súper conveniente.", 
-    img: "/products/promoDobleCola.png",
-    stock: 15,
-    categoria: "Bebidas"
-  },
   /*{ 
     nombre: "Promo Mermelada Orieta Durazno", 
     antes: "$2.200", 
