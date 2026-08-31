@@ -310,7 +310,7 @@ const productos: Producto[] = [
   {
     id: 20,
     nombre: "Galletas Traviatas x3",
-    precio: 2200,
+    precio: 2700,
     imagen: "/products/desayuno/galletasTraviatax3.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -352,7 +352,7 @@ const productos: Producto[] = [
   {
     id: 24,
     nombre: "Mermelada Durazno Arcor 454g",
-    precio: 3800,
+    precio: 4500,
     imagen: "/products/desayuno/mermeladaDuraznoArcor454.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -362,7 +362,7 @@ const productos: Producto[] = [
   {
     id: 501,
     nombre: "Mermelada Arcor light Durazno 390gr",
-    precio: 4100,
+    precio: 4900,
     imagen: "/products/desayuno/mermeladaDuraznoArcorLight390gr.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -684,7 +684,7 @@ const productos: Producto[] = [
   {
     id: 55,
     nombre: "Leche La Serenísima Entera 1L",
-    precio: 2400,
+    precio: 2500,
     imagen: "/products/lacteos/lecheSachet1L.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -714,7 +714,7 @@ const productos: Producto[] = [
   {
     id: 300,
     nombre: "Leche Armonía Clásica 1L",
-    precio: 2100,
+    precio: 2200,
     imagen: "/products/lacteos/lecheArmoniaSachet.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -734,7 +734,7 @@ const productos: Producto[] = [
   {
     id: 302,
     nombre: "Leche La Serenísima Zero Lactosa 1L",
-    precio: 2800,
+    precio: 3200,
     imagen: "/products/lacteos/lecheZeroLactosaLS.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -884,7 +884,7 @@ const productos: Producto[] = [
   {
     id: 350,
     nombre: "Manteca La Serenísima 100g",
-    precio: 2400,
+    precio: 2500,
     imagen: "/products/lacteos/mantecaSerenisima100.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -1034,7 +1034,7 @@ const productos: Producto[] = [
   {
     id: 59,
     nombre: "Lucchetti Codito 500g",
-    precio: 1600,
+    precio: 1950,
     imagen: "/products/pastas/luccettiCodito.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -1044,7 +1044,7 @@ const productos: Producto[] = [
   {
     id: 60,
     nombre: "Lucchetti Tallarín 500g",
-    precio: 1600,
+    precio: 1950,
     imagen: "/products/pastas/luccettiTallarin.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -1054,7 +1054,7 @@ const productos: Producto[] = [
   {
     id: 61,
     nombre: "Lucchetti Spaghetti 500g",
-    precio: 1600,
+    precio: 1950,
     imagen: "/products/pastas/lucchettiSpaghetti.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -1064,7 +1064,7 @@ const productos: Producto[] = [
   {
     id: 62,
     nombre: "Lucchetti Tirabuzón Nº34 500g",
-    precio: 1600,
+    precio: 1950,
     imagen: "/products/pastas/lucchettiTirabuzon.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -1301,7 +1301,7 @@ const productos: Producto[] = [
   {
     id: 85,
     nombre: "Fernet Branca 750ml",
-    precio: 17800,
+    precio: 23900,
     imagen: "/products/bebidas/fernetBranca750.png",
     categoria: "Bebidas",
     subcategoria: "Con alcohol",
@@ -2186,7 +2186,7 @@ const productos: Producto[] = [
   {
     id: 119,
     nombre: "Jabón Seiseme 300g",
-    precio: 2400,
+    precio: 2800,
     imagen: "/products/limpiezaPerfumeria/jabonSeiseme300.png",
     categoria: "Limpieza y Perfumería",
     descripcion: "Jabón en pan Seiseme para lavar ropa, 300g. 60 años de trayectoria, elaborado con materias primas naturales y degradables.",
@@ -2412,7 +2412,7 @@ const productos: Producto[] = [
   {
     id: 145,
     nombre: "Lucchetti Moños 500g",
-    precio: 2500,
+    precio: 2800,
     imagen: "/products/pastas/luccettiMonitos.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -2422,7 +2422,7 @@ const productos: Producto[] = [
   {
     id: 146,
     nombre: "Lucchetti Dedalitos 500g",
-    precio: 1600,
+    precio: 1950,
     imagen: "/products/pastas/luccettiDedalitos.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -2432,7 +2432,7 @@ const productos: Producto[] = [
   {
     id: 147,
     nombre: "Lucchetti Municiones 500g",
-    precio: 1600,
+    precio: 1950,
     imagen: "/products/pastas/luccettiMuniciones.png",
     categoria: "Almacén",
     subcategoria: "Pastas frescas y secas",
@@ -3076,7 +3076,7 @@ const productos: Producto[] = [
   {
     id: 771,
     nombre: "Menthoplus Sin Azúcar Cereza",
-    precio: 1100,
+    precio: 1250,
     imagen: "/products/kiosco/menthoplusSinAzucarCereza.png",
     categoria: "Kiosco",
     descripcion: "Pastillas Menthoplus Zero sin azúcar sabor cereza.",
@@ -3085,7 +3085,7 @@ const productos: Producto[] = [
   {
     id: 772,
     nombre: "Menthoplus Sin Azúcar Durazno",
-    precio: 1100,
+    precio: 1250,
     imagen: "/products/kiosco/menthoplusZeroDurazno.png",
     categoria: "Kiosco",
     descripcion: "Pastillas Menthoplus Zero sin azúcar sabor durazno.",
@@ -3094,7 +3094,7 @@ const productos: Producto[] = [
   {
     id: 773,
     nombre: "Menthoplus Sin Azúcar Mentol",
-    precio: 1100,
+    precio: 1250,
     imagen: "/products/kiosco/menthoplusZeroMentol.png",
     categoria: "Kiosco",
     descripcion: "Pastillas Menthoplus Zero sin azúcar sabor mentol.",
@@ -3103,7 +3103,7 @@ const productos: Producto[] = [
   {
     id: 774,
     nombre: "Menthoplus Sin Azúcar Negro",
-    precio: 1100,
+    precio: 1250,
     imagen: "/products/kiosco/menthoplusZeroMints.png",
     categoria: "Kiosco",
     descripcion: "Pastillas Menthoplus Zero sin azúcar sabor mentol extra fuerte.",
@@ -3240,7 +3240,7 @@ const productos: Producto[] = [
   {
     id: 732,
     nombre: "Galletitas Surtidas La Nonna",
-    precio: 1900,
+    precio: 2500,
     imagen: "/products/desayuno/surtidoLaNonna.png",
     categoria: "Almacén",
     subcategoria: "Desayuno",
@@ -3436,7 +3436,7 @@ const productos: Producto[] = [
   {
     id: 510,
     nombre: "Manteca Clucelat 100g",
-    precio: 1300,
+    precio: 1400,
     imagen: "/products/lacteos/mantecaClucelat100.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
@@ -3446,7 +3446,7 @@ const productos: Producto[] = [
   {
     id: 511,
     nombre: "Manteca Clucelat 200g",
-    precio: 2300,
+    precio: 2800,
     imagen: "/products/lacteos/mantecaClucelat200.png",
     categoria: "Almacén",
     subcategoria: "Lácteos",
