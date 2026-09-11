@@ -1,0 +1,29 @@
+-- Uso normal: sólo Marianella y Facundo administran el backend.
+-- 1. Crear sus dos usuarios desde Authentication > Users en Supabase.
+-- 2. Reemplazar los dos correos de ejemplo.
+-- 3. Ejecutar este bloque desde SQL Editor.
+-- No escribir contraseñas en este archivo.
+
+insert into public.admin_users (user_id, email, nombre, rol)
+select
+  users.id,
+  users.email,
+  configuracion.nombre,
+  'propietario'
+from auth.users as users
+join (
+  values
+    ('CORREO-DE-MARIANELLA@ejemplo.com', 'Marianella'),
+    ('CORREO-DE-FACUNDO@ejemplo.com', 'Facundo')
+) as configuracion(email, nombre)
+  on lower(users.email) = lower(configuracion.email)
+on conflict (user_id) do update set
+  email = excluded.email,
+  nombre = excluded.nombre,
+  rol = excluded.rol;
+
+-- Verificación: deben aparecer los dos propietarios.
+select nombre, email, rol
+from public.admin_users
+where rol = 'propietario'
+order by nombre;

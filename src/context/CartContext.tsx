@@ -1,16 +1,25 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { toast } from "sonner";
 
 export interface CartItem {
+  productoId?: number;
+  tipo: "producto" | "oferta";
   nombre: string;
   precio: number;
   precioFormateado: string;
   cantidad: number;
 }
 
+export interface CartProductInput {
+  id?: number;
+  tipo?: "producto" | "oferta";
+  nombre: string;
+  precio: number | string;
+}
+
 interface CartContextProps {
   cart: CartItem[];
-  addToCart: (producto: { nombre: string; precio: number | string }, cantidad?: number) => void;
+  addToCart: (producto: CartProductInput, cantidad?: number) => void;
   removeFromCart: (nombre: string) => void;
   updateQuantity: (nombre: string, cantidad: number) => void;
   clearCart: () => void;
@@ -30,9 +39,20 @@ const formatPrice = (price: number) => {
 };
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    try {
+      const saved = localStorage.getItem("tonio-cart");
+      return saved ? JSON.parse(saved) as CartItem[] : [];
+    } catch {
+      return [];
+    }
+  });
 
-  const addToCart = (producto: { nombre: string; precio: number | string }, cantidad: number = 1) => {
+  useEffect(() => {
+    localStorage.setItem("tonio-cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const addToCart = (producto: CartProductInput, cantidad: number = 1) => {
     setCart((prev) => {
       const existing = prev.find((item) => item.nombre === producto.nombre);
       const priceValue = parsePrice(producto.precio);
@@ -50,6 +70,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       return [
         ...prev,
         {
+          productoId: producto.id,
+          tipo: producto.tipo || "producto",
           nombre: producto.nombre,
           precio: priceValue,
           precioFormateado: formattedPrice,

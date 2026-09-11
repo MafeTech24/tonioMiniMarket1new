@@ -2,27 +2,25 @@ import { useState, FormEvent, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
 import { ShoppingCart, Plus, Minus, Trash2, MessageCircle, ArrowLeft, CheckCircle2, MapPin, Download } from "lucide-react";
+import { toast } from "sonner";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet";
 import { useCart } from "@/context/CartContext";
 import { supabase } from '@/lib/supabase'
 
 const OWNER_PHONE = "543516527241";
-const STORE_LAT = -31.4267;
-const STORE_LON = -64.2089;
+
+type DeliveryQuote = {
+  available: boolean;
+  free: boolean;
+  cost: number | null;
+  routeDistanceKm: number;
+  radialDistanceKm: number;
+  duration: string | null;
+  error?: string;
+};
 
 const formatTotal = (num: number) => {
   return "$" + num.toLocaleString("es-AR");
-};
-
-const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number) => {
-  const R = 6371; // km
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLon = (lon2 - lon1) * Math.PI / 180;
-  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-            Math.sin(dLon/2) * Math.sin(dLon/2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  return R * c;
 };
 
 type CheckoutStep = 'cart' | 'form' | 'confirmation' | 'success';
@@ -33,6 +31,7 @@ export const Cart = ({ isFloating = false }: { isFloating?: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState<CheckoutStep>('cart');
   const [orderNumber, setOrderNumber] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const ticketRef = useRef<HTMLDivElement>(null);
   const [ticketImage, setTicketImage] = useState<string | null>(null);
   
@@ -73,36 +72,27 @@ export const Cart = ({ isFloating = false }: { isFloating?: boolean }) => {
     setDeliveryDistance(null);
 
     try {
-      // Bounding box de Córdoba Capital: lon_min, lat_min, lon_max, lat_max
-      const VIEWBOX = "-64.35,-31.55,-64.05,-31.30";
-      const query = `${formData.street}, Córdoba Capital`;
-      const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1` +
-        `&countrycodes=ar&addressdetails=1&bounded=1&viewbox=${VIEWBOX}` +
-        `&q=${encodeURIComponent(query)}`;
+      const { data, error } = await supabase.functions.invoke<DeliveryQuote>(
+        "calcular-envio",
+        { body: { street: formData.street.trim() } },
+      );
 
-      const res = await fetch(url);
-      const data = await res.json();
+      if (error) throw error;
+      if (!data) throw new Error("No se recibió una cotización de envío.");
 
-      if (data && data.length > 0) {
-        const lat = parseFloat(data[0].lat);
-        const lon = parseFloat(data[0].lon);
-        const dist = calculateDistance(STORE_LAT, STORE_LON, lat, lon);
-        const distRounded = Math.round(dist * 10) / 10;
-        setDeliveryDistance(distRounded);
+      setDeliveryDistance(data.routeDistanceKm);
 
-        if (distRounded <= 2) {
-          setDeliveryCost(0);
-        } else if (distRounded <= 10) {
-          const cost = Math.round((distRounded * 2) * 250);
-          setDeliveryCost(cost);
-        } else {
-          setDeliveryCost(null);
-          setGeoError("Lo sentimos, por ahora no llegamos a tu zona. Podés retirar en Falucho 275, Bº Las Palmas.");
-        }
+      if (!data.available || data.cost === null) {
+        setDeliveryCost(null);
+        setGeoError(
+          data.error
+          || "Lo sentimos, por ahora no llegamos a tu zona. Podés retirar en Falucho 275, Bº Las Palmas.",
+        );
       } else {
-        setGeoError("⚠️ No encontramos esa dirección. Probá con calle, número y barrio.");
+        setDeliveryCost(data.cost);
       }
-    } catch (e) {
+    } catch (error) {
+      console.error("Error calculando el envío:", error);
       setGeoError("Hubo un error calculando el envío. Intentá de nuevo.");
     } finally {
       setIsCalculatingDistance(false);
@@ -110,17 +100,22 @@ export const Cart = ({ isFloating = false }: { isFloating?: boolean }) => {
   };
 
   const validateForm = () => {
-    const errors: any = {};
+    const errors: {
+      name?: string;
+      phone?: string;
+      street?: string;
+      general?: string;
+    } = {};
     if (!formData.name.trim()) errors.name = "Por favor escribí tu nombre completo";
     if (formData.phone.replace(/\D/g, '').length < 10) errors.phone = "El teléfono necesita al menos 10 números";
     
     if (formData.deliveryMethod === 'Delivery') {
       if (!formData.street.trim()) errors.street = "Escribí tu calle y número";
       
-      if (geoError && deliveryDistance && deliveryDistance > 10) {
-        errors.general = "No podemos enviar a tu zona. Por favor elegí Retiro en local.";
-      } else if (deliveryCost === null && !geoError) {
-         errors.street = "Por favor calculá el costo de envío";
+      if (geoError) {
+        errors.street = geoError;
+      } else if (deliveryCost === null) {
+        errors.street = "Por favor calculá el costo de envío";
       }
     }
     
@@ -132,36 +127,22 @@ export const Cart = ({ isFloating = false }: { isFloating?: boolean }) => {
     if (e) e.preventDefault();
     if (!validateForm()) return;
     
-    if (!orderNumber) {
-      const randomNum = Math.floor(1000 + Math.random() * 9000).toString();
-      setOrderNumber(randomNum);
-    }
     setStep('confirmation');
   };
 
   const grandTotal = (formData.deliveryMethod === 'Delivery' && deliveryCost !== null) ? total + deliveryCost : total;
 
   const handleConfirmAndSend = async () => {
-    let capturedDataUrl = ticketImage;
-
-    if (ticketRef.current && !capturedDataUrl) {
-      try {
-        const canvas = await html2canvas(ticketRef.current, { backgroundColor: '#ffffff', scale: 2 });
-        capturedDataUrl = canvas.toDataURL("image/png");
-        setTicketImage(capturedDataUrl);
-      } catch (err) {
-        console.error("Error al generar imagen del ticket:", err);
-        return;
-      }
-    }
-
-    if (!capturedDataUrl) return;
-
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    const whatsappWindow = window.open("about:blank", "_blank");
     const currentDateTime = new Date().toLocaleString('es-AR', { dateStyle: 'short', timeStyle: 'short' });
-    let itemsText = cart.map((item) => `- ${item.nombre} x${item.cantidad} — $${(item.precio * item.cantidad).toLocaleString('es-AR')}`).join('\n');
+    const itemsText = cart.map((item) => `- ${item.nombre} x${item.cantidad} — $${(item.precio * item.cantidad).toLocaleString('es-AR')}`).join('\n');
 
-    const enviosText = formData.deliveryMethod === 'Delivery' 
-      ? `Envío: ${deliveryCost === 0 ? 'Gratis' : formatTotal(deliveryCost!)}`
+    const enviosText = formData.deliveryMethod === 'Delivery'
+      ? `Envío: ${deliveryCost === 0
+        ? 'Gratis (dentro del radio de 2 km)'
+        : `${formatTotal(deliveryCost!)}${deliveryDistance ? ` — ${deliveryDistance.toLocaleString('es-AR')} km estimados de ida` : ''}`}`
       : `Retiro en local`;
 
     const fullAddress = [formData.street, formData.floor]
@@ -178,7 +159,46 @@ ${enviosText}
 ─────────────────────
 Dirección de entrega: ${formData.deliveryMethod === 'Delivery' ? fullAddress : 'Retiro en local'}`;
 
-    const ownerMessage = `🛒 *NUEVO PEDIDO #${orderNumber}*
+    try {
+      const productosPedido = cart.map(item => ({
+        producto_id: item.productoId,
+        tipo: item.tipo,
+        nombre: item.nombre,
+        cantidad: item.cantidad,
+        precio: item.precio,
+        subtotal: item.precio * item.cantidad,
+      }));
+
+      const { data, error } = await supabase.rpc("crear_pedido", {
+        p_cliente_nombre: formData.name,
+        p_cliente_telefono: formData.phone,
+        p_productos: productosPedido,
+        p_subtotal: total,
+        p_costo_envio: deliveryCost ?? 0,
+        p_total: grandTotal,
+        p_calle: formData.street || null,
+        p_piso_dpto: formData.floor || null,
+        p_direccion_completa: fullAddress || null,
+        p_metodo_entrega: formData.deliveryMethod,
+        p_metodo_pago: formData.paymentMethod,
+        p_notas: formData.notes || null,
+      });
+
+      if (error) throw error;
+
+      const createdOrder = (data as Array<{
+        numero_pedido: string;
+        token_publico: string;
+        fecha: string;
+      }> | null)?.[0];
+
+      if (!createdOrder) throw new Error("Supabase no devolvió el número de pedido.");
+
+      const newOrderNumber = String(createdOrder.numero_pedido);
+      setOrderNumber(newOrderNumber);
+      const receiptPath = `/comprobante/${newOrderNumber}?token=${createdOrder.token_publico}`;
+      const receiptUrl = `${window.location.origin}${receiptPath}`;
+      const ownerMessage = `🛒 *NUEVO PEDIDO #${newOrderNumber}*
 📅 ${currentDateTime}
 
 ${commonMessage}
@@ -186,90 +206,31 @@ ${commonMessage}
 💳 *Pago:* ${formData.paymentMethod}
 👤 *Cliente:* ${formData.name}
 📱 *Teléfono:* ${formData.phone}
-📝 *Notas:* ${formData.notes || "Sin notas"}`;
-
-    const customerMessage = `✅ *¡Pedido confirmado! #${orderNumber}*
-Hola ${formData.name}, recibimos tu pedido correctamente.
-
-${commonMessage}
-
-💳 *Pago:* ${formData.paymentMethod}
 📝 *Notas:* ${formData.notes || "Sin notas"}
+🧾 *Comprobante:* ${receiptUrl}`;
+      const ownerWaLink = `https://wa.me/${OWNER_PHONE}?text=${encodeURIComponent(ownerMessage)}`;
 
-¡Gracias por tu compra! 🙌`;
+      sessionStorage.setItem("ultimoComprobante", JSON.stringify({
+        numeroPedido: newOrderNumber,
+        token: createdOrder.token_publico,
+        whatsappUrl: ownerWaLink,
+      }));
 
-    let cleanPhone = formData.phone.replace(/\D/g, '');
-    if (cleanPhone.startsWith('0')) {
-      cleanPhone = cleanPhone.substring(1);
-    }
-    const finalCustomerPhone = "549" + cleanPhone;
+      clearCart();
+      navigate(receiptPath);
 
-    const ownerWaLink = `https://wa.me/${OWNER_PHONE}?text=${encodeURIComponent(ownerMessage)}`;
-    const customerWaLink = `https://wa.me/${finalCustomerPhone}?text=${encodeURIComponent(customerMessage)}`;
-
-    try {
-      const { error } = await supabase
-        .from('pedidos')
-        .insert({
-          numero_pedido: orderNumber,
-          cliente_nombre: formData.name,
-          cliente_telefono: formData.phone,
-          productos: cart.map(item => ({
-            nombre: item.nombre,
-            cantidad: item.cantidad,
-            precio: item.precio,
-            subtotal: item.precio * item.cantidad
-          })),
-          subtotal: total,
-          costo_envio: deliveryCost ?? 0,
-          total: grandTotal,
-          calle: formData.street,
-          piso_dpto: formData.floor,
-          barrio: '',
-          direccion_completa: [formData.street, formData.floor]
-            .filter(Boolean).join(', '),
-          metodo_entrega: formData.deliveryMethod,
-          metodo_pago: formData.paymentMethod,
-          notas: formData.notes || null,
-          estado: 'pendiente'
-        })
-
-      if (error) {
-        console.error('Error guardando pedido en Supabase:', error)
+      if (whatsappWindow) {
+        whatsappWindow.location.href = ownerWaLink;
+      } else {
+        toast.success("Pedido guardado. Abrí WhatsApp desde el comprobante.");
       }
     } catch (err) {
-      console.error('Error de conexión con Supabase:', err)
+      whatsappWindow?.close();
+      console.error('Error guardando el pedido:', err);
+      toast.error("No pudimos guardar el pedido. No se envió a WhatsApp; intentá nuevamente.");
+    } finally {
+      setIsSubmitting(false);
     }
-
-  // Guardar datos del pedido en sessionStorage antes de salir a WhatsApp
-  sessionStorage.setItem('ultimoPedido', JSON.stringify({
-    orderNumber,
-    cliente: formData.name,
-    telefono: formData.phone,
-    productos: cart.map(item => ({
-      nombre: item.nombre,
-      cantidad: item.cantidad,
-      precio: item.precio,
-      subtotal: item.precio * item.cantidad
-    })),
-    subtotal: total,
-    costoEnvio: deliveryCost ?? 0,
-    total: grandTotal,
-    direccion: [formData.street, formData.floor].filter(Boolean).join(', '),
-    metodoEntrega: formData.deliveryMethod,
-    metodoPago: formData.paymentMethod,
-    notas: formData.notes || null
-  }));
-  
-  clearCart();
-  
-  // Navegar al comprobante primero
-  navigate('/comprobante/' + orderNumber);
-  
-  // Después de un breve delay, abrir WhatsApp en la misma pestaña
-  setTimeout(() => {
-    window.location.href = ownerWaLink;
-  }, 800);
   };
 
   const handleDownloadTicket = () => {
@@ -613,6 +574,11 @@ ${commonMessage}
                              : `🚚 Costo de envío: ${formatTotal(deliveryCost)}`
                            }
                          </span>
+                         {deliveryCost > 0 && deliveryDistance !== null && (
+                           <p className="mt-1 text-sm font-semibold text-muted-foreground">
+                             Recorrido estimado: {deliveryDistance.toLocaleString('es-AR')} km de ida. El precio incluye el regreso.
+                           </p>
+                         )}
                        </div>
                      )}
 
@@ -805,10 +771,11 @@ ${commonMessage}
               </div>
               <button
                 onClick={handleConfirmAndSend}
-                className="w-full btn-primary-market text-[18px] rounded-xl shadow-md"
+                disabled={isSubmitting}
+                className="w-full btn-primary-market text-[18px] rounded-xl shadow-md disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <MessageCircle size={24} />
-                <span>Confirmar y enviar</span>
+                <span>{isSubmitting ? "Guardando pedido…" : "Confirmar y enviar"}</span>
               </button>
               <button
                 onClick={() => setStep('form')}

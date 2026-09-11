@@ -1,31 +1,21 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams, Link, useLocation } from 'react-router-dom'
-// import { supabase } from '@/lib/supabase'
-import { Printer, MapPin, Phone, CreditCard, ShoppingBag, Clock, ArrowLeft } from 'lucide-react'
+import { supabase } from '@/lib/supabase'
+import { Printer, Download, MapPin, Phone, CreditCard, ShoppingBag, Clock, ArrowLeft, MessageCircle } from 'lucide-react'
+import type { Pedido } from '@/types/store'
+import { isValidOrderNumber, normalizeOrderNumber } from '@/lib/orderNumber'
 
-interface Pedido {
-  id: string;
-  numero_pedido: string;
-  fecha: string;
-  cliente_nombre: string;
-  cliente_telefono: string;
-  productos: {
-    nombre: string;
-    cantidad: number;
-    precio: number;
-    subtotal: number;
-  }[];
-  subtotal: number;
-  costo_envio: number;
-  total: number;
-  calle: string;
-  piso_dpto: string;
-  barrio: string;
-  direccion_completa: string;
-  metodo_entrega: string;
-  metodo_pago: string;
-  notas: string;
-  estado: string;
+type PedidoRpc = Omit<Pedido, 'numero_pedido' | 'subtotal' | 'costo_envio' | 'total'> & {
+  numero_pedido: number | string;
+  subtotal: number | string;
+  costo_envio: number | string;
+  total: number | string;
+};
+
+interface UltimoComprobante {
+  numeroPedido: string;
+  token: string;
+  whatsappUrl?: string;
 }
 
 const Comprobante = () => {
@@ -33,59 +23,142 @@ const Comprobante = () => {
   const location = useLocation()
   const [pedido, setPedido] = useState<Pedido | null>(null)
   const [loading, setLoading] = useState(true)
-
-  const stateData = location.state as any
+  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null)
+  const [isDownloading, setIsDownloading] = useState(false)
+  const [downloadError, setDownloadError] = useState<string | null>(null)
+  const receiptRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (stateData && stateData.orderNumber) {
-      // Datos vinieron del navigate con state
-      setPedido({
-        id: '',
-        numero_pedido: stateData.orderNumber || '',
-        fecha: new Date().toISOString(),
-        cliente_nombre: stateData.cliente || '',
-        cliente_telefono: stateData.telefono || '',
-        productos: stateData.productos || [],
-        subtotal: stateData.subtotal || 0,
-        costo_envio: stateData.costoEnvio || 0,
-        total: stateData.total || 0,
-        calle: '',
-        piso_dpto: '',
-        barrio: '',
-        direccion_completa: stateData.direccion || '',
-        metodo_entrega: stateData.metodoEntrega || '',
-        metodo_pago: stateData.metodoPago || '',
-        notas: stateData.notas || '',
-        estado: 'pendiente'
-      });
-    } else {
-      // Intentar leer de sessionStorage
-      const guardado = sessionStorage.getItem('ultimoPedido');
-      if (guardado) {
-        const data = JSON.parse(guardado);
+    const fetchPedido = async () => {
+      setLoading(true)
+      try {
+        const normalizedOrderNumber = normalizeOrderNumber(numeroPedido)
+        let saved: UltimoComprobante | null = null
+        const savedRaw = sessionStorage.getItem('ultimoComprobante')
+        if (savedRaw) {
+          try {
+            saved = JSON.parse(savedRaw) as UltimoComprobante
+          } catch {
+            saved = null
+          }
+        }
+
+        const queryToken = new URLSearchParams(location.search).get('token')
+        const savedMatches = normalizeOrderNumber(saved?.numeroPedido) === normalizedOrderNumber
+        const token = queryToken || (savedMatches ? saved?.token : null)
+        setWhatsappUrl(savedMatches ? saved?.whatsappUrl || null : null)
+
+        if (!isValidOrderNumber(normalizedOrderNumber) || !token) {
+          setPedido(null)
+          return
+        }
+
+        const { data, error } = await supabase.rpc('obtener_comprobante', {
+          p_numero_pedido: normalizedOrderNumber,
+          p_token_publico: token,
+        })
+
+        if (error) throw error
+        const row = (data as PedidoRpc[] | null)?.[0]
+        if (!row) {
+          setPedido(null)
+          return
+        }
+
         setPedido({
-          id: '',
-          numero_pedido: data.orderNumber || numeroPedido || '',
-          fecha: new Date().toISOString(),
-          cliente_nombre: data.cliente || '',
-          cliente_telefono: data.telefono || '',
-          productos: data.productos || [],
-          subtotal: data.subtotal || 0,
-          costo_envio: data.costoEnvio || 0,
-          total: data.total || 0,
-          calle: '',
-          piso_dpto: '',
-          barrio: '',
-          direccion_completa: data.direccion || '',
-          metodo_entrega: data.metodoEntrega || '',
-          metodo_pago: data.metodoPago || '',
-          notas: data.notas || '',
-          estado: 'pendiente'
-        });
+          ...row,
+          numero_pedido: String(row.numero_pedido),
+          subtotal: Number(row.subtotal),
+          costo_envio: Number(row.costo_envio),
+          total: Number(row.total),
+        })
+      } catch (error) {
+        console.error('Error obteniendo el comprobante:', error)
+        setPedido(null)
+      } finally {
+        setLoading(false)
       }
     }
-    setLoading(false);
-  }, [stateData, numeroPedido]);
+
+    fetchPedido()
+  }, [location.search, numeroPedido]);
+
+  const handleDownloadPdf = async () => {
+    const receipt = receiptRef.current
+    if (!receipt || !pedido || isDownloading) return
+
+    setIsDownloading(true)
+    setDownloadError(null)
+
+    try {
+      const [{ jsPDF }, { default: html2canvas }] = await Promise.all([
+        import('jspdf'),
+        import('html2canvas'),
+      ])
+      const canvas = await html2canvas(receipt, {
+        backgroundColor: '#ffffff',
+        logging: false,
+        scale: 2,
+        useCORS: true,
+        windowHeight: receipt.scrollHeight,
+        windowWidth: receipt.scrollWidth,
+      })
+      const pdf = new jsPDF({ format: 'a4', orientation: 'portrait', unit: 'mm', compress: true })
+      const margin = 12
+      const printableWidth = pdf.internal.pageSize.getWidth() - margin * 2
+      const printableHeight = pdf.internal.pageSize.getHeight() - margin * 2
+      const pixelsPerMillimeter = canvas.width / printableWidth
+      const pageCapacity = Math.floor(printableHeight * pixelsPerMillimeter)
+      const receiptRect = receipt.getBoundingClientRect()
+      const renderedScale = canvas.height / receipt.scrollHeight
+      const safeBreakpoints = Array.from(receipt.querySelectorAll<HTMLElement>('[data-pdf-block]'))
+        .map((block) => Math.round((block.getBoundingClientRect().bottom - receiptRect.top) * renderedScale))
+        .filter((point) => point > 0 && point < canvas.height)
+        .sort((a, b) => a - b)
+
+      safeBreakpoints.push(canvas.height)
+
+      let sliceTop = 0
+      let pageIndex = 0
+      while (sliceTop < canvas.height) {
+        const maximumBottom = Math.min(sliceTop + pageCapacity, canvas.height)
+        const safeBottom = safeBreakpoints
+          .filter((point) => point > sliceTop && point <= maximumBottom)
+          .at(-1)
+        const sliceBottom = safeBottom ?? maximumBottom
+        const sliceHeight = sliceBottom - sliceTop
+        const pageCanvas = document.createElement('canvas')
+        pageCanvas.width = canvas.width
+        pageCanvas.height = sliceHeight
+        const context = pageCanvas.getContext('2d')
+
+        if (!context) throw new Error('No se pudo preparar el contenido del comprobante.')
+
+        context.fillStyle = '#ffffff'
+        context.fillRect(0, 0, pageCanvas.width, pageCanvas.height)
+        context.drawImage(canvas, 0, sliceTop, canvas.width, sliceHeight, 0, 0, canvas.width, sliceHeight)
+
+        if (pageIndex > 0) pdf.addPage('a4', 'portrait')
+        pdf.addImage(
+          pageCanvas.toDataURL('image/jpeg', 0.95),
+          'JPEG',
+          margin,
+          margin,
+          printableWidth,
+          sliceHeight / pixelsPerMillimeter,
+        )
+
+        sliceTop = sliceBottom
+        pageIndex += 1
+      }
+
+      pdf.save(`comprobante-tonio-${pedido.numero_pedido}.pdf`)
+    } catch {
+      setDownloadError('No pudimos generar el PDF. Intentá nuevamente.')
+    } finally {
+      setIsDownloading(false)
+    }
+  }
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('es-AR', {
@@ -108,8 +181,11 @@ const Comprobante = () => {
   const getStatusColor = (estado: string) => {
     switch (estado) {
       case 'pendiente': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+      case 'confirmado': return 'bg-amber-100 text-amber-800 border-amber-200';
+      case 'en preparación': return 'bg-orange-100 text-orange-800 border-orange-200';
       case 'en camino': return 'bg-blue-100 text-blue-800 border-blue-200';
       case 'entregado': return 'bg-green-100 text-green-800 border-green-200';
+      case 'cancelado': return 'bg-red-100 text-red-800 border-red-200';
       default: return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   }
@@ -143,22 +219,44 @@ const Comprobante = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4 font-sans print:p-0 print:bg-white">
       {/* Botones de acción (No se imprimen) */}
-      <div className="max-w-2xl mx-auto mb-6 flex justify-between items-center no-print">
+      <div className="max-w-2xl mx-auto mb-6 flex flex-wrap justify-between items-center gap-3 no-print">
         <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-primary transition-all font-semibold">
           <ArrowLeft size={18} /> Volver al Inicio
         </Link>
-        <button 
-          onClick={() => window.print()}
-          className="flex items-center gap-3 bg-[#CC0000] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#b30000] transition-transform active:scale-95 shadow-lg"
-        >
-          <Printer size={20} /> Imprimir comprobante
-        </button>
+        <div className="flex flex-wrap gap-2">
+          {whatsappUrl && (
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 bg-[#25D366] text-white px-5 py-3 rounded-xl font-bold hover:bg-[#20bd5a] transition-colors shadow-lg"
+            >
+              <MessageCircle size={20} /> Abrir WhatsApp
+            </a>
+          )}
+          <button
+            type="button"
+            onClick={handleDownloadPdf}
+            disabled={isDownloading}
+            aria-busy={isDownloading}
+            className="flex items-center gap-3 bg-gray-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-gray-900 transition-colors shadow-lg disabled:cursor-wait disabled:opacity-70"
+          >
+            <Download size={20} /> {isDownloading ? 'Generando PDF…' : 'Descargar comprobante'}
+          </button>
+          <button 
+            onClick={() => window.print()}
+            className="flex items-center gap-3 bg-[#CC0000] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#b30000] transition-transform active:scale-95 shadow-lg"
+          >
+            <Printer size={20} /> Imprimir comprobante
+          </button>
+        </div>
+        {downloadError && <p className="w-full text-sm font-semibold text-red-700" role="alert">{downloadError}</p>}
       </div>
 
       {/* COMPROBANTE A4 */}
-      <div className="max-w-2xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden print:shadow-none print:rounded-none">
+      <div ref={receiptRef} className="receipt-print max-w-2xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden print:shadow-none print:rounded-none">
         {/* Header */}
-        <div className="bg-[#fcfcfc] border-b-4 border-[#CC0000] p-8 text-center relative overflow-hidden">
+        <div data-pdf-block className="print-avoid-break bg-[#fcfcfc] border-b-4 border-[#CC0000] p-8 text-center relative overflow-hidden">
           {/* Marca de agua / Decoración */}
           <div className="absolute top-0 right-0 -mr-8 -mt-8 opacity-5 text-[#CC0000]/10 select-none">
              <ShoppingBag size={200} />
@@ -182,12 +280,12 @@ const Comprobante = () => {
         <div className="p-8 space-y-8">
           {/* Productos */}
           <section>
-            <h4 className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#CC0000] mb-4 border-b-2 border-red-50 pb-2">
+            <h4 data-pdf-block className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#CC0000] mb-4 border-b-2 border-red-50 pb-2">
               <ShoppingBag size={14} /> Productos del Pedido
             </h4>
             <div className="space-y-4">
               {pedido.productos.map((prod, idx) => (
-                <div key={idx} className="flex justify-between items-center py-2 border-b border-gray-50 last:border-0 hover:bg-gray-50 px-2 rounded-lg transition-colors">
+                <div key={idx} data-pdf-block className="flex justify-between items-center py-2 border-b border-gray-50 last:border-0 hover:bg-gray-50 px-2 rounded-lg transition-colors">
                   <div className="flex-1">
                     <p className="font-bold text-gray-800">{prod.nombre}</p>
                     <p className="text-xs text-gray-400 font-semibold">{prod.cantidad} unidad(es)</p>
@@ -200,7 +298,7 @@ const Comprobante = () => {
               ))}
             </div>
 
-            <div className="mt-8 bg-gray-50 rounded-xl p-5 border-2 border-gray-100 shadow-sm">
+            <div data-pdf-block className="mt-8 bg-gray-50 rounded-xl p-5 border-2 border-gray-100 shadow-sm">
                 <div className="flex justify-between text-gray-600 mb-2 font-medium">
                   <span>Subtotal productos:</span>
                   <span>{formatCurrency(pedido.subtotal)}</span>
@@ -219,7 +317,7 @@ const Comprobante = () => {
           </section>
 
           {/* Información de entrega y cliente */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div data-pdf-block className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <section>
               <h4 className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#CC0000] mb-4 border-b-2 border-red-50 pb-2">
                 <MapPin size={14} /> Entrega
@@ -261,20 +359,20 @@ const Comprobante = () => {
             </section>
           </div>
 
-          <section>
+          <section data-pdf-block>
             <h4 className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#CC0000] mb-4 border-b-2 border-red-50 pb-2">
               <CreditCard size={14} /> Pago y Notas
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <label className="text-[10px] font-black text-gray-400 uppercase">Medio de Pago</label>
-                <p className="font-bold text-gray-800 inline-flex items-center border-b-2 border-[#CC0000]/10">{pedido.metodo_pago}</p>
+              <div className="space-y-1">
+                <label className="block text-[10px] font-black text-gray-400 uppercase">Medio de Pago</label>
+                <p className="font-bold text-gray-800 border-b-2 border-[#CC0000]/10">{pedido.metodo_pago}</p>
               </div>
               <div>
                 {pedido.notas && (
                   <>
-                    <label className="text-[10px] font-black text-gray-400 uppercase">Notas adicionales</label>
-                    <p className="font-medium text-gray-600 italic leading-relaxed">"{pedido.notas}"</p>
+                    <label className="block text-[10px] font-black text-gray-400 uppercase mb-1">Notas adicionales</label>
+                    <p className="font-medium text-gray-600 leading-relaxed whitespace-normal break-words">{pedido.notas}</p>
                   </>
                 )}
               </div>
@@ -282,7 +380,7 @@ const Comprobante = () => {
           </section>
 
           {/* Estado Final con Badge */}
-          <div className="pt-8 border-t border-gray-100 flex flex-col items-center gap-3">
+          <div data-pdf-block className="print-avoid-break pt-8 border-t border-gray-100 flex flex-col items-center gap-3">
             <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Estado Actual del Pedido</label>
             <div className={`px-8 py-3 rounded-full border-2 font-black text-sm uppercase tracking-widest shadow-sm ${getStatusColor(pedido.estado)}`}>
               {pedido.estado}
@@ -291,20 +389,28 @@ const Comprobante = () => {
         </div>
 
         {/* Footer Comprobante */}
-        <div className="bg-gray-50 p-6 text-center border-t border-gray-100">
+        <div data-pdf-block className="print-avoid-break bg-gray-50 p-6 text-center border-t border-gray-100">
            <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Gracias por elegir Tonio MiniMarket — Córdoba Capital</p>
         </div>
       </div>
       
       <style>{`
+        @page {
+          size: A4;
+          margin: 12mm;
+        }
+
         @media print {
           .no-print { display: none !important; }
-          body { background: white !important; margin: 0; padding: 0; }
+          html, body { background: white !important; margin: 0; padding: 0; overflow-x: hidden !important; }
           .min-h-screen { height: auto !important; min-height: 0 !important; overflow: visible !important; }
           .shadow-2xl { box-shadow: none !important; }
           .rounded-2xl { border-radius: 0 !important; }
           .mx-auto { margin: 0 !important; }
           .max-w-2xl { max-width: 100% !important; }
+          .receipt-print { width: 100% !important; max-width: none !important; overflow: visible !important; }
+          .receipt-print section,
+          .receipt-print .print-avoid-break { break-inside: avoid; page-break-inside: avoid; }
         }
       `}</style>
     </div>

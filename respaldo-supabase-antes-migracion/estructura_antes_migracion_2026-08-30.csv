@@ -1,0 +1,35 @@
+table_name,ordinal_position,column_name,data_type,is_nullable,column_default
+pedidos,1,id,uuid,NO,gen_random_uuid()
+pedidos,2,fecha,timestamp with time zone,NO,"timezone('utc'::text, now())"
+pedidos,3,numero_pedido,text,NO,null
+pedidos,4,cliente_nombre,text,NO,null
+pedidos,5,cliente_telefono,text,NO,null
+pedidos,6,productos,jsonb,NO,null
+pedidos,7,subtotal,numeric,NO,null
+pedidos,8,costo_envio,numeric,NO,0
+pedidos,9,total,numeric,NO,null
+pedidos,10,calle,text,YES,null
+pedidos,11,piso_dpto,text,YES,null
+pedidos,12,barrio,text,YES,null
+pedidos,13,direccion_completa,text,YES,null
+pedidos,14,metodo_entrega,text,NO,null
+pedidos,15,metodo_pago,text,NO,null
+pedidos,16,notas,text,YES,null
+pedidos,17,estado,text,NO,'pendiente'::text
+productos,1,id,bigint,NO,null
+productos,2,nombre,text,NO,null
+productos,3,precio,numeric,NO,null
+productos,4,imagen,text,NO,null
+productos,5,categoria,text,NO,null
+productos,6,subcategoria,text,YES,null
+productos,7,descripcion,text,NO,null
+productos,8,stock,integer,NO,0
+productos,9,unidadPrecio,text,YES,null
+productos,10,esAGranel,boolean,YES,false
+productos,11,esFactura,boolean,YES,false
+productos,12,esEmpanada,boolean,YES,false
+productos,13,preciosMultiples,jsonb,YES,null
+productos,14,sabores,jsonb,YES,null
+productos,15,presentaciones,jsonb,YES,null
+productos,16,created_at,timestamp with time zone,NO,"timezone('utc'::text, now())"
+productos,17,updated_at,timestamp with time zone,NO,"timezone('utc'::text, now())"

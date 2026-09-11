@@ -1,6 +1,17 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = 'https://psejoskxumywnfdbpoha.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBzZWpvc2t4dW15d25mZGJwb2hhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyODQ1MTEsImV4cCI6MjA5MTg2MDUxMX0.DywyHZ_thUr3gyR_F6C13nHbVlAnnZhFP3c60wKaYiw'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabasePublishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabasePublishableKey);
+
+if (!isSupabaseConfigured) {
+  console.warn(
+    "Supabase no está configurado. Definí VITE_SUPABASE_URL y VITE_SUPABASE_PUBLISHABLE_KEY.",
+  );
+}
+
+export const supabase = createClient(
+  supabaseUrl || "http://127.0.0.1:54321",
+  supabasePublishableKey || "public-anon-key-not-configured",
+);

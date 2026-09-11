@@ -1,0 +1,7 @@
+schemaname,tablename,policyname,permissive,roles,cmd,qual,with_check
+public,pedidos,Permitir insertar pedidos,PERMISSIVE,{public},INSERT,null,true
+public,pedidos,Permitir lectura de pedidos,PERMISSIVE,{public},SELECT,true,null
+public,productos,Permitir lectura pública,PERMISSIVE,{public},SELECT,true,null
+public,productos,Permitir modificación a autenticados,PERMISSIVE,{authenticated},ALL,true,null
+storage,objects,Escritura solo autenticados,PERMISSIVE,{authenticated},ALL,(bucket_id = 'productos-imagenes'::text),(bucket_id = 'productos-imagenes'::text)
+storage,objects,Lectura pública de imágenes,PERMISSIVE,{public},SELECT,(bucket_id = 'productos-imagenes'::text),null

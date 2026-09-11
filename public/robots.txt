@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://toniominimarket.com.ar/sitemap.xml

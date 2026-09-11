@@ -1,0 +1,2 @@
+[functions.calcular-envio]
+verify_jwt = true

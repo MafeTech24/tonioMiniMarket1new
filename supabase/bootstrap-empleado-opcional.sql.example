@@ -1,0 +1,21 @@
+-- NO ejecutar durante la puesta en marcha normal.
+-- Utilizar únicamente si Marianella y Facundo autorizan a un tercero a operar pedidos.
+-- Antes de ejecutarlo, crear el usuario desde Authentication > Users y reemplazar el correo.
+-- No escribir contraseñas en este archivo.
+
+insert into public.admin_users (user_id, email, nombre, rol)
+select
+  id,
+  email,
+  'Empleado autorizado',
+  'empleado'
+from auth.users
+where lower(email) = lower('CORREO-DEL-EMPLEADO@ejemplo.com')
+on conflict (user_id) do update set
+  email = excluded.email,
+  nombre = excluded.nombre,
+  rol = excluded.rol;
+
+select nombre, email, rol
+from public.admin_users
+where rol = 'empleado';

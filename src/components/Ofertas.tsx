@@ -1,6 +1,8 @@
 import { ShoppingCart, Plus, Minus, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/context/CartContext";
+import { useOfertas } from "@/hooks/useCatalog";
+import type { Oferta } from "@/types/store";
 import {
   Carousel,
   CarouselContent,
@@ -10,201 +12,14 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 
-const ofertas = [
-  /*{ 
-    nombre: "Promo Mermelada Orieta Durazno", 
-    antes: "$2.200", 
-    ahora: "$1.600", 
-    desc: "Mermelada de durazno Orieta en pote. Elaborada con frutas seleccionadas para disfrutar en tus desayunos y meriendas con el sabor más dulce y natural.", 
-    img: "/products/promoMermelada.png",
-    stock: 20,
-    categoria: "Almacén"
-  },*/
-  { 
-    nombre: "Promo Hamburguesas Paty", 
-    antes: "$10.500", 
-    ahora: "$8.500", 
-    desc: "¡La hamburguesada perfecta en casa! Incluye: 4 Hamburguesas Paty Express + 4 Panes de hamburguesa + 1 Mayonesa Hellmann's 125g + 1 Mostaza o Ketchup Danica 60g. Todo listo para armar las mejores hamburguesas caseras. Ideal para el fin de semana con toda la familia.", 
-    img: "/products/promoHamburguesa5.png",
-    /*images: ["/products/promoHamburguesa1.png", "/products/promoHamburguesa2.png", "/products/promoHamburguesa3.png", "/products/promoHamburguesa4.png"],*/
-    stock: 12,
-    categoria: "Almacén"
-  },
-  { 
-    nombre: "Promo Tarta", 
-    antes: "$8.500", 
-    ahora: "$6500", 
-    desc: "¡Todo para una tarta en familia! Incluye: 1 Pascualina San Vicente + 200g Jamón Cocido Tirolesa + 200g Queso Cremoso + 2 Huevos frescos. Una promo completa para preparar una tarta casera deliciosa. Ideal para el almuerzo o cena familiar.", 
-    img: "/products/ofertaTarta.png",
-    /*images: ["/products/promoTarta1.png", "/products/promoTarta2.png", "/products/promoTarta3.png"],*/
-    stock: 10,
-    categoria: "Almacén"
-  },
-  { 
-    nombre: "Oferta Pizza", 
-    antes: "$11.000", 
-    ahora: "$8.000", 
-    desc: "¡Combo ideal para tu noche de pizza! Incluye: 2 Pre pizzas + 400g Muzzarella de primera calidad + 150g Jamón Cocido Tirolesa + 100g Aceitunas seleccionadas. Todo lo que necesitás para armar dos pizzas increíbles en minutos.", 
-    img: "/products/oferta_pizza2.png",
-    stock: 15,
-    categoria: "Fiambrería"
-  },
-  { 
-    nombre: "Oferta Picada Premium", 
-    antes: "$16.000", 
-    ahora: "$13.000", 
-    desc: "La mejor selección para una picada inolvidable. Incluye: 2 Tiras de pan de Panificación Modelo + 100g Jamón Cocido Colonial + 100g Salame + 100g Mortadela Paladini + 100g Bondiola Colonial + 100g Queso La Paulina + 150g Papas Danal + 100g Maní (común o saborizado). Calidad premium para compartir.", 
-    img: "/products/ofertaPicadaPremium3.png",
-    stock: 8,
-    categoria: "Fiambrería"
-  },
-  { 
-    nombre: "Oferta Picada Económica", 
-    antes: "$11.000", 
-    ahora: "$9.300", 
-    desc: "Picada completa al mejor precio. Incluye: 2 Tiras de pan + 100g Jamón Tirolesa + 100g Mortadela Tirolesa + 100g Patita de cerdo Tirolesa + 100g Bondiola + 100g Queso Makis + 100g Papas Danal + 100g Maní. ¡No te quedes sin la tuya!", 
-    img: "/products/ofertaPicadaEconomica2.png",
-    stock: 10,
-    categoria: "Fiambrería"
-  },
-  /*{ 
-    nombre: "Pollo Entero", 
-    antes: "$4.500", 
-    ahora: "$3.800", 
-    desc: "Fresco del día, aprox 2.5kg", 
-    img: "/products/polleria/polloEntero.png",
-    stock: 12,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Pack Almacén", 
-    antes: "$12.000", 
-    ahora: "$9.900", 
-    desc: "Arroz, aceite, fideos, harina y más", 
-    img: "/products/pack_almacen_1775092426601.png",
-    stock: 15,
-    categoria: "Almacén"
-  },*/
-  { 
-    nombre: "Pata Muslo 2kg", 
-    antes: "$11.200", 
-    ahora: "$10.400", 
-    desc: "2kg de pata muslo de pollo fresco. Ideal para el horno, la parrilla o guisos. Precio especial por llevar 2kg.", 
-    img: "/products/polleria/pataMuslo.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Pata Muslo 3kg", 
-    antes: "$16.800", 
-    ahora: "$14.700", 
-    desc: "3kg de pata muslo de pollo fresco. El formato más rendidor para toda la semana. Precio especial por llevar 3kg.", 
-    img: "/products/polleria/pataMuslo.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Pata Muslo 4kg", 
-    antes: "$22.400", 
-    ahora: "$19.000", 
-    desc: "4kg de pata muslo de pollo fresco. El mejor precio por mayor cantidad. Ideal para familias grandes o congelar.", 
-    img: "/products/polleria/pataMuslo.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Alitas de Pollo con Rancho 2kg", 
-    antes: "$6.400", 
-    ahora: "$5.800", 
-    desc: "2kg de alitas de pollo con Rancho frescas. Perfectas para la parrilla o el horno. Precio especial por llevar 2kg.", 
-    img: "/products/polleria/alitasPolloConRancho.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Alitas de Pollo con Rancho 3kg", 
-    antes: "$9.600", 
-    ahora: "$7.500", 
-    desc: "3kg de alitas de pollo con Rancho frescas. El formato más conveniente para compartir en familia. Precio especial por llevar 3kg.", 
-    img: "/products/polleria/alitasPolloConRancho.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Alitas de Pollo Sin Rancho 2kg", 
-    antes: "$13.000", 
-    ahora: "$12.000", 
-    desc: "2kg de alitas de pollo sin rancho, limpias y listas para cocinar. Precio especial por llevar 2kg.", 
-    img: "/products/polleria/alitasPolloSinRancho.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Pata Muslo Deshuesada 2kg", 
-    antes: "$25.600", 
-    ahora: "$24.800", 
-    desc: "2kg de pata muslo deshuesada, sin hueso y lista para cocinar. Práctica y rendidora. Precio especial por llevar 2kg.", 
-    img: "/products/polleria/pataMusloDeshuesada.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Pechugas 3kg", 
-    antes: "$39.600", 
-    ahora: "$37.500", 
-    desc: "3kg de pechugas de pollo frescas, deshuesadas y sin piel. Precio especial por llevar 3kg. Ideal para congelar.", 
-    img: "/products/polleria/pechugasdePollo.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Milanesas de Pollo con Provenzal 2kg", 
-    antes: "$22.800", 
-    ahora: "$21.000", 
-    desc: "2kg de milanesas de pollo con provenzal, elaboradas con pechuga de primera calidad. Precio especial por llevar 2kg.", 
-    img: "/products/polleria/milaPolloConProvenzal.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  { 
-    nombre: "Milanesas de Pollo Sin Provenzal 2kg", 
-    antes: "$22.800", 
-    ahora: "$21.000", 
-    desc: "2kg de milanesas de pollo sin provenzal, elaboradas con pechuga de primera calidad. Precio especial por llevar 2kg.", 
-    img: "/products/polleria/milaPolloSinProvenzal.png",
-    stock: 20,
-    categoria: "Pollería"
-  },
-  {
-    nombre: "Hamburguesas de Carne 2kg",
-    antes: "$26.800",
-    ahora: "$26.000",
-    desc: "2kg de hamburguesas de carne congeladas de primera calidad. Ideal para tener stock en casa o para tus parrilladas. Precio especial por llevar 2kg.",
-    img: "/products/congelados/hamburguesasCarne.png",
-    stock: 20,
-    categoria: "Congelados"
-  },
-  {
-    nombre: "Milanesas de Carne 2kg",
-    antes: "$35.000",
-    ahora: "$32.600",
-    desc: "2kg de milanesas de carne, listas para cocinar. La opción más rendidora para toda la familia. Precio especial por llevar 2kg.",
-    img: "/products/polleria/milasCarne.png",
-    stock: 20,
-    categoria: "Pollería"
-  }
-];
-
 interface OfertasProps {
   searchTerm?: string;
 }
 
 const Ofertas = ({ searchTerm = "" }: OfertasProps) => {
+  const { data: ofertas = [], isLoading, error } = useOfertas();
   const { addToCart } = useCart();
-  const [quantities, setQuantities] = useState<Record<string, number>>(
-    Object.fromEntries(ofertas.map(o => [o.nombre, 1]))
-  );
-  const [selectedOffer, setSelectedOffer] = useState<any | null>(null);
+  const [selectedOffer, setSelectedOffer] = useState<Oferta | null>(null);
   const [modalQuantity, setModalQuantity] = useState<number>(1);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -229,19 +44,17 @@ const Ofertas = ({ searchTerm = "" }: OfertasProps) => {
 
   useEffect(() => {
     if (selectedOffer) {
-      setModalQuantity(quantities[selectedOffer.nombre] || 1);
+      setModalQuantity(1);
     }
   }, [selectedOffer]);
 
-  const updateQuantity = (nombre: string, delta: number, max: number) => {
-    setQuantities(prev => ({
-      ...prev,
-      [nombre]: Math.min(max, Math.max(1, prev[nombre] + delta))
-    }));
-  };
-
-  const handleAddToCartFromModal = (o: any) => {
-    addToCart({ nombre: `Oferta: ${o.nombre}`, precio: o.ahora }, modalQuantity);
+  const handleAddToCartFromModal = (offer: Oferta) => {
+    addToCart({
+      id: offer.id,
+      tipo: "oferta",
+      nombre: `Oferta: ${offer.nombre}`,
+      precio: offer.precioActual,
+    }, modalQuantity);
     setSelectedOffer(null);
   };
   
@@ -252,7 +65,7 @@ const Ofertas = ({ searchTerm = "" }: OfertasProps) => {
         o.desc.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
-  if (ofertasFiltradas.length === 0) {
+  if (isLoading || error || ofertasFiltradas.length === 0) {
     return null;
   }
 
@@ -268,7 +81,7 @@ const Ofertas = ({ searchTerm = "" }: OfertasProps) => {
             <span className="badge-offer absolute top-4 right-4 z-10">OFERTA</span>
             
             <div className="w-full h-48 sm:h-56 mb-4 rounded-md overflow-hidden relative bg-[#000000] flex items-center justify-center p-1">
-              <img src={(o as any).img} alt={o.nombre} className="w-full h-full object-contain" loading="lazy" />
+              <img src={o.img} alt={o.nombre} className="w-full h-full object-contain" loading="lazy" />
             </div>
             
             <div className="flex-1 flex flex-col pt-2 text-center">
@@ -281,7 +94,12 @@ const Ofertas = ({ searchTerm = "" }: OfertasProps) => {
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    addToCart({ nombre: `Oferta: ${o.nombre}`, precio: o.ahora }, 1);
+                    addToCart({
+                      id: o.id,
+                      tipo: "oferta",
+                      nombre: `Oferta: ${o.nombre}`,
+                      precio: o.precioActual,
+                    }, 1);
                   }}
                   className="w-full bg-[#CC0000] text-white h-[40px] rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-[#b30000] transition-colors shadow-sm"
                 >
@@ -308,7 +126,7 @@ const Ofertas = ({ searchTerm = "" }: OfertasProps) => {
             </button>
             
             <div className="w-full md:w-1/2 bg-[#FAFAFA] p-[12px] flex items-center justify-center min-h-[250px] sm:min-h-[300px] md:min-h-0 border-b md:border-b-0 md:border-r border-[#e0e0e0] max-h-[40vh] md:max-h-none relative">
-              {'images' in selectedOffer ? (
+              {selectedOffer.images && selectedOffer.images.length > 0 ? (
                 <div className="w-full h-full flex flex-col">
                   <Carousel setApi={setApi} className="w-full flex-1">
                     <CarouselContent className="h-full">
@@ -345,7 +163,7 @@ const Ofertas = ({ searchTerm = "" }: OfertasProps) => {
                   )}
                 </div>
               ) : (
-                <img src={(selectedOffer as any).img} alt={selectedOffer.nombre} className="w-full h-full object-contain max-h-[36vh] md:max-h-none" />
+                <img src={selectedOffer.img} alt={selectedOffer.nombre} className="w-full h-full object-contain max-h-[36vh] md:max-h-none" />
               )}
             </div>
             
