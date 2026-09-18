@@ -6,8 +6,15 @@ import { toast } from "sonner";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet";
 import { useCart } from "@/context/CartContext";
 import { supabase } from '@/lib/supabase'
+import { LocationPicker, type LatLng } from "@/components/LocationPicker";
 
 const OWNER_PHONE = "543516527241";
+
+// Debe coincidir con STORE_LOCATION en supabase/functions/calcular-envio/index.ts
+const STORE_LOCATION: LatLng = {
+  lat: -31.402824695487222,
+  lng: -64.24479778959648,
+};
 
 type DeliveryQuote = {
   available: boolean;
@@ -16,8 +23,41 @@ type DeliveryQuote = {
   routeDistanceKm: number;
   radialDistanceKm: number;
   duration: string | null;
+  latitude?: number;
+  longitude?: number;
+  geocodedFromStreet?: boolean;
+  needsManualPin?: boolean;
+  storeLatitude?: number;
+  storeLongitude?: number;
   error?: string;
 };
+
+/**
+ * Invoca calcular-envio y devuelve el JSON de la respuesta sin importar el
+ * código de estado HTTP: cuando la function responde 4xx/5xx, supabase-js
+ * arma un FunctionsHttpError y deja `data` en null, así que el mensaje de
+ * error que mandamos nosotros desde el backend (needsManualPin, etc.) hay
+ * que leerlo a mano desde error.context.
+ */
+async function invokeCalcularEnvio(body: Record<string, unknown>): Promise<DeliveryQuote> {
+  const { data, error } = await supabase.functions.invoke<DeliveryQuote>(
+    "calcular-envio",
+    { body },
+  );
+
+  if (data) return data;
+
+  const context = (error as unknown as { context?: Response } | null)?.context;
+  if (context && typeof context.json === "function") {
+    try {
+      return (await context.json()) as DeliveryQuote;
+    } catch {
+      // no se pudo parsear el body del error, seguimos al throw genérico
+    }
+  }
+
+  throw error ?? new Error("No se recibió una cotización de envío.");
+}
 
 const formatTotal = (num: number) => {
   return "$" + num.toLocaleString("es-AR");
@@ -49,6 +89,8 @@ export const Cart = ({ isFloating = false }: { isFloating?: boolean }) => {
   const [deliveryDistance, setDeliveryDistance] = useState<number | null>(null);
   const [isCalculatingDistance, setIsCalculatingDistance] = useState(false);
   const [geoError, setGeoError] = useState<string | null>(null);
+  const [pinPosition, setPinPosition] = useState<LatLng | null>(null);
+  const [pinConfirmed, setPinConfirmed] = useState(false);
   const [formErrors, setFormErrors] = useState<{
     name?: string;
     phone?: string;
@@ -70,29 +112,75 @@ export const Cart = ({ isFloating = false }: { isFloating?: boolean }) => {
     setGeoError(null);
     setDeliveryCost(null);
     setDeliveryDistance(null);
+    setPinConfirmed(false);
 
     try {
-      const { data, error } = await supabase.functions.invoke<DeliveryQuote>(
-        "calcular-envio",
-        { body: { street: formData.street.trim() } },
-      );
+      const data = await invokeCalcularEnvio({ street: formData.street.trim() });
 
-      if (error) throw error;
-      if (!data) throw new Error("No se recibió una cotización de envío.");
+      if (typeof data.latitude === "number" && typeof data.longitude === "number") {
+        // Encontramos un guess automático: lo mostramos en el mapa, pero el
+        // costo recién queda firme cuando confirman/ajustan el pin. No es un
+        // error, así que no seteamos geoError acá — el texto arriba del mapa
+        // ya indica qué hacer.
+        setPinPosition({ lat: data.latitude, lng: data.longitude });
+      } else if (data.needsManualPin) {
+        // No pudimos geocodificar la calle: arrancamos el pin en el local
+        // para que lo arrastren ellos mismos a su ubicación real.
+        const fallback = (typeof data.storeLatitude === "number" && typeof data.storeLongitude === "number")
+          ? { lat: data.storeLatitude, lng: data.storeLongitude }
+          : STORE_LOCATION;
+        setPinPosition(fallback);
+        setGeoError(data.error || "No encontramos tu dirección automáticamente. Ubicá tu punto en el mapa.");
+      } else {
+        setPinPosition(STORE_LOCATION);
+        setGeoError(data.error || "No pudimos calcular la ruta para esa dirección. Ubicá tu punto en el mapa.");
+      }
+    } catch (error) {
+      console.error("Error calculando el envío:", error);
+      // Aun con error de red/servidor dejamos abierta la opción manual con
+      // el pin en el local, para no dejar a nadie sin poder pedir delivery.
+      setPinPosition(STORE_LOCATION);
+      setGeoError("No pudimos calcular tu dirección automáticamente. Ubicá tu punto en el mapa.");
+    } finally {
+      setIsCalculatingDistance(false);
+    }
+  };
+
+  const handlePinChange = (position: LatLng) => {
+    setPinPosition(position);
+    setPinConfirmed(false);
+    setDeliveryCost(null);
+    setDeliveryDistance(null);
+  };
+
+  const handleConfirmLocation = async () => {
+    if (!pinPosition) return;
+
+    setIsCalculatingDistance(true);
+    setGeoError(null);
+
+    try {
+      const data = await invokeCalcularEnvio({
+        latitude: pinPosition.lat,
+        longitude: pinPosition.lng,
+      });
 
       setDeliveryDistance(data.routeDistanceKm);
 
       if (!data.available || data.cost === null) {
         setDeliveryCost(null);
+        setPinConfirmed(false);
         setGeoError(
           data.error
           || "Lo sentimos, por ahora no llegamos a tu zona. Podés retirar en Falucho 275, Bº Las Palmas.",
         );
       } else {
         setDeliveryCost(data.cost);
+        setPinConfirmed(true);
       }
     } catch (error) {
-      console.error("Error calculando el envío:", error);
+      console.error("Error confirmando la ubicación:", error);
+      setPinConfirmed(false);
       setGeoError("Hubo un error calculando el envío. Intentá de nuevo.");
     } finally {
       setIsCalculatingDistance(false);
@@ -111,11 +199,13 @@ export const Cart = ({ isFloating = false }: { isFloating?: boolean }) => {
     
     if (formData.deliveryMethod === 'Delivery') {
       if (!formData.street.trim()) errors.street = "Escribí tu calle y número";
-      
-      if (geoError) {
+
+      if (!pinConfirmed || deliveryCost === null) {
+        errors.street = pinPosition
+          ? "Confirmá tu ubicación en el mapa para calcular el envío"
+          : "Por favor calculá el costo de envío";
+      } else if (geoError) {
         errors.street = geoError;
-      } else if (deliveryCost === null) {
-        errors.street = "Por favor calculá el costo de envío";
       }
     }
     
@@ -252,6 +342,8 @@ ${commonMessage}
       setDeliveryCost(null);
       setDeliveryDistance(null);
       setGeoError(null);
+      setPinPosition(null);
+      setPinConfirmed(false);
       setFormErrors({});
       setFormData({
         name: '', phone: '', deliveryMethod: 'Delivery', street: '', floor: '', paymentMethod: 'Efectivo', notes: ''
@@ -485,27 +577,31 @@ ${commonMessage}
               <div className="flex flex-col gap-2">
                 <label className="text-[16px] font-bold">Método de Envío *</label>
                 <div className="grid grid-cols-2 gap-3">
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => {
                         setFormData({...formData, deliveryMethod: 'Delivery'});
                         setGeoError(null);
                         setDeliveryCost(null);
                         setDeliveryDistance(null);
-                    }} 
+                        setPinPosition(null);
+                        setPinConfirmed(false);
+                    }}
                     className={`min-h-[52px] text-[16px] rounded-md border font-bold transition-all ${formData.deliveryMethod === 'Delivery' ? 'bg-primary text-primary-foreground border-primary shadow-md' : 'bg-background text-foreground/80 hover:bg-secondary/10'}`}
                   >
                     Delivery
                   </button>
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => {
                         setFormData({...formData, deliveryMethod: 'Retiro en local'});
                         setGeoError(null);
                         setDeliveryCost(null);
                         setDeliveryDistance(null);
+                        setPinPosition(null);
+                        setPinConfirmed(false);
                         setFormErrors(prev => ({...prev, street: undefined, general: undefined}));
-                    }} 
+                    }}
                     className={`min-h-[52px] text-[16px] rounded-md border font-bold transition-all ${formData.deliveryMethod === 'Retiro en local' ? 'bg-primary text-primary-foreground border-primary shadow-md' : 'bg-background text-foreground/80 hover:bg-secondary/10'}`}
                   >
                     Retiro en local
@@ -529,7 +625,9 @@ ${commonMessage}
                             setDeliveryCost(null);
                             setDeliveryDistance(null);
                             setGeoError(null);
-                        }} 
+                            setPinPosition(null);
+                            setPinConfirmed(false);
+                        }}
                       />
                       {formErrors.street && <span className="text-red-500 text-sm leading-tight">{formErrors.street}</span>}
                     </div>
@@ -557,7 +655,31 @@ ${commonMessage}
                   
                   <div className="mt-2 flex flex-col gap-3">
                      {isCalculatingDistance && <span className="text-muted-foreground font-semibold flex items-center gap-2"><MapPin size={18} className="animate-bounce" /> Buscando dirección...</span>}
-                     
+
+                     {!isCalculatingDistance && pinPosition && (
+                       <div className="flex flex-col gap-2">
+                         <div className="p-3 rounded-lg border border-amber-200 bg-amber-50/60 flex items-start gap-2">
+                           <MapPin size={16} className="mt-0.5 shrink-0 text-amber-700" />
+                           <span className="text-sm font-semibold text-amber-800">
+                             Importante: el pin puede no caer exacto en tu casa. Fijate bien y, si hace falta, arrastralo hasta el lugar correcto antes de confirmar.
+                           </span>
+                         </div>
+                         <LocationPicker position={pinPosition} onChange={handlePinChange} />
+                         <button
+                           type="button"
+                           onClick={handleConfirmLocation}
+                           disabled={isCalculatingDistance}
+                           className={`w-full px-4 py-3 rounded-md font-bold text-base transition-colors disabled:opacity-50 ${
+                             pinConfirmed
+                               ? 'bg-green-600 text-white hover:bg-green-700'
+                               : 'bg-primary text-white hover:bg-[#b30000]'
+                           }`}
+                         >
+                           {pinConfirmed ? '✓ Ubicación confirmada' : 'Confirmar ubicación'}
+                         </button>
+                       </div>
+                     )}
+
                      {!isCalculatingDistance && geoError && (
                        <div className="p-3 rounded-lg border border-red-100 bg-red-50/30">
                          <span className="text-[#E65100] font-semibold">
@@ -566,7 +688,7 @@ ${commonMessage}
                        </div>
                      )}
 
-                     {!isCalculatingDistance && deliveryCost !== null && !geoError && (
+                     {!isCalculatingDistance && pinConfirmed && deliveryCost !== null && !geoError && (
                        <div className={`p-4 rounded-xl border ${deliveryCost === 0 ? 'border-green-100 bg-green-50/30' : 'border-red-100 bg-red-50/30'}`}>
                          <span className={`font-extrabold text-lg flex items-center gap-2 ${deliveryCost === 0 ? 'text-[#2E7D32]' : 'text-[#CC0000]'}`}>
                            {deliveryCost === 0
@@ -582,7 +704,7 @@ ${commonMessage}
                        </div>
                      )}
 
-                     {!isCalculatingDistance && (deliveryCost !== null || (geoError && deliveryDistance && deliveryDistance > 10)) && (
+                     {!isCalculatingDistance && pinConfirmed && deliveryCost !== null && (
                         <div className="mt-4 pt-4 border-t border-dashed border-border/50 flex flex-col gap-2">
                            <div className="flex justify-between text-muted-foreground">
                              <span>Subtotal productos:</span>
@@ -590,16 +712,12 @@ ${commonMessage}
                            </div>
                            <div className="flex justify-between text-muted-foreground">
                              <span>Costo de envío:</span>
-                             <span>
-                               {deliveryCost === 0 ? 'Gratis' : (deliveryDistance && deliveryDistance > 10 ? 'No disponible' : formatTotal(deliveryCost!))}
-                             </span>
+                             <span>{deliveryCost === 0 ? 'Gratis' : formatTotal(deliveryCost)}</span>
                            </div>
-                           {(deliveryCost !== null) && (
-                              <div className="flex justify-between font-black text-xl mt-2 pt-2 border-t border-border/20">
-                                <span>TOTAL A ABONAR:</span>
-                                <span className="text-primary">{formatTotal(grandTotal)}</span>
-                              </div>
-                           )}
+                           <div className="flex justify-between font-black text-xl mt-2 pt-2 border-t border-border/20">
+                             <span>TOTAL A ABONAR:</span>
+                             <span className="text-primary">{formatTotal(grandTotal)}</span>
+                           </div>
                         </div>
                      )}
                   </div>
