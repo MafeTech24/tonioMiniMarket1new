@@ -81,18 +81,18 @@ Ejecutar desde el SQL Editor y en este orden:
 
 Después:
 
-1. Crear en **Authentication > Users** únicamente las cuentas de Marianella y Facundo.
+1. Crear en **Authentication > Users** únicamente las cuentas de Dueños.
 2. Copiar `supabase/bootstrap-propietarios.sql.example`.
 3. Reemplazar los dos correos de ejemplo por los correos de las cuentas creadas.
 4. Ejecutar la sentencia en SQL Editor.
 
-Marianella y Facundo podrán ingresar en `/admin/login`. Los pedidos también abren el WhatsApp del negocio, que ambos pueden atender desde WhatsApp Web. No se deben guardar contraseñas en SQL, GitHub ni variables del frontend.
+Los Dueños podrán ingresar en `/admin/login`. Los pedidos también abren el WhatsApp del negocio, que ambos pueden atender desde WhatsApp Web. No se deben guardar contraseñas en SQL, GitHub ni variables del frontend.
 
 No se crea ninguna cuenta de empleado durante la puesta en marcha normal. Si en el futuro autorizan a un tercero, se crea primero su usuario en Supabase Auth y recién entonces se ejecuta `supabase/bootstrap-empleado-opcional.sql.example`.
 
 ### Permisos administrativos
 
-| Acción | Marianella y Facundo | Empleado |
+| Acción | Dueños | Empleado |
 |---|---:|---:|
 | Ver, crear y editar productos | Sí | No |
 | Activar o desactivar ofertas | Sí | No |
